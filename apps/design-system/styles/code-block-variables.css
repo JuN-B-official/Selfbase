@@ -4,16 +4,16 @@
 .deep-dark {
   --code-token-keyword: #bda4ff;
   --code-foreground: #ffffff;
-  --code-token-constant: #3ecf8e;
+  --code-token-constant: #FC4803;
   --code-token-string: #ffcda1;
   --code-token-comment: #7e7e7e;
   --code-token-parameter: #ffffff;
-  --code-token-function: #3ecf8e;
+  --code-token-function: #FC4803;
   --code-token-string-expression: #ffcda1;
   --code-token-punctuation: #ffffff;
   --code-token-link: #ffffff;
   --code-token-number: #ffffff;
-  --code-token-property: #3ecf8e;
+  --code-token-property: #FC4803;
   --code-highlight-color: #232323;
 }
 

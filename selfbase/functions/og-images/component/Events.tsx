@@ -39,7 +39,7 @@ const CustomerStories = (props: Props) => {
         <img src={selfbaseLogoUrl} width="165px" height="31.73px" tw="mr-6" />
       </div>
       <div tw="flex flex-row items-center justify-center text-[24px] text-[#B4B4B4]">
-        <span tw="text-[#3ECF8E] uppercase" style={{ fontFamily: 'SourceCode' }}>
+        <span tw="text-[#FC4803] uppercase" style={{ fontFamily: 'SourceCode' }}>
           {eventType}
         </span>
         <span tw="h-[21px] w-px bg-[#292929] mx-5"></span>

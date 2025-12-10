@@ -121,7 +121,7 @@ export const StandbyKeyIllustration = () => (
       width="32.338"
       height="13.3032"
       rx="6.65161"
-      fill="#3ECF8E"
+      fill="#FC4803"
       stroke="#2E2E2E"
       stroke-width="0.549211"
     />

@@ -17,7 +17,7 @@ export function LogoSelfbase({ className, size = 24 }: { className?: string; siz
         d="M63.708 110.284c-2.86 3.601-8.658 1.628-8.727-2.97l-1.007-67.251h45.22c8.19 0 12.758 9.46 7.665 15.874z"
       ></path>
       <path
-        fill="#3ECF8E"
+        fill="#FC4803"
         d="M45.317 2.071c2.86-3.601 8.657-1.628 8.726 2.97l.442 67.251H9.83c-8.19 0-12.759-9.46-7.665-15.875z"
       ></path>
       <defs>
@@ -29,8 +29,8 @@ export function LogoSelfbase({ className, size = 24 }: { className?: string; siz
           y2="71.829"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="#249361"></stop>
-          <stop offset="1" stopColor="#3ECF8E"></stop>
+          <stop stopColor="#B83300"></stop>
+          <stop offset="1" stopColor="#FC4803"></stop>
         </linearGradient>
         <linearGradient
           id="selfbase_svg__b"

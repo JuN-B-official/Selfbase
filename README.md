@@ -1,6 +1,6 @@
 # Selfbase
 
-> **Multi-Project Supabase Fork** - A self-hosting solution for managing multiple projects in a single instance
+> **Supabase Fork** - Projects with the same or more experience as cloud superbase in a single instance
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 
@@ -35,6 +35,7 @@ docker logs selfbase-studio
 ```
 
 You'll see:
+
 ```
 [Selfbase] ==========================================
 [Selfbase]  Login Information
@@ -76,21 +77,21 @@ pnpm run dev
 
 Selfbase auto-detects domains from these platforms:
 
-| Platform | Environment Variable |
-|----------|---------------------|
-| EasyPanel | `APP_URL` |
-| Coolify | `COOLIFY_URL` |
-| Railway | `RAILWAY_PUBLIC_DOMAIN` |
-| Render | `RENDER_EXTERNAL_URL` |
-| Fly.io | `FLY_APP_NAME` |
-| Heroku | `HEROKU_APP_NAME` |
-| Vercel | `VERCEL_URL` |
-| Netlify | `URL` |
-| DigitalOcean | `APP_DOMAIN` |
-| Google Cloud Run | `K_SERVICE` |
-| Azure Container Apps | `CONTAINER_APP_NAME` |
-| Dokku | `DOKKU_APP_NAME` |
-| CapRover | `CAPROVER_APP_NAME` |
+| Platform             | Environment Variable      |
+| -------------------- | ------------------------- |
+| EasyPanel            | `APP_URL`               |
+| Coolify              | `COOLIFY_URL`           |
+| Railway              | `RAILWAY_PUBLIC_DOMAIN` |
+| Render               | `RENDER_EXTERNAL_URL`   |
+| Fly.io               | `FLY_APP_NAME`          |
+| Heroku               | `HEROKU_APP_NAME`       |
+| Vercel               | `VERCEL_URL`            |
+| Netlify              | `URL`                   |
+| DigitalOcean         | `APP_DOMAIN`            |
+| Google Cloud Run     | `K_SERVICE`             |
+| Azure Container Apps | `CONTAINER_APP_NAME`    |
+| Dokku                | `DOKKU_APP_NAME`        |
+| CapRover             | `CAPROVER_APP_NAME`     |
 
 Or set manually: `SUPABASE_PUBLIC_URL=https://your-domain.com`
 
@@ -121,14 +122,14 @@ Selfbase = Supabase Core + Multi-Project Layer + Full Cloud UI
 
 ## Auto-Generated Environment Variables
 
-| Variable | Description |
-|----------|-------------|
-| `DASHBOARD_USERNAME` | Auto-generated: `selfbase-xxxxxxxx` |
-| `DASHBOARD_PASSWORD` | 32-character random password |
-| `POSTGRES_PASSWORD` | Database password |
-| `JWT_SECRET` | JWT signing secret |
-| `SUPABASE_ANON_KEY` | Anonymous API key |
-| `SUPABASE_SERVICE_KEY` | Service role API key |
+| Variable                 | Description                          |
+| ------------------------ | ------------------------------------ |
+| `DASHBOARD_USERNAME`   | Auto-generated:`selfbase-xxxxxxxx` |
+| `DASHBOARD_PASSWORD`   | 32-character random password         |
+| `POSTGRES_PASSWORD`    | Database password                    |
+| `JWT_SECRET`           | JWT signing secret                   |
+| `SUPABASE_ANON_KEY`    | Anonymous API key                    |
+| `SUPABASE_SERVICE_KEY` | Service role API key                 |
 
 All values can be overridden by setting them before starting Docker.
 
@@ -160,6 +161,7 @@ The Connect page dynamically shows your actual credentials:
 ```
 
 **Supported Clients:**
+
 - Cursor (`.cursor/mcp.json`)
 - Claude Code (`.mcp.json`)
 - VS Code (`.vscode/mcp.json`)
@@ -181,13 +183,13 @@ selfbase.projects (id, name, schema_name, organization_id, status, ...)
 
 ## Key Differences from Supabase
 
-| Feature | Supabase | Selfbase |
-|---------|----------|----------|
-| UI Mode | Self-hosted (limited) | Full Cloud UI |
-| Organizations | Single default | Multiple |
-| Projects | Single per instance | Multiple per instance |
-| Credentials | Manual setup | Auto-generated |
-| MCP Config | Manual | Dynamic (auto-filled) |
+| Feature       | Supabase              | Selfbase              |
+| ------------- | --------------------- | --------------------- |
+| UI Mode       | Self-hosted (limited) | Full Cloud UI         |
+| Organizations | Single default        | Multiple              |
+| Projects      | Single per instance   | Multiple per instance |
+| Credentials   | Manual setup          | Auto-generated        |
+| MCP Config    | Manual                | Dynamic (auto-filled) |
 
 ---
 

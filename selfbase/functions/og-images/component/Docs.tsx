@@ -66,7 +66,7 @@ const Docs = (props: Props) => {
             width={180}
             height={34}
           />
-          <span tw="text-2xl font-normal text-[#3ecf8e] ml-4" style={{ fontFamily: 'SourceCode' }}>
+          <span tw="text-2xl font-normal text-[#FC4803] ml-4" style={{ fontFamily: 'SourceCode' }}>
             DOCS
           </span>
         </div>

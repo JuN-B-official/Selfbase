@@ -5,7 +5,7 @@
 export const CHART_COLORS = {
   TICK: 'hsl(var(--background-overlay-hover))',
   AXIS: 'hsl(var(--background-overlay-hover))',
-  GREEN_1: 'hsl(var(--brand-default))', // #3ECF8E
+  GREEN_1: 'hsl(var(--brand-default))', // #FC4803
   GREEN_2: 'hsl(var(--brand-500))',
   RED_1: 'hsl(var(--destructive-default))',
   RED_2: 'hsl(var(--destructive-500))',
@@ -14,7 +14,7 @@ export const CHART_COLORS = {
 }
 
 const LIGHT_STACKED_CHART_COLORS = [
-  '#3ECF8E',
+  '#FC4803',
   '#097c4f',
   '#DA760B',
   '#EDC35E',
@@ -25,7 +25,7 @@ const LIGHT_STACKED_CHART_COLORS = [
 ]
 
 const DARK_STACKED_CHART_COLORS = [
-  '#3ECF8E',
+  '#FC4803',
   '#A3FFC2',
   '#DA760B',
   '#EDD35E',
