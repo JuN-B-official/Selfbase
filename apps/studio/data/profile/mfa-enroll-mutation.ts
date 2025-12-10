@@ -1,4 +1,4 @@
-import type { AuthMFAEnrollResponse, MFAEnrollParams } from '@selfbase/selfbase-js'
+import type { AuthMFAEnrollResponse, MFAEnrollParams } from '@supabase/supabase-js'
 import { useMutation } from '@tanstack/react-query'
 import { auth } from 'lib/gotrue'
 import { toast } from 'sonner'

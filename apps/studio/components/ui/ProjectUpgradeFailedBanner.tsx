@@ -1,9 +1,9 @@
-import { DatabaseUpgradeStatus } from '@selfbase/shared-types/out/events'
+import { DatabaseUpgradeStatus } from '@supabase/shared-types/out/events'
 import dayjs from 'dayjs'
 import { X } from 'lucide-react'
 import { useEffect, useState } from 'react'
 
-import { SupportCategories } from '@selfbase/shared-types/out/constants'
+import { SupportCategories } from '@supabase/shared-types/out/constants'
 import { useParams } from 'common'
 import { SupportLink } from 'components/interfaces/Support/SupportLink'
 import { useProjectUpgradingStatusQuery } from 'data/config/project-upgrade-status-query'

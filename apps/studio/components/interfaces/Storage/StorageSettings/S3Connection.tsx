@@ -1,5 +1,5 @@
 import { zodResolver } from '@hookform/resolvers/zod'
-import { PermissionAction } from '@selfbase/shared-types/out/constants'
+import { PermissionAction } from '@supabase/shared-types/out/constants'
 import { AlertTitle } from '@ui/components/shadcn/ui/alert'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'

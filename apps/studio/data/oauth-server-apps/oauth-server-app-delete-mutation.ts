@@ -2,7 +2,7 @@ import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { toast } from 'sonner'
 
 import { handleError } from 'data/fetchers'
-import { createProjectSelfbaseClient } from 'lib/project-selfbase-client'
+import { createProjectSupabaseClient } from 'lib/project-selfbase-client'
 import type { ResponseError, UseCustomMutationOptions } from 'types'
 import { oauthServerAppKeys } from './keys'
 

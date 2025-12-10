@@ -1,4 +1,4 @@
-import type { OAuthClient } from '@selfbase/selfbase-js'
+import type { OAuthClient } from '@supabase/supabase-js'
 import { X } from 'lucide-react'
 import { toast } from 'sonner'
 

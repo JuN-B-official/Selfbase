@@ -1,4 +1,4 @@
-import { PermissionAction } from '@selfbase/shared-types/out/constants'
+import { PermissionAction } from '@supabase/shared-types/out/constants'
 import { partition, sortBy } from 'lodash'
 import { Plus, Search, X } from 'lucide-react'
 import { parseAsBoolean, useQueryState } from 'nuqs'

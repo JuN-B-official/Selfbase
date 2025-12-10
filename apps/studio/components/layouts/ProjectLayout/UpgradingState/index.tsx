@@ -1,4 +1,4 @@
-import { DatabaseUpgradeProgress, DatabaseUpgradeStatus } from '@selfbase/shared-types/out/events'
+import { DatabaseUpgradeProgress, DatabaseUpgradeStatus } from '@supabase/shared-types/out/events'
 import dayjs from 'dayjs'
 import {
   AlertCircle,
@@ -13,7 +13,7 @@ import {
 import { useSearchParams } from 'next/navigation'
 import { useState } from 'react'
 
-import { SupportCategories } from '@selfbase/shared-types/out/constants'
+import { SupportCategories } from '@supabase/shared-types/out/constants'
 import { useParams } from 'common'
 import { SupportLink } from 'components/interfaces/Support/SupportLink'
 import { useProjectUpgradingStatusQuery } from 'data/config/project-upgrade-status-query'

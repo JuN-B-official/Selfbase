@@ -1,4 +1,4 @@
-import { PermissionAction } from '@selfbase/shared-types/out/constants'
+import { PermissionAction } from '@supabase/shared-types/out/constants'
 import { partition } from 'lodash'
 import { MessageCircle } from 'lucide-react'
 import { useRouter } from 'next/router'

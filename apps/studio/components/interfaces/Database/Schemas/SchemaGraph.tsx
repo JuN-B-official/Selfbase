@@ -9,7 +9,7 @@ import 'reactflow/dist/style.css'
 import { toast } from 'sonner'
 import { Button } from 'ui'
 import { Admonition } from 'ui-patterns/admonition'
-import { PermissionAction } from '@selfbase/shared-types/out/constants'
+import { PermissionAction } from '@supabase/shared-types/out/constants'
 
 import { LOCAL_STORAGE_KEYS, useParams } from 'common'
 import AlertError from 'components/ui/AlertError'

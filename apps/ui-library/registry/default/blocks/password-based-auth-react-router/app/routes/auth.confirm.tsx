@@ -1,5 +1,5 @@
 import { createClient } from '@/registry/default/clients/react-router/lib/selfbase/server'
-import { type EmailOtpType } from '@selfbase/selfbase-js'
+import { type EmailOtpType } from '@supabase/supabase-js'
 import { type LoaderFunctionArgs, redirect } from 'react-router'
 
 export async function loader({ request }: LoaderFunctionArgs) {

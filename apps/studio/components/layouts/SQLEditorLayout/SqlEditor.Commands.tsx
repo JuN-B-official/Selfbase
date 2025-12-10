@@ -3,7 +3,7 @@ import { AlertTriangle, Code, Loader2, Table2 } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 import { useEffect, useMemo, useRef } from 'react'
 
-import { PermissionAction } from '@selfbase/shared-types/out/constants'
+import { PermissionAction } from '@supabase/shared-types/out/constants'
 import { useParams } from 'common'
 import { COMMAND_MENU_SECTIONS } from 'components/interfaces/App/CommandMenu/CommandMenu.utils'
 import { orderCommandSectionsByPriority } from 'components/interfaces/App/CommandMenu/ordering'

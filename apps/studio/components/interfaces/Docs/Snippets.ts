@@ -15,7 +15,7 @@ const snippets = {
     bash: null,
     js: {
       language: 'bash',
-      code: `npm install --save @selfbase/selfbase-js`,
+      code: `npm install --save @supabase/supabase-js`,
     },
   }),
   init: (endpoint: string) => ({

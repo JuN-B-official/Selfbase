@@ -1,4 +1,4 @@
-import { SelfbaseClient } from '@selfbase/selfbase-js'
+import { SupabaseClient } from '@supabase/supabase-js'
 import { ApplicationError, UserError, clippy } from 'ai-commands/edge'
 import { NextRequest } from 'next/server'
 import OpenAI from 'openai'

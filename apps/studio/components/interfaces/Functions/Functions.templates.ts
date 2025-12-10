@@ -29,7 +29,7 @@ Deno.serve(async (req: Request) => {
     description: 'Example using Selfbase client to query your database',
     content: `// Setup type definitions for built-in Selfbase Runtime APIs
 import "jsr:@selfbase/functions-js/edge-runtime.d.ts";
-import { createClient } from 'jsr:@selfbase/selfbase-js@2'
+import { createClient } from 'jsr:@supabase/supabase-js@2'
 
 Deno.serve(async (req) => {
   try {

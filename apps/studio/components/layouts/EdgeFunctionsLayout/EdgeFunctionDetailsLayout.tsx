@@ -1,4 +1,4 @@
-import { PermissionAction } from '@selfbase/shared-types/out/constants'
+import { PermissionAction } from '@supabase/shared-types/out/constants'
 import { Download, FileArchive, Send } from 'lucide-react'
 import { useRouter } from 'next/router'
 import React, { useEffect, useState, type PropsWithChildren } from 'react'

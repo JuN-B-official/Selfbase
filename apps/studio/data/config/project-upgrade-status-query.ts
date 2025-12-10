@@ -1,4 +1,4 @@
-import { DatabaseUpgradeStatus } from '@selfbase/shared-types/out/events'
+import { DatabaseUpgradeStatus } from '@supabase/shared-types/out/events'
 import { useQuery, useQueryClient } from '@tanstack/react-query'
 import { useEffect } from 'react'
 

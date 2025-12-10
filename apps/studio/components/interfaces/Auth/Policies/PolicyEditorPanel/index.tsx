@@ -1,7 +1,7 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Monaco } from '@monaco-editor/react'
 import type { PostgresPolicy } from '@selfbase/postgres-meta'
-import { PermissionAction } from '@selfbase/shared-types/out/constants'
+import { PermissionAction } from '@supabase/shared-types/out/constants'
 import { useQueryClient } from '@tanstack/react-query'
 import { isEqual } from 'lodash'
 import { memo, useCallback, useEffect, useRef, useState } from 'react'

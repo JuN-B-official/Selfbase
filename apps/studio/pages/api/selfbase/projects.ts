@@ -1,6 +1,6 @@
 // Selfbase: Projects API endpoint for self-hosted multi-project management
 import { NextApiRequest, NextApiResponse } from 'next'
-import { createClient } from '@selfbase/selfbase-js'
+import { createClient } from '@supabase/supabase-js'
 
 const selfbaseUrl = process.env.SUPABASE_URL || 'http://localhost:8000'
 const selfbaseServiceKey = process.env.SUPABASE_SERVICE_KEY || ''

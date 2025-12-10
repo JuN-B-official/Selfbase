@@ -1,5 +1,5 @@
 import type { PostgresTrigger } from '@selfbase/postgres-meta'
-import { PermissionAction } from '@selfbase/shared-types/out/constants'
+import { PermissionAction } from '@supabase/shared-types/out/constants'
 import { DatabaseZap, Search } from 'lucide-react'
 import { parseAsBoolean, parseAsString, useQueryState } from 'nuqs'
 import { useRef, useState } from 'react'

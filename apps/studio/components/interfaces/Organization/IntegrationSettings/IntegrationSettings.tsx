@@ -1,4 +1,4 @@
-import { PermissionAction } from '@selfbase/shared-types/out/constants'
+import { PermissionAction } from '@supabase/shared-types/out/constants'
 import { useCallback } from 'react'
 import { toast } from 'sonner'
 

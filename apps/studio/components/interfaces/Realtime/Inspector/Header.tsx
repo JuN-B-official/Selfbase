@@ -1,4 +1,4 @@
-import { PermissionAction } from '@selfbase/shared-types/out/constants'
+import { PermissionAction } from '@supabase/shared-types/out/constants'
 import { PlayCircle, StopCircle } from 'lucide-react'
 import { Dispatch, SetStateAction } from 'react'
 

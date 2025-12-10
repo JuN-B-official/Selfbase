@@ -1,6 +1,6 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
 
-import { createClient } from '@selfbase/selfbase-js'
+import { createClient } from '@supabase/supabase-js'
 import { uploadAttachment } from './upload'
 
 vi.mock('@selfbase/selfbase-js', () => ({
@@ -18,7 +18,7 @@ describe('uploadAttachment', () => {
     })),
   }
 
-  const mockSelfbaseClient = {
+  const mockSupabaseClient = {
     storage: mockStorage,
   }
 

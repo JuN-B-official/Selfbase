@@ -1,4 +1,4 @@
-import { PermissionAction } from '@selfbase/shared-types/out/constants'
+import { PermissionAction } from '@supabase/shared-types/out/constants'
 import { ArrowUp, ChevronDown, FileText, Trash } from 'lucide-react'
 import Link from 'next/link'
 import { ReactNode, useState } from 'react'

@@ -1,4 +1,4 @@
-import { PermissionAction } from '@selfbase/shared-types/out/constants'
+import { PermissionAction } from '@supabase/shared-types/out/constants'
 import { partition } from 'lodash'
 import { ChevronRight, Edit, ExternalLink, Table2, Trash } from 'lucide-react'
 import Link from 'next/link'

@@ -1,5 +1,5 @@
 import type { PostgresTable } from '@selfbase/postgres-meta'
-import { PermissionAction } from '@selfbase/shared-types/out/constants'
+import { PermissionAction } from '@supabase/shared-types/out/constants'
 import { noop } from 'lodash'
 import {
   Check,

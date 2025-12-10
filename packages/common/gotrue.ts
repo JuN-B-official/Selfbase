@@ -1,4 +1,4 @@
-import { AuthClient, navigatorLock, User } from '@selfbase/auth-js'
+import { AuthClient, navigatorLock, User } from '@supabase/auth-js'
 
 export const STORAGE_KEY = process.env.NEXT_PUBLIC_STORAGE_KEY || 'selfbase.dashboard.auth.token'
 export const AUTH_DEBUG_KEY =

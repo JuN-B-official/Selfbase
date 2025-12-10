@@ -1,4 +1,4 @@
-import { createClient } from '@selfbase/selfbase-js'
+import { createClient } from '@supabase/supabase-js'
 import { NextApiRequest, NextApiResponse } from 'next'
 
 import apiWrapper from 'lib/api/apiWrapper'

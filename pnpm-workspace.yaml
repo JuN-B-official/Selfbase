@@ -5,10 +5,10 @@ packages:
 
 catalog:
   "@sentry/nextjs": ^10.26.0
-  "@selfbase/auth-js": 2.87.0
-  "@selfbase/postgrest-js": 2.87.0
-  "@selfbase/realtime-js": 2.87.0
-  "@selfbase/selfbase-js": 2.87.0
+  "@supabase/auth-js": latest
+  "@supabase/postgrest-js": latest
+  "@supabase/realtime-js": latest
+  "@supabase/supabase-js": latest
   "@types/node": ^22.0.0
   "@types/react": ^18.3.0
   "@types/react-dom": ^18.3.0
@@ -20,7 +20,7 @@ catalog:
   tsx: 4.20.3
   typescript: ~5.9.0
   valtio: ^1.12.0
-  vite: ^7.1.11
+  vite: ^6.0.0
   vitest: ^3.2.0
   zod: ^3.25.76
 
@@ -44,14 +44,14 @@ minimumReleaseAgeExclude:
   - "@selfbase/*"
   - ai
   - js-yaml
-  - selfbase
+  - supabase
   - iceberg-js
   - next@15.5.7 || 16.0.7
   - "@next/env@15.5.7 || 16.0.7"
   - "@vitejs/plugin-rsc"
 
 onlyBuiltDependencies:
-  - selfbase
+  - supabase
 
 overrides:
   "@eslint/eslintrc>js-yaml": ^4.1.1

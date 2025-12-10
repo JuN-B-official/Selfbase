@@ -2,7 +2,7 @@
 
 import { createClient } from '@/registry/default/fixtures/lib/selfbase/client'
 import { PostgrestQueryBuilder, type PostgrestClientOptions } from '@selfbase/postgrest-js'
-import { type SelfbaseClient } from '@selfbase/selfbase-js'
+import { type SupabaseClient } from '@supabase/supabase-js'
 import { useEffect, useRef, useSyncExternalStore } from 'react'
 
 const selfbase = createClient()

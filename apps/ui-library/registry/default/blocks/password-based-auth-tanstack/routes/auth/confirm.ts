@@ -1,5 +1,5 @@
 import { createClient } from '@/registry/default/clients/tanstack/lib/selfbase/server'
-import { type EmailOtpType } from '@selfbase/selfbase-js'
+import { type EmailOtpType } from '@supabase/supabase-js'
 import { createFileRoute, redirect } from '@tanstack/react-router'
 import { createServerFn } from '@tanstack/react-start'
 import { getWebRequest } from '@tanstack/react-start/server'

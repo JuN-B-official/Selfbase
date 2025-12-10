@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { useEffect, useMemo, useState } from 'react'
 import { toast } from 'sonner'
 
-import { SupportCategories } from '@selfbase/shared-types/out/constants'
+import { SupportCategories } from '@supabase/shared-types/out/constants'
 import { useParams } from 'common'
 import {
   calculateIOPSPrice,

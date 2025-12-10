@@ -3,7 +3,7 @@ import type {
   CreateOAuthClientParams,
   OAuthClient,
   UpdateOAuthClientParams,
-} from '@selfbase/selfbase-js'
+} from '@supabase/supabase-js'
 import { Plus, Trash2, Upload, X } from 'lucide-react'
 import { type ChangeEvent, useEffect, useRef, useState } from 'react'
 import { useFieldArray, useForm } from 'react-hook-form'

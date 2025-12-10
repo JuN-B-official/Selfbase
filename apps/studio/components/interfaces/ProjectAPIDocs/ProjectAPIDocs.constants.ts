@@ -27,7 +27,7 @@ export const DOCS_CONTENT = {
     title: `Connect to your project`,
     description: `Projects have a RESTful endpoint that you can use with your project's API key to query and manage your database. Put these keys in your .env file.`,
     js: (apikey?: string, endpoint?: string) => `
-import { createClient } from '@selfbase/selfbase-js'
+import { createClient } from '@supabase/supabase-js'
 
 const selfbaseUrl = '${endpoint}'
 const selfbaseKey = process.env.SUPABASE_KEY

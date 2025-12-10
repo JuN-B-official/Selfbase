@@ -1,4 +1,4 @@
-import { PermissionAction } from '@selfbase/shared-types/out/constants'
+import { PermissionAction } from '@supabase/shared-types/out/constants'
 import dayjs from 'dayjs'
 import { Database, DatabaseBackup, HelpCircle, Loader2, MoreVertical } from 'lucide-react'
 import Link from 'next/link'

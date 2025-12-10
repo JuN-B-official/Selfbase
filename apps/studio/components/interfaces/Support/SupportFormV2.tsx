@@ -2,7 +2,7 @@ import { useEffect, type Dispatch, type MouseEventHandler } from 'react'
 import type { SubmitHandler, UseFormReturn } from 'react-hook-form'
 // End of third-party imports
 
-import { SupportCategories } from '@selfbase/shared-types/out/constants'
+import { SupportCategories } from '@supabase/shared-types/out/constants'
 import { useConstant, useFlag } from 'common'
 import { CLIENT_LIBRARIES } from 'common/constants'
 import { getProjectAuthConfig } from 'data/auth/auth-config-query'

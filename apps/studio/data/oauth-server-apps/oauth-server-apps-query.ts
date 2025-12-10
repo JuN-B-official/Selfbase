@@ -3,7 +3,7 @@ import { useQuery } from '@tanstack/react-query'
 import { components } from 'api-types'
 import { useProjectEndpointQuery } from 'data/config/project-endpoint-query'
 import { handleError } from 'data/fetchers'
-import { createProjectSelfbaseClient } from 'lib/project-selfbase-client'
+import { createProjectSupabaseClient } from 'lib/project-selfbase-client'
 import type { ResponseError, UseCustomQueryOptions } from 'types'
 import { oauthServerAppKeys } from './keys'
 

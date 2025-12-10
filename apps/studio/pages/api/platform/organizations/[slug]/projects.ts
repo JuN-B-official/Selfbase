@@ -1,6 +1,6 @@
 // Selfbase: Organization Projects API - list projects for an organization
 import { NextApiRequest, NextApiResponse } from 'next'
-import { createClient } from '@selfbase/selfbase-js'
+import { createClient } from '@supabase/supabase-js'
 
 import apiWrapper from 'lib/api/apiWrapper'
 import { IS_PLATFORM } from 'lib/constants'

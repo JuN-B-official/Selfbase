@@ -1,4 +1,4 @@
-import { RealtimeChannel, RealtimeClient } from '@selfbase/realtime-js'
+import { RealtimeChannel, RealtimeClient } from '@supabase/realtime-js'
 import { sortBy, take } from 'lodash'
 import { Dispatch, SetStateAction, useCallback, useEffect, useReducer, useState } from 'react'
 import { toast } from 'sonner'

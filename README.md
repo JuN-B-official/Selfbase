@@ -22,6 +22,7 @@
 - **Schema Isolation** - Each project uses its own PostgreSQL schema
 - **Built-in CLI** - `show-env` and `show-login-info` commands
 - **Dynamic MCP Config** - Connect page shows real credentials for AI assistants
+- **Built-in AI Features** - SQL generation, code completion, and more (uses direct SQL, not cloud MCP)
 
 ---
 

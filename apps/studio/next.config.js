@@ -32,7 +32,8 @@ function getAssetPrefix() {
 const nextConfig = {
   basePath: process.env.NEXT_PUBLIC_BASE_PATH,
   assetPrefix: getAssetPrefix(),
-  output: 'standalone',
+  // Disable standalone output on Windows (file copy issues with special characters)
+  output: process.platform === 'win32' ? undefined : 'standalone',
   async rewrites() {
     return [
       {

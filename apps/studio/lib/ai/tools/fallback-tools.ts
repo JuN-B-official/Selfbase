@@ -2,7 +2,7 @@ import { tool } from 'ai'
 import { stripIndent } from 'common-tags'
 import { z } from 'zod'
 
-// import { processSql, renderSelfbaseJs } from '@selfbase/sql-to-rest'
+// import { processSql, renderSelfbaseJs } from '@supabase/sql-to-rest'
 import { IS_PLATFORM } from 'common'
 import { getDatabaseFunctions } from 'data/database-functions/database-functions-query'
 import { getDatabasePolicies } from 'data/database-policies/database-policies-query'
@@ -407,7 +407,7 @@ export const getFallbackTools = ({
         ## Guidelines
 
         1. Try to use Web APIs and Deno's core APIs instead of external dependencies (eg: use fetch instead of Axios, use WebSockets API instead of node-ws)
-        2. Do NOT use bare specifiers when importing dependencies. If you need to use an external dependency, make sure it's prefixed with either \`npm:\` or \`jsr:\`. For example, \`@selfbase/selfbase-js\` should be written as \`npm:@selfbase/selfbase-js\`.
+        2. Do NOT use bare specifiers when importing dependencies. If you need to use an external dependency, make sure it's prefixed with either \`npm:\` or \`jsr:\`. For example, \`@supabase/supabase-js\` should be written as \`npm:@selfbase/selfbase-js\`.
         3. For external imports, always define a version. For example, \`npm:@express\` should be written as \`npm:express@4.18.2\`.
         4. For external dependencies, importing via \`npm:\` and \`jsr:\` is preferred. Minimize the use of imports from @\`deno.land/x\` , \`esm.sh\` and @\`unpkg.com\` . If you have a package from one of those CDNs, you can replace the CDN hostname with \`npm:\` specifier.
         5. You can also use Node built-in APIs. You will need to import them using \`node:\` specifier. For example, to import Node process: \`import process from "node:process"\`. Use Node APIs when you find gaps in Deno APIs.

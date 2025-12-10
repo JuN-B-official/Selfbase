@@ -1,4 +1,4 @@
-import { PermissionAction } from '@selfbase/shared-types/out/constants'
+import { PermissionAction } from '@supabase/shared-types/out/constants'
 import { Edit, MoreVertical, Trash } from 'lucide-react'
 
 import Table from 'components/to-be-cleaned/Table'

@@ -1,4 +1,4 @@
-import { JwtSecretUpdateStatus } from '@selfbase/shared-types/out/events'
+import { JwtSecretUpdateStatus } from '@supabase/shared-types/out/events'
 import { AlertCircle, Loader } from 'lucide-react'
 import Link from 'next/link'
 import { useState } from 'react'
@@ -14,7 +14,7 @@ import { Input, SimpleCodeBlock } from 'ui'
 
 const generateInitSnippet = (endpoint: string) => ({
   js: `
-import { createClient } from '@selfbase/selfbase-js'
+import { createClient } from '@supabase/supabase-js'
 
 const selfbaseUrl = '${endpoint}'
 const selfbaseKey = process.env.SUPABASE_KEY

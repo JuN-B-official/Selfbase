@@ -48,7 +48,7 @@ import { useSelectedProjectQuery } from 'hooks/misc/useSelectedProject'
 import { IS_PLATFORM, PROJECT_STATUS } from 'lib/constants'
 import { tryParseJson } from 'lib/helpers'
 import { lookupMime } from 'lib/mime'
-import { createProjectSelfbaseClient } from 'lib/project-selfbase-client'
+import { createProjectSupabaseClient } from 'lib/project-selfbase-client'
 import { Button, SONNER_DEFAULT_DURATION, SonnerProgress } from 'ui'
 
 type UploadProgress = {

@@ -1,4 +1,4 @@
-import { PermissionAction } from '@selfbase/shared-types/out/constants'
+import { PermissionAction } from '@supabase/shared-types/out/constants'
 import { sortBy } from 'lodash'
 import { RefreshCw, Search, X } from 'lucide-react'
 import { parseAsBoolean, useQueryState } from 'nuqs'

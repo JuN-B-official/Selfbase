@@ -2,8 +2,10 @@ import { PROJECT_ANALYTICS_URL } from 'lib/constants/api'
 import { WrappedResult } from './types'
 import { assertSelfHosted } from './util'
 import assert from 'node:assert'
-import { LogsService } from '@selfbase/mcp-server-selfbase/platform'
 import { stripIndent } from 'common-tags'
+
+// LogsService type (previously from @supabase/mcp-server-supabase/platform)
+export type LogsService = 'api' | 'branch-action' | 'postgres' | 'edge-function' | 'auth' | 'storage' | 'realtime'
 
 export type RetrieveAnalyticsDataOptions = {
   name: string

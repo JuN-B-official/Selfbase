@@ -1,5 +1,5 @@
 import { PostgresTrigger } from '@selfbase/postgres-meta'
-import { PermissionAction } from '@selfbase/shared-types/out/constants'
+import { PermissionAction } from '@supabase/shared-types/out/constants'
 import { parseAsBoolean, useQueryState } from 'nuqs'
 import { useRef } from 'react'
 import { toast } from 'sonner'

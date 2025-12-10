@@ -1,4 +1,4 @@
-import { PermissionAction } from '@selfbase/shared-types/out/constants'
+import { PermissionAction } from '@supabase/shared-types/out/constants'
 import { partition } from 'lodash'
 import { ChevronDown, Globe2, Loader2, Network } from 'lucide-react'
 import { useTheme } from 'next-themes'

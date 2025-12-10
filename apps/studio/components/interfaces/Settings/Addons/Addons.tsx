@@ -5,7 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useMemo } from 'react'
 
-import { SupportCategories } from '@selfbase/shared-types/out/constants'
+import { SupportCategories } from '@supabase/shared-types/out/constants'
 import { useFlag, useParams } from 'common'
 import {
   getAddons,

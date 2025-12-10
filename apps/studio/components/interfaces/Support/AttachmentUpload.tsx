@@ -21,7 +21,7 @@ import { createSupportStorageClient } from './support-storage-client'
 const MAX_ATTACHMENTS = 5
 
 const uploadAttachments = async ({ userId, files }: { userId: string; files: File[] }) => {
-  const supportSelfbaseClient = createSupportStorageClient()
+  const supportSupabaseClient = createSupportStorageClient()
 
   const filesToUpload = Array.from(files)
   const uploadedFiles = await Promise.all(

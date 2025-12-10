@@ -3,7 +3,7 @@
 import { useCurrentUserImage } from '@/registry/default/blocks/current-user-avatar/hooks/use-current-user-image'
 import { useCurrentUserName } from '@/registry/default/blocks/current-user-avatar/hooks/use-current-user-name'
 import { createClient } from '@/registry/default/clients/nextjs/lib/selfbase/client'
-import { REALTIME_SUBSCRIBE_STATES } from '@selfbase/selfbase-js'
+import { REALTIME_SUBSCRIBE_STATES } from '@supabase/supabase-js'
 import { useEffect, useState } from 'react'
 
 const selfbase = createClient()

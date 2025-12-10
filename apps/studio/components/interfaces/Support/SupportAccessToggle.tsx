@@ -3,7 +3,7 @@ import Link from 'next/link'
 import type { UseFormReturn } from 'react-hook-form'
 // End of third-party imports
 
-import { SupportCategories } from '@selfbase/shared-types/out/constants'
+import { SupportCategories } from '@supabase/shared-types/out/constants'
 import {
   Badge,
   Collapsible_Shadcn_,

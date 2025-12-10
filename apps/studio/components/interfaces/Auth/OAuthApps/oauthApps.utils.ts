@@ -1,4 +1,4 @@
-import type { OAuthClient } from '@selfbase/selfbase-js'
+import type { OAuthClient } from '@supabase/supabase-js'
 
 export const OAUTH_APP_REGISTRATION_TYPE_OPTIONS = [
   { name: 'Manual', value: 'manual' },

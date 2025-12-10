@@ -1,4 +1,4 @@
-import { PermissionAction } from '@selfbase/shared-types/out/constants'
+import { PermissionAction } from '@supabase/shared-types/out/constants'
 
 import { AuditLogsForm } from 'components/interfaces/Auth/AuditLogsForm'
 import AuthLayout from 'components/layouts/AuthLayout/AuthLayout'

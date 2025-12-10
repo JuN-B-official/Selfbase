@@ -1,6 +1,6 @@
 // Selfbase: Organizations API - no default fallback, users must create their own
 import { NextApiRequest, NextApiResponse } from 'next'
-import { createClient, SelfbaseClient } from '@selfbase/selfbase-js'
+import { createClient, SupabaseClient } from '@supabase/supabase-js'
 
 const selfbaseUrl = process.env.SUPABASE_URL || 'http://localhost:8000'
 const selfbaseServiceKey = process.env.SUPABASE_SERVICE_KEY || ''

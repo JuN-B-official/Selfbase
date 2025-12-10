@@ -1,6 +1,6 @@
 import { ExternalLink, Github } from 'lucide-react'
 
-import { SupportCategories } from '@selfbase/shared-types/out/constants'
+import { SupportCategories } from '@supabase/shared-types/out/constants'
 import { LOCAL_STORAGE_KEYS } from 'common'
 import { FeatureBanner } from 'components/ui/FeatureBanner'
 import { APIKeysData } from 'data/api-keys/api-keys-query'

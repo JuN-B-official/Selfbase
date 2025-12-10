@@ -1,4 +1,4 @@
-import { PermissionAction } from '@selfbase/shared-types/out/constants'
+import { PermissionAction } from '@supabase/shared-types/out/constants'
 import { ChevronDown, Mail, UserPlus } from 'lucide-react'
 import { parseAsBoolean, useQueryState } from 'nuqs'
 

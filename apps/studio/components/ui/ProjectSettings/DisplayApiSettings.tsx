@@ -1,5 +1,5 @@
-import { PermissionAction } from '@selfbase/shared-types/out/constants'
-import { JwtSecretUpdateStatus } from '@selfbase/shared-types/out/events'
+import { PermissionAction } from '@supabase/shared-types/out/constants'
+import { JwtSecretUpdateStatus } from '@supabase/shared-types/out/events'
 import { AlertCircle, Loader2 } from 'lucide-react'
 import Link from 'next/link'
 import { useMemo } from 'react'

@@ -14,7 +14,7 @@ import {
   processSql,
   renderHttp,
   renderSelfbaseJs,
-} from '@selfbase/sql-to-rest'
+} from '@supabase/sql-to-rest'
 import { ChevronUp, GitPullRequest } from 'lucide-react'
 import type { editor } from 'monaco-editor'
 import { useTheme } from 'next-themes'
