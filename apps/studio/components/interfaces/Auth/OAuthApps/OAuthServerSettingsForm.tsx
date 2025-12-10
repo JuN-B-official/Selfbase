@@ -1,5 +1,5 @@
 import { zodResolver } from '@hookform/resolvers/zod'
-import { PermissionAction } from '@supabase/shared-types/out/constants'
+import { PermissionAction } from '@selfbase/shared-types/out/constants'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
@@ -195,7 +195,7 @@ export const OAuthServerSettingsForm = () => {
                 render={({ field }) => (
                   <FormItemLayout
                     layout="flex-row-reverse"
-                    label="Enable the Supabase OAuth Server"
+                    label="Enable the Selfbase OAuth Server"
                     description={
                       <>
                         Enable OAuth server functionality for your project to create and manage

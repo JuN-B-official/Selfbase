@@ -1,4 +1,4 @@
-import { SupabaseClient } from '@supabase/supabase-js'
+import { SelfbaseClient } from '@selfbase/selfbase-js'
 import { ApplicationError, UserError, clippy } from 'ai-commands/edge'
 import { NextRequest } from 'next/server'
 import OpenAI from 'openai'
@@ -33,8 +33,8 @@ export const config = {
 }
 
 const openAiKey = process.env.OPENAI_API_KEY
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
-const supabaseServiceKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+const selfbaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
+const selfbaseServiceKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
 
 export default async function handler(req: NextRequest) {
   if (!openAiKey) {
@@ -49,7 +49,7 @@ export default async function handler(req: NextRequest) {
     )
   }
 
-  if (!supabaseUrl) {
+  if (!selfbaseUrl) {
     return new Response(
       JSON.stringify({
         error:
@@ -62,7 +62,7 @@ export default async function handler(req: NextRequest) {
     )
   }
 
-  if (!supabaseServiceKey) {
+  if (!selfbaseServiceKey) {
     return new Response(
       JSON.stringify({
         error:
@@ -104,10 +104,10 @@ async function handlePost(request: NextRequest) {
     throw new UserError('Missing messages in request data')
   }
 
-  const supabaseClient = new SupabaseClient(supabaseUrl!, supabaseServiceKey!)
+  const selfbaseClient = new SelfbaseClient(selfbaseUrl!, selfbaseServiceKey!)
 
   try {
-    const response = await clippy(openai, supabaseClient, messages)
+    const response = await clippy(openai, selfbaseClient, messages)
 
     // Proxy the streamed SSE response from OpenAI
     return new Response(response.body, {

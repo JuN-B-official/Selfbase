@@ -51,8 +51,8 @@ export const AnalyticsSettings = () => {
             render={({ field }) => (
               <FormItemLayout
                 layout="flex-row-reverse"
-                label="Send telemetry data from Supabase services"
-                description="By opting in to sharing telemetry data, Supabase can analyze usage patterns to enhance user experience and use it for marketing and advertising purposes"
+                label="Send telemetry data from Selfbase services"
+                description="By opting in to sharing telemetry data, Selfbase can analyze usage patterns to enhance user experience and use it for marketing and advertising purposes"
               >
                 <FormControl_Shadcn_>
                   <Switch

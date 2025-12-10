@@ -7,7 +7,7 @@ import {
   loadTableEditorStateFromLocalStorage,
   parseSupaTable,
   saveTableEditorStateToLocalStorageDebounced,
-} from 'components/grid/SupabaseGrid.utils'
+} from 'components/grid/SelfbaseGrid.utils'
 import { SupaRow } from 'components/grid/types'
 import { getInitialGridColumns } from 'components/grid/utils/column'
 import { getGridColumns } from 'components/grid/utils/gridColumns'
@@ -95,27 +95,27 @@ export const createTableEditorTableState = ({
     },
     updateColumnSize: (index: number, width: number) => {
       if (state.gridColumns[index]) {
-        ;(state.gridColumns[index] as CalculatedColumn<any, any> & { width?: number }).width = width
+        ; (state.gridColumns[index] as CalculatedColumn<any, any> & { width?: number }).width = width
       }
     },
     freezeColumn: (columnKey: string) => {
       const index = state.gridColumns.findIndex((x) => x.key === columnKey)
       if (state.gridColumns[index]) {
-        ;(state.gridColumns[index] as CalculatedColumn<any, any> & { frozen?: boolean }).frozen =
+        ; (state.gridColumns[index] as CalculatedColumn<any, any> & { frozen?: boolean }).frozen =
           true
       }
     },
     unfreezeColumn: (columnKey: string) => {
       const index = state.gridColumns.findIndex((x) => x.key === columnKey)
       if (state.gridColumns[index]) {
-        ;(state.gridColumns[index] as CalculatedColumn<any, any> & { frozen?: boolean }).frozen =
+        ; (state.gridColumns[index] as CalculatedColumn<any, any> & { frozen?: boolean }).frozen =
           false
       }
     },
     updateColumnIdx: (columnKey: string, columnIdx: number) => {
       const index = state.gridColumns.findIndex((x) => x.key === columnKey)
       if (state.gridColumns[index]) {
-        ;(state.gridColumns[index] as CalculatedColumn<any, any> & { idx?: number }).idx = columnIdx
+        ; (state.gridColumns[index] as CalculatedColumn<any, any> & { idx?: number }).idx = columnIdx
       }
       state.gridColumns.sort((a, b) => a.idx - b.idx)
     },

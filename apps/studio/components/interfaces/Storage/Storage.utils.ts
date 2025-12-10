@@ -1,4 +1,4 @@
-import { PostgresPolicy } from '@supabase/postgres-meta'
+import { PostgresPolicy } from '@selfbase/postgres-meta'
 import { difference, groupBy } from 'lodash'
 import { useRouter } from 'next/router'
 

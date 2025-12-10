@@ -1,6 +1,6 @@
 'use client'
 
-import { createClient } from '@/registry/default/clients/nextjs/lib/supabase/client'
+import { createClient } from '@/registry/default/clients/nextjs/lib/selfbase/client'
 import { Button } from '@/registry/default/components/ui/button'
 import { useRouter } from 'next/navigation'
 
@@ -8,8 +8,8 @@ export function LogoutButton() {
   const router = useRouter()
 
   const logout = async () => {
-    const supabase = createClient()
-    await supabase.auth.signOut()
+    const selfbase = createClient()
+    await selfbase.auth.signOut()
     router.push('/example/password-based-auth/auth/login')
   }
 

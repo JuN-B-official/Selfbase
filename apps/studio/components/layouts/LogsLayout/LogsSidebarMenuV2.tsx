@@ -153,43 +153,43 @@ export function LogsSidebarMenuV2() {
     },
     IS_PLATFORM
       ? {
-          name: isFreePlan ? 'Pooler' : 'Shared Pooler',
-          key: 'pooler-logs',
-          url: `/project/${ref}/logs/pooler-logs`,
-          items: [],
-        }
+        name: isFreePlan ? 'Pooler' : 'Shared Pooler',
+        key: 'pooler-logs',
+        url: `/project/${ref}/logs/pooler-logs`,
+        items: [],
+      }
       : null,
     !isFreePlan && IS_PLATFORM
       ? {
-          name: 'Dedicated Pooler',
-          key: 'dedicated-pooler-logs',
-          url: `/project/${ref}/logs/dedicated-pooler-logs`,
-          items: [],
-        }
+        name: 'Dedicated Pooler',
+        key: 'dedicated-pooler-logs',
+        url: `/project/${ref}/logs/dedicated-pooler-logs`,
+        items: [],
+      }
       : null,
     authEnabled
       ? {
-          name: 'Auth',
-          key: 'auth-logs',
-          url: `/project/${ref}/logs/auth-logs`,
-          items: [],
-        }
+        name: 'Auth',
+        key: 'auth-logs',
+        url: `/project/${ref}/logs/auth-logs`,
+        items: [],
+      }
       : null,
     storageEnabled
       ? {
-          name: 'Storage',
-          key: 'storage-logs',
-          url: `/project/${ref}/logs/storage-logs`,
-          items: [],
-        }
+        name: 'Storage',
+        key: 'storage-logs',
+        url: `/project/${ref}/logs/storage-logs`,
+        items: [],
+      }
       : null,
     realtimeEnabled
       ? {
-          name: 'Realtime',
-          key: 'realtime-logs',
-          url: `/project/${ref}/logs/realtime-logs`,
-          items: [],
-        }
+        name: 'Realtime',
+        key: 'realtime-logs',
+        url: `/project/${ref}/logs/realtime-logs`,
+        items: [],
+      }
       : null,
     {
       name: 'Edge Functions',
@@ -205,23 +205,23 @@ export function LogsSidebarMenuV2() {
     },
     showETLLogs
       ? {
-          name: 'Replication',
-          key: 'replication_logs',
-          url: `/project/${ref}/logs/replication-logs`,
-          items: [],
-        }
+        name: 'Replication',
+        key: 'replication_logs',
+        url: `/project/${ref}/logs/replication-logs`,
+        items: [],
+      }
       : null,
   ].filter((x) => x !== null)
 
   const OPERATIONAL_COLLECTIONS = IS_PLATFORM
     ? [
-        {
-          name: 'Postgres Version Upgrade',
-          key: 'pg-upgrade-logs',
-          url: `/project/${ref}/logs/pg-upgrade-logs`,
-          items: [],
-        },
-      ]
+      {
+        name: 'Postgres Version Upgrade',
+        key: 'pg-upgrade-logs',
+        url: `/project/${ref}/logs/pg-upgrade-logs`,
+        items: [],
+      },
+    ]
     : []
 
   const filteredLogs = BASE_COLLECTIONS.filter((collection) => {
@@ -240,7 +240,7 @@ export function LogsSidebarMenuV2() {
           title="New logs"
           description="Get early access"
           actions={
-            <Link href="https://forms.supabase.com/unified-logs-signup" target="_blank">
+            <Link href="https://forms.selfbase.com/unified-logs-signup" target="_blank">
               <Button type="default" size="tiny">
                 Early access
               </Button>
@@ -270,7 +270,7 @@ export function LogsSidebarMenuV2() {
                 type="default"
                 className="px-1.5"
                 icon={<CircleHelpIcon />}
-                onClick={() => selectFeaturePreview('supabase-ui-preview-unified-logs')}
+                onClick={() => selectFeaturePreview('selfbase-ui-preview-unified-logs')}
                 tooltip={{ content: { side: 'bottom', text: 'More information' } }}
               />
             </>

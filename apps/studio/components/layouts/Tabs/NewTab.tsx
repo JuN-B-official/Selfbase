@@ -1,4 +1,4 @@
-import { PermissionAction } from '@supabase/shared-types/out/constants'
+import { PermissionAction } from '@selfbase/shared-types/out/constants'
 import dayjs from 'dayjs'
 import { partition } from 'lodash'
 import { Table2 } from 'lucide-react'
@@ -100,9 +100,9 @@ export function NewTab() {
 
   const activeQuickstartVariant =
     editor !== 'sql' &&
-    isNewProject &&
-    tableQuickstartVariant &&
-    tableQuickstartVariant !== QuickstartVariant.CONTROL
+      isNewProject &&
+      tableQuickstartVariant &&
+      tableQuickstartVariant !== QuickstartVariant.CONTROL
       ? tableQuickstartVariant
       : null
 
@@ -168,15 +168,15 @@ export function NewTab() {
   const tableEditorActions = isSchemaLocked
     ? []
     : [
-        {
-          icon: <Table2 className="h-4 w-4 text-foreground" strokeWidth={1.5} />,
-          title: 'Create a table',
-          description: 'Design and create a new database table',
-          bgColor: 'bg-blue-500',
-          isBeta: false,
-          onClick: () => snap.onAddTable(),
-        },
-      ]
+      {
+        icon: <Table2 className="h-4 w-4 text-foreground" strokeWidth={1.5} />,
+        title: 'Create a table',
+        description: 'Design and create a new database table',
+        bgColor: 'bg-blue-500',
+        isBeta: false,
+        onClick: () => snap.onAddTable(),
+      },
+    ]
 
   const sqlEditorActions = [
     {

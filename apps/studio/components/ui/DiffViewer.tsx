@@ -36,7 +36,7 @@ export const DiffViewer = ({
   sideBySide = false,
 }: DiffViewerProps) => (
   <DiffEditor
-    theme="supabase"
+    theme="selfbase"
     language={language}
     height={height}
     original={original}

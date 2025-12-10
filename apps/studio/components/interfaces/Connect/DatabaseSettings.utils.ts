@@ -167,12 +167,12 @@ export const constructConnStringSyntax = (
     { value: cloudProvider.toLocaleLowerCase(), tooltip: 'Cloud provider' },
     { value: '-0-', tooltip: undefined },
     { value: region, tooltip: "Project's region" },
-    { value: `.pooler.supabase.${tld}`, tooltip: undefined },
+    { value: `.pooler.selfbase.${tld}`, tooltip: undefined },
   ]
   const dbHostDetails = [
     { value: 'db.', tooltip: undefined },
     { value: ref, tooltip: PROJECT_REF_DESC },
-    { value: `.supabase.${tld}`, tooltip: undefined },
+    { value: `.selfbase.${tld}`, tooltip: undefined },
   ]
 
   if (selectedTab === 'uri' || selectedTab === 'nodejs') {
@@ -190,9 +190,9 @@ export const constructConnStringSyntax = (
         { value: '[db-name]', tooltip: DB_NAME_DESC },
         ...(usePoolerConnection
           ? [
-              { value: `?options=reference%3D`, tooltip: undefined },
-              { value: ref, tooltip: PROJECT_REF_DESC },
-            ]
+            { value: `?options=reference%3D`, tooltip: undefined },
+            { value: ref, tooltip: PROJECT_REF_DESC },
+          ]
           : []),
       ]
     } else {
@@ -201,9 +201,9 @@ export const constructConnStringSyntax = (
         { value: '[user]', tooltip: DB_USER_DESC },
         ...(usePoolerConnection
           ? [
-              { value: '.', tooltip: undefined },
-              { value: ref, tooltip: PROJECT_REF_DESC },
-            ]
+            { value: '.', tooltip: undefined },
+            { value: ref, tooltip: PROJECT_REF_DESC },
+          ]
           : []),
         { value: ':', tooltip: undefined },
         { value: '[password]', tooltip: DB_PASS_DESC },
@@ -232,9 +232,9 @@ export const constructConnStringSyntax = (
         { value: '[db-name]', tooltip: DB_NAME_DESC },
         ...(usePoolerConnection
           ? [
-              { value: '?options=reference%3D', tooltip: undefined },
-              { value: ref, tooltip: PROJECT_REF_DESC },
-            ]
+            { value: '?options=reference%3D', tooltip: undefined },
+            { value: ref, tooltip: PROJECT_REF_DESC },
+          ]
           : []),
       ]
     } else {
@@ -249,9 +249,9 @@ export const constructConnStringSyntax = (
         { value: '[user]', tooltip: DB_USER_DESC },
         ...(usePoolerConnection
           ? [
-              { value: '.', tooltip: undefined },
-              { value: ref, tooltip: PROJECT_REF_DESC },
-            ]
+            { value: '.', tooltip: undefined },
+            { value: ref, tooltip: PROJECT_REF_DESC },
+          ]
           : []),
       ]
     }
@@ -272,9 +272,9 @@ export const constructConnStringSyntax = (
         { value: '[db-name]', tooltip: DB_NAME_DESC },
         ...(usePoolerConnection
           ? [
-              { value: ' options=reference=', tooltip: undefined },
-              { value: ref, tooltip: PROJECT_REF_DESC },
-            ]
+            { value: ' options=reference=', tooltip: undefined },
+            { value: ref, tooltip: PROJECT_REF_DESC },
+          ]
           : []),
       ]
     } else {
@@ -283,9 +283,9 @@ export const constructConnStringSyntax = (
         { value: '[user]', tooltip: DB_USER_DESC },
         ...(usePoolerConnection
           ? [
-              { value: '.', tooltip: undefined },
-              { value: ref, tooltip: PROJECT_REF_DESC },
-            ]
+            { value: '.', tooltip: undefined },
+            { value: ref, tooltip: PROJECT_REF_DESC },
+          ]
           : []),
         { value: ' password=', tooltip: undefined },
         { value: '[password]', tooltip: DB_PASS_DESC },
@@ -314,9 +314,9 @@ export const constructConnStringSyntax = (
         { value: '[password]', tooltip: DB_PASS_DESC },
         ...(usePoolerConnection
           ? [
-              { value: '&options=reference%3D', tooltip: undefined },
-              { value: ref, tooltip: PROJECT_REF_DESC },
-            ]
+            { value: '&options=reference%3D', tooltip: undefined },
+            { value: ref, tooltip: PROJECT_REF_DESC },
+          ]
           : []),
       ]
     } else {
@@ -331,9 +331,9 @@ export const constructConnStringSyntax = (
         { value: '[user]', tooltip: DB_USER_DESC },
         ...(usePoolerConnection
           ? [
-              { value: '.', tooltip: undefined },
-              { value: ref, tooltip: PROJECT_REF_DESC },
-            ]
+            { value: '.', tooltip: undefined },
+            { value: ref, tooltip: PROJECT_REF_DESC },
+          ]
           : []),
         { value: '&password=', tooltip: undefined },
         { value: '[password]', tooltip: DB_PASS_DESC },
@@ -356,10 +356,10 @@ export const constructConnStringSyntax = (
         { value: '[db-name]', tooltip: DB_NAME_DESC },
         ...(usePoolerConnection
           ? [
-              { value: ";Options='reference=", tooltip: undefined },
-              { value: ref, tooltip: PROJECT_REF_DESC },
-              { value: "'", tooltip: undefined },
-            ]
+            { value: ";Options='reference=", tooltip: undefined },
+            { value: ref, tooltip: PROJECT_REF_DESC },
+            { value: "'", tooltip: undefined },
+          ]
           : []),
       ]
     } else {
@@ -368,9 +368,9 @@ export const constructConnStringSyntax = (
         { value: '[user]', tooltip: DB_USER_DESC },
         ...(usePoolerConnection
           ? [
-              { value: '.', tooltip: undefined },
-              { value: ref, tooltip: PROJECT_REF_DESC },
-            ]
+            { value: '.', tooltip: undefined },
+            { value: ref, tooltip: PROJECT_REF_DESC },
+          ]
           : []),
         { value: ';Password=', tooltip: undefined },
         { value: '[password]', tooltip: DB_PASS_DESC },

@@ -5,7 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useMemo } from 'react'
 
-import { SupportCategories } from '@supabase/shared-types/out/constants'
+import { SupportCategories } from '@selfbase/shared-types/out/constants'
 import { useFlag, useParams } from 'common'
 import {
   getAddons,
@@ -72,7 +72,7 @@ export const Addons = () => {
   const hasHipaaAddon = subscriptionHasHipaaAddon(subscription) && settings?.is_sensitive
 
   const cpuArchitecture = getCloudProviderArchitecture(selectedProject?.cloud_provider)
-  // Only projects of version greater than supabase-postgrest-14.1.0.44 can use PITR
+  // Only projects of version greater than selfbase-postgrest-14.1.0.44 can use PITR
   const sufficientPgVersion =
     // introduced as generatedSemantic version could be < 141044 even if actual version is indeed past it
     // eg. 15.1.1.2 leads to 15112
@@ -224,12 +224,10 @@ export const Addons = () => {
                         height={96}
                         src={
                           ['nano', 'micro'].includes(selectedProject?.infra_compute_size || 'micro')
-                            ? `${BASE_PATH}/img/optimized-compute-off${
-                                resolvedTheme?.includes('dark') ? '' : '--light'
-                              }.svg`
-                            : `${BASE_PATH}/img/optimized-compute-on${
-                                resolvedTheme?.includes('dark') ? '' : '--light'
-                              }.svg`
+                            ? `${BASE_PATH}/img/optimized-compute-off${resolvedTheme?.includes('dark') ? '' : '--light'
+                            }.svg`
+                            : `${BASE_PATH}/img/optimized-compute-on${resolvedTheme?.includes('dark') ? '' : '--light'
+                            }.svg`
                         }
                       />
                     </div>
@@ -376,12 +374,10 @@ export const Addons = () => {
                             height={96}
                             src={
                               ipv4 !== undefined
-                                ? `${BASE_PATH}/img/ipv4-on${
-                                    resolvedTheme?.includes('dark') ? '' : '--light'
-                                  }.svg?v=2`
-                                : `${BASE_PATH}/img/ipv4-off${
-                                    resolvedTheme?.includes('dark') ? '' : '--light'
-                                  }.svg?v=2`
+                                ? `${BASE_PATH}/img/ipv4-on${resolvedTheme?.includes('dark') ? '' : '--light'
+                                }.svg?v=2`
+                                : `${BASE_PATH}/img/ipv4-off${resolvedTheme?.includes('dark') ? '' : '--light'
+                                }.svg?v=2`
                             }
                           />
                         </div>
@@ -467,12 +463,10 @@ export const Addons = () => {
                         height={96}
                         src={
                           pitr !== undefined
-                            ? `${BASE_PATH}/img/pitr-on${
-                                resolvedTheme?.includes('dark') ? '' : '--light'
-                              }.svg`
-                            : `${BASE_PATH}/img/pitr-off${
-                                resolvedTheme?.includes('dark') ? '' : '--light'
-                              }.svg`
+                            ? `${BASE_PATH}/img/pitr-on${resolvedTheme?.includes('dark') ? '' : '--light'
+                            }.svg`
+                            : `${BASE_PATH}/img/pitr-off${resolvedTheme?.includes('dark') ? '' : '--light'
+                            }.svg`
                         }
                       />
                     </div>
@@ -581,12 +575,10 @@ export const Addons = () => {
                             height={96}
                             src={
                               customDomain !== undefined
-                                ? `${BASE_PATH}/img/custom-domain-on${
-                                    resolvedTheme?.includes('dark') ? '' : '--light'
-                                  }.svg`
-                                : `${BASE_PATH}/img/custom-domain-off${
-                                    resolvedTheme?.includes('dark') ? '' : '--light'
-                                  }.svg`
+                                ? `${BASE_PATH}/img/custom-domain-on${resolvedTheme?.includes('dark') ? '' : '--light'
+                                }.svg`
+                                : `${BASE_PATH}/img/custom-domain-off${resolvedTheme?.includes('dark') ? '' : '--light'
+                                }.svg`
                             }
                           />
                         </div>

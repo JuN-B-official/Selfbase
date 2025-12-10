@@ -3,7 +3,7 @@ import { Database, Import } from 'lucide-react'
 import { cn } from 'ui'
 import { SchemaGenerator } from './SchemaGenerator'
 
-interface SupabaseService {
+interface SelfbaseService {
   name: 'Auth' | 'Storage' | 'Database' | 'Edge Function' | 'Cron' | 'Queues' | 'Vector'
   reason: string
 }
@@ -20,7 +20,7 @@ export const InitialStep = ({
   onStartBlank: () => void
   onMigrate: () => void
   onSqlGenerated: (sql: string) => void
-  onServicesUpdated: (services: SupabaseService[]) => void
+  onServicesUpdated: (services: SelfbaseService[]) => void
   onTitleUpdated: (title: string) => void
 }) => {
   return (

@@ -48,7 +48,7 @@ import { useSelectedProjectQuery } from 'hooks/misc/useSelectedProject'
 import { IS_PLATFORM, PROJECT_STATUS } from 'lib/constants'
 import { tryParseJson } from 'lib/helpers'
 import { lookupMime } from 'lib/mime'
-import { createProjectSupabaseClient } from 'lib/project-supabase-client'
+import { createProjectSelfbaseClient } from 'lib/project-selfbase-client'
 import { Button, SONNER_DEFAULT_DURATION, SonnerProgress } from 'ui'
 
 type UploadProgress = {
@@ -322,7 +322,7 @@ function createStorageExplorerState({
       const formattedPathToEmptyPlaceholderFile =
         pathToFolder.length > 0 ? `${pathToFolder}/${emptyPlaceholderFile}` : emptyPlaceholderFile
 
-      const client = await createProjectSupabaseClient(state.projectRef, clientEndpoint)
+      const client = await createProjectSelfbaseClient(state.projectRef, clientEndpoint)
       await client.storage
         .from(state.selectedBucket.name)
         .upload(
@@ -573,12 +573,12 @@ function createStorageExplorerState({
 
         if (data.length === 0) {
           const prefixToPlaceholder = `${parentFolderPrefix}/${EMPTY_FOLDER_PLACEHOLDER_FILE_NAME}`
-          const client = await createProjectSupabaseClient(state.projectRef, clientEndpoint)
+          const client = await createProjectSelfbaseClient(state.projectRef, clientEndpoint)
           await client.storage
             .from(state.selectedBucket.name)
             .upload(prefixToPlaceholder, new File([], EMPTY_FOLDER_PLACEHOLDER_FILE_NAME))
         }
-      } catch (error) {}
+      } catch (error) { }
     },
 
     deleteFolder: async (folder: StorageItemWithColumn) => {
@@ -800,15 +800,15 @@ function createStorageExplorerState({
           return () => {
             return new Promise<
               | {
-                  name: string
-                  prefix: string
-                  blob: Blob
-                }
+                name: string
+                prefix: string
+                blob: Blob
+              }
               | boolean
             >(async (resolve) => {
               try {
-                // Get authenticated Supabase client for Storage API access
-                const client = await createProjectSupabaseClient(state.projectRef, clientEndpoint)
+                // Get authenticated Selfbase client for Storage API access
+                const client = await createProjectSelfbaseClient(state.projectRef, clientEndpoint)
 
                 // Use Storage API directly instead of Management API to avoid throttling
                 const { data, error } = await client.storage
@@ -882,9 +882,8 @@ function createStorageExplorerState({
         toast.success(
           downloadedFiles.length === files.length
             ? `Successfully downloaded folder "${folder.name}"`
-            : `Downloaded folder "${folder.name}". However, ${
-                files.length - downloadedFiles.length
-              } files did not download successfully.`,
+            : `Downloaded folder "${folder.name}". However, ${files.length - downloadedFiles.length
+            } files did not download successfully.`,
           { id: toastId, closeButton: true, duration: SONNER_DEFAULT_DURATION }
         )
       } catch (error: any) {
@@ -933,7 +932,7 @@ function createStorageExplorerState({
       }
       let folderContents: StorageObject[] = []
 
-      for (;;) {
+      for (; ;) {
         try {
           const data = await listBucketObjects({
             projectRef: state.projectRef,
@@ -998,8 +997,8 @@ function createStorageExplorerState({
       // We filter out any folders which are just '#' until we can properly encode such characters in the URL
       const filesToUpload: (File & { path?: string })[] = isDrop
         ? (await getFilesDataTransferItems(files as DataTransferItemList)).filter(
-            (file) => !file.path.includes('#/')
-          )
+          (file) => !file.path.includes('#/')
+        )
         : Array.from(files as FileList)
       const derivedColumnIndex = columnIndex === -1 ? state.getLatestColumnIndex() : columnIndex
 
@@ -1179,7 +1178,7 @@ function createStorageExplorerState({
               endpoint: state.resumableUploadUrl,
               retryDelays: [0, 200, 500, 1500, 3000, 5000],
               headers: {
-                'x-source': 'supabase-dashboard',
+                'x-source': 'selfbase-dashboard',
               },
               uploadDataDuringCreation: uploadDataDuringCreation,
               removeFingerprintOnSuccess: true,
@@ -1219,7 +1218,7 @@ function createStorageExplorerState({
                       toast.error(
                         capitalize(
                           error?.originalResponse?.getBody() ||
-                            `Failed to upload ${file.name}: ${metadata.mimetype} is not allowed`
+                          `Failed to upload ${file.name}: ${metadata.mimetype} is not allowed`
                         ),
                         {
                           description: `Allowed MIME types: ${state.selectedBucket.allowed_mime_types?.join(', ')}`,
@@ -1338,15 +1337,13 @@ function createStorageExplorerState({
           }
         } else if (numberOfFilesUploadedSuccess === numberOfFilesToUpload) {
           toast.success(
-            `Successfully uploaded ${numberOfFilesToUpload} file${
-              numberOfFilesToUpload > 1 ? 's' : ''
+            `Successfully uploaded ${numberOfFilesToUpload} file${numberOfFilesToUpload > 1 ? 's' : ''
             }!`,
             { id: toastId, closeButton: true, duration: SONNER_DEFAULT_DURATION }
           )
         } else {
           toast.success(
-            `Successfully uploaded ${numberOfFilesUploadedSuccess} out of ${numberOfFilesToUpload} file${
-              numberOfFilesToUpload > 1 ? 's' : ''
+            `Successfully uploaded ${numberOfFilesUploadedSuccess} out of ${numberOfFilesToUpload} file${numberOfFilesToUpload > 1 ? 's' : ''
             }!`,
             { id: toastId, closeButton: true, duration: SONNER_DEFAULT_DURATION }
           )
@@ -1408,8 +1405,7 @@ function createStorageExplorerState({
         toast.error('Failed to move files')
       } else {
         toast(
-          `Successfully moved ${
-            state.selectedItemsToMove.length - numberOfFilesMovedFail
+          `Successfully moved ${state.selectedItemsToMove.length - numberOfFilesMovedFail
           } files to ${formattedNewPathToFile.length > 0 ? formattedNewPathToFile : 'the root of your bucket'}`
         )
       }
@@ -1434,14 +1430,14 @@ function createStorageExplorerState({
       // directly (from delete folder). Otherwise go by the opened folders.
       const prefixes = !files.some((f) => f.prefix)
         ? files.map((file) => {
-            const { name, columnIndex } = file
-            const pathToFile = state.openedFolders
-              .slice(0, columnIndex)
-              .map((folder) => folder.name)
-              .join('/')
-            state.updateRowStatus({ name, status: STORAGE_ROW_STATUS.LOADING, columnIndex })
-            return pathToFile.length > 0 ? `${pathToFile}/${name}` : name
-          })
+          const { name, columnIndex } = file
+          const pathToFile = state.openedFolders
+            .slice(0, columnIndex)
+            .map((folder) => folder.name)
+            .join('/')
+          state.updateRowStatus({ name, status: STORAGE_ROW_STATUS.LOADING, columnIndex })
+          return pathToFile.length > 0 ? `${pathToFile}/${name}` : name
+        })
         : files.map((file) => `${file.prefix}/${file.name}`)
 
       state.clearSelectedItems()
@@ -1491,7 +1487,7 @@ function createStorageExplorerState({
       const toastId = showToast ? toast.loading(`Retrieving ${fileName}...`) : undefined
 
       try {
-        const client = await createProjectSupabaseClient(state.projectRef, clientEndpoint)
+        const client = await createProjectSelfbaseClient(state.projectRef, clientEndpoint)
 
         // Use Storage API directly instead of Management API to avoid throttling
         const { data, error } = await client.storage
@@ -1535,7 +1531,7 @@ function createStorageExplorerState({
       if (!file.path) return false
 
       try {
-        const client = await createProjectSupabaseClient(state.projectRef, clientEndpoint)
+        const client = await createProjectSelfbaseClient(state.projectRef, clientEndpoint)
 
         const { data, error } = await client.storage
           .from(state.selectedBucket.id)
@@ -1607,7 +1603,7 @@ function createStorageExplorerState({
       const blobURL = URL.createObjectURL(await zipWriter.close())
       const link = document.createElement('a')
       link.href = blobURL
-      link.setAttribute('download', `supabase-files.zip`)
+      link.setAttribute('download', `selfbase-files.zip`)
       document.body.appendChild(link)
       link.click()
       link.parentNode?.removeChild(link)
@@ -1833,10 +1829,10 @@ function createStorageExplorerState({
           const updatedColumnItems = column.items.map((item) => {
             return item.name === name
               ? {
-                  ...item,
-                  status,
-                  ...(updatedName && { name: updatedName }),
-                }
+                ...item,
+                status,
+                ...(updatedName && { name: updatedName }),
+              }
               : item
           })
           return { ...column, items: updatedColumnItems }

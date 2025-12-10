@@ -1,5 +1,5 @@
 import { cn } from '@/lib/utils'
-import { createClient } from '@/registry/default/clients/tanstack/lib/supabase/client'
+import { createClient } from '@/registry/default/clients/tanstack/lib/selfbase/client'
 import { Button } from '@/registry/default/components/ui/button'
 import {
   Card,
@@ -23,7 +23,7 @@ export function SignUpForm({ className, ...props }: React.ComponentPropsWithoutR
 
   const handleSignUp = async (e: React.FormEvent) => {
     e.preventDefault()
-    const supabase = createClient()
+    const selfbase = createClient()
     setError(null)
 
     if (password !== repeatPassword) {
@@ -33,7 +33,7 @@ export function SignUpForm({ className, ...props }: React.ComponentPropsWithoutR
     setIsLoading(true)
 
     try {
-      const { error } = await supabase.auth.signUp({
+      const { error } = await selfbase.auth.signUp({
         email,
         password,
         options: {

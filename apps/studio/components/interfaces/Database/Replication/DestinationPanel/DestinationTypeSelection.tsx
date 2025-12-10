@@ -51,14 +51,14 @@ export const DestinationTypeSelection = ({ form, editMode }: DestinationTypeSele
               )}
               {((!editMode && etlEnableIceberg) ||
                 (editMode && field.value === 'Analytics Bucket')) && (
-                <RadioGroupStackedItem
-                  value="Analytics Bucket"
-                  id="Analytics Bucket"
-                  label="Analytics Bucket"
-                  className="[&>div>div>p]:text-left"
-                  description="Send data to Apache Iceberg tables in your Supabase Storage for flexible analytics workflows"
-                />
-              )}
+                  <RadioGroupStackedItem
+                    value="Analytics Bucket"
+                    id="Analytics Bucket"
+                    label="Analytics Bucket"
+                    className="[&>div>div>p]:text-left"
+                    description="Send data to Apache Iceberg tables in your Selfbase Storage for flexible analytics workflows"
+                  />
+                )}
             </RadioGroupStacked>
           </FormControl_Shadcn_>
         )}

@@ -1,11 +1,11 @@
-import { PermissionAction } from '@supabase/shared-types/out/constants'
+import { PermissionAction } from '@selfbase/shared-types/out/constants'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useCallback } from 'react'
 
 import { useParams } from 'common'
-import { SupabaseGrid } from 'components/grid/SupabaseGrid'
-import { useSyncTableEditorStateFromLocalStorageWithUrl } from 'components/grid/SupabaseGrid.utils'
+import { SelfbaseGrid } from 'components/grid/SelfbaseGrid'
+import { useSyncTableEditorStateFromLocalStorageWithUrl } from 'components/grid/SelfbaseGrid.utils'
 import {
   Entity,
   isForeignTable,
@@ -110,8 +110,8 @@ export const TableGridEditor = ({
     ? `${selectedTable.schema}_${selectedTable.name}`
     : 'unknown-table'
 
-  /** [Joshen] We're going to need to refactor SupabaseGrid eventually to make the code here more readable
-   * For context we previously built the SupabaseGrid as a reusable npm component, but eventually decided
+  /** [Joshen] We're going to need to refactor SelfbaseGrid eventually to make the code here more readable
+   * For context we previously built the SelfbaseGrid as a reusable npm component, but eventually decided
    * to just integrate it directly into the dashboard. The header, and body (+footer) should be decoupled.
    */
 
@@ -172,7 +172,7 @@ export const TableGridEditor = ({
           table={selectedTable}
           editable={editable}
         >
-          <SupabaseGrid
+          <SelfbaseGrid
             key={gridKey}
             gridProps={{ height: '100%' }}
             customHeader={
@@ -189,7 +189,7 @@ export const TableGridEditor = ({
             {(isViewSelected || isTableSelected) && selectedView === 'definition' && (
               <TableDefinition entity={selectedTable} />
             )}
-          </SupabaseGrid>
+          </SelfbaseGrid>
 
           <DeleteConfirmationDialogs
             selectedTable={isTableSelected ? selectedTable : undefined}

@@ -1,4 +1,4 @@
-import { PermissionAction } from '@supabase/shared-types/out/constants'
+import { PermissionAction } from '@selfbase/shared-types/out/constants'
 import { isArray } from 'lodash'
 import { Check, ExternalLink } from 'lucide-react'
 import { useRouter } from 'next/router'
@@ -159,7 +159,7 @@ export const PlanUpdateSidePanel = () => {
           <div className="flex items-center justify-between">
             <h4>Change subscription plan for {selectedOrganization?.name}</h4>
             <Button asChild type="default" icon={<ExternalLink />}>
-              <a href="https://supabase.com/pricing" target="_blank" rel="noreferrer">
+              <a href="https://selfbase.com/pricing" target="_blank" rel="noreferrer">
                 Pricing
               </a>
             </Button>
@@ -200,7 +200,7 @@ export const PlanUpdateSidePanel = () => {
                     'px-4 py-4 flex flex-col items-start justify-between',
                     'border rounded-md col-span-12 md:col-span-4 bg-surface-200',
                     shouldHighlight &&
-                      'ring-4 ring-brand animate-[pulse_1.5s_ease-in-out_1] shadow-md shadow-brand/40'
+                    'ring-4 ring-brand animate-[pulse_1.5s_ease-in-out_1] shadow-md shadow-brand/40'
                   )}
                 >
                   <div className="w-full">
@@ -266,7 +266,7 @@ export const PlanUpdateSidePanel = () => {
                             className: hasOrioleProjects ? 'w-96 text-center' : '',
                             text:
                               subscription?.plan?.id === 'enterprise' ||
-                              subscription?.plan?.id === 'platform'
+                                subscription?.plan?.id === 'platform'
                                 ? 'Reach out to us via support to update your plan'
                                 : hasOrioleProjects
                                   ? 'Your organization has projects that are using the OrioleDB extension which is only available on the Free plan. Remove all OrioleDB projects before changing your plan.'

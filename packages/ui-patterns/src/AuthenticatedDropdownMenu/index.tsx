@@ -20,8 +20,8 @@ import {
 } from 'ui'
 import { themes } from 'ui/src/components/ThemeProvider/themes'
 
-import type { User } from '@supabase/supabase-js'
-import type { LucideIcon } from 'icons/src/createSupabaseIcon'
+import type { User } from '@selfbase/selfbase-js'
+import type { LucideIcon } from 'icons/src/createSelfbaseIcon'
 import type { Theme } from 'ui/src/components/ThemeProvider/themes'
 
 interface Props {
@@ -143,7 +143,7 @@ export const AuthenticatedDropdownMenu = ({ user, menu, site }: Props) => {
                     >
                       <DropdownMenuItem
                         className="space-x-2 hover:cursor-pointer"
-                        onClick={() => {}}
+                        onClick={() => { }}
                       >
                         <DropdownItemContent {...sectionItem} />
                       </DropdownMenuItem>

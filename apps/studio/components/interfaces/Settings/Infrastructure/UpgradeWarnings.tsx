@@ -126,13 +126,13 @@ export const UserDefinedObjectsInInternalSchemasWarning = ({ objects }: { object
           </ul>
         </div>
         <p>
-          These schemas are Supabase-managed and creating custom objects in them is no longer
+          These schemas are Selfbase-managed and creating custom objects in them is no longer
           supported. Check the changelog to see how to move them to your own schemas.
         </p>
         <div>
           <Button size="tiny" type="default" asChild>
             <a
-              href="https://github.com/orgs/supabase/discussions/34270"
+              href="https://github.com/orgs/selfbase/discussions/34270"
               target="_blank"
               rel="noreferrer"
             >

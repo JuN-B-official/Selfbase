@@ -1,4 +1,4 @@
-import { SupportCategories } from '@supabase/shared-types/out/constants'
+import { SupportCategories } from '@selfbase/shared-types/out/constants'
 import dayjs from 'dayjs'
 import { ExternalLink, Info } from 'lucide-react'
 import Link from 'next/link'
@@ -53,9 +53,8 @@ const DiskSizeConfigurationModal = ({
   const formattedTimeTillNextAvailableResize =
     timeTillNextAvailableDatabaseResize < 60
       ? `${timeTillNextAvailableDatabaseResize} minute(s)`
-      : `${Math.floor(timeTillNextAvailableDatabaseResize / 60)} hours and ${
-          timeTillNextAvailableDatabaseResize % 60
-        } minute(s)`
+      : `${Math.floor(timeTillNextAvailableDatabaseResize / 60)} hours and ${timeTillNextAvailableDatabaseResize % 60
+      } minute(s)`
 
   const { mutate: updateProjectUsage, isPending: isUpdatingDiskSize } =
     useProjectDiskResizeMutation({
@@ -143,11 +142,11 @@ const DiskSizeConfigurationModal = ({
                       <div className="mb-4">
                         {isAbleToResizeDatabase
                           ? `Upon updating your disk size, the next disk size update will only be available from ${dayjs().format(
-                              'DD MMM YYYY, HH:mm (ZZ)'
-                            )}`
+                            'DD MMM YYYY, HH:mm (ZZ)'
+                          )}`
                           : `Your database was last resized at ${dayjs(lastDatabaseResizeAt).format(
-                              'DD MMM YYYY, HH:mm (ZZ)'
-                            )}. You can resize your database again in approximately ${formattedTimeTillNextAvailableResize}`}
+                            'DD MMM YYYY, HH:mm (ZZ)'
+                          )}. You can resize your database again in approximately ${formattedTimeTillNextAvailableResize}`}
                       </div>
                       <Button asChild type="default" iconRight={<ExternalLink size={14} />}>
                         <Link href={`${DOCS_URL}/guides/platform/database-size#disk-management`}>
@@ -204,9 +203,8 @@ const DiskSizeConfigurationModal = ({
             )}
             <Button asChild type="default" className="mt-3">
               <Link
-                href={`/org/${organization?.slug}/billing?panel=${
-                  projectSubscriptionData?.plan?.id === 'free' ? 'subscriptionPlan' : 'costControl'
-                }`}
+                href={`/org/${organization?.slug}/billing?panel=${projectSubscriptionData?.plan?.id === 'free' ? 'subscriptionPlan' : 'costControl'
+                  }`}
                 target="_blank"
               >
                 {projectSubscriptionData?.plan?.id === 'free'

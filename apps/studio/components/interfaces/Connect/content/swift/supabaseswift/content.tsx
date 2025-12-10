@@ -12,20 +12,20 @@ const ContentFile = ({ projectKeys }: ContentFileProps) => {
   return (
     <ConnectTabs>
       <ConnectTabTriggers>
-        <ConnectTabTrigger value="Supabase.swift" />
+        <ConnectTabTrigger value="Selfbase.swift" />
         <ConnectTabTrigger value="Todo.swift" />
         <ConnectTabTrigger value="ContentView.swift" />
       </ConnectTabTriggers>
 
-      <ConnectTabContent value="Supabase.swift">
+      <ConnectTabContent value="Selfbase.swift">
         <SimpleCodeBlock className="swift" parentClassName="min-h-72">
           {`
 import Foundation
-import Supabase
+import Selfbase
 
-let supabase = SupabaseClient(
-  supabaseURL: URL(string: "${projectKeys.apiUrl ?? 'your-project-url'}")!,
-  supabaseKey: "${projectKeys.publishableKey ?? '<prefer publishable key for native apps instead of anon key>'}"
+let selfbase = SelfbaseClient(
+  selfbaseURL: URL(string: "${projectKeys.apiUrl ?? 'your-project-url'}")!,
+  selfbaseKey: "${projectKeys.publishableKey ?? '<prefer publishable key for native apps instead of anon key>'}"
 )
         `}
         </SimpleCodeBlock>
@@ -47,7 +47,7 @@ struct Todo: Identifiable, Decodable {
       <ConnectTabContent value="ContentView.swift">
         <SimpleCodeBlock className="swift" parentClassName="min-h-72">
           {`
-import Supabase
+import Selfbase
 import SwiftUI
 
 struct ContentView: View {
@@ -61,7 +61,7 @@ struct ContentView: View {
       .navigationTitle("Todos")
       .task {
         do {
-          todos = try await supabase.from("todos").select().execute().value
+          todos = try await selfbase.from("todos").select().execute().value
         } catch {
           debugPrint(error)
         }

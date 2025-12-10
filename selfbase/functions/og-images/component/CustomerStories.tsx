@@ -6,13 +6,13 @@ type Props = {
 }
 
 const STORAGE_URL =
-  'https://obuldanrptloktxcffvn.supabase.co/storage/v1/object/public/images/og-images'
+  'https://obuldanrptloktxcffvn.selfbase.co/storage/v1/object/public/images/og-images'
 
 const CustomerStories = (props: Props) => {
   const { title, customer } = props
 
-  const imageUrl = `https://supabase.com/images/customers/logos/light/${customer}.png`
-  const supabaseLogoUrl = `${STORAGE_URL}/customers/supabase-gradient-icon.svg?t=2024-06-01T16%3A09%3A05.507Z`
+  const imageUrl = `https://selfbase.com/images/customers/logos/light/${customer}.png`
+  const selfbaseLogoUrl = `${STORAGE_URL}/customers/selfbase-gradient-icon.svg?t=2024-06-01T16%3A09%3A05.507Z`
 
   return (
     <div
@@ -28,7 +28,7 @@ const CustomerStories = (props: Props) => {
       }}
     >
       <div tw="flex flex-row items-center justify-center top-0 mb-6">
-        <img src={supabaseLogoUrl} width="90px" height="90px" tw="mr-6" />
+        <img src={selfbaseLogoUrl} width="90px" height="90px" tw="mr-6" />
         <p tw="text-[#FAFAFA] text-[30px] font-light">+</p>
         {customer && (
           <img
@@ -44,7 +44,7 @@ const CustomerStories = (props: Props) => {
       <div tw="w-full top-0 flex flex-col justify-between mt-4">
         <div tw="flex flex-col w-full">
           <hr tw="border-b border-[#4D4D4D] w-full relative flex mb-10" />
-          <h1 tw="w-3/4 my-0 mb-2 text-[53px]">{!title ? 'Supabase' : title}</h1>
+          <h1 tw="w-3/4 my-0 mb-2 text-[53px]">{!title ? 'Selfbase' : title}</h1>
         </div>
       </div>
     </div>

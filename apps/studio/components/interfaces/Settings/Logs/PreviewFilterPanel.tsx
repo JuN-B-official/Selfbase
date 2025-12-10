@@ -52,7 +52,7 @@ const PreviewFilterPanel = ({
   isLoading,
   newCount,
   onRefresh,
-  onSearch = () => {},
+  onSearch = () => { },
   defaultSearchValue = '',
   onExploreClick,
   queryUrl,
@@ -237,7 +237,7 @@ const PreviewFilterPanel = ({
             type="default"
             align="center"
             results={csvData ?? []}
-            fileName={`supabase-${logName}-${ref}.csv`}
+            fileName={`selfbase-${logName}-${ref}.csv`}
           />
         )}
       </div>

@@ -32,19 +32,19 @@ describe('Connect.utils helpers', () => {
         connectionObject: FRAMEWORKS,
         selectedParent: 'nextjs',
         selectedChild: 'app',
-        selectedGrandchild: 'supabasejs',
+        selectedGrandchild: 'selfbasejs',
       })
-      expect(path).toBe('nextjs/app/supabasejs')
+      expect(path).toBe('nextjs/app/selfbasejs')
     })
 
     it('returns parent/child when grandchild does not exist', () => {
       const path = getContentFilePath({
         connectionObject: FRAMEWORKS,
         selectedParent: 'remix',
-        selectedChild: 'supabasejs',
+        selectedChild: 'selfbasejs',
         selectedGrandchild: 'does-not-exist',
       })
-      expect(path).toBe('remix/supabasejs')
+      expect(path).toBe('remix/selfbasejs')
     })
 
     it('returns parent when child does not exist', () => {

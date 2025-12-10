@@ -4,30 +4,30 @@ import { uuidv4 } from './helpers'
 
 type PostgrestImpersonationRole =
   | {
-      type: 'postgrest'
-      role: 'anon'
-    }
+    type: 'postgrest'
+    role: 'anon'
+  }
   | {
-      type: 'postgrest'
-      role: 'service_role'
-    }
+    type: 'postgrest'
+    role: 'service_role'
+  }
   | {
-      type: 'postgrest'
-      role: 'authenticated'
-      userType: 'native'
-      user?: User
-      aal?: 'aal1' | 'aal2'
-    }
+    type: 'postgrest'
+    role: 'authenticated'
+    userType: 'native'
+    user?: User
+    aal?: 'aal1' | 'aal2'
+  }
   | {
-      type: 'postgrest'
-      role: 'authenticated'
-      userType: 'external'
-      externalAuth?: {
-        sub: string
-        additionalClaims?: Record<string, any>
-      }
-      aal?: 'aal1' | 'aal2'
+    type: 'postgrest'
+    role: 'authenticated'
+    userType: 'external'
+    externalAuth?: {
+      sub: string
+      additionalClaims?: Record<string, any>
     }
+    aal?: 'aal1' | 'aal2'
+  }
 
 export type PostgrestRole = PostgrestImpersonationRole['role']
 
@@ -47,7 +47,7 @@ export function getPostgrestClaims(projectRef: string, role: PostgrestImpersonat
   const nowTimestamp = Math.floor(Date.now() / 1000)
 
   if (role.role === 'authenticated') {
-    // Supabase native auth case
+    // Selfbase native auth case
     if (role.userType === 'native' && role.user) {
       const user = role.user
       return {
@@ -58,7 +58,7 @@ export function getPostgrestClaims(projectRef: string, role: PostgrestImpersonat
         email: user.email,
         exp,
         iat: nowTimestamp,
-        iss: `https://${projectRef}.supabase.co/auth/v1`,
+        iss: `https://${projectRef}.selfbase.co/auth/v1`,
         phone: user.phone,
         role: user.role ?? role.role,
         session_id: uuidv4(),
@@ -84,7 +84,7 @@ export function getPostgrestClaims(projectRef: string, role: PostgrestImpersonat
   }
 
   return {
-    iss: 'supabase',
+    iss: 'selfbase',
     ref: projectRef,
     role: role.role,
     iat: nowTimestamp,

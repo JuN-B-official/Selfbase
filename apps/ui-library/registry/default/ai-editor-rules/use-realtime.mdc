@@ -1,12 +1,12 @@
 ---
 # Specify the following for Cursor rules
-description: Coding rules for Supabase Realtime
+description: Coding rules for Selfbase Realtime
 alwaysApply: false
 ---
 
-# Supabase Realtime AI Assistant Guide
+# Selfbase Realtime AI Assistant Guide
 
-You are an expert developer assistant specializing in Supabase Realtime implementations. This guide provides structured, actionable patterns for AI-driven development assistance.
+You are an expert developer assistant specializing in Selfbase Realtime implementations. This guide provides structured, actionable patterns for AI-driven development assistance.
 
 ## Implementation Rules
 
@@ -50,19 +50,19 @@ Using dedicated, granular topics ensures messages are only sent to relevant list
 **❌ Avoid Broad Topics:**
 ```javascript
 // This broadcasts to ALL users, even those not interested
-const channel = supabase.channel('global:notifications')
+const channel = selfbase.channel('global:notifications')
 ```
 
 **✅ Use Dedicated Topics:**
 ```javascript
 // This only broadcasts to users in a specific room
-const channel = supabase.channel(`room:${roomId}:messages`)
+const channel = selfbase.channel(`room:${roomId}:messages`)
 
 // This only broadcasts to a specific user
-const channel = supabase.channel(`user:${userId}:notifications`)
+const channel = selfbase.channel(`user:${userId}:notifications`)
 
 // This only broadcasts to users with specific permissions
-const channel = supabase.channel(`admin:${orgId}:alerts`)
+const channel = selfbase.channel(`admin:${orgId}:alerts`)
 ```
 
 ### Benefits of Dedicated Topics:
@@ -94,10 +94,10 @@ const channel = supabase.channel(`admin:${orgId}:alerts`)
 
 ```javascript
 // Basic setup
-const supabase = createClient('URL', 'ANON_KEY')
+const selfbase = createClient('URL', 'ANON_KEY')
 
 // Channel configuration
-const channel = supabase.channel('room:123:messages', {
+const channel = selfbase.channel('room:123:messages', {
   config: {
     broadcast: { self: true, ack: true },
     presence: { key: 'user-session-id', enabled: true },
@@ -129,13 +129,13 @@ const channelRef = useRef(null)
 useEffect(() => {
   // Check if already subscribed to prevent multiple subscriptions
   if (channelRef.current?.state === 'subscribed') return
-  const channel = supabase.channel('room:123:messages', {
+  const channel = selfbase.channel('room:123:messages', {
     config: { private: true }
   })
   channelRef.current = channel
 
   // Set auth before subscribing
-  await supabase.realtime.setAuth()
+  await selfbase.realtime.setAuth()
 
   channel
     .on('broadcast', { event: 'message_created' }, handleMessage)
@@ -144,7 +144,7 @@ useEffect(() => {
 
   return () => {
     if (channelRef.current) {
-      supabase.removeChannel(channelRef.current)
+      selfbase.removeChannel(channelRef.current)
       channelRef.current = null
     }
   }
@@ -278,14 +278,14 @@ USING (
 
 ### Client Authorization
 ```javascript
-const channel = supabase.channel('room:123:messages', {
+const channel = selfbase.channel('room:123:messages', {
   config: { private: true }
 })
   .on('broadcast', { event: 'message_created' }, handleMessage)
   .on('broadcast', { event: 'user_joined' }, handleUserJoined)
 
 // Set auth before subscribing
-await supabase.realtime.setAuth()
+await selfbase.realtime.setAuth()
 
 // Subscribe after auth is set
 await channel.subscribe()
@@ -297,7 +297,7 @@ await channel.subscribe()
 ## Error Handling & Reconnection
 
 ### Automatic Reconnection (Built-in)
-**Supabase Realtime client handles reconnection automatically:**
+**Selfbase Realtime client handles reconnection automatically:**
 - Built-in exponential backoff for connection retries
 - Automatic channel rejoining after network interruptions
 - Configurable reconnection timing via `reconnectAfterMs` option
@@ -311,7 +311,7 @@ The client automatically manages these states:
 
 ```javascript
 // Client automatically reconnects with built-in logic
-const supabase = createClient('URL', 'ANON_KEY', {
+const selfbase = createClient('URL', 'ANON_KEY', {
   realtime: {
     params: {
       log_level: 'info',
@@ -342,13 +342,13 @@ channel.subscribe((status, err) => {
 ### Channel Structure Optimization
 - Use one channel per logical scope (`room:123`, not `user:456:room:123`)
 - Shard high-volume topics: `chat:shard:1`, `chat:shard:2`
-- Ensure you have enough connections set in your pool, you can refer to [Realtime Settings](https://supabase.com/docs/guides/realtime/settings) and the option `Database connection pool size` to set it.
+- Ensure you have enough connections set in your pool, you can refer to [Realtime Settings](https://selfbase.com/docs/guides/realtime/settings) and the option `Database connection pool size` to set it.
 
 ## Debugging
 
 ### Enhanced Logging
 ```javascript
-const supabase = createClient(url, key, {
+const selfbase = createClient(url, key, {
   realtime: {
     params: { log_level: 'info' }
   }
@@ -360,11 +360,11 @@ const supabase = createClient(url, key, {
 ### Step 1: Replace Client Code
 ```javascript
 // ❌ Remove postgres_changes
-const oldChannel = supabase.channel('changes').on('postgres_changes', { event: '*', schema: 'public', table: 'messages' }, callback)
+const oldChannel = selfbase.channel('changes').on('postgres_changes', { event: '*', schema: 'public', table: 'messages' }, callback)
 
 // ✅ Replace with broadcast
 const room_id = "room_id" // or any other identifier that you use in the trigger function
-const newChannel = supabase.channel(`messages:${room_id}:changes`, {
+const newChannel = selfbase.channel(`messages:${room_id}:changes`, {
   config: { private: true }
 })
 .on('broadcast', { event: 'INSERT' }, callback)
@@ -395,7 +395,7 @@ CREATE POLICY "users_can_receive_broadcasts" ON realtime.messages
 5. **Include error handling** - Add reconnection patterns
 6. **Recommend indexing** - When RLS policies are used
 7. **Framework-agnostic** - Adapt patterns to user's framework
-8. **Inform users to prefer the usage of private channels only** - users can refer to [Realtime Settings](https://supabase.com/docs/guides/realtime/settings) to enable it.
+8. **Inform users to prefer the usage of private channels only** - users can refer to [Realtime Settings](https://selfbase.com/docs/guides/realtime/settings) to enable it.
 
 ### Code Generation Checklist
 - ✅ Favor `broadcast` over `postgres_changes`

@@ -30,7 +30,7 @@ export function SubmitButton({ isSubmitting, userEmail, onClick }: SubmitButtonP
           <span className="text-foreground font-medium">{userEmail}</span>
         </div>
         <span className="text-foreground-light text-xs">
-          Please ensure emails from supabase.com are allowed
+          Please ensure emails from selfbase.com are allowed
         </span>
       </div>
     </div>

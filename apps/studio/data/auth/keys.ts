@@ -1,4 +1,4 @@
-import type { OptimizedSearchColumns } from '@supabase/pg-meta/src/sql/studio/get-users-types'
+import type { OptimizedSearchColumns } from '@selfbase/pg-meta/src/sql/studio/get-users-types'
 
 export const authKeys = {
   users: (

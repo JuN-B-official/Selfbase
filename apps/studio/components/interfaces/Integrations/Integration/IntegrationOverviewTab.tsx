@@ -54,8 +54,8 @@ export const IntegrationOverviewTab = ({
             <AlertDescription_Shadcn_ className="flex flex-col gap-y-2">
               <Badge className="bg-surface-300 bg-opacity-100 flex items-center gap-x-2 w-max">
                 <img
-                  alt="Supabase"
-                  src={`${router.basePath}/img/supabase-logo.svg`}
+                  alt="Selfbase"
+                  src={`${router.basePath}/img/selfbase-logo.svg`}
                   className=" h-2.5 cursor-pointer rounded"
                 />
                 <span>Postgres Module</span>

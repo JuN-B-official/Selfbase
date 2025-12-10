@@ -20,6 +20,7 @@ import { Button, Skeleton } from 'ui'
 import { Admonition } from 'ui-patterns/admonition'
 import { Input } from 'ui-patterns/DataInputs/Input'
 
+
 const OrganizationsPage: NextPageWithLayout = () => {
   const router = useRouter()
   const [search, setSearch] = useState('')
@@ -39,8 +40,8 @@ const OrganizationsPage: NextPageWithLayout = () => {
     search.length === 0
       ? organizations
       : organizations?.filter(
-          (x) => x.name.toLowerCase().includes(search) || x.slug.toLowerCase().includes(search)
-        )
+        (x) => x.name.toLowerCase().includes(search) || x.slug.toLowerCase().includes(search)
+      )
 
   useEffect(() => {
     // If there are no organizations, force the user to create one

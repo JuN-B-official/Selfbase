@@ -2,6 +2,7 @@ export type projectKeys = {
   apiUrl: string | null
   anonKey: string | null
   publishableKey: string | null
+  serviceKey: string | null  // Selfbase: For MCP config
 }
 
 export interface ContentFileProps {

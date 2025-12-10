@@ -63,8 +63,8 @@ export const LinterPageFooter = ({
         <div className="prose text-xs">
           <p>
             <span>These suggestions use </span>
-            <a href="https://github.com/supabase/splinter" target="" rel="">
-              splinter (Supabase Postgres LINTER)
+            <a href="https://github.com/selfbase/splinter" target="" rel="">
+              splinter (Selfbase Postgres LINTER)
             </a>
             .
           </p>
@@ -76,7 +76,7 @@ export const LinterPageFooter = ({
           <p>Inspect your database for potential issues</p>
           <Markdown
             className="text-xs"
-            content={`The Supabase CLI comes with a range of tools to help inspect your Postgres instances for
+            content={`The Selfbase CLI comes with a range of tools to help inspect your Postgres instances for
             potential issues. [Learn more here](${DOCS_URL}/guides/database/inspect).`}
           />
         </div>

@@ -1,5 +1,5 @@
 import { zodResolver } from '@hookform/resolvers/zod'
-import { PermissionAction } from '@supabase/shared-types/out/constants'
+import { PermissionAction } from '@selfbase/shared-types/out/constants'
 import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
@@ -311,7 +311,7 @@ export const PerformanceSettingsForm = () => {
                                 preservedPoolSize = Math.ceil(
                                   (Math.min(maxConnectionLimit, currentValue) /
                                     maxConnectionLimit) *
-                                    100
+                                  100
                                 )
                               } else {
                                 // convert from percentage to roughly the same connection number
@@ -390,8 +390,8 @@ export const PerformanceSettingsForm = () => {
                               <span className="text-brand">
                                 {chosenUnit === 'percent'
                                   ? Math.floor(
-                                      maxConnectionLimit * (Math.min(100, field.value!) / 100)
-                                    ).toString()
+                                    maxConnectionLimit * (Math.min(100, field.value!) / 100)
+                                  ).toString()
                                   : Math.min(maxConnectionLimit, field.value!)}
                               </span>{' '}
                               / {maxConnectionLimit} max

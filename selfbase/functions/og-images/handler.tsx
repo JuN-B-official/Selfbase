@@ -1,8 +1,8 @@
 import React from 'https://esm.sh/react@18.2.0?deno-std=0.140.0'
 import { ImageResponse } from 'https://deno.land/x/og_edge@0.0.4/mod.ts'
-import CustomerStories from './component/CustomerStories.tsx'
-import Docs from './component/Docs.tsx'
-import Events from './component/Events.tsx'
+import CustomerStories from './component/CustomerStories.js'
+import Docs from './component/Docs.js'
+import Events from './component/Events.js'
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
@@ -13,8 +13,8 @@ const corsHeaders = {
 // Load custom fonts
 const FONT_URLS = {
   CIRCULAR:
-    'https://xguihxuzqibwxjnimxev.supabase.co/storage/v1/object/public/fonts/CircularStd-Book.otf',
-  MONO: 'https://xguihxuzqibwxjnimxev.supabase.co/storage/v1/object/public/fonts/SourceCodePro-Regular.ttf',
+    'https://xguihxuzqibwxjnimxev.selfbase.co/storage/v1/object/public/fonts/CircularStd-Book.otf',
+  MONO: 'https://xguihxuzqibwxjnimxev.selfbase.co/storage/v1/object/public/fonts/SourceCodePro-Regular.ttf',
 }
 const FONT_CIRCULAR = fetch(new URL(FONT_URLS['CIRCULAR'], import.meta.url)).then((res) =>
   res.arrayBuffer()

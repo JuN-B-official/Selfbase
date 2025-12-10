@@ -31,8 +31,8 @@ import {
 import { AiWarning, Message, MessageRole, MessageStatus, useAiChat } from '../ai'
 
 const questions = [
-  'How do I get started with Supabase?',
-  'How do I run Supabase locally?',
+  'How do I get started with Selfbase?',
+  'How do I run Selfbase locally?',
   'How do I connect to my database?',
   'How do I run migrations? ',
   'How do I listen to changes in a table?',
@@ -73,7 +73,7 @@ const DocsAiPage = () => {
       className={cn(
         'flex flex-col',
         !isBelowSm &&
-          '[&_[cmdk-input-wrapper]]:border-b-0 [&_[cmdk-input-wrapper]]:border-t [&_[cmdk-input-wrapper]]:border-solid [&_[cmdk-input-wrapper]]:border-bg-control'
+        '[&_[cmdk-input-wrapper]]:border-b-0 [&_[cmdk-input-wrapper]]:border-t [&_[cmdk-input-wrapper]]:border-solid [&_[cmdk-input-wrapper]]:border-bg-control'
       )}
     >
       <CommandHeader>
@@ -127,7 +127,7 @@ function PromptInput({
   const query = useQuery()
   const previousQuery = useRef(query)
   const setQuery = useSetQuery()
-  // If the user has already typed something when they select Supabase AI, we want to
+  // If the user has already typed something when they select Selfbase AI, we want to
   // submit it immediately.
   useEffect(() => {
     if (query) {
@@ -168,7 +168,7 @@ function PromptInput({
         className
       )}
       placeholder={
-        isLoading || isResponding ? 'Waiting on an answer...' : 'Ask Supabase AI a question...'
+        isLoading || isResponding ? 'Waiting on an answer...' : 'Ask Selfbase AI a question...'
       }
       value={inputValue}
       onValueChange={setInputValue}
@@ -239,7 +239,7 @@ function AiMessages({ messages }: { messages: Array<Message> }) {
                       allowHoverEffect
                     />
                     <span className="font-mono text-sm text-foreground-muted uppercase tracking-widest md:hidden">
-                      Supabase AI
+                      Selfbase AI
                     </span>
                   </div>
                   <div>
@@ -325,7 +325,7 @@ function ErrorState({ handleReset }: { handleReset: () => void }) {
     <div className="p-6 flex flex-col items-center gap-2 mt-4">
       <StatusIcon variant="warning" />
       <p className="text-sm text-foreground text-center">
-        Sorry, looks like Supabase AI is having a hard time!
+        Sorry, looks like Selfbase AI is having a hard time!
       </p>
       <p className="text-sm text-foreground-lighter text-center">Please try again in a bit.</p>
       <Button size="tiny" type="default" onClick={handleReset}>

@@ -95,7 +95,7 @@ function CustomApp({ Component, pageProps }: AppPropsWithLayout) {
       const eventId = Sentry.captureException(error)
       // Attach the Sentry event ID to the error object so it can be accessed by the error boundary
       if (eventId && error && typeof error === 'object') {
-        ;(error as any).sentryId = eventId
+        ; (error as any).sentryId = eventId
       }
     })
 
@@ -129,9 +129,9 @@ function CustomApp({ Component, pageProps }: AppPropsWithLayout) {
               >
                 <ProfileProvider>
                   <Head>
-                    <title>{appTitle ?? 'Supabase'}</title>
+                    <title>{appTitle ?? 'Selfbase'}</title>
                     <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-                    <meta property="og:image" content={`${BASE_PATH}/img/supabase-logo.png`} />
+                    <meta property="og:image" content={`${BASE_PATH}/img/selfbase-logo.png`} />
                     <meta name="googlebot" content="notranslate" />
                     {/* [Alaister]: This has to be an inline style tag here and not a separate component due to next/font */}
                     <style
@@ -148,7 +148,7 @@ function CustomApp({ Component, pageProps }: AppPropsWithLayout) {
                       />
                     )}
                   </Head>
-                  <MetaFaviconsPagesRouter applicationName="Supabase Studio" includeManifest />
+                  <MetaFaviconsPagesRouter applicationName="Selfbase Studio" includeManifest />
                   <TooltipProvider delayDuration={0}>
                     <RouteValidationWrapper>
                       <ThemeProvider

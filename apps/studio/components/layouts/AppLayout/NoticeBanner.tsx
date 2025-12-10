@@ -47,7 +47,7 @@ export const NoticeBanner = () => {
           Urgent Dashboard and Management API maintenance between 23:00 UTC on Nov 21, 2025 and
           23:00 UTC on Nov 23, 2025. For full details,{' '}
           <Link
-            href="https://status.supabase.com/incidents/z0l2157y33xk"
+            href="https://status.selfbase.com/incidents/z0l2157y33xk"
             target="_blank"
             rel="noreferrer"
             className="opacity-75 hover:opacity-100 underline"

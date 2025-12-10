@@ -1,8 +1,8 @@
-import type { PostgresRelationship } from '@supabase/postgres-meta'
+import type { PostgresRelationship } from '@selfbase/postgres-meta'
 import { CreateColumnBody } from 'data/database-columns/database-column-create-mutation'
 import { UpdateColumnBody } from 'data/database-columns/database-column-update-mutation'
 
-export interface CreateColumnPayload extends CreateColumnBody {}
+export interface CreateColumnPayload extends CreateColumnBody { }
 
 export interface UpdateColumnPayload extends UpdateColumnBody {
   isPrimaryKey?: boolean

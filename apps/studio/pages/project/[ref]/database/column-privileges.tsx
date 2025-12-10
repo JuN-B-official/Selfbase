@@ -239,10 +239,10 @@ const PrivilegesPage: NextPageWithLayout = () => {
                   <AlertCircle strokeWidth={2} />
                   <AlertTitle_Shadcn_>
                     Changes to column privileges will not be reflected in migrations when running{' '}
-                    <code className="text-code-inline">supabase db diff</code>.
+                    <code className="text-code-inline">selfbase db diff</code>.
                   </AlertTitle_Shadcn_>
                   <AlertDescription_Shadcn_>
-                    Column privileges are not supported in the current version of the Supabase CLI.
+                    Column privileges are not supported in the current version of the Selfbase CLI.
                     <br />
                     You will need to manually apply these changes to your database.
                   </AlertDescription_Shadcn_>

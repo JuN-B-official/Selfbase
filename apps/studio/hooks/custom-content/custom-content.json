@@ -1,60 +1,56 @@
 {
   "$schema": "./custom-content.schema.json",
-
   "app:title": null,
-
   "dashboard_auth:custom_provider": null,
-
   "docs:row_level_security_guide_path": "/guides/auth/row-level-security",
-
   "organization:legal_documents": null,
-
   "project_homepage:client_libraries": [
     {
       "language": "JavaScript",
       "officialSupport": true,
-      "docsUrl": "https://supabase.com/docs/reference/javascript/installing",
-      "gitUrl": "https://github.com/supabase/supabase-js"
+      "docsUrl": "https://selfbase.com/docs/reference/javascript/installing",
+      "gitUrl": "https://github.com/selfbase/selfbase-js"
     },
     {
       "language": "Flutter",
       "officialSupport": true,
-      "docsUrl": "https://supabase.com/docs/reference/dart/installing",
-      "gitUrl": "https://github.com/supabase/supabase-flutter"
+      "docsUrl": "https://selfbase.com/docs/reference/dart/installing",
+      "gitUrl": "https://github.com/selfbase/selfbase-flutter"
     },
     {
       "language": "Python",
       "officialSupport": true,
       "releaseState": "Alpha",
-      "docsUrl": "https://supabase.com/docs/reference/python/initializing",
-      "gitUrl": "https://github.com/supabase/supabase-py"
+      "docsUrl": "https://selfbase.com/docs/reference/python/initializing",
+      "gitUrl": "https://github.com/selfbase/selfbase-py"
     },
     {
       "language": "C#",
       "officialSupport": false,
-      "docsUrl": "https://supabase.com/docs/reference/csharp/installing",
-      "gitUrl": "https://github.com/supabase-community/supabase-csharp",
+      "docsUrl": "https://selfbase.com/docs/reference/csharp/installing",
+      "gitUrl": "https://github.com/selfbase-community/selfbase-csharp",
       "altIconName": "c-sharp"
     },
     {
       "language": "Swift",
       "officialSupport": true,
-      "docsUrl": "https://supabase.com/docs/reference/swift/initializing",
-      "gitUrl": "https://github.com/supabase/supabase-swift"
+      "docsUrl": "https://selfbase.com/docs/reference/swift/initializing",
+      "gitUrl": "https://github.com/selfbase/selfbase-swift"
     },
     {
       "language": "Kotlin",
       "officialSupport": false,
-      "docsUrl": "https://supabase.com/docs/reference/kotlin/installing",
-      "gitUrl": "https://github.com/supabase-community/supabase-kt"
+      "docsUrl": "https://selfbase.com/docs/reference/kotlin/installing",
+      "gitUrl": "https://github.com/selfbase-community/selfbase-kt"
     }
   ],
   "project_homepage:example_projects": null,
-
   "logs:default_query": null,
-
-  "infra:cloud_providers": ["AWS", "AWS_K8S", "FLY"],
+  "infra:cloud_providers": [
+    "AWS",
+    "AWS_K8S",
+    "FLY"
+  ],
   "infra:aws_nimbus_label": "AWS Nimbus",
-
-  "ssl:certificate_url": "https://supabase-downloads.s3-ap-southeast-1.amazonaws.com/${env}/ssl/${env}-ca-2021.crt"
+  "ssl:certificate_url": "https://selfbase-downloads.s3-ap-southeast-1.amazonaws.com/${env}/ssl/${env}-ca-2021.crt"
 }

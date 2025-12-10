@@ -1,4 +1,4 @@
-import { PermissionAction } from '@supabase/shared-types/out/constants'
+import { PermissionAction } from '@selfbase/shared-types/out/constants'
 import { ArrowUp, ChevronDown, FileText, Trash } from 'lucide-react'
 import Link from 'next/link'
 import { ReactNode, useState } from 'react'
@@ -54,7 +54,7 @@ export const MAX_EXPORT_ROW_COUNT_MESSAGE = (
     Sorry! We're unable to support exporting row counts larger than{' '}
     {MAX_EXPORT_ROW_COUNT.toLocaleString('en-US')} at the moment. Alternatively, you may consider
     using{' '}
-    <Link href={`${DOCS_URL}/reference/cli/supabase-db-dump`} target="_blank">
+    <Link href={`${DOCS_URL}/reference/cli/selfbase-db-dump`} target="_blank">
       pg_dump
     </Link>{' '}
     via our CLI instead.
@@ -133,94 +133,94 @@ const DefaultHeader = ({
                   {[
                     ...(onAddRow !== undefined
                       ? [
-                          <DropdownMenuItem
-                            key="add-row"
-                            className="group space-x-2"
-                            onClick={onAddRow}
-                          >
-                            <div className="-mt-2 pr-1.5">
-                              <div className="border border-foreground-lighter w-[15px] h-[4px]" />
-                              <div className="border border-foreground-lighter w-[15px] h-[4px] my-[2px]" />
-                              <div
-                                className={cn([
-                                  'border border-foreground-light w-[15px] h-[4px] translate-x-0.5',
-                                  'transition duration-200 group-data-[highlighted]:border-brand group-data-[highlighted]:translate-x-0',
-                                ])}
-                              />
-                            </div>
-                            <div>
-                              <p>Insert row</p>
-                              <p className="text-foreground-light">
-                                Insert a new row into {snap.table.name}
-                              </p>
-                            </div>
-                          </DropdownMenuItem>,
-                        ]
+                        <DropdownMenuItem
+                          key="add-row"
+                          className="group space-x-2"
+                          onClick={onAddRow}
+                        >
+                          <div className="-mt-2 pr-1.5">
+                            <div className="border border-foreground-lighter w-[15px] h-[4px]" />
+                            <div className="border border-foreground-lighter w-[15px] h-[4px] my-[2px]" />
+                            <div
+                              className={cn([
+                                'border border-foreground-light w-[15px] h-[4px] translate-x-0.5',
+                                'transition duration-200 group-data-[highlighted]:border-brand group-data-[highlighted]:translate-x-0',
+                              ])}
+                            />
+                          </div>
+                          <div>
+                            <p>Insert row</p>
+                            <p className="text-foreground-light">
+                              Insert a new row into {snap.table.name}
+                            </p>
+                          </div>
+                        </DropdownMenuItem>,
+                      ]
                       : []),
                     ...(onAddColumn !== undefined
                       ? [
-                          <DropdownMenuItem
-                            key="add-column"
-                            className="group space-x-2"
-                            onClick={onAddColumn}
-                          >
-                            <div className="flex -mt-2 pr-1.5">
-                              <div className="border border-foreground-lighter w-[4px] h-[15px]" />
-                              <div className="border border-foreground-lighter w-[4px] h-[15px] mx-[2px]" />
-                              <div
-                                className={cn([
-                                  'border border-foreground-light w-[4px] h-[15px] -translate-y-0.5',
-                                  'transition duration-200 group-data-[highlighted]:border-brand group-data-[highlighted]:translate-y-0',
-                                ])}
-                              />
-                            </div>
-                            <div>
-                              <p>Insert column</p>
-                              <p className="text-foreground-light">
-                                Insert a new column into {snap.table.name}
-                              </p>
-                            </div>
-                          </DropdownMenuItem>,
-                        ]
+                        <DropdownMenuItem
+                          key="add-column"
+                          className="group space-x-2"
+                          onClick={onAddColumn}
+                        >
+                          <div className="flex -mt-2 pr-1.5">
+                            <div className="border border-foreground-lighter w-[4px] h-[15px]" />
+                            <div className="border border-foreground-lighter w-[4px] h-[15px] mx-[2px]" />
+                            <div
+                              className={cn([
+                                'border border-foreground-light w-[4px] h-[15px] -translate-y-0.5',
+                                'transition duration-200 group-data-[highlighted]:border-brand group-data-[highlighted]:translate-y-0',
+                              ])}
+                            />
+                          </div>
+                          <div>
+                            <p>Insert column</p>
+                            <p className="text-foreground-light">
+                              Insert a new column into {snap.table.name}
+                            </p>
+                          </div>
+                        </DropdownMenuItem>,
+                      ]
                       : []),
                     ...(onImportData !== undefined
                       ? [
-                          <DropdownMenuItem
-                            key="import-data"
-                            className="group space-x-2"
-                            onClick={() => {
-                              onImportData()
-                              sendEvent({
-                                action: 'import_data_button_clicked',
-                                properties: { tableType: 'Existing Table' },
-                                groups: {
-                                  project: projectRef ?? 'Unknown',
-                                  organization: org?.slug ?? 'Unknown',
-                                },
-                              })
-                            }}
-                          >
-                            <div className="relative -mt-2">
-                              <FileText
-                                size={18}
-                                strokeWidth={1.5}
-                                className="-translate-x-[2px]"
-                              />
-                              <ArrowUp
-                                className={cn(
-                                  'transition duration-200 absolute bottom-0 right-0 translate-y-1 opacity-0 bg-brand-400 rounded-full',
-                                  'group-data-[highlighted]:translate-y-0 group-data-[highlighted]:text-brand group-data-[highlighted]:opacity-100'
-                                )}
-                                strokeWidth={3}
-                                size={12}
-                              />
-                            </div>
-                            <div>
-                              <p>Import data from CSV</p>
-                              <p className="text-foreground-light">Insert new rows from a CSV</p>
-                            </div>
-                          </DropdownMenuItem>,
-                        ]
+                        <DropdownMenuItem
+                          key="import-data"
+                          className="group space-x-2"
+                          onClick={() => {
+                            onImportData()
+                            sendEvent({
+                              action: 'import_data_button_clicked',
+                              properties: { tableType: 'Existing Table' },
+                              groups: {
+                                project: projectRef ?? 'Unknown',
+                                organization: org?.slug ?? 'Unknown',
+                              },
+                            })
+                          }}
+                        >
+                          <div className="relative -mt-2">
+                            <FileText
+                              size={18}
+                              strokeWidth={1.5}
+                              className="-translate-x-[2px]"
+                            />
+                            <ArrowUp
+                              className={cn(
+                                'transition duration-200 absolute bottom-0 right-0 translate-y-1 opacity-0 bg-brand-400 rounded-full',
+                                'group-data-[highlighted]:translate-y-0 group-data-[highlighted]:text-brand group-data-[highlighted]:opacity-100'
+                              )}
+                              strokeWidth={3}
+                              size={12}
+                            />
+                          </div>
+                          <div>
+                            <p>Import data from CSV</p>
+                            <p className="text-foreground-light">Insert new rows from a CSV</p>
+                          </div>
+                        </DropdownMenuItem>,
+                      ]
                       : []),
                   ]}
                 </DropdownMenuContent>
@@ -320,21 +320,21 @@ const RowHeader = ({ tableQueriesEnabled = true }: RowHeaderProps) => {
   const exportParams = snap.allRowsSelected
     ? ({ type: 'fetch_all', filters, sorts } as const)
     : ({
-        type: 'provided_rows',
-        table: snap.table,
-        rows: allRows.filter((x) => snap.selectedRows.has(x.idx)),
-      } as const)
+      type: 'provided_rows',
+      table: snap.table,
+      rows: allRows.filter((x) => snap.selectedRows.has(x.idx)),
+    } as const)
 
   const { exportCsv, confirmationModal: exportCsvConfirmationModal } = useExportAllRowsAsCsv(
     project
       ? {
-          enabled: true,
-          projectRef: project.ref,
-          connectionString: project?.connectionString ?? null,
-          entity: snap.table,
-          totalRows,
-          ...exportParams,
-        }
+        enabled: true,
+        projectRef: project.ref,
+        connectionString: project?.connectionString ?? null,
+        entity: snap.table,
+        totalRows,
+        ...exportParams,
+      }
       : { enabled: false }
   )
   const onRowsExportCSV = async () => {
@@ -353,12 +353,12 @@ const RowHeader = ({ tableQueriesEnabled = true }: RowHeaderProps) => {
   const { exportSql, confirmationModal: exportSqlConfirmationModal } = useExportAllRowsAsSql(
     project
       ? {
-          enabled: true,
-          projectRef: project.ref,
-          connectionString: project?.connectionString ?? null,
-          entity: snap.table,
-          ...exportParams,
-        }
+        enabled: true,
+        projectRef: project.ref,
+        connectionString: project?.connectionString ?? null,
+        entity: snap.table,
+        ...exportParams,
+      }
       : { enabled: false }
   )
   const onRowsExportSQL = async () => {
@@ -377,12 +377,12 @@ const RowHeader = ({ tableQueriesEnabled = true }: RowHeaderProps) => {
   const { exportJson, confirmationModal: exportJsonConfirmationModal } = useExportAllRowsAsJson(
     project
       ? {
-          enabled: true,
-          projectRef: project.ref,
-          connectionString: project?.connectionString ?? null,
-          entity: snap.table,
-          ...exportParams,
-        }
+        enabled: true,
+        projectRef: project.ref,
+        connectionString: project?.connectionString ?? null,
+        entity: snap.table,
+        ...exportParams,
+      }
       : { enabled: false }
   )
   const onRowsExportJSON = async () => {

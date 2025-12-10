@@ -1,5 +1,5 @@
 import { zodResolver } from '@hookform/resolvers/zod'
-import { PermissionAction } from '@supabase/shared-types/out/constants'
+import { PermissionAction } from '@selfbase/shared-types/out/constants'
 import { AlertTitle } from '@ui/components/shadcn/ui/alert'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
@@ -165,7 +165,7 @@ export const S3Connection = () => {
                             layout="horizontal"
                             className="[&>*>label]:text-foreground"
                             label="S3 protocol connection"
-                            description="Allow clients to connect to Supabase Storage via the S3 protocol"
+                            description="Allow clients to connect to Selfbase Storage via the S3 protocol"
                           >
                             <FormControl_Shadcn_>
                               <Switch

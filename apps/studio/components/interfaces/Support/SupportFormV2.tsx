@@ -2,7 +2,7 @@ import { useEffect, type Dispatch, type MouseEventHandler } from 'react'
 import type { SubmitHandler, UseFormReturn } from 'react-hook-form'
 // End of third-party imports
 
-import { SupportCategories } from '@supabase/shared-types/out/constants'
+import { SupportCategories } from '@selfbase/shared-types/out/constants'
 import { useConstant, useFlag } from 'common'
 import { CLIENT_LIBRARIES } from 'common/constants'
 import { getProjectAuthConfig } from 'data/auth/auth-config-query'
@@ -114,10 +114,10 @@ export const SupportFormV2 = ({ form, initialError, state, dispatch }: SupportFo
       attachmentUpload.createAttachments(),
       attachDashboardLogs
         ? uploadDashboardLog({
-            userId: profile?.gotrue_id,
-            sanitizedLogs: sanitizedLogSnapshot,
-            uploadDashboardLogFn,
-          })
+          userId: profile?.gotrue_id,
+          sanitizedLogs: sanitizedLogSnapshot,
+          uploadDashboardLogFn,
+        })
         : undefined,
     ])
 
@@ -151,9 +151,9 @@ export const SupportFormV2 = ({ form, initialError, state, dispatch }: SupportFo
       affectedServices: CATEGORIES_WITHOUT_AFFECTED_SERVICES.includes(values.category)
         ? ''
         : values.affectedServices
-            .split(',')
-            .map((x) => x.trim().replace(/ /g, '_').toLowerCase())
-            .join(';'),
+          .split(',')
+          .map((x) => x.trim().replace(/ /g, '_').toLowerCase())
+          .join(';'),
       browserInformation: detectBrowser(),
     }
 

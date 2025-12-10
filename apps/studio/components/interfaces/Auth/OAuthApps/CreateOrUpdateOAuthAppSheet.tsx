@@ -3,7 +3,7 @@ import type {
   CreateOAuthClientParams,
   OAuthClient,
   UpdateOAuthClientParams,
-} from '@supabase/supabase-js'
+} from '@selfbase/selfbase-js'
 import { Plus, Trash2, Upload, X } from 'lucide-react'
 import { type ChangeEvent, useEffect, useRef, useState } from 'react'
 import { useFieldArray, useForm } from 'react-hook-form'
@@ -357,7 +357,7 @@ export const CreateOrUpdateOAuthAppSheet = ({
                                     readOnly
                                     className="input-mono"
                                     value={appToEdit.client_id}
-                                    onChange={() => {}}
+                                    onChange={() => { }}
                                     onCopy={() => toast.success('Client ID copied to clipboard')}
                                   />
                                 </FormControl_Shadcn_>
@@ -381,7 +381,7 @@ export const CreateOrUpdateOAuthAppSheet = ({
                                         type="password"
                                         className="input-mono"
                                         value="****************************************************************"
-                                        onChange={() => {}}
+                                        onChange={() => { }}
                                       />
                                     </FormControl_Shadcn_>
                                   </FormItemLayout>

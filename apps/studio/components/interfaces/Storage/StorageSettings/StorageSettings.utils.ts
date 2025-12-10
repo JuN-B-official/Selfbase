@@ -28,7 +28,7 @@ export const convertToBytes = (size: number, unit: StorageSizeUnits = StorageSiz
 function getStorageURL(projectRef: string, protocol: string, endpoint?: string) {
   const projUrl = endpoint
     ? `${protocol}://${endpoint}`
-    : `https://${projectRef}.storage.supabase.co`
+    : `https://${projectRef}.storage.selfbase.co`
   const url = new URL(projUrl)
   return url
 }

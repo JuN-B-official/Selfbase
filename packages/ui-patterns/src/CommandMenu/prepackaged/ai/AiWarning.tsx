@@ -6,7 +6,7 @@ const AiWarning = ({ className }: { className?: string }) => (
   <Alert_Shadcn_ className={cn('!m-0', className)} variant="warning">
     <Microscope strokeWidth={1.5} size={18} className="text-foreground-muted" />
     <AlertTitle_Shadcn_>
-      Supabase AI is experimental and may produce incorrect answers.
+      Selfbase AI is experimental and may produce incorrect answers.
     </AlertTitle_Shadcn_>
     <AlertDescription_Shadcn_>
       <p>Always verify the output before executing.</p>

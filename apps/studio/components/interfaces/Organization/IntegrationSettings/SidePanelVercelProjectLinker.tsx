@@ -93,7 +93,7 @@ const SidePanelVercelProjectLinker = () => {
           ...vars.connection,
           metadata: {
             ...vars.connection.metadata,
-            supabaseConfig: {
+            selfbaseConfig: {
               projectEnvVars: {
                 write: true,
               },
@@ -126,7 +126,7 @@ Check the details below before proceeding
         <SidePanel.Content className="flex flex-col gap-2">
           <ProjectLinker
             slug={selectedOrganization?.slug}
-            defaultSupabaseProjectRef={ref}
+            defaultSelfbaseProjectRef={ref}
             organizationIntegrationId={selectedIntegration?.id}
             foreignProjects={vercelProjects}
             onCreateConnections={onCreateConnections}
@@ -142,8 +142,8 @@ Check the details below before proceeding
 The following environment variables will be added:
 
 ${ENV_VAR_RAW_KEYS.map((x) => {
-  return `\n - \`${x}\``
-})}
+              return `\n - \`${x}\``
+            })}
 `}
           />
         </SidePanel.Content>

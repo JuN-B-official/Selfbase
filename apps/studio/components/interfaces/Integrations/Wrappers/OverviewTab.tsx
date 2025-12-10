@@ -1,4 +1,4 @@
-import { PermissionAction } from '@supabase/shared-types/out/constants'
+import { PermissionAction } from '@selfbase/shared-types/out/constants'
 import Link from 'next/link'
 import { useState } from 'react'
 import { parseAsBoolean, useQueryState } from 'nuqs'
@@ -73,7 +73,7 @@ export const WrapperOverviewTab = () => {
   const CreateWrapperSheetComponent = wrapperMeta.customComponent
     ? wrapperMeta.name === 'iceberg_wrapper'
       ? CreateIcebergWrapperSheet
-      : ({}) => null
+      : ({ }) => null
     : CreateWrapperSheet
 
   return (

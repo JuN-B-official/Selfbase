@@ -137,7 +137,7 @@ export const CreateAnalyticsBucketModal = ({
   const { mutateAsync: createAnalyticsBucket, isPending: isCreatingAnalyticsBucket } =
     useAnalyticsBucketCreateMutation({
       // [Joshen] Silencing the error here as it's being handled in onSubmit
-      onError: () => {},
+      onError: () => { },
     })
 
   const { mutateAsync: createIcebergWrapper, isPending: isCreatingIcebergWrapper } =
@@ -264,7 +264,7 @@ export const CreateAnalyticsBucketModal = ({
               ) : (
                 <Admonition type="default">
                   <p className="!leading-normal">
-                    Supabase will install the{' '}
+                    Selfbase will install the{' '}
                     {wrappersExtensionState !== 'installed' ? 'Wrappers extension and ' : ''}
                     Iceberg Wrapper integration on your behalf.{' '}
                     <InlineLink href={`${DOCS_URL}/guides/database/extensions/wrappers/iceberg`}>

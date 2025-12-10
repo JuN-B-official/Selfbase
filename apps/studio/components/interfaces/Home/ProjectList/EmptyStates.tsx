@@ -25,8 +25,8 @@ export const Header = () => {
       <div className="flex items-center space-x-2">
         <Link href="/projects">
           <img
-            src={`${BASE_PATH}/img/supabase-logo.svg`}
-            alt="Supabase"
+            src={`${BASE_PATH}/img/selfbase-logo.svg`}
+            alt="Selfbase"
             className="border-default rounded border p-1 hover:border-white"
             style={{ height: 24 }}
           />
@@ -142,7 +142,7 @@ export const NoProjectsState = ({ slug }: { slug: string }) => {
   )
 }
 
-export const NoOrganizationsState = ({}) => {
+export const NoOrganizationsState = ({ }) => {
   return (
     <EmptyStatePresentational
       title="Create an organization"

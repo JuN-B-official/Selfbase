@@ -27,12 +27,12 @@ export type CreateDestinationPipelineParams = {
   projectRef: string
   destinationName: string
   destinationConfig:
-    | {
-        bigQuery: BigQueryDestinationConfig
-      }
-    | {
-        iceberg: IcebergDestinationConfig
-      }
+  | {
+    bigQuery: BigQueryDestinationConfig
+  }
+  | {
+    iceberg: IcebergDestinationConfig
+  }
   sourceId: number
   pipelineConfig: {
     publicationName: string
@@ -81,7 +81,7 @@ async function createDestinationPipeline(
 
     destination_config = {
       iceberg: {
-        supabase: {
+        selfbase: {
           namespace,
           project_ref: icebergProjectRef,
           warehouse_name: warehouseName,

@@ -660,12 +660,12 @@ test.describe.serial('Database', () => {
 
       // filter between active and all roles
       await page.getByRole('button', { name: 'Active roles' }).click()
-      await expect(page.getByRole('button', { name: 'supabase_admin' })).toBeVisible()
+      await expect(page.getByRole('button', { name: 'selfbase_admin' })).toBeVisible()
       await expect(page.getByRole('button', { name: 'authenticator' })).toBeVisible()
 
       // filter by querying
-      await page.getByRole('textbox', { name: 'Search for a role' }).fill('supabase')
-      await expect(page.getByRole('button', { name: 'supabase_admin' })).toBeVisible()
+      await page.getByRole('textbox', { name: 'Search for a role' }).fill('selfbase')
+      await expect(page.getByRole('button', { name: 'selfbase_admin' })).toBeVisible()
       await expect(page.getByRole('button', { name: 'authenticator' })).not.toBeVisible()
     })
 

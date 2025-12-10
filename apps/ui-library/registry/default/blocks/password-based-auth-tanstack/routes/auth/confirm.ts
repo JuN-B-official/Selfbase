@@ -1,5 +1,5 @@
-import { createClient } from '@/registry/default/clients/tanstack/lib/supabase/server'
-import { type EmailOtpType } from '@supabase/supabase-js'
+import { createClient } from '@/registry/default/clients/tanstack/lib/selfbase/server'
+import { type EmailOtpType } from '@selfbase/selfbase-js'
 import { createFileRoute, redirect } from '@tanstack/react-router'
 import { createServerFn } from '@tanstack/react-start'
 import { getWebRequest } from '@tanstack/react-start/server'
@@ -31,9 +31,9 @@ const confirmFn = createServerFn({ method: 'GET' })
     const next = _next?.startsWith('/') ? _next : '/'
 
     if (token_hash && type) {
-      const supabase = createClient()
+      const selfbase = createClient()
 
-      const { error } = await supabase.auth.verifyOtp({
+      const { error } = await selfbase.auth.verifyOtp({
         type,
         token_hash,
       })

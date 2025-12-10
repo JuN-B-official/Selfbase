@@ -7,7 +7,7 @@ import type { PropsWithChildren } from 'react'
 import { Separator } from 'ui'
 import { withAuth } from '../../hooks/misc/withAuth'
 
-export interface LinkAwsMarketplaceLayoutProps {}
+export interface LinkAwsMarketplaceLayoutProps { }
 
 const LinkAwsMarketplaceLayout = ({
   children,
@@ -18,7 +18,7 @@ const LinkAwsMarketplaceLayout = ({
   return (
     <>
       <Head>
-        <title>AWS Marketplace Setup | {appTitle || 'Supabase'}</title>
+        <title>AWS Marketplace Setup | {appTitle || 'Selfbase'}</title>
       </Head>
       <main className="flex flex-col flex-grow w-full h-full overflow-y-auto">
         <div>
@@ -26,14 +26,14 @@ const LinkAwsMarketplaceLayout = ({
             <div className="max-w-xl flex justify-between items-center py-4">
               <div className="flex justify-start lg:w-0 lg:flex-1">
                 <div>
-                  <span className="sr-only">Supabase</span>
+                  <span className="sr-only">Selfbase</span>
                   <Image
                     src={
                       resolvedTheme?.includes('dark')
-                        ? `${BASE_PATH}/img/supabase-dark.svg`
-                        : `${BASE_PATH}/img/supabase-light.svg`
+                        ? `${BASE_PATH}/img/selfbase-dark.svg`
+                        : `${BASE_PATH}/img/selfbase-light.svg`
                     }
-                    alt="Supabase Logo"
+                    alt="Selfbase Logo"
                     height={20}
                     width={105}
                   />

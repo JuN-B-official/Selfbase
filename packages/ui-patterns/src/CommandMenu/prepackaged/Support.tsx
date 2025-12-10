@@ -14,14 +14,14 @@ const useSupportCommands = ({ enabled = true }: { enabled?: boolean } = {}) => {
           id: 'system-status',
           name: 'View system status',
           value: 'Support: View system status',
-          href: 'https://status.supabase.com',
+          href: 'https://status.selfbase.com',
           icon: () => <Activity />,
         },
         {
           id: 'discord-community',
           name: 'Ask Discord community',
           value: 'Support: Ask Discord community',
-          href: 'https://discord.supabase.com',
+          href: 'https://discord.selfbase.com',
           icon: () => <LifeBuoy />,
         },
         {
@@ -35,7 +35,7 @@ const useSupportCommands = ({ enabled = true }: { enabled?: boolean } = {}) => {
         ...command,
         route:
           BASE_PATH && command.href.startsWith('/')
-            ? `https://supabase.com/${command.href}`
+            ? `https://selfbase.com/${command.href}`
             : command.href,
       })) as ICommand[],
     [setOpen]

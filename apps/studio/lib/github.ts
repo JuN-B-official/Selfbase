@@ -4,12 +4,12 @@ import { makeRandomString } from './helpers'
 const GITHUB_INTEGRATION_APP_NAME =
   process.env.NEXT_PUBLIC_GITHUB_INTEGRATION_APP_NAME ||
   (process.env.NEXT_PUBLIC_IS_NIMBUS !== undefined
-    ? 'supabase-snap'
+    ? 'selfbase-snap'
     : process.env.NEXT_PUBLIC_ENVIRONMENT === 'prod'
-      ? `supabase`
+      ? `selfbase`
       : process.env.NEXT_PUBLIC_ENVIRONMENT === 'staging'
-        ? `supabase-staging`
-        : `supabase-local-testing`)
+        ? `selfbase-staging`
+        : `selfbase-local-testing`)
 
 const GITHUB_INTEGRATION_CLIENT_ID =
   process.env.NEXT_PUBLIC_GITHUB_INTEGRATION_CLIENT_ID ||

@@ -1,4 +1,5 @@
 import { IS_PLATFORM } from 'common'
+import { ENABLE_PROJECT_MANAGEMENT } from 'lib/constants'
 import { subscriptionHasHipaaAddon } from 'components/interfaces/Billing/Subscription/Subscription.utils'
 import { ComplianceConfig } from 'components/interfaces/Settings/General/ComplianceConfig/ProjectComplianceMode'
 import { CustomDomainConfig } from 'components/interfaces/Settings/General/CustomDomainConfig/CustomDomainConfig'
@@ -26,7 +27,8 @@ const ProjectSettings: NextPageWithLayout = () => {
   const router = useRouter()
 
   useEffect(() => {
-    if (!IS_PLATFORM) {
+    // Selfbase: Allow access when SELFBASE_MULTI_PROJECT is enabled
+    if (!ENABLE_PROJECT_MANAGEMENT) {
       router.push(`/project/default/settings/log-drains`)
     }
   }, [router])

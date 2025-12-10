@@ -1,14 +1,19 @@
 {
   "name": "social-auth-react",
   "type": "registry:block",
-  "title": "Social Auth flow for React and Supabase",
-  "description": "Social Auth flow for React and Supabase",
-  "registryDependencies": ["button", "card"],
+  "title": "Social Auth flow for React and Selfbase",
+  "description": "Social Auth flow for React and Selfbase",
+  "registryDependencies": [
+    "button",
+    "card"
+  ],
   "files": [
     {
       "path": "registry/default/blocks/social-auth-react/components/login-form.tsx",
       "type": "registry:component"
     }
   ],
-  "dependencies": ["@supabase/supabase-js@latest"]
+  "dependencies": [
+    "@selfbase/selfbase-js@latest"
+  ]
 }

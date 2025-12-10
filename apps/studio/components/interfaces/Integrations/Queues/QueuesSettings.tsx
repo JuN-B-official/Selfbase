@@ -1,5 +1,5 @@
 import { zodResolver } from '@hookform/resolvers/zod'
-import { PermissionAction } from '@supabase/shared-types/out/constants'
+import { PermissionAction } from '@selfbase/shared-types/out/constants'
 import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
@@ -110,7 +110,6 @@ export const QueuesSettings = () => {
 
   const { mutate: toggleExposeQueuePostgrest } = useDatabaseQueueToggleExposeMutation({
     onSuccess: (_, values) => {
-      if (!IS_PLATFORM) return onPostgrestConfigUpdateSuccess()
       if (project && config) {
         if (values.enable) {
           const updatedSchemas = schemas.concat([QUEUES_SCHEMA])
@@ -215,7 +214,7 @@ export const QueuesSettings = () => {
                             <p className="max-w-2xl">
                               When enabled, you will be able to use the following functions from the{' '}
                               <code className="text-code-inline">{QUEUES_SCHEMA}</code> schema to
-                              manage your queues via any Supabase client library or PostgREST
+                              manage your queues via any Selfbase client library or PostgREST
                               endpoints:
                             </p>
                             <p className="mt-2">
@@ -226,20 +225,6 @@ export const QueuesSettings = () => {
                               <code className="text-code-inline">archive</code>, and{' '}
                               <code className="text-code-inline">delete</code>
                             </p>
-                            {!IS_PLATFORM ? (
-                              <div className="mt-6 max-w-2xl">
-                                When running Supabase locally with the CLI or self-hosting using
-                                Docker Compose, you also need to update your configuration to expose
-                                the <code className="text-code-inline">{QUEUES_SCHEMA}</code>{' '}
-                                schema.
-                                <br />
-                                <InlineLink
-                                  href={`${DOCS_URL}/guides/queues/expose-self-hosted-queues`}
-                                >
-                                  Learn more
-                                </InlineLink>
-                              </div>
-                            ) : null}
                           </>
                         }
                       >
@@ -297,7 +282,7 @@ export const QueuesSettings = () => {
                           <p className="text-foreground-light">
                             Database functions will be created in the{' '}
                             <code className="text-code-inline">{QUEUES_SCHEMA}</code> schema upon
-                            enabling. Call these functions via any Supabase client library or
+                            enabling. Call these functions via any Selfbase client library or
                             PostgREST endpoint to manage your queues. Permissions on individual
                             queues can also be further managed through privileges and row level
                             security (RLS).

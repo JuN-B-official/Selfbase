@@ -130,8 +130,8 @@ export const AwsMarketplaceLinkExistingOrg = ({
         <ScaffoldSectionDetail className="text-base">
           <>
             <p>
-              You’ve subscribed to the Supabase {onboardingInfo?.plan_name_selected_on_marketplace}{' '}
-              Plan via the AWS Marketplace. As a final step, you need to link a Supabase
+              You’ve subscribed to the Selfbase {onboardingInfo?.plan_name_selected_on_marketplace}{' '}
+              Plan via the AWS Marketplace. As a final step, you need to link a Selfbase
               organization to that subscription. Select the organization you want to be managed and
               billed through AWS.
             </p>

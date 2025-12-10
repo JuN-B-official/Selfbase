@@ -28,7 +28,7 @@ export function parseSourcesFromContent(content: string): {
       if (path && path.startsWith('/')) {
         sources.push({
           path,
-          url: `https://supabase.com/docs${path}`,
+          url: `https://selfbase.com/docs${path}`,
         })
       }
     }

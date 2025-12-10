@@ -1,10 +1,18 @@
 {
   "name": "password-based-auth-nextjs",
   "type": "registry:block",
-  "title": "Password Based Auth flow for Nextjs and Supabase",
-  "description": "Password Based Auth flow for Nextjs and Supabase",
-  "registryDependencies": ["button", "card", "input", "label"],
-  "dependencies": ["@supabase/ssr@latest", "@supabase/supabase-js@latest"],
+  "title": "Password Based Auth flow for Nextjs and Selfbase",
+  "description": "Password Based Auth flow for Nextjs and Selfbase",
+  "registryDependencies": [
+    "button",
+    "card",
+    "input",
+    "label"
+  ],
+  "dependencies": [
+    "@selfbase/ssr@latest",
+    "@selfbase/selfbase-js@latest"
+  ],
   "files": [
     {
       "path": "registry/default/blocks/password-based-auth-nextjs/app/auth/login/page.tsx",

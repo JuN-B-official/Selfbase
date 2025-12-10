@@ -1,4 +1,4 @@
-import { PermissionAction } from '@supabase/shared-types/out/constants'
+import { PermissionAction } from '@selfbase/shared-types/out/constants'
 import { Search } from 'lucide-react'
 import { useRouter } from 'next/router'
 import { parseAsBoolean, parseAsJson, useQueryState } from 'nuqs'
@@ -315,7 +315,7 @@ const FunctionsList = () => {
                         side: 'bottom',
                         text: !canCreateFunctions
                           ? 'You need additional permissions to create functions'
-                          : 'Create with Supabase Assistant',
+                          : 'Create with Selfbase Assistant',
                       },
                     }}
                   />

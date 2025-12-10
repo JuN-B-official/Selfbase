@@ -13,7 +13,7 @@ const ContentFile = ({ projectKeys }: ContentFileProps) => {
     <ConnectTabs>
       <ConnectTabTriggers>
         <ConnectTabTrigger value="environments/environment.ts" />
-        <ConnectTabTrigger value="src/app/supabase.service.ts" />
+        <ConnectTabTrigger value="src/app/selfbase.service.ts" />
         <ConnectTabTrigger value="src/app/app.component.ts" />
         <ConnectTabTrigger value="src/app/app.component.html" />
         <ConnectTabTrigger value="src/app/app.module.ts" />
@@ -23,34 +23,34 @@ const ContentFile = ({ projectKeys }: ContentFileProps) => {
         <SimpleCodeBlock className="ts" parentClassName="min-h-72">
           {`
 export const environment = {
-  supabaseUrl: '${projectKeys.apiUrl ?? 'your-project-url'}',
-  supabaseKey: '${projectKeys.publishableKey ?? '<prefer publishable key instead of anon key for mobile apps>'}',
+  selfbaseUrl: '${projectKeys.apiUrl ?? 'your-project-url'}',
+  selfbaseKey: '${projectKeys.publishableKey ?? '<prefer publishable key instead of anon key for mobile apps>'}',
 };
 `}
         </SimpleCodeBlock>
       </ConnectTabContent>
 
-      <ConnectTabContent value="src/app/supabase.service.ts">
+      <ConnectTabContent value="src/app/selfbase.service.ts">
         <SimpleCodeBlock className="ts" parentClassName="min-h-72">
           {`
 import { Injectable } from '@angular/core';
-import { createClient, SupabaseClient } from '@supabase/supabase-js';
+import { createClient, SelfbaseClient } from '@selfbase/selfbase-js';
 import { environment } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
-export class SupabaseService {
-  private supabase: SupabaseClient;
+export class SelfbaseService {
+  private selfbase: SelfbaseClient;
   constructor() {
-    this.supabase = createClient(
-      environment.supabaseUrl,
-      environment.supabaseKey
+    this.selfbase = createClient(
+      environment.selfbaseUrl,
+      environment.selfbaseKey
     );
   }
 
   getTodos() {
-    return this.supabase.from('todos').select('*');
+    return this.selfbase.from('todos').select('*');
   }
 }
 `}
@@ -61,7 +61,7 @@ export class SupabaseService {
         <SimpleCodeBlock className="ts" parentClassName="min-h-72">
           {`
 import { Component, OnInit } from '@angular/core';
-import { SupabaseService } from './supabase.service';
+import { SelfbaseService } from './selfbase.service';
 
 @Component({
   selector: 'app-root',
@@ -71,14 +71,14 @@ import { SupabaseService } from './supabase.service';
 export class AppComponent implements OnInit {
   todos: any[] = [];
 
-  constructor(private supabaseService: SupabaseService) {}
+  constructor(private selfbaseService: SelfbaseService) {}
 
   async ngOnInit() {
     await this.loadTodos();
   }
 
   async loadTodos() {
-    const { data, error } = await this.supabaseService.getTodos();
+    const { data, error } = await this.selfbaseService.getTodos();
     if (error) {
       console.error('Error fetching todos:', error);
     } else {
@@ -121,7 +121,7 @@ import { RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { AppComponent } from './app.component';
-import { SupabaseService } from './supabase.service';
+import { SelfbaseService } from './selfbase.service';
 
 @NgModule({
   imports: [
@@ -131,7 +131,7 @@ import { SupabaseService } from './supabase.service';
     IonicModule.forRoot({ mode: 'ios' }),
   ],
   declarations: [AppComponent],
-  providers: [SupabaseService],
+  providers: [SelfbaseService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

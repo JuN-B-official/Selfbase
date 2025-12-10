@@ -41,7 +41,7 @@ const DownloadSnippetModal = ({ id, ...props }: DownloadSnippetModalProps) => {
       label: 'Seed file',
       title: 'Download as seed file',
       description:
-        'If your query consists of sample data, append the snippet to the end of `supabase/seed.sql`',
+        'If your query consists of sample data, append the snippet to the end of `selfbase/seed.sql`',
       cli: generateSeedCliCommand(id),
       npm: generateSeedCliCommand(id, true),
     },
@@ -60,7 +60,7 @@ const DownloadSnippetModal = ({ id, ...props }: DownloadSnippetModalProps) => {
       hideFooter
       showCloseButton
       size="xlarge"
-      header={<p>Download snippet as local migration file via the Supabase CLI.</p>}
+      header={<p>Download snippet as local migration file via the Selfbase CLI.</p>}
       {...props}
     >
       <div className="flex flex-col items-start justify-between gap-4 relative pt-2">

@@ -1,4 +1,4 @@
-import { LOAD_TAB_FROM_CACHE_PARAM } from 'components/grid/SupabaseGrid.utils'
+import { LOAD_TAB_FROM_CACHE_PARAM } from 'components/grid/SelfbaseGrid.utils'
 import { DiamondIcon, ExternalLink, Fingerprint, Hash, Key, Table2 } from 'lucide-react'
 import Link from 'next/link'
 import { Handle, NodeProps } from 'reactflow'

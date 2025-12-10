@@ -1,4 +1,4 @@
-import { PostgresPolicy } from '@supabase/postgres-meta'
+import { PostgresPolicy } from '@selfbase/postgres-meta'
 import { Search } from 'lucide-react'
 import { useState } from 'react'
 import { Badge, HoverCard, HoverCardContent, HoverCardTrigger, Input, cn } from 'ui'
@@ -45,10 +45,10 @@ export const PolicyTemplates = ({
   const filteredTemplates =
     search.length > 0
       ? baseTemplates.filter(
-          (template) =>
-            template.name.toLowerCase().includes(search.toLowerCase()) ||
-            template.command.toLowerCase().includes(search.toLowerCase())
-        )
+        (template) =>
+          template.name.toLowerCase().includes(search.toLowerCase()) ||
+          template.command.toLowerCase().includes(search.toLowerCase())
+      )
       : baseTemplates
 
   return (

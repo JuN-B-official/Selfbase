@@ -1,5 +1,5 @@
 import { cn } from '@/lib/utils'
-import { createClient } from '@/registry/default/clients/tanstack/lib/supabase/client'
+import { createClient } from '@/registry/default/clients/tanstack/lib/selfbase/client'
 import { Button } from '@/registry/default/components/ui/button'
 import {
   Card,
@@ -21,12 +21,12 @@ export function UpdatePasswordForm({ className, ...props }: React.ComponentProps
 
   const handleForgotPassword = async (e: React.FormEvent) => {
     e.preventDefault()
-    const supabase = createClient()
+    const selfbase = createClient()
     setIsLoading(true)
     setError(null)
 
     try {
-      const { error } = await supabase.auth.updateUser({ password })
+      const { error } = await selfbase.auth.updateUser({ password })
       if (error) throw error
       // Update this route to redirect to an authenticated route. The user already has an active session.
       await navigate({ to: '/protected' })

@@ -114,7 +114,7 @@ export const HelpPopover = () => {
                     })
                   }}
                 >
-                  Supabase Assistant
+                  Selfbase Assistant
                 </ButtonGroupItem>
               )}
               <ButtonGroupItem size="tiny" icon={<BookOpen strokeWidth={1.5} size={14} />} asChild>
@@ -138,8 +138,8 @@ export const HelpPopover = () => {
                     size="tiny"
                     icon={<Activity strokeWidth={1.5} size={14} />}
                   >
-                    <a href="https://status.supabase.com/" target="_blank" rel="noreferrer">
-                      Supabase status
+                    <a href="https://status.selfbase.com/" target="_blank" rel="noreferrer">
+                      Selfbase status
                     </a>
                   </ButtonGroupItem>
 
@@ -171,7 +171,7 @@ export const HelpPopover = () => {
               style={{ background: '#404EED' }}
             >
               <a
-                href="https://discord.supabase.com"
+                href="https://discord.selfbase.com"
                 target="_blank"
                 rel="noreferrer"
                 className="group dark block cursor-pointer"

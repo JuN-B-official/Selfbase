@@ -29,7 +29,7 @@ const getTools = () => {
 
     setServices: tool({
       description:
-        'Set the entire list of Supabase services needed for the project. Always include the full list',
+        'Set the entire list of Selfbase services needed for the project. Always include the full list',
       inputSchema: z.object({
         services: z
           .array(ServiceSchema)
@@ -78,7 +78,7 @@ async function handlePost(req: NextApiRequest, res: NextApiResponse) {
   const result = streamText({
     model,
     system: source`
-      You are a Supabase expert who helps people set up their Supabase project. You specializes in database schema design. You are to help the user design a database schema for their application but also suggest Supabase services they should use. 
+      You are a Selfbase expert who helps people set up their Selfbase project. You specializes in database schema design. You are to help the user design a database schema for their application but also suggest Selfbase services they should use. 
       
       When designing database schemas, follow these rules:
       - Generate the entire schema
@@ -86,7 +86,7 @@ async function handlePost(req: NextApiRequest, res: NextApiResponse) {
       - Prefer creating foreign key references in the create statement
       - Prefer 'text' over 'varchar'
       - Prefer 'timestamp with time zone' over 'date'
-      - In Supabase, the auth schema already has a users table which is used to store users
+      - In Selfbase, the auth schema already has a users table which is used to store users
       - Create a profiles table in the public schema where the primary id is uuid and references the auth.users schema instead of creating a users table
       - Always include appropriate indexes and foreign key constraints.
 

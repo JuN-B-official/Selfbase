@@ -1,4 +1,4 @@
-import { updateSession } from '@/registry/default/clients/nextjs/lib/supabase/middleware'
+import { updateSession } from '@/registry/default/clients/nextjs/lib/selfbase/middleware'
 import { type NextRequest } from 'next/server'
 
 export async function middleware(request: NextRequest) {

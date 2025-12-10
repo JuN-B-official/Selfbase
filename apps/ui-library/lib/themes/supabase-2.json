@@ -1,6 +1,6 @@
 {
-  "name": "Supabase Theme",
-  "displayName": "Supabase Theme",
+  "name": "Selfbase Theme",
+  "displayName": "Selfbase Theme",
   "semanticHighlighting": true,
   "colors": {
     "editor.background": "var(--background-surface-75) / 0.75",
@@ -14,141 +14,212 @@
   },
   "tokenColors": [
     {
-      "scope": ["comment", "punctuation.definition.comment", "string.comment"],
+      "scope": [
+        "comment",
+        "punctuation.definition.comment",
+        "string.comment"
+      ],
       "settings": {
         "foreground": "var(--code-token-comment)",
         "fontStyle": "italic"
       }
     },
     {
-      "scope": ["constant", "entity.name.constant", "variable.other.constant"],
+      "scope": [
+        "constant",
+        "entity.name.constant",
+        "variable.other.constant"
+      ],
       "settings": {
         "foreground": "var(--code-token-constant)"
       }
     },
     {
-      "scope": ["entity", "entity.name", "entity.name.type", "support.type"],
+      "scope": [
+        "entity",
+        "entity.name",
+        "entity.name.type",
+        "support.type"
+      ],
       "settings": {
         "foreground": "var(--code-token-function)"
       }
     },
     {
-      "scope": ["variable", "support.variable", "variable.parameter"],
+      "scope": [
+        "variable",
+        "support.variable",
+        "variable.parameter"
+      ],
       "settings": {
         "foreground": "var(--code-token-parameter)"
       }
     },
     {
-      "scope": ["keyword", "storage.type", "storage.modifier", "keyword.control"],
+      "scope": [
+        "keyword",
+        "storage.type",
+        "storage.modifier",
+        "keyword.control"
+      ],
       "settings": {
         "foreground": "var(--code-token-keyword)"
       }
     },
     {
-      "scope": ["string", "constant.other.symbol", "constant.other.key", "string.quoted"],
+      "scope": [
+        "string",
+        "constant.other.symbol",
+        "constant.other.key",
+        "string.quoted"
+      ],
       "settings": {
         "foreground": "var(--code-token-string)"
       }
     },
     {
-      "scope": ["support.function", "entity.name.function"],
+      "scope": [
+        "support.function",
+        "entity.name.function"
+      ],
       "settings": {
         "foreground": "var(--code-token-function)"
       }
     },
     {
-      "scope": ["punctuation", "punctuation.separator", "meta.brace", "punctuation.definition"],
+      "scope": [
+        "punctuation",
+        "punctuation.separator",
+        "meta.brace",
+        "punctuation.definition"
+      ],
       "settings": {
         "foreground": "var(--code-token-punctuation)"
       }
     },
     {
-      "scope": ["meta.tag", "declaration.tag", "markup.deleted"],
+      "scope": [
+        "meta.tag",
+        "declaration.tag",
+        "markup.deleted"
+      ],
       "settings": {
         "foreground": "var(--code-token-function)"
       }
     },
     {
-      "scope": ["markup.inserted"],
+      "scope": [
+        "markup.inserted"
+      ],
       "settings": {
         "foreground": "var(--code-token-string)"
       }
     },
     {
-      "scope": ["markup.changed"],
+      "scope": [
+        "markup.changed"
+      ],
       "settings": {
         "foreground": "var(--code-token-string-expression)"
       }
     },
     {
-      "scope": ["invalid", "invalid.deprecated"],
+      "scope": [
+        "invalid",
+        "invalid.deprecated"
+      ],
       "settings": {
         "foreground": "var(--code-foreground)",
         "background": "var(--code-token-comment)"
       }
     },
     {
-      "scope": ["support.type.property-name"],
+      "scope": [
+        "support.type.property-name"
+      ],
       "settings": {
         "foreground": "var(--code-token-property)"
       }
     },
     {
-      "scope": ["entity.other.attribute-name"],
+      "scope": [
+        "entity.other.attribute-name"
+      ],
       "settings": {
         "foreground": "var(--code-token-property)"
       }
     },
     {
-      "scope": ["meta.object-literal.key"],
+      "scope": [
+        "meta.object-literal.key"
+      ],
       "settings": {
         "foreground": "var(--code-token-property)"
       }
     },
     {
-      "scope": ["entity.other.attribute-name", "entity.other.inherited-class"],
+      "scope": [
+        "entity.other.attribute-name",
+        "entity.other.inherited-class"
+      ],
       "settings": {
         "foreground": "var(--code-token-property)"
       }
     },
     {
-      "scope": ["storage", "storage.type", "storage.modifier"],
+      "scope": [
+        "storage",
+        "storage.type",
+        "storage.modifier"
+      ],
       "settings": {
         "foreground": "var(--code-token-keyword)"
       }
     },
     {
-      "scope": ["support.class"],
+      "scope": [
+        "support.class"
+      ],
       "settings": {
         "foreground": "var(--code-token-function)"
       }
     },
     {
-      "scope": ["constant.language"],
+      "scope": [
+        "constant.language"
+      ],
       "settings": {
         "foreground": "var(--code-token-constant)"
       }
     },
     {
-      "scope": ["meta.embedded"],
+      "scope": [
+        "meta.embedded"
+      ],
       "settings": {
         "foreground": "var(--code-token-string-expression)"
       }
     },
     {
-      "scope": ["meta.function-call"],
+      "scope": [
+        "meta.function-call"
+      ],
       "settings": {
         "foreground": "var(--code-token-function)"
       }
     },
     {
-      "scope": ["meta.method-call"],
+      "scope": [
+        "meta.method-call"
+      ],
       "settings": {
         "foreground": "var(--code-token-function)"
       }
     },
     {
-      "scope": ["meta.return-type"],
+      "scope": [
+        "meta.return-type"
+      ],
       "settings": {
         "foreground": "var(--code-token-keyword)"
       }
@@ -174,31 +245,41 @@
       }
     },
     {
-      "scope": ["meta.var.expr"],
+      "scope": [
+        "meta.var.expr"
+      ],
       "settings": {
         "foreground": "var(--code-token-variable)"
       }
     },
     {
-      "scope": ["meta.block"],
+      "scope": [
+        "meta.block"
+      ],
       "settings": {
         "foreground": "var(--code-foreground)"
       }
     },
     {
-      "scope": ["meta.delimiter.period"],
+      "scope": [
+        "meta.delimiter.period"
+      ],
       "settings": {
         "foreground": "var(--code-foreground)"
       }
     },
     {
-      "scope": ["meta.brace.round"],
+      "scope": [
+        "meta.brace.round"
+      ],
       "settings": {
         "foreground": "var(--code-foreground)"
       }
     },
     {
-      "scope": ["meta.paren.expr"],
+      "scope": [
+        "meta.paren.expr"
+      ],
       "settings": {
         "foreground": "var(--code-foreground)"
       }

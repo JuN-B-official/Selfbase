@@ -1,4 +1,4 @@
-import { PermissionAction } from '@supabase/shared-types/out/constants'
+import { PermissionAction } from '@selfbase/shared-types/out/constants'
 import dayjs from 'dayjs'
 import { Ban, Check, Copy, Mail, ShieldOff, Trash, X } from 'lucide-react'
 import Link from 'next/link'
@@ -296,9 +296,9 @@ export const UserOverview = ({ user, onDeleteSuccess }: UserOverviewProps) => {
                 success={
                   successAction === 'send_recovery'
                     ? {
-                        title: 'Password recovery sent',
-                        description: `The link in the email is valid for ${formattedExpiry}`,
-                      }
+                      title: 'Password recovery sent',
+                      description: `The link in the email is valid for ${formattedExpiry}`,
+                    }
                     : undefined
                 }
               />
@@ -321,11 +321,11 @@ export const UserOverview = ({ user, onDeleteSuccess }: UserOverviewProps) => {
                 success={
                   successAction === 'send_magic_link'
                     ? {
-                        title: isVerified ? 'Magic link sent' : 'Confirmation email sent',
-                        description: isVerified
-                          ? `The link in the email is valid for ${formattedExpiry}`
-                          : 'The confirmation email has been sent to the user',
-                      }
+                      title: isVerified ? 'Magic link sent' : 'Confirmation email sent',
+                      description: isVerified
+                        ? `The link in the email is valid for ${formattedExpiry}`
+                        : 'The confirmation email has been sent to the user',
+                    }
                     : undefined
                 }
               />
@@ -347,9 +347,9 @@ export const UserOverview = ({ user, onDeleteSuccess }: UserOverviewProps) => {
               success={
                 successAction === 'send_otp'
                   ? {
-                      title: 'OTP sent',
-                      description: `The link in the OTP SMS is valid for ${formattedExpiry}`,
-                    }
+                    title: 'OTP sent',
+                    description: `The link in the OTP SMS is valid for ${formattedExpiry}`,
+                  }
                   : undefined
               }
             />

@@ -1,13 +1,13 @@
-import { AuthClient, navigatorLock, User } from '@supabase/auth-js'
+import { AuthClient, navigatorLock, User } from '@selfbase/auth-js'
 
-export const STORAGE_KEY = process.env.NEXT_PUBLIC_STORAGE_KEY || 'supabase.dashboard.auth.token'
+export const STORAGE_KEY = process.env.NEXT_PUBLIC_STORAGE_KEY || 'selfbase.dashboard.auth.token'
 export const AUTH_DEBUG_KEY =
-  process.env.NEXT_PUBLIC_AUTH_DEBUG_KEY || 'supabase.dashboard.auth.debug'
+  process.env.NEXT_PUBLIC_AUTH_DEBUG_KEY || 'selfbase.dashboard.auth.debug'
 export const AUTH_DEBUG_PERSISTED_KEY =
-  process.env.NEXT_PUBLIC_AUTH_DEBUG_PERSISTED_KEY || 'supabase.dashboard.auth.debug.persist'
+  process.env.NEXT_PUBLIC_AUTH_DEBUG_PERSISTED_KEY || 'selfbase.dashboard.auth.debug.persist'
 export const AUTH_NAVIGATOR_LOCK_DISABLED_KEY =
   process.env.NEXT_PUBLIC_AUTH_NAVIGATOR_LOCK_KEY ||
-  'supabase.dashboard.auth.navigatorLock.disabled'
+  'selfbase.dashboard.auth.navigatorLock.disabled'
 
 /**
  * Catches errors thrown when accessing localStorage. Safari with certain
@@ -86,33 +86,33 @@ const logIndexedDB = (message: string, ...args: any[]) => {
       delete value.provider_token
     }
   })
-  ;(async () => {
-    try {
-      const db = await dbHandle
+    ; (async () => {
+      try {
+        const db = await dbHandle
 
-      if (!db) {
-        return
-      }
+        if (!db) {
+          return
+        }
 
-      const tx = db.transaction(['events'], 'readwrite')
-      tx.onerror = (event: any) => {
-        console.error('Failed to write to persisted auth debug log IndexedDB database', event)
+        const tx = db.transaction(['events'], 'readwrite')
+        tx.onerror = (event: any) => {
+          console.error('Failed to write to persisted auth debug log IndexedDB database', event)
+          dbHandle = Promise.resolve(null)
+        }
+
+        const events = tx.objectStore('events')
+
+        events.add({
+          m: message.replace(/^GoTrueClient@/i, ''),
+          a: copyArgs,
+          l: window.location.pathname,
+          t: tabId,
+        })
+      } catch (e: any) {
+        console.error('Failed to log to persisted auth debug log IndexedDB database', e)
         dbHandle = Promise.resolve(null)
       }
-
-      const events = tx.objectStore('events')
-
-      events.add({
-        m: message.replace(/^GoTrueClient@/i, ''),
-        a: copyArgs,
-        l: window.location.pathname,
-        t: tabId,
-      })
-    } catch (e: any) {
-      console.error('Failed to log to persisted auth debug log IndexedDB database', e)
-      dbHandle = Promise.resolve(null)
-    }
-  })()
+    })()
 }
 
 /**
@@ -138,7 +138,7 @@ async function debuggableNavigatorLock<R>(
   }
 
   const debugTimeout = setTimeout(() => {
-    ;(async () => {
+    ; (async () => {
       const bc = new BroadcastChannel('who-is-holding-the-lock')
       try {
         bc.postMessage({})

@@ -49,9 +49,9 @@ const ACTIONS = ['select', 'insert', 'update', 'delete']
 const ROLES = ['anon', 'authenticated', 'postgres', 'service_role']
 type Privileges = { select?: boolean; insert?: boolean; update?: boolean; delete?: boolean }
 
-interface QueueSettingsProps {}
+interface QueueSettingsProps { }
 
-export const QueueSettings = ({}: QueueSettingsProps) => {
+export const QueueSettings = ({ }: QueueSettingsProps) => {
   const { childId: name } = useParams()
   const { data: project } = useSelectedProjectQuery()
 
@@ -145,67 +145,67 @@ export const QueueSettings = ({}: QueueSettingsProps) => {
       await Promise.all([
         ...(revoke.length > 0
           ? [
-              revokePrivilege({
-                projectRef: project.ref,
-                connectionString: project.connectionString,
-                revokes: revoke.map((x) => ({
-                  grantee: x.role,
-                  privilegeType: x.action.toUpperCase(),
-                  relationId: queueTable.id,
-                })) as TablePrivilegesRevoke[],
-              }),
-            ]
+            revokePrivilege({
+              projectRef: project.ref,
+              connectionString: project.connectionString,
+              revokes: revoke.map((x) => ({
+                grantee: x.role,
+                privilegeType: x.action.toUpperCase(),
+                relationId: queueTable.id,
+              })) as TablePrivilegesRevoke[],
+            }),
+          ]
           : []),
         // Revoke select + insert on archive table only if role no longer has ANY perms on the queue table
         ...(rolesNoLongerHavingPerms.length > 0
           ? [
-              revokePrivilege({
-                projectRef: project.ref,
-                connectionString: project.connectionString,
-                revokes: [
-                  ...rolesNoLongerHavingPerms.map((x) => ({
-                    grantee: x,
-                    privilegeType: 'INSERT' as const,
-                    relationId: archiveTable.id,
-                  })),
-                  ...rolesNoLongerHavingPerms.map((x) => ({
-                    grantee: x,
-                    privilegeType: 'SELECT' as const,
-                    relationId: archiveTable.id,
-                  })),
-                ],
-              }),
-            ]
+            revokePrivilege({
+              projectRef: project.ref,
+              connectionString: project.connectionString,
+              revokes: [
+                ...rolesNoLongerHavingPerms.map((x) => ({
+                  grantee: x,
+                  privilegeType: 'INSERT' as const,
+                  relationId: archiveTable.id,
+                })),
+                ...rolesNoLongerHavingPerms.map((x) => ({
+                  grantee: x,
+                  privilegeType: 'SELECT' as const,
+                  relationId: archiveTable.id,
+                })),
+              ],
+            }),
+          ]
           : []),
         ...(grant.length > 0
           ? [
-              grantPrivilege({
-                projectRef: project.ref,
-                connectionString: project.connectionString,
-                grants: grant.map((x) => ({
-                  grantee: x.role,
-                  privilegeType: x.action.toUpperCase(),
-                  relationId: queueTable.id,
-                })) as TablePrivilegesGrant[],
-              }),
-              // Just grant select + insert on archive table as long as we're granting any perms to the queue table for the role
-              grantPrivilege({
-                projectRef: project.ref,
-                connectionString: project.connectionString,
-                grants: [
-                  ...rolesBeingGrantedPerms.map((x) => ({
-                    grantee: x,
-                    privilegeType: 'INSERT' as const,
-                    relationId: archiveTable.id,
-                  })),
-                  ...rolesBeingGrantedPerms.map((x) => ({
-                    grantee: x,
-                    privilegeType: 'SELECT' as const,
-                    relationId: archiveTable.id,
-                  })),
-                ],
-              }),
-            ]
+            grantPrivilege({
+              projectRef: project.ref,
+              connectionString: project.connectionString,
+              grants: grant.map((x) => ({
+                grantee: x.role,
+                privilegeType: x.action.toUpperCase(),
+                relationId: queueTable.id,
+              })) as TablePrivilegesGrant[],
+            }),
+            // Just grant select + insert on archive table as long as we're granting any perms to the queue table for the role
+            grantPrivilege({
+              projectRef: project.ref,
+              connectionString: project.connectionString,
+              grants: [
+                ...rolesBeingGrantedPerms.map((x) => ({
+                  grantee: x,
+                  privilegeType: 'INSERT' as const,
+                  relationId: archiveTable.id,
+                })),
+                ...rolesBeingGrantedPerms.map((x) => ({
+                  grantee: x,
+                  privilegeType: 'SELECT' as const,
+                  relationId: archiveTable.id,
+                })),
+              ],
+            }),
+          ]
           : []),
       ])
       toast.success('Successfully updated permissions')
@@ -263,7 +263,7 @@ export const QueueSettings = ({}: QueueSettingsProps) => {
               title="Queue permissions are only relevant if exposure through PostgREST has been enabled"
               description={
                 <>
-                  You may opt to manage your queues via any Supabase client libraries or PostgREST
+                  You may opt to manage your queues via any Selfbase client libraries or PostgREST
                   endpoints by enabling this in the{' '}
                   <Link
                     href={`/project/${project?.ref}/integrations/queues/settings`}

@@ -119,11 +119,11 @@ export const useFeaturePreviewModal = () => {
   const isFeaturePreviewReleasedToPublic = useCallback(
     (feature: (typeof FEATURE_PREVIEWS)[number]) => {
       switch (feature.key) {
-        case 'supabase-ui-branching-2-0':
+        case 'selfbase-ui-branching-2-0':
           return gitlessBranchingEnabled
-        case 'supabase-ui-advisor-rules':
+        case 'selfbase-ui-advisor-rules':
           return advisorRulesEnabled
-        case 'supabase-ui-preview-unified-logs':
+        case 'selfbase-ui-preview-unified-logs':
           return isUnifiedLogsPreviewAvailable
         default:
           return true

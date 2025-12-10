@@ -6,7 +6,7 @@ import { fileURLToPath } from 'node:url'
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 // Note: This is a build-time script, so we use the fallback URL directly
-const DOCS_URL = process.env.NEXT_PUBLIC_DOCS_URL || 'https://supabase.com/docs'
+const DOCS_URL = process.env.NEXT_PUBLIC_DOCS_URL || 'https://selfbase.com/docs'
 
 async function downloadGraphQLSchema() {
   const schemaEndpoint = `${DOCS_URL}/api/graphql`

@@ -369,7 +369,7 @@ const AIEditor = ({
       {isDiffMode ? (
         <div className="w-full h-full">
           <DiffEditor
-            theme="supabase"
+            theme="selfbase"
             language={language}
             original={diffValue.original}
             modified={diffValue.modified}
@@ -409,7 +409,7 @@ const AIEditor = ({
         <div className="w-full h-full relative">
           {/* [Joshen] Refactor: Use CodeEditor.tsx instead, reduce duplicate declaration of Editor */}
           <Editor
-            theme="supabase"
+            theme="selfbase"
             language={language}
             value={currentValue}
             options={defaultOptions}

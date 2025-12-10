@@ -1,4 +1,4 @@
-import { DatabaseUpgradeStatus } from '@supabase/shared-types/out/events'
+import { DatabaseUpgradeStatus } from '@selfbase/shared-types/out/events'
 import { useQuery, useQueryClient } from '@tanstack/react-query'
 import { useEffect } from 'react'
 
@@ -57,8 +57,8 @@ export const useProjectUpgradingStatusQuery = <TData = ProjectUpgradingStatusDat
         // Transited to UPGRADING state via client, but job not yet picked up
         (projectStatus === PROJECT_STATUS.UPGRADING &&
           data.databaseUpgradeStatus?.status !== DatabaseUpgradeStatus.Upgrading) ||
-        // Project currently getting upgraded
-        data.databaseUpgradeStatus?.status === DatabaseUpgradeStatus.Upgrading
+          // Project currently getting upgraded
+          data.databaseUpgradeStatus?.status === DatabaseUpgradeStatus.Upgrading
           ? 5000
           : false
 

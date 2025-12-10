@@ -1,4 +1,4 @@
-import { PermissionAction } from '@supabase/shared-types/out/constants'
+import { PermissionAction } from '@selfbase/shared-types/out/constants'
 
 import { TriggersList } from 'components/interfaces/Database/Triggers/TriggersList/TriggersList'
 import DatabaseLayout from 'components/layouts/DatabaseLayout/DatabaseLayout'

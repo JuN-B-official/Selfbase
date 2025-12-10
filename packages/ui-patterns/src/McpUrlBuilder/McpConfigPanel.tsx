@@ -1,135 +1,91 @@
 'use client'
 
-import React, { useMemo, useState } from 'react'
+import React, { useMemo } from 'react'
 import { cn, Separator, CodeBlock } from 'ui'
-
-import { ClientSelectDropdown } from './components/ClientSelectDropdown'
-import { McpConfigurationDisplay } from './components/McpConfigurationDisplay'
-import { McpConfigurationOptions } from './components/McpConfigurationOptions'
-import { FEATURE_GROUPS_NON_PLATFORM, FEATURE_GROUPS_PLATFORM, MCP_CLIENTS } from './constants'
-import type { McpClient, McpOnCopyCallback } from './types'
-import { getMcpUrl } from './utils/getMcpUrl'
-import { InfoTooltip } from '../info-tooltip'
 
 export interface McpConfigPanelProps {
   basePath: string
-  baseUrl?: string
   projectRef?: string
-  initialSelectedClient?: McpClient
-  onClientSelect?: (client: McpClient) => void
-  onCopyCallback: (type?: McpOnCopyCallback) => void
-  onInstallCallback?: () => void
+  onCopyCallback?: () => void
   theme?: 'light' | 'dark'
   className?: string
-  isPlatform: boolean // For docs this is controlled by state, for studio by environment variable
+  isPlatform: boolean
   apiUrl?: string
+  serviceKey?: string
+}
+
+// Selfbase: Generate MCP config with actual values
+function getSelfbaseMcpConfig(apiUrl: string, serviceKey: string) {
+  return {
+    mcpServers: {
+      'selfbase-mcp': {
+        command: 'npx',
+        args: [
+          '-y',
+          '@jun-b/selfbase-mcp@latest',
+          '--selfbase-url',
+          apiUrl || 'YOUR_SELFBASE_URL',
+          '--service-role-key',
+          serviceKey || 'YOUR_SERVICE_ROLE_KEY',
+        ],
+        env: {},
+      },
+    },
+  }
 }
 
 export function McpConfigPanel({
-  basePath,
-  projectRef,
-  initialSelectedClient,
-  onClientSelect,
-  onCopyCallback,
-  onInstallCallback,
   className,
-  theme = 'dark',
-  isPlatform,
   apiUrl,
+  serviceKey,
+  onCopyCallback,
 }: McpConfigPanelProps) {
-  const [readonly, setReadonly] = useState(false)
-  const [selectedFeatures, setSelectedFeatures] = useState<string[]>([])
-  const [selectedClient, setSelectedClient] = useState(initialSelectedClient ?? MCP_CLIENTS[0])
+  // Generate config with dynamic values
+  const clientConfig = useMemo(() => {
+    return getSelfbaseMcpConfig(apiUrl || '', serviceKey || '')
+  }, [apiUrl, serviceKey])
 
-  const supportedFeatures = isPlatform ? FEATURE_GROUPS_PLATFORM : FEATURE_GROUPS_NON_PLATFORM
-  const selectedFeaturesSupported = useMemo(() => {
-    return selectedFeatures.filter((feature) =>
-      supportedFeatures.some((group) => group.id === feature)
-    )
-  }, [selectedFeatures, supportedFeatures])
-
-  const { mcpUrl, clientConfig } = getMcpUrl({
-    projectRef,
-    isPlatform,
-    apiUrl,
-    readonly,
-    features: selectedFeaturesSupported,
-    selectedClient,
-  })
-
-  const handleClientChange = (clientKey: string) => {
-    const client = MCP_CLIENTS.find((c) => c.key === clientKey)
-    if (client) {
-      setSelectedClient(client)
-    }
-  }
-  React.useEffect(() => {
-    onClientSelect?.(selectedClient)
-  }, [selectedClient, onClientSelect])
+  const configString = JSON.stringify(clientConfig, null, 2)
 
   const innerPanelSpacing = 'px-4 py-3'
 
   return (
-    <div className={cn('space-y-6', className)}>
+    <div className={cn('space-y-4', className)}>
+      <div>
+        <p className="text-sm text-foreground-light mb-3">
+          Add the following configuration to your MCP client (Cursor, Claude Code, VS Code, etc.)
+        </p>
+      </div>
+
+      {/* Configuration */}
       <div className={cn('border rounded-lg')}>
-        <h3 className={innerPanelSpacing}>Options</h3>
+        <div className={innerPanelSpacing}>
+          <h3>Configuration</h3>
+        </div>
         <Separator />
-        <McpConfigurationOptions
-          className={innerPanelSpacing}
-          isPlatform={isPlatform}
-          readonly={readonly}
-          onReadonlyChange={setReadonly}
-          selectedFeatures={selectedFeaturesSupported}
-          onFeaturesChange={setSelectedFeatures}
-          featureGroups={isPlatform ? FEATURE_GROUPS_PLATFORM : FEATURE_GROUPS_NON_PLATFORM}
-        />
         <div className={innerPanelSpacing}>
           <CodeBlock
-            focusable={false}
-            title={
-              <div className="flex items-center gap-2">
-                Server URL
-                <InfoTooltip>
-                  {`MCP clients should support the Streamable HTTP transport${isPlatform ? ' and OAuth 2.1 with dynamic client registration' : ''}`}
-                </InfoTooltip>
-              </div>
-            }
+            language="json"
             hideLineNumbers
-            language="http"
-            className="max-h-64 overflow-y-auto"
-            onCopyCallback={() => onCopyCallback?.('url')}
+            className="max-h-80 overflow-y-auto"
+            onCopyCallback={onCopyCallback}
           >
-            {mcpUrl}
+            {configString}
           </CodeBlock>
         </div>
       </div>
-      <div className="flex flex-col gap-y-3">
-        <ClientSelectDropdown
-          label="Client"
-          clients={MCP_CLIENTS}
-          selectedClient={selectedClient}
-          onClientChange={handleClientChange}
-          basePath={basePath}
-          theme={theme}
-        />
-        <p className="text-xs text-foreground-lighter">
-          Configure your MCP client to connect with your Supabase project
+
+      {/* Instructions */}
+      <div className="text-xs text-foreground-lighter space-y-2">
+        <p>
+          <strong>File locations:</strong>
         </p>
-      </div>
-      <div className={cn('border rounded-lg')}>
-        <div className={innerPanelSpacing}>
-          <h3>Installation</h3>
-        </div>
-        <Separator />
-        <McpConfigurationDisplay
-          className={innerPanelSpacing}
-          theme={theme}
-          basePath={basePath}
-          selectedClient={selectedClient}
-          clientConfig={clientConfig}
-          onCopyCallback={onCopyCallback}
-          onInstallCallback={onInstallCallback}
-        />
+        <ul className="list-disc list-inside space-y-1 ml-2">
+          <li>Cursor: <code>.cursor/mcp.json</code></li>
+          <li>Claude Code: <code>.mcp.json</code></li>
+          <li>VS Code: <code>.vscode/mcp.json</code></li>
+          <li>Antigravity: <code>~/.gemini/antigravity/mcp_config.json</code></li>
+        </ul>
       </div>
     </div>
   )

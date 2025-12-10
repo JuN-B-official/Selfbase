@@ -1,4 +1,4 @@
-import type { JwtPayload } from '@supabase/supabase-js'
+import type { JwtPayload } from '@selfbase/selfbase-js'
 import { type User } from 'common/auth'
 import { gotrueClient } from 'common/gotrue'
 

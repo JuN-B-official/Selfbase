@@ -1,5 +1,5 @@
-import { PGTriggerCreate } from '@supabase/pg-meta/src/pg-meta-triggers'
-import type { PostgresTrigger } from '@supabase/postgres-meta'
+import { PGTriggerCreate } from '@selfbase/pg-meta/src/pg-meta-triggers'
+import type { PostgresTrigger } from '@selfbase/postgres-meta'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { toast } from 'sonner'
 
@@ -32,8 +32,8 @@ export const isEdgeFunction = ({
   restUrlTld?: string
   url: string
 }) =>
-  url.includes(`https://${ref}.functions.supabase.${restUrlTld}/`) ||
-  url.includes(`https://${ref}.supabase.${restUrlTld}/functions/`)
+  url.includes(`https://${ref}.functions.selfbase.${restUrlTld}/`) ||
+  url.includes(`https://${ref}.selfbase.${restUrlTld}/functions/`)
 
 export const EditHookPanel = ({ visible, selectedHook, onClose }: EditHookPanelProps) => {
   const { ref } = useParams()
@@ -130,7 +130,7 @@ export const EditHookPanel = ({ visible, selectedHook, onClose }: EditHookPanelP
     http_url: selectedHook?.function_args?.[0] ?? '',
     http_method: selectedHook?.function_args?.[1] ?? 'POST',
     function_type: isEdgeFunction({ ref, restUrlTld, url: selectedHook?.function_args?.[0] ?? '' })
-      ? 'supabase_function'
+      ? 'selfbase_function'
       : 'http_request',
     timeout_ms: Number(selectedHook?.function_args?.[4] ?? 5000),
   }
@@ -163,8 +163,8 @@ export const EditHookPanel = ({ visible, selectedHook, onClose }: EditHookPanelP
       } else if (!isValidHttpUrl(values.http_url)) {
         errors['http_url'] = 'Please provide a valid URL'
       }
-    } else if (values.function_type === 'supabase_function') {
-      // For Supabase Edge Functions
+    } else if (values.function_type === 'selfbase_function') {
+      // For Selfbase Edge Functions
       if (values.http_url.includes('undefined')) {
         errors['http_url'] = 'No edge functions available for selection'
       }
@@ -227,7 +227,7 @@ export const EditHookPanel = ({ visible, selectedHook, onClose }: EditHookPanelP
       table: selectedTable.name,
       schema: selectedTable.schema,
       function_name: 'http_request',
-      function_schema: 'supabase_functions',
+      function_schema: 'selfbase_functions',
       function_args: [
         values.http_url,
         values.http_method,
@@ -282,7 +282,7 @@ export const EditHookPanel = ({ visible, selectedHook, onClose }: EditHookPanelP
           )
         }
         className="hooks-sidepanel mr-0 transform transition-all duration-300 ease-in-out"
-        onConfirm={() => {}}
+        onConfirm={() => { }}
         onCancel={confirmOnClose}
         customFooter={
           <div className="flex w-full justify-end space-x-3 border-t border-default px-3 py-4">

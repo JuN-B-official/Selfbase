@@ -1,4 +1,4 @@
-import { SupportCategories } from '@supabase/shared-types/out/constants'
+import { SupportCategories } from '@selfbase/shared-types/out/constants'
 import { SupportLink } from 'components/interfaces/Support/SupportLink'
 import { PropsWithChildren } from 'react'
 

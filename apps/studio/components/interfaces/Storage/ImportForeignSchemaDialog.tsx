@@ -119,7 +119,7 @@ export const ImportForeignSchemaDialog = ({
         ...serverOptions,
       }
 
-      const targetSchemas = (formValues['supabase_target_schema'] || '')
+      const targetSchemas = (formValues['selfbase_target_schema'] || '')
         .split(',')
         .map((s) => s.trim())
 
@@ -133,7 +133,7 @@ export const ImportForeignSchemaDialog = ({
         formState: {
           ...formValues,
           server_name: serverName,
-          supabase_target_schema: uniq([...targetSchemas, values.targetSchema])
+          selfbase_target_schema: uniq([...targetSchemas, values.targetSchema])
             .filter(Boolean)
             .join(','),
         },

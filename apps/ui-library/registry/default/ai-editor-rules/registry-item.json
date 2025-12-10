@@ -3,7 +3,7 @@
   "name": "ai-editor-rules",
   "type": "registry:file",
   "title": "Prompt rules for AI Editors",
-  "description": "Prompts for working with Supabase using AI-powered IDE tools",
+  "description": "Prompts for working with Selfbase using AI-powered IDE tools",
   "registryDependencies": [],
   "dependencies": [],
   "files": [
@@ -28,9 +28,9 @@
       "target": "~/.cursor/rules/postgres-sql-style-guide.mdc"
     },
     {
-      "path": "registry/default/ai-editor-rules/writing-supabase-edge-functions.mdc",
+      "path": "registry/default/ai-editor-rules/writing-selfbase-edge-functions.mdc",
       "type": "registry:file",
-      "target": "~/.cursor/rules/writing-supabase-edge-functions.mdc"
+      "target": "~/.cursor/rules/writing-selfbase-edge-functions.mdc"
     },
     {
       "path": "registry/default/ai-editor-rules/use-realtime.mdc",

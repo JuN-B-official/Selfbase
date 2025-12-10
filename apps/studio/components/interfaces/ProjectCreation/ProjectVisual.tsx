@@ -6,7 +6,7 @@ import { SchemaVisualizer } from 'components/interfaces/SchemaVisualizer'
 import { BASE_PATH } from 'lib/constants'
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from 'ui'
 
-interface SupabaseService {
+interface SelfbaseService {
   name: 'Auth' | 'Storage' | 'Database' | 'Edge Function' | 'Cron' | 'Queues' | 'Vector'
   reason: string
 }
@@ -14,7 +14,7 @@ interface SupabaseService {
 interface ProjectVisualProps {
   sqlStatements: string[]
   showInfo: boolean
-  services: SupabaseService[]
+  services: SelfbaseService[]
   selectedRegion: {
     name: string
     location: { latitude: number; longitude: number }

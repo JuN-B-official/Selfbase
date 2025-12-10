@@ -1,4 +1,4 @@
-import { PermissionAction } from '@supabase/shared-types/out/constants'
+import { PermissionAction } from '@selfbase/shared-types/out/constants'
 import { isNull, partition } from 'lodash'
 import { AlertCircle, Search } from 'lucide-react'
 import { useEffect, useState } from 'react'
@@ -38,12 +38,12 @@ export const Extensions = () => {
     filterString.length === 0
       ? data ?? []
       : (data ?? []).filter((ext) => {
-          const nameMatchesSearch = ext.name.toLowerCase().includes(filterString.toLowerCase())
-          const searchTermsMatchesSearch = (SEARCH_TERMS[ext.name] || []).some((x) =>
-            x.includes(filterString.toLowerCase())
-          )
-          return nameMatchesSearch || searchTermsMatchesSearch
-        })
+        const nameMatchesSearch = ext.name.toLowerCase().includes(filterString.toLowerCase())
+        const searchTermsMatchesSearch = (SEARCH_TERMS[ext.name] || []).some((x) =>
+          x.includes(filterString.toLowerCase())
+        )
+        return nameMatchesSearch || searchTermsMatchesSearch
+      })
   const extensionsWithoutHidden = extensions.filter((ext) => !HIDDEN_EXTENSIONS.includes(ext.name))
   const [enabledExtensions, disabledExtensions] = partition(
     extensionsWithoutHidden,

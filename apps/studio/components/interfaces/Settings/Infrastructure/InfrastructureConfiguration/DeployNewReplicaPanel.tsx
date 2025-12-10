@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { useEffect, useMemo, useState } from 'react'
 import { toast } from 'sonner'
 
-import { SupportCategories } from '@supabase/shared-types/out/constants'
+import { SupportCategories } from '@selfbase/shared-types/out/constants'
 import { useParams } from 'common'
 import {
   calculateIOPSPrice,
@@ -114,11 +114,11 @@ const DeployNewReplicaPanel = ({
   const additionalCostThroughput =
     type === 'gp3'
       ? calculateThroughputPrice({
-          storageType: type as DiskType,
-          newThroughput: throughput_mbps ?? 0,
-          oldThroughput: 0,
-          numReplicas: 0,
-        }).newPrice
+        storageType: type as DiskType,
+        newThroughput: throughput_mbps ?? 0,
+        oldThroughput: 0,
+        numReplicas: 0,
+      }).newPrice
       : 0
 
   const [refetchInterval, setRefetchInterval] = useState<number | false>(false)
@@ -161,7 +161,7 @@ const DeployNewReplicaPanel = ({
   })
 
   const currentPgVersion = Number(
-    (project?.dbVersion ?? '').split('supabase-postgres-')[1]?.split('.')[0]
+    (project?.dbVersion ?? '').split('selfbase-postgres-')[1]?.split('.')[0]
   )
 
   const maxNumberOfReplicas = ['ci_micro', 'ci_small', 'ci_medium', 'ci_large'].includes(
@@ -200,8 +200,8 @@ const DeployNewReplicaPanel = ({
   const availableRegions =
     process.env.NEXT_PUBLIC_ENVIRONMENT === 'staging'
       ? AVAILABLE_REPLICA_REGIONS.filter((x) =>
-          ['SOUTHEAST_ASIA', 'CENTRAL_EU', 'EAST_US'].includes(x.key)
-        )
+        ['SOUTHEAST_ASIA', 'CENTRAL_EU', 'EAST_US'].includes(x.key)
+      )
       : AVAILABLE_REPLICA_REGIONS
 
   const onSubmit = async () => {
@@ -474,9 +474,9 @@ const DeployNewReplicaPanel = ({
                       <span translate="no">
                         {formatCurrency(
                           estComputeMonthlyCost +
-                            additionalCostDiskSize +
-                            Number(additionalCostIOPS) +
-                            Number(additionalCostThroughput)
+                          additionalCostDiskSize +
+                          Number(additionalCostIOPS) +
+                          Number(additionalCostThroughput)
                         )}
                         /month
                       </span>

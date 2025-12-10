@@ -43,7 +43,7 @@ const RenameQueryModal = ({
   const isSQLSnippet = snippet.type === 'sql'
   const { data: projectSettings } = useProjectSettingsV2Query({ projectRef: ref })
 
-  // Customers on HIPAA plans should not have access to Supabase AI
+  // Customers on HIPAA plans should not have access to Selfbase AI
   const hasHipaaAddon = subscriptionHasHipaaAddon(subscription) && projectSettings?.is_sensitive
 
   const { id, name, description } = snippet
@@ -159,7 +159,7 @@ const RenameQueryModal = ({
                       <div className="scale-75">
                         <AiIconAnimation loading={isTitleGenerationLoading} />
                       </div>
-                      <span>Rename with Supabase AI</span>
+                      <span>Rename with Selfbase AI</span>
                     </div>
                   </Button>
                 )}

@@ -1,10 +1,10 @@
-import { PermissionAction } from '@supabase/shared-types/out/constants'
+import { PermissionAction } from '@selfbase/shared-types/out/constants'
 import { partition, sortBy } from 'lodash'
 import { Plus, Search, X } from 'lucide-react'
 import { parseAsBoolean, useQueryState } from 'nuqs'
 import { useRef, useState } from 'react'
 
-import type { PostgresRole } from '@supabase/postgres-meta'
+import type { PostgresRole } from '@selfbase/postgres-meta'
 import { ButtonTooltip } from 'components/ui/ButtonTooltip'
 import { NoSearchResults } from 'components/ui/NoSearchResults'
 import SparkBar from 'components/ui/SparkBar'
@@ -63,7 +63,7 @@ export const RolesList = () => {
   const filteredRoles = (
     filterType === 'active' ? roles.filter((role) => role.activeConnections > 0) : roles
   ).filter((role) => role.name.includes(filterString))
-  const [supabaseRoles, otherRoles] = partition(filteredRoles, (role) =>
+  const [selfbaseRoles, otherRoles] = partition(filteredRoles, (role) =>
     SUPABASE_ROLES.includes(role.name as SUPABASE_ROLE)
   )
 
@@ -187,20 +187,20 @@ export const RolesList = () => {
       <div className="space-y-4">
         <div>
           <div className="bg-surface-100 border border-default px-4 md:px-6 py-3 rounded-t flex items-center space-x-4">
-            <p className="text-sm text-foreground-light">Roles managed by Supabase</p>
+            <p className="text-sm text-foreground-light">Roles managed by Selfbase</p>
             <Badge variant="success">Protected</Badge>
           </div>
 
           {isLoading
             ? Array.from({ length: 5 }).map((_, i) => <RoleRowSkeleton key={i} index={i} />)
-            : supabaseRoles.map((role) => (
-                <RoleRow
-                  disabled
-                  key={role.id}
-                  role={role}
-                  onSelectDelete={setSelectedRoleIdToDelete}
-                />
-              ))}
+            : selfbaseRoles.map((role) => (
+              <RoleRow
+                disabled
+                key={role.id}
+                role={role}
+                onSelectDelete={setSelectedRoleIdToDelete}
+              />
+            ))}
         </div>
 
         <div>
@@ -211,13 +211,13 @@ export const RolesList = () => {
           {isLoading
             ? Array.from({ length: 3 }).map((_, i) => <RoleRowSkeleton key={i} index={i} />)
             : otherRoles.map((role) => (
-                <RoleRow
-                  key={role.id}
-                  disabled={!canUpdateRoles}
-                  role={role}
-                  onSelectDelete={setSelectedRoleIdToDelete}
-                />
-              ))}
+              <RoleRow
+                key={role.id}
+                disabled={!canUpdateRoles}
+                role={role}
+                onSelectDelete={setSelectedRoleIdToDelete}
+              />
+            ))}
         </div>
       </div>
 

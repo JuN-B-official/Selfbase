@@ -160,7 +160,7 @@ export const CreateWrapperSheet = ({
         formState: {
           ...values,
           server_name: `${values.wrapper_name}_server`,
-          supabase_target_schema: selectedMode === 'schema' ? values.target_schema : undefined,
+          selfbase_target_schema: selectedMode === 'schema' ? values.target_schema : undefined,
         },
         mode:
           selectedMode === 'schema'

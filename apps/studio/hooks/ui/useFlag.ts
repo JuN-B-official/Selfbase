@@ -32,7 +32,7 @@ const isObjectEmpty = (obj: Object) => {
  *
  * @todo TODO(Alaister): move this to packages/common/feature-flags.tsx and rename to useFlag
  * @todo TODO(sean): Refactor to have explicit loading/disabled/value states
- *       See https://linear.app/supabase/issue/GROWTH-539
+ *       See https://linear.app/selfbase/issue/GROWTH-539
  */
 export function usePHFlag<T = string | boolean>(name: string) {
   const flagStore = useFeatureFlags()

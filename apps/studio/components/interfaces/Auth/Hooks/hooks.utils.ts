@@ -36,8 +36,8 @@ export const isValidHook = (h: Hook) => {
  */
 export const getRevokePermissionStatements = (schema: string, functionName: string): string[] => {
   return [
-    `-- Revoke access to function from supabase_auth_admin\nrevoke execute on function ${schema}.${functionName} from supabase_auth_admin;`,
-    `-- Revoke access to schema from supabase_auth_admin\nrevoke usage on schema ${schema} from supabase_auth_admin;`,
+    `-- Revoke access to function from selfbase_auth_admin\nrevoke execute on function ${schema}.${functionName} from selfbase_auth_admin;`,
+    `-- Revoke access to schema from selfbase_auth_admin\nrevoke usage on schema ${schema} from selfbase_auth_admin;`,
     `-- Restore function permissions to authenticated, anon and public\ngrant execute on function ${schema}.${functionName} to authenticated, anon, public;`,
   ]
 }

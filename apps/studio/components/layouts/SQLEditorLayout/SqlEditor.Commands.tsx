@@ -1,9 +1,9 @@
-import { type PostgresColumn } from '@supabase/postgres-meta'
+import { type PostgresColumn } from '@selfbase/postgres-meta'
 import { AlertTriangle, Code, Loader2, Table2 } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 import { useEffect, useMemo, useRef } from 'react'
 
-import { PermissionAction } from '@supabase/shared-types/out/constants'
+import { PermissionAction } from '@selfbase/shared-types/out/constants'
 import { useParams } from 'common'
 import { COMMAND_MENU_SECTIONS } from 'components/interfaces/App/CommandMenu/CommandMenu.utils'
 import { orderCommandSectionsByPriority } from 'components/interfaces/App/CommandMenu/ordering'
@@ -351,12 +351,11 @@ function TableSelector() {
 
 function generateSelectStatement(table: TablesData[number] & { columns?: Array<PostgresColumn> }) {
   return `
-select ${
-    !table.columns
+select ${!table.columns
       ? '*'
       : `
 ${table.columns.map((column, index, array) => `\t${column.name}`).join(',\n')}`
-  }
+    }
 from ${formatTableIdentifier(table)}
 -- where
 -- order by

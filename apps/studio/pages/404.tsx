@@ -6,7 +6,7 @@ import { Button } from 'ui'
 import { useTheme } from 'next-themes'
 import { BASE_PATH } from 'lib/constants'
 
-const Error404: NextPage = ({}) => {
+const Error404: NextPage = ({ }) => {
   const { resolvedTheme } = useTheme()
   const [show404, setShow404] = useState<boolean>(false)
 
@@ -26,10 +26,10 @@ const Error404: NextPage = ({}) => {
                 <Image
                   src={
                     resolvedTheme?.includes('dark')
-                      ? `${BASE_PATH}/img/supabase-dark.svg`
-                      : `${BASE_PATH}/img/supabase-light.svg`
+                      ? `${BASE_PATH}/img/selfbase-dark.svg`
+                      : `${BASE_PATH}/img/selfbase-light.svg`
                   }
-                  alt="supabase"
+                  alt="selfbase"
                   height={24}
                   width={120}
                 />
@@ -39,16 +39,14 @@ const Error404: NextPage = ({}) => {
         </nav>
       </div>
       <div
-        className={`absolute select-none opacity-[5%] filter transition duration-200 ${
-          show404 ? 'blur-sm' : 'blur-none'
-        }`}
+        className={`absolute select-none opacity-[5%] filter transition duration-200 ${show404 ? 'blur-sm' : 'blur-none'
+          }`}
       >
         <h1 style={{ fontSize: '28rem' }}>404</h1>
       </div>
       <div
-        className={`flex flex-col items-center justify-center space-y-6 transition ${
-          show404 ? 'opacity-100' : 'opacity-0'
-        }`}
+        className={`flex flex-col items-center justify-center space-y-6 transition ${show404 ? 'opacity-100' : 'opacity-0'
+          }`}
       >
         <div className="flex w-[380px] flex-col items-center justify-center space-y-3 text-center">
           <h3 className="text-xl">Looking for something? 🔍</h3>

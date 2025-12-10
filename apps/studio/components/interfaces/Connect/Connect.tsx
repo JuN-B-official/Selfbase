@@ -1,4 +1,4 @@
-import { PermissionAction } from '@supabase/shared-types/out/constants'
+import { PermissionAction } from '@selfbase/shared-types/out/constants'
 import { useParams } from 'common'
 import { ExternalLink, Plug } from 'lucide-react'
 import { parseAsBoolean, parseAsString, useQueryState } from 'nuqs'
@@ -218,9 +218,9 @@ export const Connect = () => {
   }
 
   const { data: apiKeys } = useAPIKeysQuery({ projectRef }, { enabled: canReadAPIKeys })
-  const { anonKey, publishableKey } = canReadAPIKeys
+  const { anonKey, publishableKey, serviceKey } = canReadAPIKeys
     ? getKeys(apiKeys)
-    : { anonKey: null, publishableKey: null }
+    : { anonKey: null, publishableKey: null, serviceKey: null }
 
   const projectKeys = useMemo(() => {
     const protocol = settings?.app_config?.protocol ?? 'https'
@@ -231,6 +231,7 @@ export const Connect = () => {
       apiUrl: apiHost ?? null,
       anonKey: anonKey?.api_key ?? null,
       publishableKey: publishableKey?.api_key ?? null,
+      serviceKey: serviceKey?.api_key ?? null,
     }
   }, [
     settings?.app_config?.protocol,
@@ -238,6 +239,7 @@ export const Connect = () => {
     canReadAPIKeys,
     anonKey?.api_key,
     publishableKey?.api_key,
+    serviceKey?.api_key,
   ])
 
   const filePath = getContentFilePath({
@@ -489,7 +491,7 @@ export const Connect = () => {
                   description={`
 \`anon\` and \`service_role\` API keys will be changing to \`publishable\` and \`secret\` API keys.
 `}
-                  href="https://github.com/orgs/supabase/discussions/29260"
+                  href="https://github.com/orgs/selfbase/discussions/29260"
                   buttonText="Read the announcement"
                 />
               </TabsContent_Shadcn_>

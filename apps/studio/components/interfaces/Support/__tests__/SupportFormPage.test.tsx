@@ -86,7 +86,7 @@ const { mockCommitSha, mockCommitTime, mockUseDeploymentCommitQuery } = vi.hoist
   }
 })
 
-const supportVersionInfo = `\n\n---\nSupabase Studio version: SHA ${mockCommitSha} deployed at ${dayjs(
+const supportVersionInfo = `\n\n---\nSelfbase Studio version: SHA ${mockCommitSha} deployed at ${dayjs(
   mockCommitTime
 ).format('YYYY-MM-DD HH:mm:ss Z')}`
 
@@ -184,7 +184,7 @@ const renderSupportFormPage = (options?: Parameters<typeof customRender>[1]) =>
 const getStatusLink = (screen: Screen) => {
   const statusLink = screen
     .getAllByRole('link')
-    .find((el) => el.getAttribute('href') === 'https://status.supabase.com/')
+    .find((el) => el.getAttribute('href') === 'https://status.selfbase.com/')
   expect(statusLink).toBeDefined()
   return statusLink
 }
@@ -408,7 +408,7 @@ describe('SupportFormPage', () => {
     addAPIMock({
       method: 'get',
       path: '/platform/auth/:ref/config',
-      response: { SITE_URL: 'https://supabase.com', URI_ALLOW_LIST: '' } as any,
+      response: { SITE_URL: 'https://selfbase.com', URI_ALLOW_LIST: '' } as any,
     })
 
     addAPIMock({
@@ -448,7 +448,7 @@ describe('SupportFormPage', () => {
     })
 
     mswServer.use(
-      http.get('http://localhost:3000/img/supabase-logo.svg', () => HttpResponse.text(''))
+      http.get('http://localhost:3000/img/selfbase-logo.svg', () => HttpResponse.text(''))
     )
   })
 
@@ -838,8 +838,8 @@ describe('SupportFormPage', () => {
       response: ({ params }) => {
         const { ref } = params as { ref: string }
         return HttpResponse.json({
-          SITE_URL: `https://${ref}.supabase.dev`,
-          URI_ALLOW_LIST: `https://${ref}.supabase.dev/redirect`,
+          SITE_URL: `https://${ref}.selfbase.dev`,
+          URI_ALLOW_LIST: `https://${ref}.selfbase.dev/redirect`,
         } as any)
       },
     })
@@ -898,8 +898,8 @@ describe('SupportFormPage', () => {
       allowSupportAccess: false,
       verified: true,
       tags: ['dashboard-support-form'],
-      siteUrl: 'https://project-2.supabase.dev',
-      additionalRedirectUrls: 'https://project-2.supabase.dev/redirect',
+      siteUrl: 'https://project-2.selfbase.dev',
+      additionalRedirectUrls: 'https://project-2.selfbase.dev/redirect',
       browserInformation: 'Chrome',
     })
     const expectedMessage = 'MFA challenge fails with an unknown error code' + supportVersionInfo
@@ -928,8 +928,8 @@ describe('SupportFormPage', () => {
       response: ({ params }) => {
         const { ref } = params as { ref: string }
         return HttpResponse.json({
-          SITE_URL: `https://${ref}.apps.supabase.co`,
-          URI_ALLOW_LIST: `https://${ref}.apps.supabase.co/auth`,
+          SITE_URL: `https://${ref}.apps.selfbase.co`,
+          URI_ALLOW_LIST: `https://${ref}.apps.selfbase.co/auth`,
         } as any)
       },
     })
@@ -999,13 +999,13 @@ describe('SupportFormPage', () => {
       allowSupportAccess: true,
       verified: true,
       tags: ['dashboard-support-form'],
-      siteUrl: 'https://project-3.apps.supabase.co',
-      additionalRedirectUrls: 'https://project-3.apps.supabase.co/auth',
+      siteUrl: 'https://project-3.apps.selfbase.co',
+      additionalRedirectUrls: 'https://project-3.apps.selfbase.co/auth',
       browserInformation: 'Chrome',
     })
     expect(payload.message).toBe(
       'Connections time out after 30 seconds\n\nError: Connection timeout detected' +
-        supportVersionInfo
+      supportVersionInfo
     )
 
     await waitFor(() => {
@@ -1036,7 +1036,7 @@ describe('SupportFormPage', () => {
     renderSupportFormPage()
 
     await waitFor(() => {
-      expect(screen.getByText('Try Supabase Assistant')).toBeInTheDocument()
+      expect(screen.getByText('Try Selfbase Assistant')).toBeInTheDocument()
     })
   })
 
@@ -1664,7 +1664,7 @@ describe('SupportFormPage', () => {
     expect(dashboardLogToggle).not.toBeChecked()
 
     await userEvent.type(getSummaryField(screen), 'Cannot access my account')
-    await userEvent.type(getMessageField(screen), 'I need help accessing my Supabase account')
+    await userEvent.type(getMessageField(screen), 'I need help accessing my Selfbase account')
 
     await userEvent.click(getSubmitButton(screen))
 
@@ -1685,7 +1685,7 @@ describe('SupportFormPage', () => {
       tags: ['dashboard-support-form'],
       browserInformation: 'Chrome',
     })
-    const expectedMessage = 'I need help accessing my Supabase account' + supportVersionInfo
+    const expectedMessage = 'I need help accessing my Selfbase account' + supportVersionInfo
     expect(payload.message).toBe(expectedMessage)
 
     await waitFor(() => {

@@ -3,16 +3,21 @@
   "name": "dropzone",
   "type": "registry:component",
   "title": "Dropzone (File Upload)",
-  "description": "Displays a control for easier uploading of files directly to Supabase Storage.",
-  "registryDependencies": ["button"],
-  "dependencies": ["react-dropzone", "lucide-react"],
+  "description": "Displays a control for easier uploading of files directly to Selfbase Storage.",
+  "registryDependencies": [
+    "button"
+  ],
+  "dependencies": [
+    "react-dropzone",
+    "lucide-react"
+  ],
   "files": [
     {
       "path": "registry/default/blocks/dropzone/components/dropzone.tsx",
       "type": "registry:component"
     },
     {
-      "path": "registry/default/blocks/dropzone/hooks/use-supabase-upload.ts",
+      "path": "registry/default/blocks/dropzone/hooks/use-selfbase-upload.ts",
       "type": "registry:hook"
     }
   ]

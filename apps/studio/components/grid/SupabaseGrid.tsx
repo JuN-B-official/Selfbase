@@ -26,7 +26,7 @@ import { useTableFilter } from './hooks/useTableFilter'
 import { useTableSort } from './hooks/useTableSort'
 import { validateMsSqlSorting } from './MsSqlValidation'
 
-export const SupabaseGrid = ({
+export const SelfbaseGrid = ({
   customHeader,
   gridProps,
   children,

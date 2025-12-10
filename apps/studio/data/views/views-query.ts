@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query'
 
-import { DEFAULT_PLATFORM_APPLICATION_NAME } from '@supabase/pg-meta/src/constants'
-import { PostgresView } from '@supabase/postgres-meta'
+import { DEFAULT_PLATFORM_APPLICATION_NAME } from '@selfbase/pg-meta/src/constants'
+import { PostgresView } from '@selfbase/postgres-meta'
 import { get, handleError } from 'data/fetchers'
 import type { ResponseError, UseCustomQueryOptions } from 'types'
 import { viewKeys } from './keys'

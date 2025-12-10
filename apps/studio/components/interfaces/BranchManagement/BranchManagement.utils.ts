@@ -7,7 +7,7 @@ import {
   PLAN_DETAILS,
 } from '../DiskManagement/ui/DiskManagement.constants'
 
-// Ref: https://supabase.com/docs/guides/platform/compute-and-disk
+// Ref: https://selfbase.com/docs/guides/platform/compute-and-disk
 const maxDiskForCompute = new Map([
   [10, instanceSizeSpecs.micro],
   [50, instanceSizeSpecs.small],
@@ -49,7 +49,7 @@ export const estimateDiskCost = (disk: DiskAttributesData['attributes']) => {
   const priceThroughput =
     diskType === DiskType.GP3 && 'throughput_mbps' in disk
       ? Math.max(disk.throughput_mbps - DISK_LIMITS[DiskType.GP3].includedThroughput, 0) *
-        DISK_PRICING[DiskType.GP3].throughput
+      DISK_PRICING[DiskType.GP3].throughput
       : 0
 
   return {

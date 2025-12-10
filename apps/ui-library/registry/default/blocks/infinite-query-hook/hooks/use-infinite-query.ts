@@ -1,53 +1,53 @@
 'use client'
 
-import { createClient } from '@/registry/default/fixtures/lib/supabase/client'
-import { PostgrestQueryBuilder, type PostgrestClientOptions } from '@supabase/postgrest-js'
-import { type SupabaseClient } from '@supabase/supabase-js'
+import { createClient } from '@/registry/default/fixtures/lib/selfbase/client'
+import { PostgrestQueryBuilder, type PostgrestClientOptions } from '@selfbase/postgrest-js'
+import { type SelfbaseClient } from '@selfbase/selfbase-js'
 import { useEffect, useRef, useSyncExternalStore } from 'react'
 
-const supabase = createClient()
+const selfbase = createClient()
 
-// The following types are used to make the hook type-safe. It extracts the database type from the supabase client.
-type SupabaseClientType = typeof supabase
+// The following types are used to make the hook type-safe. It extracts the database type from the selfbase client.
+type SelfbaseClientType = typeof selfbase
 
 // Utility type to check if the type is any
 type IfAny<T, Y, N> = 0 extends 1 & T ? Y : N
 
-// Extracts the database type from the supabase client. If the supabase client doesn't have a type, it will fallback properly.
+// Extracts the database type from the selfbase client. If the selfbase client doesn't have a type, it will fallback properly.
 type Database =
-  SupabaseClientType extends SupabaseClient<infer U>
-    ? IfAny<
-        U,
-        {
-          public: {
-            Tables: Record<string, any>
-            Views: Record<string, any>
-            Functions: Record<string, any>
-          }
-        },
-        U
-      >
-    : {
-        public: {
-          Tables: Record<string, any>
-          Views: Record<string, any>
-          Functions: Record<string, any>
-        }
+  SelfbaseClientType extends SelfbaseClient<infer U>
+  ? IfAny<
+    U,
+    {
+      public: {
+        Tables: Record<string, any>
+        Views: Record<string, any>
+        Functions: Record<string, any>
       }
+    },
+    U
+  >
+  : {
+    public: {
+      Tables: Record<string, any>
+      Views: Record<string, any>
+      Functions: Record<string, any>
+    }
+  }
 
 // Change this to the database schema you want to use
 type DatabaseSchema = Database['public']
 
 // Extracts the table names from the database type
-type SupabaseTableName = keyof DatabaseSchema['Tables']
+type SelfbaseTableName = keyof DatabaseSchema['Tables']
 
 // Extracts the table definition from the database type
-type SupabaseTableData<T extends SupabaseTableName> = DatabaseSchema['Tables'][T]['Row']
+type SelfbaseTableData<T extends SelfbaseTableName> = DatabaseSchema['Tables'][T]['Row']
 
 // Default client options for PostgrestQueryBuilder
 type DefaultClientOptions = PostgrestClientOptions
 
-type SupabaseSelectBuilder<T extends SupabaseTableName> = ReturnType<
+type SelfbaseSelectBuilder<T extends SelfbaseTableName> = ReturnType<
   PostgrestQueryBuilder<
     DefaultClientOptions,
     DatabaseSchema,
@@ -57,11 +57,11 @@ type SupabaseSelectBuilder<T extends SupabaseTableName> = ReturnType<
 >
 
 // A function that modifies the query. Can be used to sort, filter, etc. If .range is used, it will be overwritten.
-type SupabaseQueryHandler<T extends SupabaseTableName> = (
-  query: SupabaseSelectBuilder<T>
-) => SupabaseSelectBuilder<T>
+type SelfbaseQueryHandler<T extends SelfbaseTableName> = (
+  query: SelfbaseSelectBuilder<T>
+) => SelfbaseSelectBuilder<T>
 
-interface UseInfiniteQueryProps<T extends SupabaseTableName, Query extends string = '*'> {
+interface UseInfiniteQueryProps<T extends SelfbaseTableName, Query extends string = '*'> {
   // The table name to query
   tableName: T
   // The columns to select, defaults to `*`
@@ -69,7 +69,7 @@ interface UseInfiniteQueryProps<T extends SupabaseTableName, Query extends strin
   // The number of items to fetch per page, defaults to `20`
   pageSize?: number
   // A function that modifies the query. Can be used to sort, filter, etc. If .range is used, it will be overwritten.
-  trailingQuery?: SupabaseQueryHandler<T>
+  trailingQuery?: SelfbaseQueryHandler<T>
 }
 
 interface StoreState<TData> {
@@ -84,7 +84,7 @@ interface StoreState<TData> {
 
 type Listener = () => void
 
-function createStore<TData extends SupabaseTableData<T>, T extends SupabaseTableName>(
+function createStore<TData extends SelfbaseTableData<T>, T extends SelfbaseTableName>(
   props: UseInfiniteQueryProps<T>
 ) {
   const { tableName, columns = '*', pageSize = 20, trailingQuery } = props
@@ -115,9 +115,9 @@ function createStore<TData extends SupabaseTableData<T>, T extends SupabaseTable
 
     setState({ isFetching: true })
 
-    let query = supabase
+    let query = selfbase
       .from(tableName)
-      .select(columns, { count: 'exact' }) as unknown as SupabaseSelectBuilder<T>
+      .select(columns, { count: 'exact' }) as unknown as SelfbaseSelectBuilder<T>
 
     if (trailingQuery) {
       query = trailingQuery(query)
@@ -172,8 +172,8 @@ const initialState: any = {
 }
 
 function useInfiniteQuery<
-  TData extends SupabaseTableData<T>,
-  T extends SupabaseTableName = SupabaseTableName,
+  TData extends SelfbaseTableData<T>,
+  T extends SelfbaseTableName = SelfbaseTableName,
 >(props: UseInfiniteQueryProps<T>) {
   const storeRef = useRef(createStore<TData, T>(props))
 
@@ -213,8 +213,8 @@ function useInfiniteQuery<
 
 export {
   useInfiniteQuery,
-  type SupabaseQueryHandler,
-  type SupabaseTableData,
-  type SupabaseTableName,
+  type SelfbaseQueryHandler,
+  type SelfbaseTableData,
+  type SelfbaseTableName,
   type UseInfiniteQueryProps,
 }

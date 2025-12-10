@@ -75,7 +75,7 @@ const SignInLayout = ({
           router.push(getReturnToPath())
         }
       })
-      .catch(() => {}) // catch all errors thrown by auth methods
+      .catch(() => { }) // catch all errors thrown by auth methods
   }, [])
 
   const [quote, setQuote] = useState<{
@@ -110,21 +110,20 @@ const SignInLayout = ({
     <>
       <div className="relative flex flex-col bg-alternative min-h-screen">
         <div
-          className={`absolute top-0 w-full px-8 mx-auto sm:px-6 lg:px-8 ${
-            ongoingIncident ? 'mt-14' : 'mt-6'
-          }`}
+          className={`absolute top-0 w-full px-8 mx-auto sm:px-6 lg:px-8 ${ongoingIncident ? 'mt-14' : 'mt-6'
+            }`}
         >
           <nav className="relative flex items-center justify-between sm:h-10">
             <div className="flex items-center flex-grow flex-shrink-0 lg:flex-grow-0">
               <div className="flex items-center justify-between w-full md:w-auto">
-                <Link href={logoLinkToMarketingSite ? 'https://supabase.com' : '/organizations'}>
+                <Link href={logoLinkToMarketingSite ? 'https://selfbase.com' : '/organizations'}>
                   <img
                     src={
                       resolvedTheme?.includes('dark')
-                        ? `${BASE_PATH}/img/supabase-dark.svg`
-                        : `${BASE_PATH}/img/supabase-light.svg`
+                        ? `${BASE_PATH}/img/selfbase-dark.svg`
+                        : `${BASE_PATH}/img/selfbase-light.svg`
                     }
-                    alt="Supabase Logo"
+                    alt="Selfbase Logo"
                     className={largeLogo ? 'h-[48px]' : 'h-[24px]'}
                   />
                 </Link>
@@ -151,16 +150,16 @@ const SignInLayout = ({
             {showDisclaimer && showTos && (
               <div className="text-center text-balance">
                 <p className="text-xs text-foreground-lighter sm:mx-auto sm:max-w-sm">
-                  By continuing, you agree to Supabase’s{' '}
+                  By continuing, you agree to Selfbase’s{' '}
                   <Link
-                    href="https://supabase.com/terms"
+                    href="https://selfbase.com/terms"
                     className="underline hover:text-foreground-light"
                   >
                     Terms of Service
                   </Link>{' '}
                   and{' '}
                   <Link
-                    href="https://supabase.com/privacy"
+                    href="https://selfbase.com/privacy"
                     className="underline hover:text-foreground-light"
                   >
                     Privacy Policy
@@ -187,7 +186,7 @@ const SignInLayout = ({
                   className="flex items-center gap-4"
                 >
                   <img
-                    src={`https://supabase.com${quote.img_url}`}
+                    src={`https://selfbase.com${quote.img_url}`}
                     alt={quote.handle}
                     className="w-12 h-12 rounded-full"
                   />

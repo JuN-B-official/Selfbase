@@ -1,4 +1,4 @@
-import { PostgresTable } from '@supabase/postgres-meta'
+import { PostgresTable } from '@selfbase/postgres-meta'
 import { Key } from 'lucide-react'
 import DataGrid, { Column } from 'react-data-grid'
 

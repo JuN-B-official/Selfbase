@@ -1,5 +1,5 @@
-import type { OptimizedSearchColumns } from '@supabase/pg-meta/src/sql/studio/get-users-types'
-import { getUsersCountSQL } from '@supabase/pg-meta/src/sql/studio/get-users-count'
+import type { OptimizedSearchColumns } from '@selfbase/pg-meta/src/sql/studio/get-users-types'
+import { getUsersCountSQL } from '@selfbase/pg-meta/src/sql/studio/get-users-count'
 import { useQuery } from '@tanstack/react-query'
 
 import { executeSql, type ExecuteSqlError } from 'data/sql/execute-sql-query'

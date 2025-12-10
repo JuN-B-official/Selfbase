@@ -1,11 +1,11 @@
-import { Query } from '@supabase/pg-meta/src/query'
+import { Query } from '@selfbase/pg-meta/src/query'
 import {
   COUNT_ESTIMATE_SQL,
   THRESHOLD_COUNT,
-} from '@supabase/pg-meta/src/sql/studio/get-count-estimate'
+} from '@selfbase/pg-meta/src/sql/studio/get-count-estimate'
 import { QueryClient, useQuery, useQueryClient } from '@tanstack/react-query'
 
-import { parseSupaTable } from 'components/grid/SupabaseGrid.utils'
+import { parseSupaTable } from 'components/grid/SelfbaseGrid.utils'
 import type { Filter, SupaTable } from 'components/grid/types'
 import { prefetchTableEditor } from 'data/table-editor/table-editor-query'
 import { RoleImpersonationState, wrapWithRoleImpersonation } from 'lib/role-impersonation'

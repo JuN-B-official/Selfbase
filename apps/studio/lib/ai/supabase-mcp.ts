@@ -1,11 +1,11 @@
-import { createSupabaseMcpServer } from '@supabase/mcp-server-supabase'
-import { createSupabaseApiPlatform } from '@supabase/mcp-server-supabase/platform/api'
-import { StreamTransport } from '@supabase/mcp-utils'
+import { createSelfbaseMcpServer } from '@selfbase/mcp-server-selfbase'
+import { createSelfbaseApiPlatform } from '@selfbase/mcp-server-selfbase/platform/api'
+import { StreamTransport } from '@selfbase/mcp-utils'
 import { experimental_createMCPClient as createMCPClient } from 'ai'
 
 import { API_URL } from 'lib/constants'
 
-export async function createSupabaseMCPClient({
+export async function createSelfbaseMCPClient({
   accessToken,
   projectId,
 }: {
@@ -20,8 +20,8 @@ export async function createSupabaseMCPClient({
 
   // Instantiate the MCP server and connect to its transport
   const apiUrl = API_URL?.replace('/platform', '')
-  const server = createSupabaseMcpServer({
-    platform: createSupabaseApiPlatform({
+  const server = createSelfbaseMcpServer({
+    platform: createSelfbaseApiPlatform({
       accessToken,
       apiUrl,
     }),
@@ -33,7 +33,7 @@ export async function createSupabaseMCPClient({
 
   // Create the MCP client and connect to its transport
   const client = await createMCPClient({
-    name: 'supabase-studio',
+    name: 'selfbase-studio',
     transport: clientTransport,
   })
 

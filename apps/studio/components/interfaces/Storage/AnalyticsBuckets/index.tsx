@@ -77,7 +77,7 @@ export const AnalyticsBuckets = () => {
           <PageSectionContent className="flex flex-col gap-y-8">
             <AlphaNotice
               entity="Analytics buckets"
-              feedbackUrl="https://github.com/orgs/supabase/discussions/40116"
+              feedbackUrl="https://github.com/orgs/selfbase/discussions/40116"
             />
 
             {isLoadingBuckets && <GenericSkeletonLoader />}

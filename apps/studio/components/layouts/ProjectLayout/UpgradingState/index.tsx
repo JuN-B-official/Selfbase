@@ -1,4 +1,4 @@
-import { DatabaseUpgradeProgress, DatabaseUpgradeStatus } from '@supabase/shared-types/out/events'
+import { DatabaseUpgradeProgress, DatabaseUpgradeStatus } from '@selfbase/shared-types/out/events'
 import dayjs from 'dayjs'
 import {
   AlertCircle,
@@ -13,7 +13,7 @@ import {
 import { useSearchParams } from 'next/navigation'
 import { useState } from 'react'
 
-import { SupportCategories } from '@supabase/shared-types/out/constants'
+import { SupportCategories } from '@selfbase/shared-types/out/constants'
 import { useParams } from 'common'
 import { SupportLink } from 'components/interfaces/Support/SupportLink'
 import { useProjectUpgradingStatusQuery } from 'data/config/project-upgrade-status-query'
@@ -179,13 +179,12 @@ export const UpgradingState = () => {
                       style={{
                         translate: isExpanded
                           ? '0px 0px'
-                          : `0px ${
-                              (progressStage - 2 <= 0
-                                ? 0
-                                : progressStage > 6
-                                  ? 5
-                                  : progressStage - 2) * -28
-                            }px`,
+                          : `0px ${(progressStage - 2 <= 0
+                            ? 0
+                            : progressStage > 6
+                              ? 5
+                              : progressStage - 2) * -28
+                          }px`,
                       }}
                     >
                       {DATABASE_UPGRADE_MESSAGES.map((message, idx: number) => {
@@ -209,13 +208,12 @@ export const UpgradingState = () => {
                               <div className="flex items-center justify-center w-5 h-5 border rounded-full bg-overlay-hover" />
                             )}
                             <p
-                              className={`text-sm ${
-                                isCurrent
+                              className={`text-sm ${isCurrent
                                   ? 'text-foreground'
                                   : isCompleted
                                     ? 'text-foreground-light'
                                     : 'text-foreground-lighter'
-                              } hover:text-foreground transition`}
+                                } hover:text-foreground transition`}
                             >
                               {isCurrent
                                 ? message.progress

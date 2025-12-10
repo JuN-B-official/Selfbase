@@ -1,10 +1,16 @@
 {
   "name": "social-auth-nextjs",
   "type": "registry:block",
-  "title": "Social Auth flow for Nextjs and Supabase",
-  "description": "Social Auth flow for Nextjs and Supabase",
-  "registryDependencies": ["button", "card"],
-  "dependencies": ["@supabase/ssr@latest", "@supabase/supabase-js@latest"],
+  "title": "Social Auth flow for Nextjs and Selfbase",
+  "description": "Social Auth flow for Nextjs and Selfbase",
+  "registryDependencies": [
+    "button",
+    "card"
+  ],
+  "dependencies": [
+    "@selfbase/ssr@latest",
+    "@selfbase/selfbase-js@latest"
+  ],
   "files": [
     {
       "path": "registry/default/blocks/social-auth-nextjs/app/auth/login/page.tsx",

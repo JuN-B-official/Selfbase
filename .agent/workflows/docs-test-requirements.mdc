@@ -6,11 +6,11 @@ alwaysApply: false
 
 # Docs Test Requirements
 
-Rules for running tests in the docs application, ensuring proper Supabase setup and test execution.
+Rules for running tests in the docs application, ensuring proper Selfbase setup and test execution.
 
 <rule>
 name: docs_test_requirements
-description: Standards for running tests in the docs application with proper Supabase setup
+description: Standards for running tests in the docs application with proper Selfbase setup
 filters:
   # Match test files in the docs app
   - type: file_extension
@@ -26,19 +26,19 @@ actions:
     message: |
       Before running tests in the docs app:
 
-      1. Check Supabase status:
+      1. Check Selfbase status:
          ```bash
-         pnpm supabase status
+         pnpm selfbase status
          ```
 
-      2. If Supabase is not running:
+      2. If Selfbase is not running:
          ```bash
-         pnpm supabase start
+         pnpm selfbase start
          ```
 
       3. Reset the database to ensure clean state:
          ```bash
-         pnpm supabase db reset --local
+         pnpm selfbase db reset --local
          ```
 
       4. Run the tests:
@@ -47,7 +47,7 @@ actions:
          ```
 
       Important notes:
-      - Always ensure Supabase is running before tests
+      - Always ensure Selfbase is running before tests
       - Database must be reset to ensure clean state
       - Use test:local:unwatch to run tests without watch mode
       - Tests are located in apps/docs/**/*.{test,spec}.{ts,tsx}
@@ -59,11 +59,11 @@ examples:
       pnpm run -F docs test:local
 
       # Good: Proper test execution sequence
-      pnpm supabase status
-      pnpm supabase start  # if not running
-      pnpm supabase db reset --local
+      pnpm selfbase status
+      pnpm selfbase start  # if not running
+      pnpm selfbase db reset --local
       pnpm run -F docs test:local:unwatch
-    output: "Correctly executed docs tests with proper Supabase setup"
+    output: "Correctly executed docs tests with proper Selfbase setup"
 
 metadata:
   priority: high

@@ -1,5 +1,5 @@
 import { zodResolver } from '@hookform/resolvers/zod'
-import { PermissionAction } from '@supabase/shared-types/out/constants'
+import { PermissionAction } from '@selfbase/shared-types/out/constants'
 import { useQueryClient } from '@tanstack/react-query'
 import { DatabaseZap, DollarSign, GitMerge, Github, Loader2 } from 'lucide-react'
 import Image from 'next/image'
@@ -181,7 +181,7 @@ export const CreateBranchModal = () => {
 
   const { mutateAsync: checkGithubBranchValidity, isPending: isCheckingGHBranchValidity } =
     useCheckGithubBranchValidity({
-      onError: () => {},
+      onError: () => { },
     })
 
   const { mutate: createBranch, isPending: isCreatingBranch } = useBranchCreateMutation({

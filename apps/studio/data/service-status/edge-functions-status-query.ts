@@ -9,7 +9,7 @@ export type EdgeFunctionServiceStatusVariables = {
 
 export async function getEdgeFunctionServiceStatus(signal?: AbortSignal) {
   try {
-    const res = await fetch('https://obuldanrptloktxcffvn.supabase.co/functions/v1/health-check', {
+    const res = await fetch('https://obuldanrptloktxcffvn.selfbase.co/functions/v1/health-check', {
       method: 'GET',
       signal,
     })

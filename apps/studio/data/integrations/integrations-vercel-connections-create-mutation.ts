@@ -16,7 +16,7 @@ export async function createIntegrationVercelConnections({
       organization_integration_id: organizationIntegrationId,
       connection: {
         foreign_project_id: connection.foreign_project_id,
-        supabase_project_ref: connection.supabase_project_ref,
+        selfbase_project_ref: connection.selfbase_project_ref,
         metadata: connection.metadata,
       },
     },

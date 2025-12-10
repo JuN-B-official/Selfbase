@@ -15,7 +15,7 @@ export function OpenInV0Button({
       asChild
     >
       <a
-        href={`https://v0.dev/chat/api/open?url=https://supabase.com${process.env.NEXT_PUBLIC_BASE_PATH ?? ''}/r/${name}.json`}
+        href={`https://v0.dev/chat/api/open?url=https://selfbase.com${process.env.NEXT_PUBLIC_BASE_PATH ?? ''}/r/${name}.json`}
         target="_blank"
         rel="noreferrer"
       >

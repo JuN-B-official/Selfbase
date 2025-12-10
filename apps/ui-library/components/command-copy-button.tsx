@@ -20,7 +20,7 @@ export function CommandCopyButton({ command }: { command: string }) {
   const parseCommandForTelemetry = (cmd: string) => {
     // Extracts title and framework e.g. "title: password-based-auth, framework: nextjs"
     const match = cmd.match(
-      /(?:\/ui\/r\/|@supabase\/)(.+)-(nextjs|react-router|react|tanstack|vue|nuxtjs)(?:@[^@\s]+|\.json)?$/
+      /(?:\/ui\/r\/|@selfbase\/)(.+)-(nextjs|react-router|react|tanstack|vue|nuxtjs)(?:@[^@\s]+|\.json)?$/
     )
 
     const framework =
@@ -54,7 +54,7 @@ export function CommandCopyButton({ command }: { command: string }) {
         const { framework, packageManager, title } = parseCommandForTelemetry(command)
 
         sendTelemetryEvent({
-          action: 'supabase_ui_command_copy_button_clicked',
+          action: 'selfbase_ui_command_copy_button_clicked',
           properties: {
             templateTitle: title,
             command: command,

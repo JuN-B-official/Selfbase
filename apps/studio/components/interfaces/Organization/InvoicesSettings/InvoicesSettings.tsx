@@ -47,7 +47,7 @@ export const InvoicesSettings = () => {
     {
       slug,
     },
-    { enabled: selectedOrganization?.managed_by === 'supabase' }
+    { enabled: selectedOrganization?.managed_by === 'selfbase' }
   )
   const {
     data,
@@ -60,7 +60,7 @@ export const InvoicesSettings = () => {
       offset,
       limit: PAGE_LIMIT,
     },
-    { enabled: selectedOrganization?.managed_by === 'supabase' }
+    { enabled: selectedOrganization?.managed_by === 'selfbase' }
   )
   const invoices = data || []
 
@@ -79,7 +79,7 @@ export const InvoicesSettings = () => {
 
   if (
     selectedOrganization?.managed_by !== undefined &&
-    selectedOrganization?.managed_by !== 'supabase'
+    selectedOrganization?.managed_by !== 'selfbase'
   ) {
     return (
       <PartnerManagedResource
@@ -185,9 +185,8 @@ export const InvoicesSettings = () => {
                     <p className="text-sm opacity-50">
                       {isErrorCount
                         ? 'Failed to retrieve total number of invoices'
-                        : `Showing ${offset + 1} to ${
-                            offset + invoices.length
-                          } out of ${count} invoices`}
+                        : `Showing ${offset + 1} to ${offset + invoices.length
+                        } out of ${count} invoices`}
                     </p>
                     <div className="flex items-center space-x-2">
                       <Button

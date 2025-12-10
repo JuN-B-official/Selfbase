@@ -1,4 +1,4 @@
-import type { OAuthClient } from '@supabase/supabase-js'
+import type { OAuthClient } from '@selfbase/selfbase-js'
 import { Edit, MoreVertical, Plus, RotateCw, Search, Trash, X } from 'lucide-react'
 import Link from 'next/link'
 import { parseAsBoolean, parseAsStringLiteral, useQueryState } from 'nuqs'

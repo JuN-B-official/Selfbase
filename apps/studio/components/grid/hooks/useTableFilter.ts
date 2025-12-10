@@ -1,6 +1,6 @@
 import { useCallback } from 'react'
 
-import { filtersToUrlParams, formatFilterURLParams } from 'components/grid/SupabaseGrid.utils'
+import { filtersToUrlParams, formatFilterURLParams } from 'components/grid/SelfbaseGrid.utils'
 import type { Filter } from 'components/grid/types'
 import { useTableEditorFiltersSort } from 'hooks/misc/useTableEditorFiltersSort'
 

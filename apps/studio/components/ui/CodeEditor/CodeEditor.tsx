@@ -232,7 +232,7 @@ const CodeEditor = ({
     <>
       <Editor
         path={id}
-        theme="supabase"
+        theme="selfbase"
         className={cn(className, 'monaco-editor')}
         value={value ?? undefined}
         language={language}

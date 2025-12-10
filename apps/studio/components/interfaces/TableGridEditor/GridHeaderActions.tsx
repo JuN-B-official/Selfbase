@@ -1,4 +1,4 @@
-import { PermissionAction } from '@supabase/shared-types/out/constants'
+import { PermissionAction } from '@selfbase/shared-types/out/constants'
 import { Lock, MousePointer2, PlusCircle, Unlock } from 'lucide-react'
 import Link from 'next/link'
 import { useState } from 'react'
@@ -102,7 +102,7 @@ export const GridHeaderActions = ({ table, isRefetching }: GridHeaderActionsProp
     connectionString: project?.connectionString,
   })
   const realtimePublication = (publications ?? []).find(
-    (publication) => publication.name === 'supabase_realtime'
+    (publication) => publication.name === 'selfbase_realtime'
   )
   const realtimeEnabledTables = realtimePublication?.tables ?? []
   const isRealtimeEnabled = realtimeEnabledTables.some((t) => t.id === table?.id)
@@ -181,8 +181,8 @@ export const GridHeaderActions = ({ table, isRefetching }: GridHeaderActionsProp
     const exists = realtimeEnabledTables.some((x) => x.id === table.id)
     const tables = !exists
       ? [`${table.schema}.${table.name}`].concat(
-          realtimeEnabledTables.map((t) => `${t.schema}.${t.name}`)
-        )
+        realtimeEnabledTables.map((t) => `${t.schema}.${t.name}`)
+      )
       : realtimeEnabledTables.filter((x) => x.id !== table.id).map((x) => `${x.schema}.${x.name}`)
 
     track('realtime_toggle_table_clicked', {

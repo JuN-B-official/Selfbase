@@ -1,4 +1,4 @@
-import { PermissionAction } from '@supabase/shared-types/out/constants'
+import { PermissionAction } from '@selfbase/shared-types/out/constants'
 import { useTheme } from 'next-themes'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -23,19 +23,19 @@ const SPEND_CAP_OPTIONS: {
   imageUrl: string
   imageUrlLight: string
 }[] = [
-  {
-    name: 'Spend cap enabled',
-    value: 'on',
-    imageUrl: `${BASE_PATH}/img/spend-cap-on.png`,
-    imageUrlLight: `${BASE_PATH}/img/spend-cap-on--light.png`,
-  },
-  {
-    name: 'Spend cap disabled',
-    value: 'off',
-    imageUrl: `${BASE_PATH}/img/spend-cap-off.png`,
-    imageUrlLight: `${BASE_PATH}/img/spend-cap-off--light.png`,
-  },
-]
+    {
+      name: 'Spend cap enabled',
+      value: 'on',
+      imageUrl: `${BASE_PATH}/img/spend-cap-on.png`,
+      imageUrlLight: `${BASE_PATH}/img/spend-cap-on--light.png`,
+    },
+    {
+      name: 'Spend cap disabled',
+      value: 'off',
+      imageUrl: `${BASE_PATH}/img/spend-cap-off.png`,
+      imageUrlLight: `${BASE_PATH}/img/spend-cap-off--light.png`,
+    },
+  ]
 
 const SpendCapSidePanel = () => {
   const { slug } = useParams()

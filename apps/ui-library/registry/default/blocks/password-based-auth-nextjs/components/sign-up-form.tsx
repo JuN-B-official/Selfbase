@@ -1,7 +1,7 @@
 'use client'
 
 import { cn } from '@/lib/utils'
-import { createClient } from '@/registry/default/clients/nextjs/lib/supabase/client'
+import { createClient } from '@/registry/default/clients/nextjs/lib/selfbase/client'
 import { Button } from '@/registry/default/components/ui/button'
 import {
   Card,
@@ -26,7 +26,7 @@ export function SignUpForm({ className, ...props }: React.ComponentPropsWithoutR
 
   const handleSignUp = async (e: React.FormEvent) => {
     e.preventDefault()
-    const supabase = createClient()
+    const selfbase = createClient()
     setIsLoading(true)
     setError(null)
 
@@ -37,7 +37,7 @@ export function SignUpForm({ className, ...props }: React.ComponentPropsWithoutR
     }
 
     try {
-      const { error } = await supabase.auth.signUp({
+      const { error } = await selfbase.auth.signUp({
         email,
         password,
         options: {

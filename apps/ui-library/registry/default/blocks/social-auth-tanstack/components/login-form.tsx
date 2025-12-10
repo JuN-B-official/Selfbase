@@ -1,5 +1,5 @@
 import { cn } from '@/lib/utils'
-import { createClient } from '@/registry/default/clients/tanstack/lib/supabase/client'
+import { createClient } from '@/registry/default/clients/tanstack/lib/selfbase/client'
 import { Button } from '@/registry/default/components/ui/button'
 import {
   Card,
@@ -16,12 +16,12 @@ export function LoginForm({ className, ...props }: React.ComponentPropsWithoutRe
 
   const handleSocialLogin = async (e: React.FormEvent) => {
     e.preventDefault()
-    const supabase = createClient()
+    const selfbase = createClient()
     setIsLoading(true)
     setError(null)
 
     try {
-      const { error } = await supabase.auth.signInWithOAuth({
+      const { error } = await selfbase.auth.signInWithOAuth({
         provider: 'github',
         options: {
           redirectTo: `${window.location.origin}/auth/oauth?next=/protected`,

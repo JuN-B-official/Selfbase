@@ -31,7 +31,7 @@ import {
   useTheme,
 } from '@graphiql/react'
 import { Fetcher } from '@graphiql/toolkit'
-import { PermissionAction } from '@supabase/shared-types/out/constants'
+import { PermissionAction } from '@selfbase/shared-types/out/constants'
 import { AlertTriangle, XIcon } from 'lucide-react'
 import { MouseEventHandler, useCallback, useEffect, useState } from 'react'
 
@@ -288,7 +288,7 @@ const GraphiQLInterface = ({ theme }: GraphiQLInterfaceProps) => {
                         type="button"
                         className={
                           activeSecondaryEditor === 'variables' &&
-                          editorToolsResize.hiddenElement !== 'second'
+                            editorToolsResize.hiddenElement !== 'second'
                             ? 'active text-sm'
                             : 'text-sm'
                         }
@@ -302,7 +302,7 @@ const GraphiQLInterface = ({ theme }: GraphiQLInterfaceProps) => {
                         type="button"
                         className={
                           activeSecondaryEditor === 'headers' &&
-                          editorToolsResize.hiddenElement !== 'second'
+                            editorToolsResize.hiddenElement !== 'second'
                             ? 'active text-sm'
                             : 'text-sm'
                         }
@@ -317,7 +317,7 @@ const GraphiQLInterface = ({ theme }: GraphiQLInterfaceProps) => {
                           type="button"
                           className={
                             activeSecondaryEditor === 'role-impersonation' &&
-                            editorToolsResize.hiddenElement !== 'second'
+                              editorToolsResize.hiddenElement !== 'second'
                               ? 'active text-sm'
                               : 'text-sm'
                           }

@@ -24,9 +24,9 @@ select
   net.${method === 'GET' ? 'http_get' : 'http_post'}(
       url:='${url}',
       headers:=jsonb_build_object(${headers
-        .filter((v) => v.name && v.value)
-        .map((v) => `'${v.name}', '${v.value}'`)
-        .join(', ')}), ${method === 'POST' && body ? `\n      body:='${body}',` : ''}
+      .filter((v) => v.name && v.value)
+      .map((v) => `'${v.name}', '${v.value}'`)
+      .join(', ')}), ${method === 'POST' && body ? `\n      body:='${body}',` : ''}
       timeout_milliseconds:=${timeout}
   );`
 }
@@ -95,10 +95,10 @@ export const parseCronJobCommand = (originalCommand: string, projectRef: string)
       const urlObject = new URL(url)
       searchParams = urlObject.search
       urlHash = urlObject.hash
-    } catch {}
+    } catch { }
 
     if (
-      url.includes(`${projectRef}.supabase.`) &&
+      url.includes(`${projectRef}.selfbase.`) &&
       url.includes('/functions/v1/') &&
       searchParams.length === 0 &&
       urlHash.length === 0

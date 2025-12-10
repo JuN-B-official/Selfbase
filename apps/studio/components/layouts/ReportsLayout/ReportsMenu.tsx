@@ -1,4 +1,4 @@
-import { PermissionAction } from '@supabase/shared-types/out/constants'
+import { PermissionAction } from '@selfbase/shared-types/out/constants'
 import { Plus } from 'lucide-react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
@@ -125,12 +125,12 @@ const ReportsMenu = () => {
         },
         ...(authEnabled
           ? [
-              {
-                name: 'Auth',
-                key: 'auth',
-                url: `/project/${ref}/reports/auth${preservedQueryParams}`,
-              },
-            ]
+            {
+              name: 'Auth',
+              key: 'auth',
+              url: `/project/${ref}/reports/auth${preservedQueryParams}`,
+            },
+          ]
           : []),
         {
           name: 'Database',
@@ -139,12 +139,12 @@ const ReportsMenu = () => {
         },
         ...(edgeFnEnabled
           ? [
-              {
-                name: 'Edge Functions',
-                key: 'edge-functions',
-                url: `/project/${ref}/reports/edge-functions${preservedQueryParams}`,
-              },
-            ]
+            {
+              name: 'Edge Functions',
+              key: 'edge-functions',
+              url: `/project/${ref}/reports/edge-functions${preservedQueryParams}`,
+            },
+          ]
           : []),
         {
           name: 'Query Performance',
@@ -153,31 +153,31 @@ const ReportsMenu = () => {
         },
         ...(postgrestReportEnabled
           ? [
-              {
-                name: 'PostgREST',
-                key: 'postgrest',
-                url: `/project/${ref}/reports/postgrest${preservedQueryParams}`,
-              },
-            ]
+            {
+              name: 'PostgREST',
+              key: 'postgrest',
+              url: `/project/${ref}/reports/postgrest${preservedQueryParams}`,
+            },
+          ]
           : []),
         ...(realtimeEnabled
           ? [
-              {
-                name: 'Realtime',
-                key: 'realtime',
-                url: `/project/${ref}/reports/realtime${preservedQueryParams}`,
-              },
-            ]
+            {
+              name: 'Realtime',
+              key: 'realtime',
+              url: `/project/${ref}/reports/realtime${preservedQueryParams}`,
+            },
+          ]
           : []),
 
         ...(storageEnabled
           ? [
-              {
-                name: 'Storage',
-                key: 'storage',
-                url: `/project/${ref}/reports/storage${preservedQueryParams}`,
-              },
-            ]
+            {
+              name: 'Storage',
+              key: 'storage',
+              url: `/project/${ref}/reports/storage${preservedQueryParams}`,
+            },
+          ]
           : []),
       ],
     },

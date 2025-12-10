@@ -21,7 +21,7 @@ export const ConsentToast = ({ onAccept = noop, onOptOut = noop }: ConsentToastP
           <a
             target="_blank"
             rel="noreferrer noopener"
-            href="https://supabase.com/privacy#8-cookies-and-similar-technologies-used-on-our-european-services"
+            href="https://selfbase.com/privacy#8-cookies-and-similar-technologies-used-on-our-european-services"
             className="hidden sm:inline underline underline-offset-2 decoration-foreground-lighter hover:decoration-foreground-light transition-all"
           >
             Learn more
@@ -31,7 +31,7 @@ export const ConsentToast = ({ onAccept = noop, onOptOut = noop }: ConsentToastP
           <a
             target="_blank"
             rel="noreferrer noopener"
-            href="https://supabase.com/privacy#8-cookies-and-similar-technologies-used-on-our-european-services"
+            href="https://selfbase.com/privacy#8-cookies-and-similar-technologies-used-on-our-european-services"
             className="underline underline-offset-2 text-foreground-light hover:decoration-foreground-light transition-all"
           >
             Learn more

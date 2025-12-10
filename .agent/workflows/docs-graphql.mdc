@@ -32,7 +32,7 @@ resources/
 ## Example queries
 
 1. **searchDocs** (`globalSearch/`) - Vector-based search across all docs content
-2. **error** (`error/`) - Error code lookup for Supabase services  
+2. **error** (`error/`) - Error code lookup for Selfbase services  
 3. **schema** - GraphQL schema introspection
 
 ## Key Files
@@ -97,7 +97,7 @@ export const GraphQLObjectTypeNewQuery = new GraphQLObjectType({
 import { type RootQueryTypeNewQueryArgs } from '~/__generated__/graphql'
 import { convertPostgrestToApiError, type ApiErrorGeneric } from '~/app/api/utils'
 import { Result } from '~/features/helpers.fn'
-import { supabase } from '~/lib/supabase'
+import { selfbase } from '~/lib/selfbase'
 
 export class NewQueryModel {
   constructor(public readonly data: {
@@ -111,7 +111,7 @@ export class NewQueryModel {
   ): Promise<Result<NewQueryModel[], ApiErrorGeneric>> {
     // Implement data fetching logic
     const result = new Result(
-      await supabase()
+      await selfbase()
         .from('your_table')
         .select('*')
         // Add filters based on args
@@ -221,7 +221,7 @@ pnpm run -F docs codegen:graphql
 3. **Collections**: Use `createCollectionType()` for paginated lists
 4. **Naming**: Use `GRAPHQL_FIELD_*` constants for field names
 5. **Documentation**: Add GraphQL descriptions to all fields and types
-6. **Database**: Use `supabase()` client for database operations with `convertPostgrestToApiError`
+6. **Database**: Use `selfbase()` client for database operations with `convertPostgrestToApiError`
 
 ## Testing
 
@@ -230,7 +230,7 @@ should have its own test file, located at <queryName>.test.ts.
 
 ### Test data
 
-Test data uses a local database, seeded with the file at supabase/seed.sql. Add
+Test data uses a local database, seeded with the file at selfbase/seed.sql. Add
 any data required for running your new query.
 
 ### Integration tests

@@ -20,21 +20,7 @@ export const generateSettingsMenu = (
     billing?: boolean
   }
 ): ProductMenuGroup[] => {
-  if (!IS_PLATFORM) {
-    return [
-      {
-        title: 'Project Settings',
-        items: [
-          {
-            name: `Log Drains`,
-            key: `log-drains`,
-            url: `/project/${ref}/settings/log-drains`,
-            items: [],
-          },
-        ],
-      },
-    ]
-  }
+  // Selfbase: Always show full menu (removed !IS_PLATFORM check)
   const isProjectBuilding = project?.status === PROJECT_STATUS.COMING_UP
   const buildingUrl = `/project/${ref}`
 
@@ -130,38 +116,38 @@ export const generateSettingsMenu = (
         },
         ...(authEnabled
           ? [
-              {
-                name: 'Authentication',
-                key: 'auth',
-                url: authProvidersEnabled
-                  ? `/project/${ref}/auth/providers`
-                  : `/project/${ref}/auth/policies`,
-                items: [],
-                rightIcon: <ArrowUpRight strokeWidth={1} className="h-4 w-4" />,
-              },
-            ]
+            {
+              name: 'Authentication',
+              key: 'auth',
+              url: authProvidersEnabled
+                ? `/project/${ref}/auth/providers`
+                : `/project/${ref}/auth/policies`,
+              items: [],
+              rightIcon: <ArrowUpRight strokeWidth={1} className="h-4 w-4" />,
+            },
+          ]
           : []),
         ...(storageEnabled
           ? [
-              {
-                name: 'Storage',
-                key: 'storage',
-                url: `/project/${ref}/storage/settings`,
-                items: [],
-                rightIcon: <ArrowUpRight strokeWidth={1} className="h-4 w-4" />,
-              },
-            ]
+            {
+              name: 'Storage',
+              key: 'storage',
+              url: `/project/${ref}/storage/settings`,
+              items: [],
+              rightIcon: <ArrowUpRight strokeWidth={1} className="h-4 w-4" />,
+            },
+          ]
           : []),
         ...(edgeFunctionsEnabled
           ? [
-              {
-                name: 'Edge Functions',
-                key: 'functions',
-                url: `/project/${ref}/functions/secrets`,
-                items: [],
-                rightIcon: <ArrowUpRight strokeWidth={1} className="h-4 w-4" />,
-              },
-            ]
+            {
+              name: 'Edge Functions',
+              key: 'functions',
+              url: `/project/${ref}/functions/secrets`,
+              items: [],
+              rightIcon: <ArrowUpRight strokeWidth={1} className="h-4 w-4" />,
+            },
+          ]
           : []),
       ],
     },
@@ -171,14 +157,14 @@ export const generateSettingsMenu = (
       items: [
         ...(billingEnabled
           ? [
-              {
-                name: 'Subscription',
-                key: 'subscription',
-                url: `/org/${organization?.slug}/billing`,
-                items: [],
-                rightIcon: <ArrowUpRight strokeWidth={1} className="h-4 w-4" />,
-              },
-            ]
+            {
+              name: 'Subscription',
+              key: 'subscription',
+              url: `/org/${organization?.slug}/billing`,
+              items: [],
+              rightIcon: <ArrowUpRight strokeWidth={1} className="h-4 w-4" />,
+            },
+          ]
           : []),
         {
           name: 'Usage',

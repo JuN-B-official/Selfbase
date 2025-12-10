@@ -1,4 +1,4 @@
-import { PermissionAction } from '@supabase/shared-types/out/constants'
+import { PermissionAction } from '@selfbase/shared-types/out/constants'
 import { toast } from 'sonner'
 
 import { useParams } from 'common'
@@ -25,7 +25,7 @@ export const WebhooksOverviewTab = () => {
     connectionString: project?.connectionString,
   })
 
-  const isHooksEnabled = schemas?.some((schema) => schema.name === 'supabase_functions')
+  const isHooksEnabled = schemas?.some((schema) => schema.name === 'selfbase_functions')
   const { can: canReadWebhooks, isLoading: isLoadingPermissions } = useAsyncCheckPermissions(
     PermissionAction.TENANT_SQL_ADMIN_READ,
     'triggers'

@@ -155,7 +155,7 @@ export const ResourceContent = ({
           <div className="doc-section">
             <article className="code-column text-foreground">
               <h4 className="mt-0 text-white">Filtering</h4>
-              <p>Supabase provides a wide range of filters.</p>
+              <p>Selfbase provides a wide range of filters.</p>
               <p>
                 <a
                   href={`${DOCS_URL}/reference/javascript/using-filters`}
@@ -281,7 +281,7 @@ export const ResourceContent = ({
             <div className="doc-section">
               <article className="code-column text-foreground">
                 <p>
-                  Supabase provides realtime functionality and broadcasts database changes to
+                  Selfbase provides realtime functionality and broadcasts database changes to
                   authorized users depending on Row Level Security (RLS) policies.
                 </p>
                 <p>

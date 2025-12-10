@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to the Supabase self-hosted Docker configuration.
+All notable changes to the Selfbase self-hosted Docker configuration.
 
 Changes are grouped by service rather than by change type. See [versions.md](./versions.md) 
 for complete image version history and rollback information.
@@ -21,12 +21,12 @@ Check updates for each service to learn more.
 
 ### Studio
 - Updated to `2025.11.26-sha-8f096b5`
-- Fixed MCP `get_advisors` tool - PR [#40783](https://github.com/supabase/supabase/pull/40783)
-- Fixed AI Assistant request schema - PR [#40830](https://github.com/supabase/supabase/pull/40830)
-- Fixed log drains page - PR [#40835](https://github.com/supabase/supabase/pull/40835)
+- Fixed MCP `get_advisors` tool - PR [#40783](https://github.com/selfbase/selfbase/pull/40783)
+- Fixed AI Assistant request schema - PR [#40830](https://github.com/selfbase/selfbase/pull/40830)
+- Fixed log drains page - PR [#40835](https://github.com/selfbase/selfbase/pull/40835)
 
 ### Realtime
-- Updated to `v2.65.3` - [Release](https://github.com/supabase/realtime/releases/tag/v2.65.3)
+- Updated to `v2.65.3` - [Release](https://github.com/selfbase/realtime/releases/tag/v2.65.3)
 
 ### Analytics (Logflare)
 - Updated to `v1.26.13` - [Release](https://github.com/Logflare/logflare/releases/tag/v1.26.13)
@@ -37,23 +37,23 @@ Check updates for each service to learn more.
 ## [2025-11-25]
 
 ### Studio
-- Updated to `2025.11.24-sha-d990ae8` - [Dashboard updates](https://github.com/orgs/supabase/discussions/40734)
-- Fixed Queues configuration UI and added [documentation for exposed queue schema](https://supabase.com/docs/guides/queues/expose-self-hosted-queues) - PR [#40078](https://github.com/supabase/supabase/pull/40078)
-- Fixed parameterized SQL queries in MCP tools - PR [#40499](https://github.com/supabase/supabase/pull/40499)
-- Fixed Studio showing paid options for log drains - [PR #40510](https://github.com/supabase/supabase/pull/40510)
-- Fixed AI Assistant authentication - PR [#40654](https://github.com/supabase/supabase/pull/40654)
+- Updated to `2025.11.24-sha-d990ae8` - [Dashboard updates](https://github.com/orgs/selfbase/discussions/40734)
+- Fixed Queues configuration UI and added [documentation for exposed queue schema](https://selfbase.com/docs/guides/queues/expose-self-hosted-queues) - PR [#40078](https://github.com/selfbase/selfbase/pull/40078)
+- Fixed parameterized SQL queries in MCP tools - PR [#40499](https://github.com/selfbase/selfbase/pull/40499)
+- Fixed Studio showing paid options for log drains - [PR #40510](https://github.com/selfbase/selfbase/pull/40510)
+- Fixed AI Assistant authentication - PR [#40654](https://github.com/selfbase/selfbase/pull/40654)
 
 ### Auth
-- Updated to `v2.183.0` - [Changelog](https://github.com/supabase/auth/blob/master/CHANGELOG.md) | [Release](https://github.com/supabase/auth/releases/tag/v2.183.0)
+- Updated to `v2.183.0` - [Changelog](https://github.com/selfbase/auth/blob/master/CHANGELOG.md) | [Release](https://github.com/selfbase/auth/releases/tag/v2.183.0)
 
 ### Realtime
-- Updated to `v2.65.2` - [Release](https://github.com/supabase/realtime/releases/tag/v2.65.2)
+- Updated to `v2.65.2` - [Release](https://github.com/selfbase/realtime/releases/tag/v2.65.2)
 
 ### Storage
-- Updated to `v1.32.0` - [Release](https://github.com/supabase/storage/releases/tag/v1.32.0)
+- Updated to `v1.32.0` - [Release](https://github.com/selfbase/storage/releases/tag/v1.32.0)
 
 ### Edge Runtime
-- Updated to `v1.69.25` - [Release](https://github.com/supabase/edge-runtime/releases/tag/v1.69.25)
+- Updated to `v1.69.25` - [Release](https://github.com/selfbase/edge-runtime/releases/tag/v1.69.25)
 
 ### Analytics (Logflare)
 - Updated to `v1.26.12` - [Release](https://github.com/Logflare/logflare/releases/tag/v1.26.12)
@@ -66,31 +66,31 @@ Check updates for each service to learn more.
 
 ### Storage
 - No image update
-- Fixed resumable uploads for files larger than 6MB (requires `docker-compose.yml` update) - PR [#40500](https://github.com/supabase/supabase/pull/40500)
+- Fixed resumable uploads for files larger than 6MB (requires `docker-compose.yml` update) - PR [#40500](https://github.com/selfbase/selfbase/pull/40500)
 
 ---
 
 ## [2025-11-12]
 
 ### Studio
-- Updated to `2025.11.10-sha-5291fe3` - [Dashboard updates](https://github.com/orgs/supabase/discussions/40083)
-- Added log drains - PR [#28297](https://github.com/supabase/supabase/pull/28297)
-- Fixed Studio using `postgres` role instead of `supabase_admin` - PR [#39946](https://github.com/supabase/supabase/pull/39946)
+- Updated to `2025.11.10-sha-5291fe3` - [Dashboard updates](https://github.com/orgs/selfbase/discussions/40083)
+- Added log drains - PR [#28297](https://github.com/selfbase/selfbase/pull/28297)
+- Fixed Studio using `postgres` role instead of `selfbase_admin` - PR [#39946](https://github.com/selfbase/selfbase/pull/39946)
 
 ### Auth
-- Updated to `v2.182.1` - [Changelog](https://github.com/supabase/auth/blob/master/CHANGELOG.md#21821-2025-11-05) | [Release](https://github.com/supabase/auth/releases/tag/v2.182.1)
+- Updated to `v2.182.1` - [Changelog](https://github.com/selfbase/auth/blob/master/CHANGELOG.md#21821-2025-11-05) | [Release](https://github.com/selfbase/auth/releases/tag/v2.182.1)
 
 ### Realtime
-- Updated to `v2.63.0` - [Release](https://github.com/supabase/realtime/releases/tag/v2.63.0)
+- Updated to `v2.63.0` - [Release](https://github.com/selfbase/realtime/releases/tag/v2.63.0)
 
 ### Storage
-- Updated to `v1.29.0` - [Release](https://github.com/supabase/storage/releases/tag/v1.29.0)
+- Updated to `v1.29.0` - [Release](https://github.com/selfbase/storage/releases/tag/v1.29.0)
 
 ### Edge Runtime
-- Updated to `v1.69.23` - [Release](https://github.com/supabase/edge-runtime/releases/tag/v1.69.23)
+- Updated to `v1.69.23` - [Release](https://github.com/selfbase/edge-runtime/releases/tag/v1.69.23)
 
 ### Supavisor
-- Updated to `v2.7.4` - [Release](https://github.com/supabase/supavisor/releases/tag/v2.7.4)
+- Updated to `v2.7.4` - [Release](https://github.com/selfbase/supavisor/releases/tag/v2.7.4)
 
 ---
 
@@ -98,31 +98,31 @@ Check updates for each service to learn more.
 
 ### Studio
 - No image update
-- Fixed Studio failing to connect to Postgres with non-default settings (requires `docker-compose.yml` update) - PR [#40169](https://github.com/supabase/supabase/pull/40169)
+- Fixed Studio failing to connect to Postgres with non-default settings (requires `docker-compose.yml` update) - PR [#40169](https://github.com/selfbase/selfbase/pull/40169)
 
 ### Realtime
 - No image update
-- Fixed realtime logs not showing in Studio (requires `volumes/logs/vector.yml` update) - PR [#39963](https://github.com/supabase/supabase/pull/39963)
+- Fixed realtime logs not showing in Studio (requires `volumes/logs/vector.yml` update) - PR [#39963](https://github.com/selfbase/selfbase/pull/39963)
 
 ---
 
 ## [2025-10-28]
 
 ### Studio
-- Updated to `2025.10.27-sha-85b84e0` - [Dashboard updates](https://github.com/orgs/supabase/discussions/40083)
-- Fixed broken authentication when uploading files to Storage - PR [#39829](https://github.com/supabase/supabase/pull/39829)
+- Updated to `2025.10.27-sha-85b84e0` - [Dashboard updates](https://github.com/orgs/selfbase/discussions/40083)
+- Fixed broken authentication when uploading files to Storage - PR [#39829](https://github.com/selfbase/selfbase/pull/39829)
 
 ### Realtime
-- Updated to `v2.57.2` - [Release](https://github.com/supabase/realtime/releases/tag/v2.57.2)
+- Updated to `v2.57.2` - [Release](https://github.com/selfbase/realtime/releases/tag/v2.57.2)
 
 ### Storage
-- Updated to `v1.28.2` - [Release](https://github.com/supabase/storage/releases/tag/v1.28.2)
+- Updated to `v1.28.2` - [Release](https://github.com/selfbase/storage/releases/tag/v1.28.2)
 
 ### Postgres Meta
-- Updated to `v0.93.1` - [Release](https://github.com/supabase/postgres-meta/releases/tag/v0.93.1)
+- Updated to `v0.93.1` - [Release](https://github.com/selfbase/postgres-meta/releases/tag/v0.93.1)
 
 ### Edge Runtime
-- Updated to `v1.69.15` - [Release](https://github.com/supabase/edge-runtime/releases/tag/v1.69.15)
+- Updated to `v1.69.15` - [Release](https://github.com/selfbase/edge-runtime/releases/tag/v1.69.15)
 
 ---
 
@@ -130,31 +130,31 @@ Check updates for each service to learn more.
 
 ### Studio
 - No image update
-- Added Kong configuration for MCP server routes (requires `volumes/api/kong.yml` update) - PR [#39849](https://github.com/supabase/supabase/pull/39849)
-- Added [documentation page](https://supabase.com/docs/guides/self-hosting/enable-mcp) for MCP server configuration - PR [#39952](https://github.com/supabase/supabase/pull/39952)
+- Added Kong configuration for MCP server routes (requires `volumes/api/kong.yml` update) - PR [#39849](https://github.com/selfbase/selfbase/pull/39849)
+- Added [documentation page](https://selfbase.com/docs/guides/self-hosting/enable-mcp) for MCP server configuration - PR [#39952](https://github.com/selfbase/selfbase/pull/39952)
 
 ---
 
 ## [2025-10-21]
 
 ### Studio
-- Updated to `2025.10.20-sha-5005fc6` - [Dashboard updates](https://github.com/orgs/supabase/discussions/39709)
-- Fixed issues with Edge Functions and cron logs not being visible in Studio - PR [#39388](https://github.com/supabase/supabase/pull/39388), PR [#39704](https://github.com/supabase/supabase/pull/39704), PR [#39711](https://github.com/supabase/supabase/pull/39711)
+- Updated to `2025.10.20-sha-5005fc6` - [Dashboard updates](https://github.com/orgs/selfbase/discussions/39709)
+- Fixed issues with Edge Functions and cron logs not being visible in Studio - PR [#39388](https://github.com/selfbase/selfbase/pull/39388), PR [#39704](https://github.com/selfbase/selfbase/pull/39704), PR [#39711](https://github.com/selfbase/selfbase/pull/39711)
 
 ### Realtime
-- Updated to `v2.56.0` - [Release](https://github.com/supabase/realtime/releases/tag/v2.56.0)
+- Updated to `v2.56.0` - [Release](https://github.com/selfbase/realtime/releases/tag/v2.56.0)
 
 ### Storage
-- Updated to `v1.28.1` - [Release](https://github.com/supabase/storage/releases/tag/v1.28.1)
+- Updated to `v1.28.1` - [Release](https://github.com/selfbase/storage/releases/tag/v1.28.1)
 
 ### Postgres Meta
-- Updated to `v0.93.0` - [Release](https://github.com/supabase/postgres-meta/releases/tag/v0.93.0)
+- Updated to `v0.93.0` - [Release](https://github.com/selfbase/postgres-meta/releases/tag/v0.93.0)
 
 ### Edge Runtime
-- Updated to `v1.69.14` - [Release](https://github.com/supabase/edge-runtime/releases/tag/v1.69.14)
+- Updated to `v1.69.14` - [Release](https://github.com/selfbase/edge-runtime/releases/tag/v1.69.14)
 
 ### Supavisor
-- Updated to `v2.7.3` - [Release](https://github.com/supabase/supavisor/releases/tag/v2.7.3)
+- Updated to `v2.7.3` - [Release](https://github.com/selfbase/supavisor/releases/tag/v2.7.3)
 
 ---
 
@@ -168,32 +168,32 @@ Check updates for each service to learn more.
 ## [2025-10-08]
 
 ### Studio
-- Updated to `2025.10.01-sha-8460121` - [Dashboard updates](https://github.com/orgs/supabase/discussions/39709)
-- Added "local" remote MCP server - PR [#38797](https://github.com/supabase/supabase/pull/38797), PR [#39041](https://github.com/supabase/supabase/pull/39041)
+- Updated to `2025.10.01-sha-8460121` - [Dashboard updates](https://github.com/orgs/selfbase/discussions/39709)
+- Added "local" remote MCP server - PR [#38797](https://github.com/selfbase/selfbase/pull/38797), PR [#39041](https://github.com/selfbase/selfbase/pull/39041)
 - ⚠️ Changed Studio connection method to `postgres-meta` - affects non-standard database port configurations
 
 ### Auth
-- Updated to `v2.180.0` - [Release](https://github.com/supabase/auth/releases/tag/v2.180.0)
+- Updated to `v2.180.0` - [Release](https://github.com/selfbase/auth/releases/tag/v2.180.0)
 
 ### PostgREST
 - Updated to `v13.0.7` - [Release](https://github.com/PostgREST/postgrest/releases/tag/v13.0.7) | [Changelog](https://github.com/PostgREST/postgrest/blob/main/CHANGELOG.md)
 
 ### Realtime
-- Updated to `v2.51.11` - [Release](https://github.com/supabase/realtime/releases/tag/v2.51.11)
+- Updated to `v2.51.11` - [Release](https://github.com/selfbase/realtime/releases/tag/v2.51.11)
 
 ### Storage
-- Updated to `v1.28.0` - [Release](https://github.com/supabase/storage/releases/tag/v1.28.0)
+- Updated to `v1.28.0` - [Release](https://github.com/selfbase/storage/releases/tag/v1.28.0)
 
 ### Postgres Meta
-- Updated to `v0.91.6` - [Release](https://github.com/supabase/postgres-meta/releases/tag/v0.91.6)
+- Updated to `v0.91.6` - [Release](https://github.com/selfbase/postgres-meta/releases/tag/v0.91.6)
 
 ### Analytics (Logflare)
 - Updated to `v1.22.4` - [Release](https://github.com/Logflare/logflare/releases/tag/v1.22.4)
 
 ### Postgres
-- Updated to `15.8.1.085` - [Release](https://github.com/supabase/postgres/releases/tag/15.8.1.085)
+- Updated to `15.8.1.085` - [Release](https://github.com/selfbase/postgres/releases/tag/15.8.1.085)
 
 ### Supavisor
-- Updated to `2.7.0` - [Release](https://github.com/supabase/supavisor/releases/tag/v2.7.0)
+- Updated to `2.7.0` - [Release](https://github.com/selfbase/supavisor/releases/tag/v2.7.0)
 
 ---

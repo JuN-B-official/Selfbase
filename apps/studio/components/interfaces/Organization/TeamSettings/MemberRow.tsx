@@ -83,8 +83,8 @@ export const MemberRow = ({ member }: MemberRowProps) => {
               organization={{
                 managed_by:
                   MEMBER_ORIGIN_TO_MANAGED_BY[
-                    (member.metadata as any).origin as keyof typeof MEMBER_ORIGIN_TO_MANAGED_BY
-                  ] ?? 'supabase',
+                  (member.metadata as any).origin as keyof typeof MEMBER_ORIGIN_TO_MANAGED_BY
+                  ] ?? 'selfbase',
               }}
               tooltipText="This user is managed by Vercel Marketplace."
             />
@@ -126,8 +126,8 @@ export const MemberRow = ({ member }: MemberRowProps) => {
               role?.projects.length === 0
                 ? orgProjects?.map((p) => p.name) ?? []
                 : (role?.projects ?? [])
-                    .map(({ ref }) => orgProjects?.find((p) => p.ref === ref)?.name ?? '')
-                    .filter((x) => x.length > 0)
+                  .map(({ ref }) => orgProjects?.find((p) => p.ref === ref)?.name ?? '')
+                  .filter((x) => x.length > 0)
 
             return (
               <div key={`role-${id}`} className="flex items-center gap-x-2">

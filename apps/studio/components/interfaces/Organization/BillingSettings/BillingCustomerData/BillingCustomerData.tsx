@@ -1,4 +1,4 @@
-import { PermissionAction } from '@supabase/shared-types/out/constants'
+import { PermissionAction } from '@selfbase/shared-types/out/constants'
 import { useMemo, useState } from 'react'
 import { toast } from 'sonner'
 
@@ -64,8 +64,8 @@ export const BillingCustomerData = () => {
       tax_id_value: taxId?.value,
       tax_id_name: taxId
         ? TAX_IDS.find(
-            (option) => option.type === taxId.type && option.countryIso2 === taxId.country
-          )?.name || ''
+          (option) => option.type === taxId.type && option.countryIso2 === taxId.country
+        )?.name || ''
         : '',
     }),
     [customerProfile, taxId]
@@ -117,7 +117,7 @@ export const BillingCustomerData = () => {
       </ScaffoldSectionDetail>
       <ScaffoldSectionContent>
         {selectedOrganization?.managed_by !== undefined &&
-        selectedOrganization?.managed_by !== 'supabase' ? (
+          selectedOrganization?.managed_by !== 'selfbase' ? (
           <PartnerManagedResource
             managedBy={selectedOrganization?.managed_by}
             resource="Billing Addresses"

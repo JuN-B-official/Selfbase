@@ -28,8 +28,8 @@ import {
 import { BASE_PATH } from '../shared/constants'
 
 const questions = [
-  'How do I get started with Supabase?',
-  'How do I run Supabase locally?',
+  'How do I get started with Selfbase?',
+  'How do I run Selfbase locally?',
   'How do I connect to my database?',
   'How do I run migrations? ',
   'How do I listen to changes in a table?',
@@ -91,7 +91,7 @@ const DocsSearchPage = () => {
           router.push(`/docs${link}`)
           setIsOpen(false)
         } else {
-          window.open(`https://supabase.com/docs${link}`, '_blank', 'noreferrer,noopener')
+          window.open(`https://selfbase.com/docs${link}`, '_blank', 'noreferrer,noopener')
           setIsOpen(false)
         }
         break
@@ -100,7 +100,7 @@ const DocsSearchPage = () => {
           router.push(link)
           setIsOpen(false)
         } else {
-          window.open(`https://supabase.com${link}`, '_blank', 'noreferrer,noopener')
+          window.open(`https://selfbase.com${link}`, '_blank', 'noreferrer,noopener')
           setIsOpen(false)
         }
         break

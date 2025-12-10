@@ -13,7 +13,7 @@ const ContentFile = ({ projectKeys }: ContentFileProps) => {
     <ConnectTabs>
       <ConnectTabTriggers>
         <ConnectTabTrigger value=".env.local" />
-        <ConnectTabTrigger value="src/db/supabase.js" />
+        <ConnectTabTrigger value="src/db/selfbase.js" />
         <ConnectTabTrigger value="src/pages/index.astro" />
       </ConnectTabTriggers>
 
@@ -26,15 +26,15 @@ SUPABASE_KEY=${projectKeys.publishableKey ?? projectKeys.anonKey ?? 'your-anon-k
         </SimpleCodeBlock>
       </ConnectTabContent>
 
-      <ConnectTabContent value="src/db/supabase.js">
+      <ConnectTabContent value="src/db/selfbase.js">
         <SimpleCodeBlock className="js" parentClassName="min-h-72">
           {`
-import { createClient } from "@supabase/supabase-js";
+import { createClient } from "@selfbase/selfbase-js";
 
-const supabaseUrl = import.meta.env.SUPABASE_URL;
-const supabaseKey = import.meta.env.SUPABASE_KEY;
+const selfbaseUrl = import.meta.env.SUPABASE_URL;
+const selfbaseKey = import.meta.env.SUPABASE_KEY;
 
-export const supabase = createClient(supabaseUrl, supabaseKey);
+export const selfbase = createClient(selfbaseUrl, selfbaseKey);
         `}
         </SimpleCodeBlock>
       </ConnectTabContent>
@@ -43,9 +43,9 @@ export const supabase = createClient(supabaseUrl, supabaseKey);
         <SimpleCodeBlock className="html" parentClassName="min-h-72">
           {`
 ---
-import { supabase } from '../db/supabase';
+import { selfbase } from '../db/selfbase';
 
-const { data, error } = await supabase.from("todos").select('*');
+const { data, error } = await selfbase.from("todos").select('*');
 ---
 
 {

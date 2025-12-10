@@ -1,4 +1,4 @@
-import { createClient } from '@/registry/default/clients/tanstack/lib/supabase/server'
+import { createClient } from '@/registry/default/clients/tanstack/lib/selfbase/server'
 import { createFileRoute, redirect } from '@tanstack/react-router'
 import { createServerFn } from '@tanstack/react-start'
 import { getWebRequest } from '@tanstack/react-start/server'
@@ -28,9 +28,9 @@ const confirmFn = createServerFn({ method: 'GET' })
     const next = _next?.startsWith('/') ? _next : '/'
 
     if (code) {
-      const supabase = createClient()
+      const selfbase = createClient()
 
-      const { error } = await supabase.auth.exchangeCodeForSession(code)
+      const { error } = await selfbase.auth.exchangeCodeForSession(code)
       if (!error) {
         // redirect user to specified redirect URL or root of app
         throw redirect({ href: next })

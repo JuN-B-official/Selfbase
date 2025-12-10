@@ -19,10 +19,10 @@ const ContentFile = ({ projectKeys }: ContentFileProps) => {
       <ConnectTabContent value="lib/main.dart">
         <SimpleCodeBlock className="dart" parentClassName="min-h-72">
           {`
-import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:selfbase_flutter/selfbase_flutter.dart';
 
 Future<void> main() async {
-  await Supabase.initialize(
+  await Selfbase.initialize(
     url: '${projectKeys.apiUrl ?? 'your-project-url'}',
     anonKey: '${projectKeys.publishableKey ?? '<prefer publishable key instead of anon key for mobile and desktop apps>'}',
   );
@@ -55,7 +55,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final _future = Supabase.instance.client
+  final _future = Selfbase.instance.client
       .from('todos')
       .select();
 

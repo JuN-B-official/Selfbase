@@ -1,4 +1,4 @@
-import { LOAD_TAB_FROM_CACHE_PARAM } from 'components/grid/SupabaseGrid.utils'
+import { LOAD_TAB_FROM_CACHE_PARAM } from 'components/grid/SelfbaseGrid.utils'
 import { ENTITY_TYPE } from 'data/entity-types/entity-type-constants'
 import { useSelectedProjectQuery } from 'hooks/misc/useSelectedProject'
 import { partition } from 'lodash'
@@ -58,7 +58,7 @@ export interface RecentItem {
   }
 }
 
-const RECENT_ITEMS_STORAGE_KEY = 'supabase_recent_items'
+const RECENT_ITEMS_STORAGE_KEY = 'selfbase_recent_items'
 const getRecentItemsStorageKey = (ref: string) => `${RECENT_ITEMS_STORAGE_KEY}_${ref}`
 
 function getSavedRecentItems(ref: string): RecentItem[] {
@@ -80,7 +80,7 @@ const DEFAULT_TABS_STATE = {
   previewTabId: undefined as string | undefined,
   recentItems: [],
 }
-const TABS_STORAGE_KEY = 'supabase_studio_tabs'
+const TABS_STORAGE_KEY = 'selfbase_studio_tabs'
 const getTabsStorageKey = (ref: string) => `${TABS_STORAGE_KEY}_${ref}`
 
 function getSavedTabs(ref: string) {
@@ -310,8 +310,8 @@ function createTabsState(projectRef: string) {
       const editorTabIds = (
         editor
           ? Object.values(store.tabsMap).filter((tab) =>
-              editorEntityTypes[editor]?.includes(tab.type)
-            )
+            editorEntityTypes[editor]?.includes(tab.type)
+          )
           : []
       ).map((tab) => tab.id)
       const tabIndexBeingClosed = editorTabIds.indexOf(id)

@@ -61,7 +61,7 @@ function SideNavigation() {
           <ThemeSwitcherDropdown />
         </div>
         <Link href="/" className="mb-4 block">
-          <h1>Supabase UI Library</h1>
+          <h1>Selfbase UI Library</h1>
         </Link>
         {/* <TopNavigationSearch /> */}
         <CommandMenu />

@@ -8,7 +8,7 @@ examples
 i18n
 **/node_modules
 apps/docs/spec
-supabase
+selfbase
 tests
 
 **/.next

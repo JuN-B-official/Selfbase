@@ -35,7 +35,7 @@ interface Props {
 }
 
 /**
- * Copy styling from supabase/ui default.theme
+ * Copy styling from selfbase/ui default.theme
  * input base + standard
  */
 
@@ -53,7 +53,7 @@ export default function MultiSelect({
   emptyMessage,
   disabled,
   allowDuplicateSelection = false,
-  onChange = () => {},
+  onChange = () => { },
 }: Props) {
   const ref = useRef(null)
 
@@ -188,10 +188,10 @@ export default function MultiSelect({
                 filteredOptions.map((option) => {
                   const active =
                     !allowDuplicateSelection &&
-                    selectedOptions &&
-                    selectedOptions.find((selected) => {
-                      return selected === option.value
-                    })
+                      selectedOptions &&
+                      selectedOptions.find((selected) => {
+                        return selected === option.value
+                      })
                       ? true
                       : false
 
@@ -203,10 +203,9 @@ export default function MultiSelect({
                         'text-typography-body-light [[data-theme*=dark]_&]:text-typography-body-dark',
                         'group flex cursor-pointer items-center justify-between transition',
                         'space-x-1 rounded bg-transparent p-2 px-4 text-sm hover:bg-overlay-hover',
-                        `${
-                          active
-                            ? ' [[data-theme*=dark]_&]:bg-green-600 [[data-theme*=dark]_&]:bg-opacity-25'
-                            : ''
+                        `${active
+                          ? ' [[data-theme*=dark]_&]:bg-green-600 [[data-theme*=dark]_&]:bg-opacity-25'
+                          : ''
                         }`,
                       ].join(' ')}
                     >

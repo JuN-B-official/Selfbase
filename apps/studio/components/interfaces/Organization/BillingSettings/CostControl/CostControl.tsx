@@ -1,4 +1,4 @@
-import { PermissionAction } from '@supabase/shared-types/out/constants'
+import { PermissionAction } from '@selfbase/shared-types/out/constants'
 import { ExternalLink } from 'lucide-react'
 import { useTheme } from 'next-themes'
 import Image from 'next/image'
@@ -25,9 +25,9 @@ import { Alert, AlertTitle_Shadcn_, Alert_Shadcn_, Button } from 'ui'
 import ProjectUpdateDisabledTooltip from '../ProjectUpdateDisabledTooltip'
 import SpendCapSidePanel from './SpendCapSidePanel'
 
-export interface CostControlProps {}
+export interface CostControlProps { }
 
-const CostControl = ({}: CostControlProps) => {
+const CostControl = ({ }: CostControlProps) => {
   const { slug } = useParams()
   const { resolvedTheme } = useTheme()
   const { data: selectedOrganization } = useSelectedOrganizationQuery()
@@ -126,9 +126,8 @@ const CostControl = ({}: CostControlProps) => {
                     <Alert
                       withIcon
                       variant="info"
-                      title={`You will be charged for any additional usage on the ${
-                        currentPlan?.name || ''
-                      } plan`}
+                      title={`You will be charged for any additional usage on the ${currentPlan?.name || ''
+                        } plan`}
                     >
                       {currentPlan?.name || ''} plan requires you to have spend cap off at all
                       times. Your projects will never become unresponsive. Only when your{' '}
@@ -156,12 +155,10 @@ const CostControl = ({}: CostControlProps) => {
                           height={96}
                           src={
                             isUsageBillingEnabled
-                              ? `${BASE_PATH}/img/spend-cap-off${
-                                  resolvedTheme?.includes('dark') ? '' : '--light'
-                                }.png`
-                              : `${BASE_PATH}/img/spend-cap-on${
-                                  resolvedTheme?.includes('dark') ? '' : '--light'
-                                }.png`
+                              ? `${BASE_PATH}/img/spend-cap-off${resolvedTheme?.includes('dark') ? '' : '--light'
+                              }.png`
+                              : `${BASE_PATH}/img/spend-cap-on${resolvedTheme?.includes('dark') ? '' : '--light'
+                              }.png`
                           }
                         />
                       </div>

@@ -1,4 +1,4 @@
-import { JwtSecretUpdateError, JwtSecretUpdateProgress } from '@supabase/shared-types/out/events'
+import { JwtSecretUpdateError, JwtSecretUpdateProgress } from '@selfbase/shared-types/out/events'
 import { JWTSigningKey } from 'data/jwt-signing-keys/jwt-signing-keys-query'
 
 export const statusLabels: Record<JWTSigningKey['status'], string> = {
@@ -22,7 +22,7 @@ export const JWT_SECRET_UPDATE_ERROR_MESSAGES = {
   [JwtSecretUpdateError.DatabaseAdminAPIConfigurationUpdateFailed]:
     'failed to update configuration for database admin API',
   [JwtSecretUpdateError.PostgreSQLRestartFailed]: 'failed to restart PostgreSQL service',
-  [JwtSecretUpdateError.SupabaseAPIKeyUpdateFailed]: 'failed to update Supabase API key',
+  [JwtSecretUpdateError.SelfbaseAPIKeyUpdateFailed]: 'failed to update Selfbase API key',
   [JwtSecretUpdateError.APIGatewayUpdateFailed]: 'failed to update API Gateway',
 }
 

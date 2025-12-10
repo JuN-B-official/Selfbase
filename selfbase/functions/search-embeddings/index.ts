@@ -1,12 +1,12 @@
 import 'https://deno.land/x/xhr@0.2.1/mod.ts'
-import { createClient } from 'jsr:@supabase/supabase-js@2'
+import { createClient } from 'jsr:@selfbase/selfbase-js@2'
 import { Configuration, OpenAIApi } from 'https://esm.sh/openai@3.1.0'
-import { Database } from '../common/database-types.ts'
-import { ApplicationError, UserError } from '../common/errors.ts'
+import { Database } from '../common/database-types.js'
+import { ApplicationError, UserError } from '../common/errors.js'
 
 const openAiKey = Deno.env.get('OPENAI_API_KEY')
-const supabaseUrl = Deno.env.get('SUPABASE_URL')
-const supabaseServiceKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')
+const selfbaseUrl = Deno.env.get('SUPABASE_URL')
+const selfbaseServiceKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')
 
 export const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
@@ -24,11 +24,11 @@ Deno.serve(async (req) => {
       throw new ApplicationError('Missing environment variable OPENAI_API_KEY')
     }
 
-    if (!supabaseUrl) {
+    if (!selfbaseUrl) {
       throw new ApplicationError('Missing environment variable SUPABASE_URL')
     }
 
-    if (!supabaseServiceKey) {
+    if (!selfbaseServiceKey) {
       throw new ApplicationError('Missing environment variable SUPABASE_SERVICE_ROLE_KEY')
     }
 
@@ -49,7 +49,7 @@ Deno.serve(async (req) => {
 
     const sanitizedQuery = query.trim()
 
-    const supabaseClient = createClient<Database>(supabaseUrl, supabaseServiceKey)
+    const selfbaseClient = createClient<Database>(selfbaseUrl, selfbaseServiceKey)
 
     const configuration = new Configuration({ apiKey: openAiKey })
     const openai = new OpenAIApi(configuration)
@@ -80,7 +80,7 @@ Deno.serve(async (req) => {
     const searchFunction = useAlternateSearchIndex
       ? 'docs_search_embeddings_nimbus'
       : 'docs_search_embeddings'
-    const { error: matchError, data: pages } = await supabaseClient.rpc(searchFunction, {
+    const { error: matchError, data: pages } = await selfbaseClient.rpc(searchFunction, {
       embedding,
       match_threshold: 0.78,
     })

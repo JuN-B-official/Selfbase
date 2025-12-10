@@ -46,7 +46,7 @@ export const MonacoEditor = ({
     <Editor
       width={width}
       height={height || '200px'}
-      theme="supabase"
+      theme="selfbase"
       wrapperProps={{
         className: 'grid-monaco-editor-container',
       }}

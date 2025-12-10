@@ -71,7 +71,7 @@ interface LibrarySuggestionsProps {
 const LibrarySuggestions = ({ library }: LibrarySuggestionsProps) => {
   const selectedLibrary = CLIENT_LIBRARIES.find((lib) => lib.language === library)
   const selectedClientLibraries = selectedLibrary?.libraries.filter((library) =>
-    library.name.includes('supabase-')
+    library.name.includes('selfbase-')
   )
   return (
     <div className="flex flex-col gap-y-4">
@@ -111,12 +111,12 @@ const LibrarySuggestions = ({ library }: LibrarySuggestionsProps) => {
           )}
         >
           <div className="space-y-1">
-            <p className="text-sm">supabase</p>
+            <p className="text-sm">selfbase</p>
             <p className="text-sm text-foreground-light">For any issues about our API</p>
           </div>
           <div>
             <Button asChild type="default" icon={<ExternalLink size={14} strokeWidth={1.5} />}>
-              <Link href="https://github.com/supabase/supabase" target="_blank" rel="noreferrer">
+              <Link href="https://github.com/selfbase/selfbase" target="_blank" rel="noreferrer">
                 View GitHub issues
               </Link>
             </Button>

@@ -52,8 +52,8 @@ The `dev:full` command automatically watches for changes to MDX files with hot r
 
 The design system _references_ components rather than housing them. That’s an important distinction to make, as everything that follows here is about the documentation of components. You can add or edit components in one of these two places:
 
-- [`packages/ui`](https://github.com/supabase/supabase/tree/master/packages/ui): basic UI components
-- [`packages/ui-patterns`](https://github.com/supabase/supabase/tree/master/packages/ui-patterns): components which are built using NPM libraries or amalgamations of components from `patterns/ui`
+- [`packages/ui`](https://github.com/selfbase/selfbase/tree/master/packages/ui): basic UI components
+- [`packages/ui-patterns`](https://github.com/selfbase/selfbase/tree/master/packages/ui-patterns): components which are built using NPM libraries or amalgamations of components from `patterns/ui`
 
 With that out of the way, there are several parts of this design system that need to be manually updated after components have been added or removed (from documentation). These include:
 

@@ -1,4 +1,4 @@
-import { PermissionAction } from '@supabase/shared-types/out/constants'
+import { PermissionAction } from '@selfbase/shared-types/out/constants'
 import { Download } from 'lucide-react'
 
 import { useParams } from 'common'
@@ -98,9 +98,8 @@ export const BackupItem = ({ index, isHealthy, backup, onSelectBackup }: BackupI
 
   return (
     <div
-      className={`flex h-12 items-center justify-between px-6 ${
-        index ? 'border-t border-default' : ''
-      }`}
+      className={`flex h-12 items-center justify-between px-6 ${index ? 'border-t border-default' : ''
+        }`}
     >
       <div className="flex items-center gap-x-2">
         <TimestampInfo
@@ -115,7 +114,7 @@ export const BackupItem = ({ index, isHealthy, backup, onSelectBackup }: BackupI
           </TooltipTrigger>
           <TooltipContent side="bottom">
             Learn more about backup types{' '}
-            <InlineLink href="https://supabase.com/blog/postgresql-physical-logical-backups">
+            <InlineLink href="https://selfbase.com/blog/postgresql-physical-logical-backups">
               here
             </InlineLink>
           </TooltipContent>

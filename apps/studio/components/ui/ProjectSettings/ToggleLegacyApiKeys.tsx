@@ -1,4 +1,4 @@
-import { PermissionAction } from '@supabase/shared-types/out/constants'
+import { PermissionAction } from '@selfbase/shared-types/out/constants'
 import { useState } from 'react'
 import { toast } from 'sonner'
 
@@ -111,9 +111,9 @@ export const ToggleLegacyApiKeysPanel = () => {
       <AlertDialog open={isAppsWarningOpen} onOpenChange={(value) => setIsAppsWarningOpen(value)}>
         <AlertDialogContent>
           <AlertDialogHeader>
-            <AlertDialogTitle>Apps using Supabase may break</AlertDialogTitle>
+            <AlertDialogTitle>Apps using Selfbase may break</AlertDialogTitle>
             <AlertDialogDescription>
-              Your project uses apps that integrate with Supabase. Disabling the legacy API keys is
+              Your project uses apps that integrate with Selfbase. Disabling the legacy API keys is
               a brand new feature and the apps you're using may not have added support for this yet.
               It can cause them to stop functioning. Check before continuing.
             </AlertDialogDescription>
@@ -178,32 +178,32 @@ const ToggleApiKeysModal = ({
       alert={
         isLegacyKeysEnabled
           ? {
-              title: 'Ensure legacy keys are no longer in use before disabling',
-              description: (
-                <span className="prose text-sm">
-                  Disabling <code>anon</code> and <code>service_role</code> keys while they are in
-                  use will cause downtime for your application. Ensure they are no longer in use
-                  before proceeding. If you have not created a publishable and at least one secret
-                  API key, some dashboard functionality may become unavailable.
-                  <br />
-                  <br />
-                  <span className="text-danger">
-                    This disables API keys when used in the <code>apikey</code> header. They remain
-                    valid as a JWT.
-                  </span>
+            title: 'Ensure legacy keys are no longer in use before disabling',
+            description: (
+              <span className="prose text-sm">
+                Disabling <code>anon</code> and <code>service_role</code> keys while they are in
+                use will cause downtime for your application. Ensure they are no longer in use
+                before proceeding. If you have not created a publishable and at least one secret
+                API key, some dashboard functionality may become unavailable.
+                <br />
+                <br />
+                <span className="text-danger">
+                  This disables API keys when used in the <code>apikey</code> header. They remain
+                  valid as a JWT.
                 </span>
-              ),
-            }
+              </span>
+            ),
+          }
           : {
-              title: 'Publishable and secret keys are preferred',
-              description: (
-                <span className="prose text-sm">
-                  Re-enabling <code>anon</code> and <code>service_role</code> keys may be
-                  appropriate in certain cases, but using a publishable and secret key is more
-                  secure. We recommend against re-enabling legacy API keys.
-                </span>
-              ),
-            }
+            title: 'Publishable and secret keys are preferred',
+            description: (
+              <span className="prose text-sm">
+                Re-enabling <code>anon</code> and <code>service_role</code> keys may be
+                appropriate in certain cases, but using a publishable and secret key is more
+                secure. We recommend against re-enabling legacy API keys.
+              </span>
+            ),
+          }
       }
     />
   )

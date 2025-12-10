@@ -26,7 +26,7 @@ export type File = {
 
 /**
  * Returns the initial migration SQL from a GitHub repo.
- * @param externalId An external GitHub URL for example: https://github.com/vercel/next.js/tree/canary/examples/with-supabase
+ * @param externalId An external GitHub URL for example: https://github.com/vercel/next.js/tree/canary/examples/with-selfbase
  */
 export async function getInitialMigrationSQLFromGitHubRepo(
   externalId?: string
@@ -37,19 +37,18 @@ export async function getInitialMigrationSQLFromGitHubRepo(
   const path = pathSegments.join('/')
 
   const baseGitHubUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`
-  const supabaseFolderUrl = `${baseGitHubUrl}/supabase?ref=${branch}`
-  const supabaseMigrationsPath = `supabase/migrations` // TODO: read this from the `supabase/config.toml` file
-  const migrationsFolderUrl = `${baseGitHubUrl}/${supabaseMigrationsPath}${
-    branch ? `?ref=${branch}` : ``
-  }`
+  const selfbaseFolderUrl = `${baseGitHubUrl}/selfbase?ref=${branch}`
+  const selfbaseMigrationsPath = `selfbase/migrations` // TODO: read this from the `selfbase/config.toml` file
+  const migrationsFolderUrl = `${baseGitHubUrl}/${selfbaseMigrationsPath}${branch ? `?ref=${branch}` : ``
+    }`
 
-  const [supabaseFilesResponse, migrationFilesResponse] = await Promise.all([
-    fetchGitHub<File[]>(supabaseFolderUrl),
+  const [selfbaseFilesResponse, migrationFilesResponse] = await Promise.all([
+    fetchGitHub<File[]>(selfbaseFolderUrl),
     fetchGitHub<File[]>(migrationsFolderUrl),
   ])
 
-  if (!isResponseOk(supabaseFilesResponse)) {
-    console.warn(`Failed to fetch supabase files from GitHub: ${supabaseFilesResponse.error}`)
+  if (!isResponseOk(selfbaseFilesResponse)) {
+    console.warn(`Failed to fetch selfbase files from GitHub: ${selfbaseFilesResponse.error}`)
     return null
   }
   if (!isResponseOk(migrationFilesResponse)) {
@@ -57,7 +56,7 @@ export async function getInitialMigrationSQLFromGitHubRepo(
     return null
   }
 
-  const seedFileUrl = supabaseFilesResponse.find((file) => file.name === 'seed.sql')?.download_url
+  const seedFileUrl = selfbaseFilesResponse.find((file) => file.name === 'seed.sql')?.download_url
   const sortedFiles = migrationFilesResponse.sort((a, b) => {
     // sort by name ascending
     if (a.name < b.name) return -1
@@ -77,8 +76,8 @@ export async function getInitialMigrationSQLFromGitHubRepo(
   const seed = isResponseOk(seedFileResponse) ? seedFileResponse : ''
 
   const migrationsTableSql = /* SQL */ `
-    create schema if not exists supabase_migrations;
-    create table if not exists supabase_migrations.schema_migrations (
+    create schema if not exists selfbase_migrations;
+    create table if not exists selfbase_migrations.schema_migrations (
       version text not null primary key,
       statements text[],
       name text
@@ -97,7 +96,7 @@ export async function getInitialMigrationSQLFromGitHubRepo(
         )
 
         return /* SQL */ `
-        insert into supabase_migrations.schema_migrations (version, statements, name)
+        insert into selfbase_migrations.schema_migrations (version, statements, name)
         select '${version}', array_agg(jsonb_statements)::text[], '${file.name}'
         from jsonb_array_elements_text($statements$${statements}$statements$::jsonb) as jsonb_statements;
       `
@@ -124,17 +123,15 @@ export function getIntegrationConfigurationUrl(integration: Integration) {
 }
 
 function getVercelConfigurationUrl(integration: VercelIntegration) {
-  return `https://vercel.com/dashboard/${
-    integration.metadata?.account.type === 'Team'
+  return `https://vercel.com/dashboard/${integration.metadata?.account.type === 'Team'
       ? `${integration.metadata?.account.team_slug}/`
       : ''
-  }integrations/${integration.metadata?.configuration_id}`
+    }integrations/${integration.metadata?.configuration_id}`
 }
 
 function getGitHubConfigurationUrl(integration: GitHubIntegration) {
-  return `https://github.com/${
-    integration.metadata?.account.type === 'Organization'
+  return `https://github.com/${integration.metadata?.account.type === 'Organization'
       ? `organizations/${integration.metadata?.account.name}/`
       : ''
-  }settings/installations/${integration.metadata?.installation_id}`
+    }settings/installations/${integration.metadata?.installation_id}`
 }

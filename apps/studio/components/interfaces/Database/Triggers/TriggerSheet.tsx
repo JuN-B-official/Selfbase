@@ -5,7 +5,7 @@ import { SubmitHandler, useForm } from 'react-hook-form'
 import { toast } from 'sonner'
 import * as z from 'zod'
 
-import { PostgresTrigger } from '@supabase/postgres-meta'
+import { PostgresTrigger } from '@selfbase/postgres-meta'
 import FormBoxEmpty from 'components/ui/FormBoxEmpty'
 import { useDatabaseTriggerCreateMutation } from 'data/database-triggers/database-trigger-create-mutation'
 import { useDatabaseTriggerUpdateMutation } from 'data/database-triggers/database-trigger-update-mutation'
@@ -330,8 +330,8 @@ export const TriggerSheet = ({
                                       return checked
                                         ? field.onChange([...field.value, event.value])
                                         : field.onChange(
-                                            field.value?.filter((value) => value !== event.value)
-                                          )
+                                          field.value?.filter((value) => value !== event.value)
+                                        )
                                     }}
                                   />
                                 </FormControl_Shadcn_>

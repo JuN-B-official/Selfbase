@@ -1,5 +1,5 @@
 ---
-description: How to generate pages and interfaces in Studio, a web interface for managing Supabase projects
+description: How to generate pages and interfaces in Studio, a web interface for managing Selfbase projects
 globs:
 alwaysApply: true
 ---

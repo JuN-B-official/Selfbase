@@ -1,13 +1,13 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry.json",
-  "name": "Supabase UI Library",
-  "homepage": "https://supabase.com/ui",
+  "name": "Selfbase UI Library",
+  "homepage": "https://selfbase.com/ui",
   "items": [
     {
       "name": "password-based-auth-nextjs",
       "type": "registry:block",
-      "title": "Password Based Auth flow for Nextjs and Supabase",
-      "description": "Password Based Auth flow for Nextjs and Supabase",
+      "title": "Password Based Auth flow for Nextjs and Selfbase",
+      "description": "Password Based Auth flow for Nextjs and Selfbase",
       "registryDependencies": [
         "button",
         "card",
@@ -15,8 +15,8 @@
         "label"
       ],
       "dependencies": [
-        "@supabase/ssr@latest",
-        "@supabase/supabase-js@latest"
+        "@selfbase/ssr@latest",
+        "@selfbase/selfbase-js@latest"
       ],
       "files": [
         {
@@ -85,15 +85,15 @@
           "type": "registry:component"
         },
         {
-          "path": "registry/default/clients/nextjs/lib/supabase/client.ts",
+          "path": "registry/default/clients/nextjs/lib/selfbase/client.ts",
           "type": "registry:lib"
         },
         {
-          "path": "registry/default/clients/nextjs/lib/supabase/middleware.ts",
+          "path": "registry/default/clients/nextjs/lib/selfbase/middleware.ts",
           "type": "registry:lib"
         },
         {
-          "path": "registry/default/clients/nextjs/lib/supabase/server.ts",
+          "path": "registry/default/clients/nextjs/lib/selfbase/server.ts",
           "type": "registry:lib"
         }
       ],
@@ -106,8 +106,8 @@
     {
       "name": "password-based-auth-react",
       "type": "registry:block",
-      "title": "Password Based Auth flow for React and Supabase",
-      "description": "Password Based Auth flow for React and Supabase",
+      "title": "Password Based Auth flow for React and Selfbase",
+      "description": "Password Based Auth flow for React and Selfbase",
       "registryDependencies": [
         "button",
         "card",
@@ -132,12 +132,12 @@
           "type": "registry:component"
         },
         {
-          "path": "registry/default/clients/react/lib/supabase/client.ts",
+          "path": "registry/default/clients/react/lib/selfbase/client.ts",
           "type": "registry:lib"
         }
       ],
       "dependencies": [
-        "@supabase/supabase-js@latest"
+        "@selfbase/selfbase-js@latest"
       ],
       "docs": "You'll need to set the following environment variables in your project: `VITE_SUPABASE_URL` and `VITE_SUPABASE_PUBLISHABLE_OR_ANON_KEY`.",
       "envVars": {
@@ -148,8 +148,8 @@
     {
       "name": "password-based-auth-react-router",
       "type": "registry:block",
-      "title": "Password Based Auth flow for React Router and Supabase",
-      "description": "Password Based Auth flow for React Router and Supabase",
+      "title": "Password Based Auth flow for React Router and Selfbase",
+      "description": "Password Based Auth flow for React Router and Selfbase",
       "registryDependencies": [
         "button",
         "card",
@@ -157,10 +157,10 @@
         "label"
       ],
       "dependencies": [
-        "@supabase/ssr@latest",
+        "@selfbase/ssr@latest",
         "@react-router/dev@latest",
         "@react-router/fs-routes@latest",
-        "@supabase/supabase-js@latest"
+        "@selfbase/selfbase-js@latest"
       ],
       "files": [
         {
@@ -209,11 +209,11 @@
           "target": "app/routes.ts"
         },
         {
-          "path": "registry/default/clients/react-router/lib/supabase/client.ts",
+          "path": "registry/default/clients/react-router/lib/selfbase/client.ts",
           "type": "registry:lib"
         },
         {
-          "path": "registry/default/clients/react-router/lib/supabase/server.ts",
+          "path": "registry/default/clients/react-router/lib/selfbase/server.ts",
           "type": "registry:lib"
         }
       ],
@@ -226,8 +226,8 @@
     {
       "name": "password-based-auth-tanstack",
       "type": "registry:block",
-      "title": "Password Based Auth flow for tanstack and Supabase",
-      "description": "Password Based Auth flow for tanstack and Supabase",
+      "title": "Password Based Auth flow for tanstack and Selfbase",
+      "description": "Password Based Auth flow for tanstack and Selfbase",
       "registryDependencies": [
         "button",
         "card",
@@ -235,8 +235,8 @@
         "label"
       ],
       "dependencies": [
-        "@supabase/ssr@latest",
-        "@supabase/supabase-js@latest"
+        "@selfbase/ssr@latest",
+        "@selfbase/selfbase-js@latest"
       ],
       "files": [
         {
@@ -301,15 +301,15 @@
           "type": "registry:component"
         },
         {
-          "path": "registry/default/blocks/password-based-auth-tanstack/lib/supabase/fetch-user-server-fn.ts",
+          "path": "registry/default/blocks/password-based-auth-tanstack/lib/selfbase/fetch-user-server-fn.ts",
           "type": "registry:lib"
         },
         {
-          "path": "registry/default/clients/tanstack/lib/supabase/client.ts",
+          "path": "registry/default/clients/tanstack/lib/selfbase/client.ts",
           "type": "registry:lib"
         },
         {
-          "path": "registry/default/clients/tanstack/lib/supabase/server.ts",
+          "path": "registry/default/clients/tanstack/lib/selfbase/server.ts",
           "type": "registry:lib"
         }
       ],
@@ -322,15 +322,15 @@
     {
       "name": "social-auth-nextjs",
       "type": "registry:block",
-      "title": "Social Auth flow for Nextjs and Supabase",
-      "description": "Social Auth flow for Nextjs and Supabase",
+      "title": "Social Auth flow for Nextjs and Selfbase",
+      "description": "Social Auth flow for Nextjs and Selfbase",
       "registryDependencies": [
         "button",
         "card"
       ],
       "dependencies": [
-        "@supabase/ssr@latest",
-        "@supabase/supabase-js@latest"
+        "@selfbase/ssr@latest",
+        "@selfbase/selfbase-js@latest"
       ],
       "files": [
         {
@@ -367,15 +367,15 @@
           "type": "registry:component"
         },
         {
-          "path": "registry/default/clients/nextjs/lib/supabase/client.ts",
+          "path": "registry/default/clients/nextjs/lib/selfbase/client.ts",
           "type": "registry:lib"
         },
         {
-          "path": "registry/default/clients/nextjs/lib/supabase/middleware.ts",
+          "path": "registry/default/clients/nextjs/lib/selfbase/middleware.ts",
           "type": "registry:lib"
         },
         {
-          "path": "registry/default/clients/nextjs/lib/supabase/server.ts",
+          "path": "registry/default/clients/nextjs/lib/selfbase/server.ts",
           "type": "registry:lib"
         }
       ],
@@ -388,8 +388,8 @@
     {
       "name": "social-auth-react",
       "type": "registry:block",
-      "title": "Social Auth flow for React and Supabase",
-      "description": "Social Auth flow for React and Supabase",
+      "title": "Social Auth flow for React and Selfbase",
+      "description": "Social Auth flow for React and Selfbase",
       "registryDependencies": [
         "button",
         "card"
@@ -400,12 +400,12 @@
           "type": "registry:component"
         },
         {
-          "path": "registry/default/clients/react/lib/supabase/client.ts",
+          "path": "registry/default/clients/react/lib/selfbase/client.ts",
           "type": "registry:lib"
         }
       ],
       "dependencies": [
-        "@supabase/supabase-js@latest"
+        "@selfbase/selfbase-js@latest"
       ],
       "docs": "You'll need to set the following environment variables in your project: `VITE_SUPABASE_URL` and `VITE_SUPABASE_PUBLISHABLE_OR_ANON_KEY`.",
       "envVars": {
@@ -416,17 +416,17 @@
     {
       "name": "social-auth-react-router",
       "type": "registry:block",
-      "title": "Social Auth flow for React Router and Supabase",
-      "description": "Social Auth flow for React Router and Supabase",
+      "title": "Social Auth flow for React Router and Selfbase",
+      "description": "Social Auth flow for React Router and Selfbase",
       "registryDependencies": [
         "button",
         "card"
       ],
       "dependencies": [
-        "@supabase/ssr@latest",
+        "@selfbase/ssr@latest",
         "@react-router/dev@latest",
         "@react-router/fs-routes@latest",
-        "@supabase/supabase-js@latest"
+        "@selfbase/selfbase-js@latest"
       ],
       "files": [
         {
@@ -460,11 +460,11 @@
           "target": "app/routes.ts"
         },
         {
-          "path": "registry/default/clients/react-router/lib/supabase/client.ts",
+          "path": "registry/default/clients/react-router/lib/selfbase/client.ts",
           "type": "registry:lib"
         },
         {
-          "path": "registry/default/clients/react-router/lib/supabase/server.ts",
+          "path": "registry/default/clients/react-router/lib/selfbase/server.ts",
           "type": "registry:lib"
         }
       ],
@@ -477,15 +477,15 @@
     {
       "name": "social-auth-tanstack",
       "type": "registry:block",
-      "title": "Social Auth flow for TanStack and Supabase",
-      "description": "Social Auth flow for TanStack and Supabase",
+      "title": "Social Auth flow for TanStack and Selfbase",
+      "description": "Social Auth flow for TanStack and Selfbase",
       "registryDependencies": [
         "button",
         "card"
       ],
       "dependencies": [
-        "@supabase/ssr@latest",
-        "@supabase/supabase-js@latest"
+        "@selfbase/ssr@latest",
+        "@selfbase/selfbase-js@latest"
       ],
       "files": [
         {
@@ -493,7 +493,7 @@
           "type": "registry:component"
         },
         {
-          "path": "registry/default/blocks/social-auth-tanstack/lib/supabase/fetch-user-server-fn.ts",
+          "path": "registry/default/blocks/social-auth-tanstack/lib/selfbase/fetch-user-server-fn.ts",
           "type": "registry:lib"
         },
         {
@@ -522,11 +522,11 @@
           "target": "routes/login.tsx"
         },
         {
-          "path": "registry/default/clients/tanstack/lib/supabase/client.ts",
+          "path": "registry/default/clients/tanstack/lib/selfbase/client.ts",
           "type": "registry:lib"
         },
         {
-          "path": "registry/default/clients/tanstack/lib/supabase/server.ts",
+          "path": "registry/default/clients/tanstack/lib/selfbase/server.ts",
           "type": "registry:lib"
         }
       ],
@@ -541,15 +541,15 @@
       "name": "dropzone-nextjs",
       "type": "registry:component",
       "title": "Dropzone (File Upload)",
-      "description": "Displays a control for easier uploading of files directly to Supabase Storage.",
+      "description": "Displays a control for easier uploading of files directly to Selfbase Storage.",
       "registryDependencies": [
         "button"
       ],
       "dependencies": [
         "react-dropzone",
         "lucide-react",
-        "@supabase/ssr@latest",
-        "@supabase/supabase-js@latest"
+        "@selfbase/ssr@latest",
+        "@selfbase/selfbase-js@latest"
       ],
       "files": [
         {
@@ -557,19 +557,19 @@
           "type": "registry:component"
         },
         {
-          "path": "registry/default/blocks/dropzone/hooks/use-supabase-upload.ts",
+          "path": "registry/default/blocks/dropzone/hooks/use-selfbase-upload.ts",
           "type": "registry:hook"
         },
         {
-          "path": "registry/default/clients/nextjs/lib/supabase/client.ts",
+          "path": "registry/default/clients/nextjs/lib/selfbase/client.ts",
           "type": "registry:lib"
         },
         {
-          "path": "registry/default/clients/nextjs/lib/supabase/middleware.ts",
+          "path": "registry/default/clients/nextjs/lib/selfbase/middleware.ts",
           "type": "registry:lib"
         },
         {
-          "path": "registry/default/clients/nextjs/lib/supabase/server.ts",
+          "path": "registry/default/clients/nextjs/lib/selfbase/server.ts",
           "type": "registry:lib"
         }
       ],
@@ -584,14 +584,14 @@
       "name": "dropzone-react",
       "type": "registry:component",
       "title": "Dropzone (File Upload)",
-      "description": "Displays a control for easier uploading of files directly to Supabase Storage.",
+      "description": "Displays a control for easier uploading of files directly to Selfbase Storage.",
       "registryDependencies": [
         "button"
       ],
       "dependencies": [
         "react-dropzone",
         "lucide-react",
-        "@supabase/supabase-js@latest"
+        "@selfbase/selfbase-js@latest"
       ],
       "files": [
         {
@@ -599,11 +599,11 @@
           "type": "registry:component"
         },
         {
-          "path": "registry/default/blocks/dropzone/hooks/use-supabase-upload.ts",
+          "path": "registry/default/blocks/dropzone/hooks/use-selfbase-upload.ts",
           "type": "registry:hook"
         },
         {
-          "path": "registry/default/clients/react/lib/supabase/client.ts",
+          "path": "registry/default/clients/react/lib/selfbase/client.ts",
           "type": "registry:lib"
         }
       ],
@@ -618,15 +618,15 @@
       "name": "dropzone-react-router",
       "type": "registry:component",
       "title": "Dropzone (File Upload)",
-      "description": "Displays a control for easier uploading of files directly to Supabase Storage.",
+      "description": "Displays a control for easier uploading of files directly to Selfbase Storage.",
       "registryDependencies": [
         "button"
       ],
       "dependencies": [
         "react-dropzone",
         "lucide-react",
-        "@supabase/ssr@latest",
-        "@supabase/supabase-js@latest"
+        "@selfbase/ssr@latest",
+        "@selfbase/selfbase-js@latest"
       ],
       "files": [
         {
@@ -634,15 +634,15 @@
           "type": "registry:component"
         },
         {
-          "path": "registry/default/blocks/dropzone/hooks/use-supabase-upload.ts",
+          "path": "registry/default/blocks/dropzone/hooks/use-selfbase-upload.ts",
           "type": "registry:hook"
         },
         {
-          "path": "registry/default/clients/react-router/lib/supabase/client.ts",
+          "path": "registry/default/clients/react-router/lib/selfbase/client.ts",
           "type": "registry:lib"
         },
         {
-          "path": "registry/default/clients/react-router/lib/supabase/server.ts",
+          "path": "registry/default/clients/react-router/lib/selfbase/server.ts",
           "type": "registry:lib"
         }
       ],
@@ -657,15 +657,15 @@
       "name": "dropzone-tanstack",
       "type": "registry:component",
       "title": "Dropzone (File Upload)",
-      "description": "Displays a control for easier uploading of files directly to Supabase Storage.",
+      "description": "Displays a control for easier uploading of files directly to Selfbase Storage.",
       "registryDependencies": [
         "button"
       ],
       "dependencies": [
         "react-dropzone",
         "lucide-react",
-        "@supabase/ssr@latest",
-        "@supabase/supabase-js@latest"
+        "@selfbase/ssr@latest",
+        "@selfbase/selfbase-js@latest"
       ],
       "files": [
         {
@@ -673,15 +673,15 @@
           "type": "registry:component"
         },
         {
-          "path": "registry/default/blocks/dropzone/hooks/use-supabase-upload.ts",
+          "path": "registry/default/blocks/dropzone/hooks/use-selfbase-upload.ts",
           "type": "registry:hook"
         },
         {
-          "path": "registry/default/clients/tanstack/lib/supabase/client.ts",
+          "path": "registry/default/clients/tanstack/lib/selfbase/client.ts",
           "type": "registry:lib"
         },
         {
-          "path": "registry/default/clients/tanstack/lib/supabase/server.ts",
+          "path": "registry/default/clients/tanstack/lib/selfbase/server.ts",
           "type": "registry:lib"
         }
       ],
@@ -700,8 +700,8 @@
       "registryDependencies": [],
       "dependencies": [
         "lucide-react",
-        "@supabase/ssr@latest",
-        "@supabase/supabase-js@latest"
+        "@selfbase/ssr@latest",
+        "@selfbase/selfbase-js@latest"
       ],
       "files": [
         {
@@ -717,15 +717,15 @@
           "type": "registry:hook"
         },
         {
-          "path": "registry/default/clients/nextjs/lib/supabase/client.ts",
+          "path": "registry/default/clients/nextjs/lib/selfbase/client.ts",
           "type": "registry:lib"
         },
         {
-          "path": "registry/default/clients/nextjs/lib/supabase/middleware.ts",
+          "path": "registry/default/clients/nextjs/lib/selfbase/middleware.ts",
           "type": "registry:lib"
         },
         {
-          "path": "registry/default/clients/nextjs/lib/supabase/server.ts",
+          "path": "registry/default/clients/nextjs/lib/selfbase/server.ts",
           "type": "registry:lib"
         }
       ],
@@ -744,7 +744,7 @@
       "registryDependencies": [],
       "dependencies": [
         "lucide-react",
-        "@supabase/supabase-js@latest"
+        "@selfbase/selfbase-js@latest"
       ],
       "files": [
         {
@@ -760,7 +760,7 @@
           "type": "registry:hook"
         },
         {
-          "path": "registry/default/clients/react/lib/supabase/client.ts",
+          "path": "registry/default/clients/react/lib/selfbase/client.ts",
           "type": "registry:lib"
         }
       ],
@@ -779,8 +779,8 @@
       "registryDependencies": [],
       "dependencies": [
         "lucide-react",
-        "@supabase/ssr@latest",
-        "@supabase/supabase-js@latest"
+        "@selfbase/ssr@latest",
+        "@selfbase/selfbase-js@latest"
       ],
       "files": [
         {
@@ -796,11 +796,11 @@
           "type": "registry:hook"
         },
         {
-          "path": "registry/default/clients/react-router/lib/supabase/client.ts",
+          "path": "registry/default/clients/react-router/lib/selfbase/client.ts",
           "type": "registry:lib"
         },
         {
-          "path": "registry/default/clients/react-router/lib/supabase/server.ts",
+          "path": "registry/default/clients/react-router/lib/selfbase/server.ts",
           "type": "registry:lib"
         }
       ],
@@ -819,8 +819,8 @@
       "registryDependencies": [],
       "dependencies": [
         "lucide-react",
-        "@supabase/ssr@latest",
-        "@supabase/supabase-js@latest"
+        "@selfbase/ssr@latest",
+        "@selfbase/selfbase-js@latest"
       ],
       "files": [
         {
@@ -836,11 +836,11 @@
           "type": "registry:hook"
         },
         {
-          "path": "registry/default/clients/tanstack/lib/supabase/client.ts",
+          "path": "registry/default/clients/tanstack/lib/selfbase/client.ts",
           "type": "registry:lib"
         },
         {
-          "path": "registry/default/clients/tanstack/lib/supabase/server.ts",
+          "path": "registry/default/clients/tanstack/lib/selfbase/server.ts",
           "type": "registry:lib"
         }
       ],
@@ -860,8 +860,8 @@
         "avatar"
       ],
       "dependencies": [
-        "@supabase/ssr@latest",
-        "@supabase/supabase-js@latest"
+        "@selfbase/ssr@latest",
+        "@selfbase/selfbase-js@latest"
       ],
       "files": [
         {
@@ -877,15 +877,15 @@
           "type": "registry:hook"
         },
         {
-          "path": "registry/default/clients/nextjs/lib/supabase/client.ts",
+          "path": "registry/default/clients/nextjs/lib/selfbase/client.ts",
           "type": "registry:lib"
         },
         {
-          "path": "registry/default/clients/nextjs/lib/supabase/middleware.ts",
+          "path": "registry/default/clients/nextjs/lib/selfbase/middleware.ts",
           "type": "registry:lib"
         },
         {
-          "path": "registry/default/clients/nextjs/lib/supabase/server.ts",
+          "path": "registry/default/clients/nextjs/lib/selfbase/server.ts",
           "type": "registry:lib"
         }
       ],
@@ -905,7 +905,7 @@
         "avatar"
       ],
       "dependencies": [
-        "@supabase/supabase-js@latest"
+        "@selfbase/selfbase-js@latest"
       ],
       "files": [
         {
@@ -921,7 +921,7 @@
           "type": "registry:hook"
         },
         {
-          "path": "registry/default/clients/react/lib/supabase/client.ts",
+          "path": "registry/default/clients/react/lib/selfbase/client.ts",
           "type": "registry:lib"
         }
       ],
@@ -941,8 +941,8 @@
         "avatar"
       ],
       "dependencies": [
-        "@supabase/ssr@latest",
-        "@supabase/supabase-js@latest"
+        "@selfbase/ssr@latest",
+        "@selfbase/selfbase-js@latest"
       ],
       "files": [
         {
@@ -958,11 +958,11 @@
           "type": "registry:hook"
         },
         {
-          "path": "registry/default/clients/react-router/lib/supabase/client.ts",
+          "path": "registry/default/clients/react-router/lib/selfbase/client.ts",
           "type": "registry:lib"
         },
         {
-          "path": "registry/default/clients/react-router/lib/supabase/server.ts",
+          "path": "registry/default/clients/react-router/lib/selfbase/server.ts",
           "type": "registry:lib"
         }
       ],
@@ -982,8 +982,8 @@
         "avatar"
       ],
       "dependencies": [
-        "@supabase/ssr@latest",
-        "@supabase/supabase-js@latest"
+        "@selfbase/ssr@latest",
+        "@selfbase/selfbase-js@latest"
       ],
       "files": [
         {
@@ -999,11 +999,11 @@
           "type": "registry:hook"
         },
         {
-          "path": "registry/default/clients/tanstack/lib/supabase/client.ts",
+          "path": "registry/default/clients/tanstack/lib/selfbase/client.ts",
           "type": "registry:lib"
         },
         {
-          "path": "registry/default/clients/tanstack/lib/supabase/server.ts",
+          "path": "registry/default/clients/tanstack/lib/selfbase/server.ts",
           "type": "registry:lib"
         }
       ],
@@ -1024,8 +1024,8 @@
         "tooltip"
       ],
       "dependencies": [
-        "@supabase/ssr@latest",
-        "@supabase/supabase-js@latest"
+        "@selfbase/ssr@latest",
+        "@selfbase/selfbase-js@latest"
       ],
       "files": [
         {
@@ -1049,15 +1049,15 @@
           "type": "registry:hook"
         },
         {
-          "path": "registry/default/clients/nextjs/lib/supabase/client.ts",
+          "path": "registry/default/clients/nextjs/lib/selfbase/client.ts",
           "type": "registry:lib"
         },
         {
-          "path": "registry/default/clients/nextjs/lib/supabase/middleware.ts",
+          "path": "registry/default/clients/nextjs/lib/selfbase/middleware.ts",
           "type": "registry:lib"
         },
         {
-          "path": "registry/default/clients/nextjs/lib/supabase/server.ts",
+          "path": "registry/default/clients/nextjs/lib/selfbase/server.ts",
           "type": "registry:lib"
         }
       ],
@@ -1078,7 +1078,7 @@
         "tooltip"
       ],
       "dependencies": [
-        "@supabase/supabase-js@latest"
+        "@selfbase/selfbase-js@latest"
       ],
       "files": [
         {
@@ -1102,7 +1102,7 @@
           "type": "registry:hook"
         },
         {
-          "path": "registry/default/clients/react/lib/supabase/client.ts",
+          "path": "registry/default/clients/react/lib/selfbase/client.ts",
           "type": "registry:lib"
         }
       ],
@@ -1123,8 +1123,8 @@
         "tooltip"
       ],
       "dependencies": [
-        "@supabase/ssr@latest",
-        "@supabase/supabase-js@latest"
+        "@selfbase/ssr@latest",
+        "@selfbase/selfbase-js@latest"
       ],
       "files": [
         {
@@ -1148,11 +1148,11 @@
           "type": "registry:hook"
         },
         {
-          "path": "registry/default/clients/react-router/lib/supabase/client.ts",
+          "path": "registry/default/clients/react-router/lib/selfbase/client.ts",
           "type": "registry:lib"
         },
         {
-          "path": "registry/default/clients/react-router/lib/supabase/server.ts",
+          "path": "registry/default/clients/react-router/lib/selfbase/server.ts",
           "type": "registry:lib"
         }
       ],
@@ -1173,8 +1173,8 @@
         "tooltip"
       ],
       "dependencies": [
-        "@supabase/ssr@latest",
-        "@supabase/supabase-js@latest"
+        "@selfbase/ssr@latest",
+        "@selfbase/selfbase-js@latest"
       ],
       "files": [
         {
@@ -1198,11 +1198,11 @@
           "type": "registry:hook"
         },
         {
-          "path": "registry/default/clients/tanstack/lib/supabase/client.ts",
+          "path": "registry/default/clients/tanstack/lib/selfbase/client.ts",
           "type": "registry:lib"
         },
         {
-          "path": "registry/default/clients/tanstack/lib/supabase/server.ts",
+          "path": "registry/default/clients/tanstack/lib/selfbase/server.ts",
           "type": "registry:lib"
         }
       ],
@@ -1224,8 +1224,8 @@
       ],
       "dependencies": [
         "lucide-react",
-        "@supabase/ssr@latest",
-        "@supabase/supabase-js@latest"
+        "@selfbase/ssr@latest",
+        "@selfbase/selfbase-js@latest"
       ],
       "files": [
         {
@@ -1245,15 +1245,15 @@
           "type": "registry:hook"
         },
         {
-          "path": "registry/default/clients/nextjs/lib/supabase/client.ts",
+          "path": "registry/default/clients/nextjs/lib/selfbase/client.ts",
           "type": "registry:lib"
         },
         {
-          "path": "registry/default/clients/nextjs/lib/supabase/middleware.ts",
+          "path": "registry/default/clients/nextjs/lib/selfbase/middleware.ts",
           "type": "registry:lib"
         },
         {
-          "path": "registry/default/clients/nextjs/lib/supabase/server.ts",
+          "path": "registry/default/clients/nextjs/lib/selfbase/server.ts",
           "type": "registry:lib"
         }
       ],
@@ -1275,7 +1275,7 @@
       ],
       "dependencies": [
         "lucide-react",
-        "@supabase/supabase-js@latest"
+        "@selfbase/selfbase-js@latest"
       ],
       "files": [
         {
@@ -1295,7 +1295,7 @@
           "type": "registry:hook"
         },
         {
-          "path": "registry/default/clients/react/lib/supabase/client.ts",
+          "path": "registry/default/clients/react/lib/selfbase/client.ts",
           "type": "registry:lib"
         }
       ],
@@ -1317,8 +1317,8 @@
       ],
       "dependencies": [
         "lucide-react",
-        "@supabase/ssr@latest",
-        "@supabase/supabase-js@latest"
+        "@selfbase/ssr@latest",
+        "@selfbase/selfbase-js@latest"
       ],
       "files": [
         {
@@ -1338,11 +1338,11 @@
           "type": "registry:hook"
         },
         {
-          "path": "registry/default/clients/react-router/lib/supabase/client.ts",
+          "path": "registry/default/clients/react-router/lib/selfbase/client.ts",
           "type": "registry:lib"
         },
         {
-          "path": "registry/default/clients/react-router/lib/supabase/server.ts",
+          "path": "registry/default/clients/react-router/lib/selfbase/server.ts",
           "type": "registry:lib"
         }
       ],
@@ -1364,8 +1364,8 @@
       ],
       "dependencies": [
         "lucide-react",
-        "@supabase/ssr@latest",
-        "@supabase/supabase-js@latest"
+        "@selfbase/ssr@latest",
+        "@selfbase/selfbase-js@latest"
       ],
       "files": [
         {
@@ -1385,11 +1385,11 @@
           "type": "registry:hook"
         },
         {
-          "path": "registry/default/clients/tanstack/lib/supabase/client.ts",
+          "path": "registry/default/clients/tanstack/lib/selfbase/client.ts",
           "type": "registry:lib"
         },
         {
-          "path": "registry/default/clients/tanstack/lib/supabase/server.ts",
+          "path": "registry/default/clients/tanstack/lib/selfbase/server.ts",
           "type": "registry:lib"
         }
       ],
@@ -1404,10 +1404,10 @@
       "name": "infinite-query-hook",
       "type": "registry:block",
       "title": "Infinite Query Hook",
-      "description": "React hook for infinite lists, fetching data from Supabase.",
+      "description": "React hook for infinite lists, fetching data from Selfbase.",
       "dependencies": [
-        "@supabase/supabase-js",
-        "@supabase/postgrest-js@*"
+        "@selfbase/selfbase-js",
+        "@selfbase/postgrest-js@*"
       ],
       "registryDependencies": [],
       "files": [
@@ -1419,14 +1419,14 @@
     },
     {
       "$schema": "https://ui.shadcn.com/schema/registry-item.json",
-      "name": "supabase-client-nextjs",
+      "name": "selfbase-client-nextjs",
       "type": "registry:lib",
-      "title": "Supabase Client for Next.js",
+      "title": "Selfbase Client for Next.js",
       "description": "",
       "registryDependencies": [],
       "dependencies": [
-        "@supabase/ssr@latest",
-        "@supabase/supabase-js@latest"
+        "@selfbase/ssr@latest",
+        "@selfbase/selfbase-js@latest"
       ],
       "docs": "You'll need to set the following environment variables in your project: `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_OR_ANON_KEY`.",
       "envVars": {
@@ -1435,28 +1435,28 @@
       },
       "files": [
         {
-          "path": "registry/default/clients/nextjs/lib/supabase/client.ts",
+          "path": "registry/default/clients/nextjs/lib/selfbase/client.ts",
           "type": "registry:lib"
         },
         {
-          "path": "registry/default/clients/nextjs/lib/supabase/middleware.ts",
+          "path": "registry/default/clients/nextjs/lib/selfbase/middleware.ts",
           "type": "registry:lib"
         },
         {
-          "path": "registry/default/clients/nextjs/lib/supabase/server.ts",
+          "path": "registry/default/clients/nextjs/lib/selfbase/server.ts",
           "type": "registry:lib"
         }
       ]
     },
     {
       "$schema": "https://ui.shadcn.com/schema/registry-item.json",
-      "name": "supabase-client-react",
+      "name": "selfbase-client-react",
       "type": "registry:lib",
-      "title": "Supabase Client for React",
+      "title": "Selfbase Client for React",
       "description": "",
       "registryDependencies": [],
       "dependencies": [
-        "@supabase/supabase-js@latest"
+        "@selfbase/selfbase-js@latest"
       ],
       "docs": "You'll need to set the following environment variables in your project: `VITE_SUPABASE_URL` and `VITE_SUPABASE_PUBLISHABLE_OR_ANON_KEY`.",
       "envVars": {
@@ -1465,21 +1465,21 @@
       },
       "files": [
         {
-          "path": "registry/default/clients/react/lib/supabase/client.ts",
+          "path": "registry/default/clients/react/lib/selfbase/client.ts",
           "type": "registry:lib"
         }
       ]
     },
     {
       "$schema": "https://ui.shadcn.com/schema/registry-item.json",
-      "name": "supabase-client-react-router",
+      "name": "selfbase-client-react-router",
       "type": "registry:lib",
-      "title": "Supabase Client for React Router",
+      "title": "Selfbase Client for React Router",
       "description": "",
       "registryDependencies": [],
       "dependencies": [
-        "@supabase/ssr@latest",
-        "@supabase/supabase-js@latest"
+        "@selfbase/ssr@latest",
+        "@selfbase/selfbase-js@latest"
       ],
       "docs": "You'll need to set the following environment variables in your project: `VITE_SUPABASE_URL` and `VITE_SUPABASE_PUBLISHABLE_OR_ANON_KEY`.",
       "envVars": {
@@ -1488,25 +1488,25 @@
       },
       "files": [
         {
-          "path": "registry/default/clients/react-router/lib/supabase/client.ts",
+          "path": "registry/default/clients/react-router/lib/selfbase/client.ts",
           "type": "registry:lib"
         },
         {
-          "path": "registry/default/clients/react-router/lib/supabase/server.ts",
+          "path": "registry/default/clients/react-router/lib/selfbase/server.ts",
           "type": "registry:lib"
         }
       ]
     },
     {
       "$schema": "https://ui.shadcn.com/schema/registry-item.json",
-      "name": "supabase-client-tanstack",
+      "name": "selfbase-client-tanstack",
       "type": "registry:lib",
-      "title": "Supabase Client for TanStack Start",
+      "title": "Selfbase Client for TanStack Start",
       "description": "",
       "registryDependencies": [],
       "dependencies": [
-        "@supabase/ssr@latest",
-        "@supabase/supabase-js@latest"
+        "@selfbase/ssr@latest",
+        "@selfbase/selfbase-js@latest"
       ],
       "docs": "You'll need to set the following environment variables in your project: `VITE_SUPABASE_URL` and `VITE_SUPABASE_PUBLISHABLE_OR_ANON_KEY`.",
       "envVars": {
@@ -1515,11 +1515,11 @@
       },
       "files": [
         {
-          "path": "registry/default/clients/tanstack/lib/supabase/client.ts",
+          "path": "registry/default/clients/tanstack/lib/selfbase/client.ts",
           "type": "registry:lib"
         },
         {
-          "path": "registry/default/clients/tanstack/lib/supabase/server.ts",
+          "path": "registry/default/clients/tanstack/lib/selfbase/server.ts",
           "type": "registry:lib"
         }
       ]
@@ -1528,8 +1528,8 @@
       "$schema": "https://ui.shadcn.com/schema/registry-item.json",
       "name": "platform-kit-nextjs",
       "type": "registry:block",
-      "title": "Platform Kit for Nextjs and Supabase",
-      "description": "Platform Kit for Nextjs and Supabase",
+      "title": "Platform Kit for Nextjs and Selfbase",
+      "description": "Platform Kit for Nextjs and Selfbase",
       "registryDependencies": [
         "alert",
         "badge",
@@ -1574,16 +1574,16 @@
           "target": "app/api/ai/sql/route.ts"
         },
         {
-          "path": "registry/default/platform/platform-kit-nextjs/app/api/supabase-proxy/[...path]/route.ts",
+          "path": "registry/default/platform/platform-kit-nextjs/app/api/selfbase-proxy/[...path]/route.ts",
           "type": "registry:page",
-          "target": "app/api/supabase-proxy/[...path]/route.ts"
+          "target": "app/api/selfbase-proxy/[...path]/route.ts"
         },
         {
           "path": "registry/default/platform/platform-kit-nextjs/components/dynamic-form.tsx",
           "type": "registry:component"
         },
         {
-          "path": "registry/default/platform/platform-kit-nextjs/components/logo-supabase.tsx",
+          "path": "registry/default/platform/platform-kit-nextjs/components/logo-selfbase.tsx",
           "type": "registry:component"
         },
         {
@@ -1595,35 +1595,35 @@
           "type": "registry:component"
         },
         {
-          "path": "registry/default/platform/platform-kit-nextjs/components/supabase-manager/auth.tsx",
+          "path": "registry/default/platform/platform-kit-nextjs/components/selfbase-manager/auth.tsx",
           "type": "registry:component"
         },
         {
-          "path": "registry/default/platform/platform-kit-nextjs/components/supabase-manager/database.tsx",
+          "path": "registry/default/platform/platform-kit-nextjs/components/selfbase-manager/database.tsx",
           "type": "registry:component"
         },
         {
-          "path": "registry/default/platform/platform-kit-nextjs/components/supabase-manager/index.tsx",
+          "path": "registry/default/platform/platform-kit-nextjs/components/selfbase-manager/index.tsx",
           "type": "registry:component"
         },
         {
-          "path": "registry/default/platform/platform-kit-nextjs/components/supabase-manager/logs.tsx",
+          "path": "registry/default/platform/platform-kit-nextjs/components/selfbase-manager/logs.tsx",
           "type": "registry:component"
         },
         {
-          "path": "registry/default/platform/platform-kit-nextjs/components/supabase-manager/secrets.tsx",
+          "path": "registry/default/platform/platform-kit-nextjs/components/selfbase-manager/secrets.tsx",
           "type": "registry:component"
         },
         {
-          "path": "registry/default/platform/platform-kit-nextjs/components/supabase-manager/storage.tsx",
+          "path": "registry/default/platform/platform-kit-nextjs/components/selfbase-manager/storage.tsx",
           "type": "registry:component"
         },
         {
-          "path": "registry/default/platform/platform-kit-nextjs/components/supabase-manager/suggestions.tsx",
+          "path": "registry/default/platform/platform-kit-nextjs/components/selfbase-manager/suggestions.tsx",
           "type": "registry:component"
         },
         {
-          "path": "registry/default/platform/platform-kit-nextjs/components/supabase-manager/users.tsx",
+          "path": "registry/default/platform/platform-kit-nextjs/components/selfbase-manager/users.tsx",
           "type": "registry:component"
         },
         {
@@ -1703,14 +1703,14 @@
     },
     {
       "$schema": "https://ui.shadcn.com/schema/registry-item.json",
-      "name": "supabase-client-nuxtjs",
+      "name": "selfbase-client-nuxtjs",
       "type": "registry:lib",
-      "title": "Supabase Client for Nuxt.js",
+      "title": "Selfbase Client for Nuxt.js",
       "description": "",
       "registryDependencies": [],
       "dependencies": [
-        "@supabase/ssr@latest",
-        "@supabase/supabase-js@latest"
+        "@selfbase/ssr@latest",
+        "@selfbase/selfbase-js@latest"
       ],
       "docs": "You'll need to set the following environment variables in your project: `NUXT_PUBLIC_SUPABASE_URL` and `NUXT_PUBLIC_SUPABASE_PUBLISHABLE_OR_ANON_KEY`.",
       "envVars": {
@@ -1719,7 +1719,7 @@
       },
       "files": [
         {
-          "path": "registry/default/clients/nuxtjs/lib/supabase/client.ts",
+          "path": "registry/default/clients/nuxtjs/lib/selfbase/client.ts",
           "type": "registry:lib"
         },
         {
@@ -1733,21 +1733,21 @@
           "target": "server/api/profile.get.ts"
         },
         {
-          "path": "registry/default/clients/nuxtjs/server/supabase/client.ts",
+          "path": "registry/default/clients/nuxtjs/server/selfbase/client.ts",
           "type": "registry:file",
-          "target": "server/supabase/client.ts"
+          "target": "server/selfbase/client.ts"
         }
       ]
     },
     {
       "$schema": "https://ui.shadcn.com/schema/registry-item.json",
-      "name": "supabase-client-vue",
+      "name": "selfbase-client-vue",
       "type": "registry:lib",
-      "title": "Supabase Client for Vue",
+      "title": "Selfbase Client for Vue",
       "description": "",
       "registryDependencies": [],
       "dependencies": [
-        "@supabase/supabase-js@latest"
+        "@selfbase/selfbase-js@latest"
       ],
       "docs": "You'll need to set the following environment variables in your project: `VITE_SUPABASE_URL` and `VITE_SUPABASE_PUBLISHABLE_OR_ANON_KEY`.",
       "envVars": {
@@ -1756,7 +1756,7 @@
       },
       "files": [
         {
-          "path": "registry/default/clients/vue/lib/supabase/client.ts",
+          "path": "registry/default/clients/vue/lib/selfbase/client.ts",
           "type": "registry:lib"
         }
       ]
@@ -1764,8 +1764,8 @@
     {
       "name": "password-based-auth-nuxtjs",
       "type": "registry:block",
-      "title": "Password Based Auth flow for Nuxt.js and Supabase",
-      "description": "Password Based Auth flow for Nuxt.js and Supabase",
+      "title": "Password Based Auth flow for Nuxt.js and Selfbase",
+      "description": "Password Based Auth flow for Nuxt.js and Selfbase",
       "registryDependencies": [
         "button",
         "card",
@@ -1773,8 +1773,8 @@
         "label"
       ],
       "dependencies": [
-        "@supabase/ssr@latest",
-        "@supabase/supabase-js@latest"
+        "@selfbase/ssr@latest",
+        "@selfbase/selfbase-js@latest"
       ],
       "files": [
         {
@@ -1842,8 +1842,8 @@
     {
       "name": "password-based-auth-vue",
       "type": "registry:block",
-      "title": "Password Based Auth flow for Vue and Supabase",
-      "description": "Password Based Auth flow for Vue and Supabase",
+      "title": "Password Based Auth flow for Vue and Selfbase",
+      "description": "Password Based Auth flow for Vue and Selfbase",
       "registryDependencies": [
         "button",
         "card",
@@ -1873,14 +1873,14 @@
         }
       ],
       "dependencies": [
-        "@supabase/supabase-js@latest"
+        "@selfbase/selfbase-js@latest"
       ]
     },
     {
       "name": "social-auth-vue",
       "type": "registry:block",
-      "title": "Social Auth flow for Vue and Supabase",
-      "description": "Social Auth flow for Vue and Supabase",
+      "title": "Social Auth flow for Vue and Selfbase",
+      "description": "Social Auth flow for Vue and Selfbase",
       "registryDependencies": [
         "button",
         "card"
@@ -1893,14 +1893,14 @@
         }
       ],
       "dependencies": [
-        "@supabase/supabase-js@latest"
+        "@selfbase/selfbase-js@latest"
       ]
     },
     {
       "name": "social-auth-nuxtjs",
       "type": "registry:block",
-      "title": "Social Auth flow for Nuxt and Supabase",
-      "description": "Social Auth flow for Nuxt and Supabase",
+      "title": "Social Auth flow for Nuxt and Selfbase",
+      "description": "Social Auth flow for Nuxt and Selfbase",
       "registryDependencies": [
         "button",
         "card",
@@ -1945,8 +1945,8 @@
         }
       ],
       "dependencies": [
-        "@supabase/ssr@latest",
-        "@supabase/supabase-js@latest"
+        "@selfbase/ssr@latest",
+        "@selfbase/selfbase-js@latest"
       ]
     },
     {
@@ -1954,7 +1954,7 @@
       "name": "ai-editor-rules",
       "type": "registry:file",
       "title": "Prompt rules for AI Editors",
-      "description": "Prompts for working with Supabase using AI-powered IDE tools",
+      "description": "Prompts for working with Selfbase using AI-powered IDE tools",
       "registryDependencies": [],
       "dependencies": [],
       "files": [
@@ -1979,9 +1979,9 @@
           "target": "~/.cursor/rules/postgres-sql-style-guide.mdc"
         },
         {
-          "path": "registry/default/ai-editor-rules/writing-supabase-edge-functions.mdc",
+          "path": "registry/default/ai-editor-rules/writing-selfbase-edge-functions.mdc",
           "type": "registry:file",
-          "target": "~/.cursor/rules/writing-supabase-edge-functions.mdc"
+          "target": "~/.cursor/rules/writing-selfbase-edge-functions.mdc"
         },
         {
           "path": "registry/default/ai-editor-rules/use-realtime.mdc",

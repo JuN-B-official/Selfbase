@@ -8,7 +8,7 @@ help:
 	@echo "make github.traction			# get a history of stargazers for our individual repos"
 
 github.contributors.%:
-	curl -sS https://api.github.com/repos/supabase/$*/contributors \
+	curl -sS https://api.github.com/repos/selfbase/$*/contributors \
 	| jq -r 'map_values({ username: .login }) \
 	| unique \
 	| sort_by(.username)' \
@@ -16,14 +16,14 @@ github.contributors.%:
 
 .PHONY: github.rcontributorsepos
 github.contributors: \
-	github.contributors.supabase \
-	github.contributors.supabase-js \
-	github.contributors.supabase-py \
-	github.contributors.supabase-flutter \
-	github.contributors.supabase-dart
+	github.contributors.selfbase \
+	github.contributors.selfbase-js \
+	github.contributors.selfbase-py \
+	github.contributors.selfbase-flutter \
+	github.contributors.selfbase-dart
 
 github.issues:
-	curl -sS https://api.github.com/repos/supabase/supabase/issues \
+	curl -sS https://api.github.com/repos/selfbase/selfbase/issues \
 	| jq -r 'map_values({username: .user.login, avatar_url: .user.avatar_url}) \
 	| unique \
 	| sort_by(.username)' \
@@ -31,13 +31,13 @@ github.issues:
 
 .PHONY: github.repos
 github.repos: \
-	github.repos.supabase \
+	github.repos.selfbase \
 	github.repos.realtime  \
 	github.repos.postgres \
 	github.repos.postgres-meta
 
 github.repos.%:
-	curl -sS https://api.github.com/repos/supabase/$* \
+	curl -sS https://api.github.com/repos/selfbase/$* \
 	> $(REPO_DIR)/web/src/data/repos/$*.json
 
 github.traction:

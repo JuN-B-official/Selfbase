@@ -3,7 +3,7 @@ import DataGrid, { CalculatedColumn, DataGridHandle } from 'react-data-grid'
 import { ref as valtioRef } from 'valtio'
 
 import { useTableFilter } from 'components/grid/hooks/useTableFilter'
-import { handleCopyCell } from 'components/grid/SupabaseGrid.utils'
+import { handleCopyCell } from 'components/grid/SelfbaseGrid.utils'
 import { formatForeignKeys } from 'components/interfaces/TableGridEditor/SidePanelEditor/ForeignKeySelector/ForeignKeySelector.utils'
 import { useForeignKeyConstraintsQuery } from 'data/database/foreign-key-constraints-query'
 import { ENTITY_TYPE } from 'data/entity-types/entity-type-constants'

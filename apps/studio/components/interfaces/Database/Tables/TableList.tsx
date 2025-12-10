@@ -1,5 +1,5 @@
-import type { PostgresTable } from '@supabase/postgres-meta'
-import { PermissionAction } from '@supabase/shared-types/out/constants'
+import type { PostgresTable } from '@selfbase/postgres-meta'
+import { PermissionAction } from '@selfbase/shared-types/out/constants'
 import { noop } from 'lodash'
 import {
   Check,
@@ -19,7 +19,7 @@ import { useRouter } from 'next/router'
 import { useState } from 'react'
 
 import { useParams } from 'common'
-import { LOAD_TAB_FROM_CACHE_PARAM } from 'components/grid/SupabaseGrid.utils'
+import { LOAD_TAB_FROM_CACHE_PARAM } from 'components/grid/SelfbaseGrid.utils'
 import AlertError from 'components/ui/AlertError'
 import { ButtonTooltip } from 'components/ui/ButtonTooltip'
 import { DropdownMenuItemTooltip } from 'components/ui/DropdownMenuItemTooltip'
@@ -154,8 +154,8 @@ export const TableList = ({
         return filterString.length === 0
           ? materializedViews
           : materializedViews.filter((view) =>
-              view.name.toLowerCase().includes(filterString.toLowerCase())
-            )
+            view.name.toLowerCase().includes(filterString.toLowerCase())
+          )
       },
     }
   )
@@ -177,8 +177,8 @@ export const TableList = ({
         return filterString.length === 0
           ? foreignTables
           : foreignTables.filter((table) =>
-              table.name.toLowerCase().includes(filterString.toLowerCase())
-            )
+            table.name.toLowerCase().includes(filterString.toLowerCase())
+          )
       },
     }
   )
@@ -188,7 +188,7 @@ export const TableList = ({
     connectionString: project?.connectionString,
   })
   const realtimePublication = (publications ?? []).find(
-    (publication) => publication.name === 'supabase_realtime'
+    (publication) => publication.name === 'selfbase_realtime'
   )
 
   const entities = formatAllEntities({ tables, views, materializedViews, foreignTables }).filter(
@@ -358,11 +358,11 @@ export const TableList = ({
                                 : visibleTypes.length === 1
                                   ? `${formatTooltipText(visibleTypes[0])}s`
                                   : `${visibleTypes
-                                      .slice(0, -1)
-                                      .map((x) => `${formatTooltipText(x)}s`)
-                                      .join(
-                                        ', '
-                                      )}, and ${formatTooltipText(visibleTypes[visibleTypes.length - 1])}s`}{' '}
+                                    .slice(0, -1)
+                                    .map((x) => `${formatTooltipText(x)}s`)
+                                    .join(
+                                      ', '
+                                    )}, and ${formatTooltipText(visibleTypes[visibleTypes.length - 1])}s`}{' '}
                               found in the schema "{selectedSchema}"
                             </p>
                           </>

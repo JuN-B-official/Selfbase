@@ -1,4 +1,4 @@
-import type { OAuthClient } from '@supabase/supabase-js'
+import type { OAuthClient } from '@selfbase/selfbase-js'
 import { useParams } from 'common'
 
 import { useProjectEndpointQuery } from 'data/config/project-endpoint-query'

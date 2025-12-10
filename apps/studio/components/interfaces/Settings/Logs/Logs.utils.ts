@@ -142,17 +142,6 @@ export const genDefaultQuery = (table: LogsTableName, filters: Filters, limit: n
 
   switch (table) {
     case 'edge_logs':
-      if (!IS_PLATFORM) {
-        return `
--- local dev edge_logs query
-select id, edge_logs.timestamp, event_message, request.method, request.path, request.search, response.status_code
-from edge_logs
-${joins}
-${where}
-${orderBy}
-limit ${limit};
-`
-      }
       return `select id, identifier, timestamp, event_message, request.method, request.path, request.search, response.status_code
   from ${table}
   ${joins}
@@ -162,16 +151,6 @@ limit ${limit};
   `
 
     case 'postgres_logs':
-      if (!IS_PLATFORM) {
-        return `
-select postgres_logs.timestamp, id, event_message, parsed.error_severity, parsed.detail, parsed.hint
-from postgres_logs
-${joins}
-${where}
-${orderBy}
-limit ${limit}
-  `
-      }
       return `select identifier, postgres_logs.timestamp, id, event_message, parsed.error_severity, parsed.detail, parsed.hint from ${table}
   ${joins}
   ${where}
@@ -196,14 +175,6 @@ limit ${limit}
     `
 
     case 'function_edge_logs':
-      if (!IS_PLATFORM) {
-        return `
-select id, function_edge_logs.timestamp, event_message
-from function_edge_logs
-${orderBy}
-limit ${limit}
-`
-      }
       return `select id, ${table}.timestamp, event_message, response.status_code, request.method, m.function_id, m.execution_time_ms, m.deployment_id, m.version from ${table}
   ${joins}
   ${where}
@@ -375,11 +346,10 @@ SELECT
 FROM
   ${table} t
   ${joins}
-  ${
-    where
+  ${where
       ? where + ` and t.timestamp > '${startOffset.toISOString()}'`
       : `where t.timestamp > '${startOffset.toISOString()}'`
-  }
+    }
 GROUP BY
 timestamp
 ORDER BY
@@ -715,7 +685,7 @@ export function jwtAPIKey(metadata: any) {
 
   if (
     payload.algorithm === 'HS256' &&
-    payload.issuer === 'supabase' &&
+    payload.issuer === 'selfbase' &&
     ['anon', 'service_role'].includes(payload.role) &&
     !payload.subject
   ) {

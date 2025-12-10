@@ -1,5 +1,5 @@
-import { PermissionAction } from '@supabase/shared-types/out/constants'
-import { JwtSecretUpdateStatus } from '@supabase/shared-types/out/events'
+import { PermissionAction } from '@selfbase/shared-types/out/constants'
+import { JwtSecretUpdateStatus } from '@selfbase/shared-types/out/events'
 import { AlertCircle, Loader2 } from 'lucide-react'
 import Link from 'next/link'
 import { useMemo } from 'react'
@@ -86,7 +86,7 @@ export const DisplayApiSettings = ({
             <p className="text-sm text-foreground-light">
               Your API is secured behind an API gateway which requires an API Key for every request.
               <br />
-              You can use the keys below in the Supabase client libraries.
+              You can use the keys below in the Selfbase client libraries.
               <br />
             </p>
           </div>
@@ -202,7 +202,7 @@ export const DisplayApiSettings = ({
                         ? 'Updating JWT secret...'
                         : x?.api_key ?? 'You need additional permissions to view API keys'
                 }
-                onChange={() => {}}
+                onChange={() => { }}
               />
             </FormLayout>
 
@@ -227,7 +227,7 @@ export const DisplayApiSettings = ({
           description={`
   \`anon\` and \`service_role\` API keys can now be replaced with \`publishable\` and \`secret\` API keys.
   `}
-          href="https://github.com/orgs/supabase/discussions/29260"
+          href="https://github.com/orgs/selfbase/discussions/29260"
           buttonText="Read the announcement"
         />
       ) : null}

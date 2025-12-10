@@ -5,7 +5,7 @@ import { toast } from 'sonner'
 
 import { useParams } from 'common'
 import { useTableFilter } from 'components/grid/hooks/useTableFilter'
-import { LOAD_TAB_FROM_CACHE_PARAM } from 'components/grid/SupabaseGrid.utils'
+import { LOAD_TAB_FROM_CACHE_PARAM } from 'components/grid/SelfbaseGrid.utils'
 import { getEntityLintDetails } from 'components/interfaces/TableGridEditor/TableEntity.utils'
 import { EntityTypeIcon } from 'components/ui/EntityTypeIcon'
 import { InlineLink } from 'components/ui/InlineLink'

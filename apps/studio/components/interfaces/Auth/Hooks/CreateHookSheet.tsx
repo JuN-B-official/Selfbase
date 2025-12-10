@@ -176,8 +176,8 @@ export const CreateHookSheet = ({
     if (values.postgresValues.functionName !== '') {
       permissionChanges = [
         ...permissionChanges,
-        `-- Grant access to function to supabase_auth_admin\ngrant execute on function ${values.postgresValues.schema}.${values.postgresValues.functionName} to supabase_auth_admin;`,
-        `-- Grant access to schema to supabase_auth_admin\ngrant usage on schema ${values.postgresValues.schema} to supabase_auth_admin;`,
+        `-- Grant access to function to selfbase_auth_admin\ngrant execute on function ${values.postgresValues.schema}.${values.postgresValues.functionName} to selfbase_auth_admin;`,
+        `-- Grant access to schema to selfbase_auth_admin\ngrant usage on schema ${values.postgresValues.schema} to selfbase_auth_admin;`,
         `-- Revoke function permissions from authenticated, anon and public\nrevoke execute on function ${values.postgresValues.schema}.${values.postgresValues.functionName} from authenticated, anon, public;`,
       ]
     }
@@ -378,7 +378,7 @@ export const CreateHookSheet = ({
                       render={({ field }) => (
                         <FormItemLayout
                           label="Postgres function"
-                          description="This function will be called by Supabase Auth each time the hook is triggered"
+                          description="This function will be called by Selfbase Auth each time the hook is triggered"
                         >
                           <FormControl_Shadcn_>
                             <FunctionSelector
@@ -433,7 +433,7 @@ export const CreateHookSheet = ({
                     render={({ field }) => (
                       <FormItemLayout
                         label="URL"
-                        description="Supabase Auth will send a HTTPS POST request to this URL each time the hook is triggered."
+                        description="Selfbase Auth will send a HTTPS POST request to this URL each time the hook is triggered."
                       >
                         <FormControl_Shadcn_>
                           <Input_Shadcn_ {...field} />

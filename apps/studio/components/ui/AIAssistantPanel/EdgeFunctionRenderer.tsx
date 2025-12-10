@@ -66,7 +66,7 @@ export const EdgeFunctionRenderer = ({
       const url = new URL(`https://${endpoint}`)
       const restUrlTld = url.hostname.split('.').pop()
       return restUrlTld
-        ? `https://${ref}.supabase.${restUrlTld}/functions/v1/${functionName}`
+        ? `https://${ref}.selfbase.${restUrlTld}/functions/v1/${functionName}`
         : undefined
     } catch (error) {
       return undefined
@@ -80,7 +80,7 @@ export const EdgeFunctionRenderer = ({
 
   const downloadCommand = useMemo(() => {
     if (!functionName) return undefined
-    return `supabase functions download ${functionName}`
+    return `selfbase functions download ${functionName}`
   }, [functionName])
 
   const performDeploy = async () => {

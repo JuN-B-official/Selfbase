@@ -37,7 +37,7 @@ export default defineConfig({
       exclude: [
         '**/*.test.ts',
         '**/*.test.tsx',
-        '**/base64url.ts', // [Jordi] Tests for this file exist in https://github.com/supabase-community/base64url-js/blob/main/src/base64url.test.ts so we can ignore.
+        '**/base64url.ts', // [Jordi] Tests for this file exist in https://github.com/selfbase-community/base64url-js/blob/main/src/base64url.test.ts so we can ignore.
       ],
       include: ['lib/**/*.ts'],
     },

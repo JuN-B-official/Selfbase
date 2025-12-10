@@ -132,84 +132,84 @@ export const USAGE_CATEGORIES: (subscription?: OrgSubscription) => CategoryMeta[
       attributes: [
         subscription?.plan.id === 'free'
           ? {
-              anchor: 'dbSize',
-              key: PricingMetric.DATABASE_SIZE,
-              attributes: [{ key: PricingMetric.DATABASE_SIZE.toLowerCase(), color: 'white' }],
-              name: 'Database size',
-              chartPrefix: 'Average',
-              unit: 'bytes',
-              description:
-                'Database size refers to the actual amount of space used by all your database objects, as reported by Postgres.',
-              links: [
-                {
-                  name: 'Documentation',
-                  url: `${DOCS_URL}/guides/platform/database-size`,
-                },
-              ],
-              chartDescription: 'The data refreshes every hour.',
-              additionalInfo: (usage?: OrgUsageResponse) => {
-                const usageMeta = usage?.usages.find(
-                  (x) => x.metric === PricingMetric.DATABASE_SIZE
-                )
-                const usageRatio =
-                  typeof usageMeta !== 'number'
-                    ? (usageMeta?.usage ?? 0) / (usageMeta?.pricing_free_units ?? 0)
-                    : 0
-                const hasLimit = usageMeta && (usageMeta?.pricing_free_units ?? 0) > 0
-
-                const isApproachingLimit = hasLimit && usageRatio >= USAGE_APPROACHING_THRESHOLD
-                const isExceededLimit = hasLimit && usageRatio >= 1
-                const isCapped = usageMeta?.capped
-
-                const onFreePlan = subscription?.plan?.name === 'Free'
-
-                return (
-                  <div>
-                    {(isApproachingLimit || isExceededLimit) && isCapped && (
-                      <Admonition
-                        type={isExceededLimit ? 'danger' : 'warning'}
-                        title={
-                          isExceededLimit
-                            ? 'Exceeding database size limit'
-                            : 'Nearing database size limit'
-                        }
-                      >
-                        <div className="flex w-full items-center flex-col justify-center space-y-2 md:flex-row md:justify-between">
-                          <div>
-                            When you reach your database size limit, your project can go into
-                            read-only mode.{' '}
-                            {onFreePlan
-                              ? 'Please upgrade your Plan.'
-                              : "Disable your spend cap to scale seamlessly, and pay for over-usage beyond your Plan's quota."}
-                          </div>
-                        </div>
-                      </Admonition>
-                    )}
-                  </div>
-                )
+            anchor: 'dbSize',
+            key: PricingMetric.DATABASE_SIZE,
+            attributes: [{ key: PricingMetric.DATABASE_SIZE.toLowerCase(), color: 'white' }],
+            name: 'Database size',
+            chartPrefix: 'Average',
+            unit: 'bytes',
+            description:
+              'Database size refers to the actual amount of space used by all your database objects, as reported by Postgres.',
+            links: [
+              {
+                name: 'Documentation',
+                url: `${DOCS_URL}/guides/platform/database-size`,
               },
-            }
-          : {
-              anchor: 'diskSize',
-              key: 'diskSize',
-              attributes: [],
-              name: 'Disk size',
-              chartPrefix: 'Average',
-              unit: 'bytes',
-              description:
-                "Each Supabase project comes with a dedicated disk. Each project gets 8 GB of disk for free. Billing is based on the provisioned disk size. Disk automatically scales up when you get close to it's size.\nEach hour your project is using more than 8 GB of GP3 disk, it incurs the overages in GB-Hrs, i.e. a 16 GB disk incurs 8 GB-Hrs every hour. Extra disk size costs $0.125/GB/month ($0.000171/GB-Hr).",
-              links: [
-                {
-                  name: 'Documentation',
-                  url: `${DOCS_URL}/guides/platform/manage-your-usage/disk-size`,
-                },
-                {
-                  name: 'Disk Management',
-                  url: `${DOCS_URL}/guides/platform/database-size#disk-management`,
-                },
-              ],
-              chartDescription: '',
+            ],
+            chartDescription: 'The data refreshes every hour.',
+            additionalInfo: (usage?: OrgUsageResponse) => {
+              const usageMeta = usage?.usages.find(
+                (x) => x.metric === PricingMetric.DATABASE_SIZE
+              )
+              const usageRatio =
+                typeof usageMeta !== 'number'
+                  ? (usageMeta?.usage ?? 0) / (usageMeta?.pricing_free_units ?? 0)
+                  : 0
+              const hasLimit = usageMeta && (usageMeta?.pricing_free_units ?? 0) > 0
+
+              const isApproachingLimit = hasLimit && usageRatio >= USAGE_APPROACHING_THRESHOLD
+              const isExceededLimit = hasLimit && usageRatio >= 1
+              const isCapped = usageMeta?.capped
+
+              const onFreePlan = subscription?.plan?.name === 'Free'
+
+              return (
+                <div>
+                  {(isApproachingLimit || isExceededLimit) && isCapped && (
+                    <Admonition
+                      type={isExceededLimit ? 'danger' : 'warning'}
+                      title={
+                        isExceededLimit
+                          ? 'Exceeding database size limit'
+                          : 'Nearing database size limit'
+                      }
+                    >
+                      <div className="flex w-full items-center flex-col justify-center space-y-2 md:flex-row md:justify-between">
+                        <div>
+                          When you reach your database size limit, your project can go into
+                          read-only mode.{' '}
+                          {onFreePlan
+                            ? 'Please upgrade your Plan.'
+                            : "Disable your spend cap to scale seamlessly, and pay for over-usage beyond your Plan's quota."}
+                        </div>
+                      </div>
+                    </Admonition>
+                  )}
+                </div>
+              )
             },
+          }
+          : {
+            anchor: 'diskSize',
+            key: 'diskSize',
+            attributes: [],
+            name: 'Disk size',
+            chartPrefix: 'Average',
+            unit: 'bytes',
+            description:
+              "Each Selfbase project comes with a dedicated disk. Each project gets 8 GB of disk for free. Billing is based on the provisioned disk size. Disk automatically scales up when you get close to it's size.\nEach hour your project is using more than 8 GB of GP3 disk, it incurs the overages in GB-Hrs, i.e. a 16 GB disk incurs 8 GB-Hrs every hour. Extra disk size costs $0.125/GB/month ($0.000171/GB-Hr).",
+            links: [
+              {
+                name: 'Documentation',
+                url: `${DOCS_URL}/guides/platform/manage-your-usage/disk-size`,
+              },
+              {
+                name: 'Disk Management',
+                url: `${DOCS_URL}/guides/platform/database-size#disk-management`,
+              },
+            ],
+            chartDescription: '',
+          },
         {
           anchor: 'storageSize',
           key: PricingMetric.STORAGE_SIZE,

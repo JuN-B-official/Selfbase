@@ -20,18 +20,18 @@ const ContentFile = ({ connectionStringPooler }: ContentFileProps) => {
       <ConnectTabContent value=".env.local">
         <SimpleCodeBlock className="bash" parentClassName="min-h-72">
           {connectionStringPooler.ipv4SupportedForDedicatedPooler &&
-          connectionStringPooler.transactionDedicated
+            connectionStringPooler.transactionDedicated
             ? `
-# Connect to Supabase via connection pooling.
+# Connect to Selfbase via connection pooling.
 DATABASE_URL="${connectionStringPooler.transactionDedicated}?pgbouncer=true"
 
 # Direct connection to the database. Used for migrations.
 DIRECT_URL="${connectionStringPooler.sessionDedicated}"
         `
             : connectionStringPooler.transactionDedicated &&
-                !connectionStringPooler.ipv4SupportedForDedicatedPooler
+              !connectionStringPooler.ipv4SupportedForDedicatedPooler
               ? `
-# Connect to Supabase via Shared Connection Pooler
+# Connect to Selfbase via Shared Connection Pooler
 DATABASE_URL="${connectionStringPooler.transactionShared}?pgbouncer=true"
 
 # Direct connection to the database through Shared Pooler (supports IPv4/IPv6). Used for migrations.
@@ -42,7 +42,7 @@ DIRECT_URL="${connectionStringPooler.sessionShared}"
 # DIRECT_URL="${connectionStringPooler.sessionDedicated}"
  `
               : `
-# Connect to Supabase ${IS_PLATFORM ? 'via connection pooling' : ''}
+# Connect to Selfbase ${IS_PLATFORM ? 'via connection pooling' : ''}
 DATABASE_URL="${IS_PLATFORM ? `${connectionStringPooler.transactionShared}?pgbouncer=true` : connectionStringPooler.direct}"
 
 # Direct connection to the database. Used for migrations

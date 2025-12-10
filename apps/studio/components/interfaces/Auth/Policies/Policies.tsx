@@ -1,4 +1,4 @@
-import type { PostgresPolicy } from '@supabase/postgres-meta'
+import type { PostgresPolicy } from '@selfbase/postgres-meta'
 import { isEmpty } from 'lodash'
 import Link from 'next/link'
 import { useCallback, useState } from 'react'
@@ -194,12 +194,10 @@ export const Policies = ({
       <ConfirmModal
         danger={selectedTableToToggleRLS?.rls_enabled}
         visible={selectedTableToToggleRLS !== undefined}
-        title={`Confirm to ${
-          selectedTableToToggleRLS?.rls_enabled ? 'disable' : 'enable'
-        } Row Level Security`}
-        description={`Are you sure you want to ${
-          selectedTableToToggleRLS?.rls_enabled ? 'disable' : 'enable'
-        } Row Level Security for the table "${selectedTableToToggleRLS?.name}"?`}
+        title={`Confirm to ${selectedTableToToggleRLS?.rls_enabled ? 'disable' : 'enable'
+          } Row Level Security`}
+        description={`Are you sure you want to ${selectedTableToToggleRLS?.rls_enabled ? 'disable' : 'enable'
+          } Row Level Security for the table "${selectedTableToToggleRLS?.name}"?`}
         buttonLabel="Confirm"
         buttonLoadingLabel="Saving"
         onSelectCancel={closeConfirmModal}

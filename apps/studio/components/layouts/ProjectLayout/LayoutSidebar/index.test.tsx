@@ -30,10 +30,10 @@ const mockProject = {
   region: 'us-east-1',
   inserted_at: new Date().toISOString(),
   subscription_id: 'subscription-1',
-  db_host: 'db.supabase.co',
+  db_host: 'db.selfbase.co',
   is_branch_enabled: false,
   is_physical_backups_enabled: false,
-  restUrl: 'https://project-1.supabase.co',
+  restUrl: 'https://project-1.selfbase.co',
 }
 
 let mockProjectData: typeof mockProject | undefined = mockProject
@@ -54,7 +54,7 @@ vi.mock('hooks/misc/useSelectedOrganization', () => ({
       name: 'Organization 1',
       slug: 'test-org',
       plan: { id: 'free', name: 'Free' },
-      managed_by: 'supabase',
+      managed_by: 'selfbase',
       is_owner: true,
       billing_email: 'billing@example.com',
       billing_partner: null,

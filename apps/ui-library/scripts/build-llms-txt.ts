@@ -1,7 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 
-const BASE_URL = 'https://supabase.com/ui/docs'
+const BASE_URL = 'https://selfbase.com/ui/docs'
 
 interface DocMeta {
   title: string
@@ -77,11 +77,11 @@ function getDocFiles(): DocMeta[] {
 
 // Generate the llms.txt content
 const docs = getDocFiles()
-let content = `# Supabase UI Library
+let content = `# Selfbase UI Library
 Last updated: ${new Date().toISOString()}
 
 ## Overview
-Library of components for your project. The components integrate with Supabase and are shadcn compatible.
+Library of components for your project. The components integrate with Selfbase and are shadcn compatible.
 
 ## Docs
 `

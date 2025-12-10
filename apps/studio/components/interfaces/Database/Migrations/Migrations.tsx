@@ -1,7 +1,7 @@
 import { Search } from 'lucide-react'
 import { useState } from 'react'
 
-import { SupportCategories } from '@supabase/shared-types/out/constants'
+import { SupportCategories } from '@selfbase/shared-types/out/constants'
 import { SupportLink } from 'components/interfaces/Support/SupportLink'
 import CodeEditor from 'components/ui/CodeEditor/CodeEditor'
 import { InlineLink } from 'components/ui/InlineLink'
@@ -48,8 +48,8 @@ const Migrations = () => {
     search.length === 0
       ? data
       : data.filter(
-          (migration) => migration.version.includes(search) || migration.name?.includes(search)
-        ) ?? []
+        (migration) => migration.version.includes(search) || migration.name?.includes(search)
+      ) ?? []
 
   return (
     <>
@@ -142,7 +142,7 @@ const Migrations = () => {
                                       <InlineLink
                                         href={`${DOCS_URL}/guides/deployment/database-migrations`}
                                       >
-                                        Supabase CLI
+                                        Selfbase CLI
                                       </InlineLink>{' '}
                                       and hence we're unable to parse when this migration was
                                       inserted at.

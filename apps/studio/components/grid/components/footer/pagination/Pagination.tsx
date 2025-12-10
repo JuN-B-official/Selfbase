@@ -1,4 +1,4 @@
-import { THRESHOLD_COUNT } from '@supabase/pg-meta/src/sql/studio/get-count-estimate'
+import { THRESHOLD_COUNT } from '@selfbase/pg-meta/src/sql/studio/get-count-estimate'
 import { ArrowLeft, ArrowRight, HelpCircle, Loader2 } from 'lucide-react'
 import { useEffect, useState } from 'react'
 

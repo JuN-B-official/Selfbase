@@ -6,15 +6,15 @@ import {
   ParsingError,
   RenderError,
   Statement,
-  SupabaseJsQuery,
+  SelfbaseJsQuery,
   UnimplementedError,
   UnsupportedError,
   formatCurl,
   formatHttp,
   processSql,
   renderHttp,
-  renderSupabaseJs,
-} from '@supabase/sql-to-rest'
+  renderSelfbaseJs,
+} from '@selfbase/sql-to-rest'
 import { ChevronUp, GitPullRequest } from 'lucide-react'
 import type { editor } from 'monaco-editor'
 import { useTheme } from 'next-themes'
@@ -53,8 +53,8 @@ export default function SqlToRest({
     if (monaco) {
       const lightMode = getTheme(false)
       const darkMode = getTheme(true)
-      monaco.editor.defineTheme('supabase-light', lightMode)
-      monaco.editor.defineTheme('supabase-dark', darkMode)
+      monaco.editor.defineTheme('selfbase-light', lightMode)
+      monaco.editor.defineTheme('selfbase-dark', darkMode)
     }
   }, [monaco])
 
@@ -63,13 +63,13 @@ export default function SqlToRest({
   const [currentLanguage, setCurrentLanguage] = useState('curl')
 
   const [httpRequest, setHttpRequest] = useState<HttpRequest>()
-  const [jsQuery, setJsQuery] = useState<SupabaseJsQuery>()
+  const [jsQuery, setJsQuery] = useState<SelfbaseJsQuery>()
 
   const [parsingError, setParsingError] = useState<ParsingError>()
   const [unimplementedError, setUnimplementedError] = useState<UnimplementedError>()
   const [unsupportedError, setUnsupportedError] = useState<UnsupportedError>()
   const [httpRenderError, setHttpRenderError] = useState<RenderError>()
-  const [supabaseJsRenderError, setSupabaseJsRenderError] = useState<RenderError>()
+  const [selfbaseJsRenderError, setSelfbaseJsRenderError] = useState<RenderError>()
 
   const [isBaseUrlDialogOpen, setIsBaseUrlDialogOpen] = useState(false)
   const [baseUrl, setBaseUrl] = useState(defaultBaseUrl)
@@ -147,7 +147,7 @@ export default function SqlToRest({
         }
 
         const result: ResultBundle = {
-          type: 'supabase-js',
+          type: 'selfbase-js',
           language: currentLanguage,
           statement,
           ...jsQuery,
@@ -187,7 +187,7 @@ export default function SqlToRest({
         }
 
         const result: ResultBundle = {
-          type: 'supabase-js',
+          type: 'selfbase-js',
           language: currentLanguage,
           statement,
           ...jsQuery,
@@ -206,13 +206,13 @@ export default function SqlToRest({
     try {
       const statement = await processSql(sql)
       const httpRequest = await renderHttp(statement)
-      const jsQuery = await renderSupabaseJs(statement)
+      const jsQuery = await renderSelfbaseJs(statement)
 
       setParsingError(undefined)
       setUnimplementedError(undefined)
       setUnsupportedError(undefined)
       setHttpRenderError(undefined)
-      setSupabaseJsRenderError(undefined)
+      setSelfbaseJsRenderError(undefined)
 
       setStatement(statement)
       setHttpRequest(httpRequest)
@@ -222,7 +222,7 @@ export default function SqlToRest({
       setUnimplementedError(undefined)
       setUnsupportedError(undefined)
       setHttpRenderError(undefined)
-      setSupabaseJsRenderError(undefined)
+      setSelfbaseJsRenderError(undefined)
 
       if (error instanceof ParsingError) {
         setParsingError(error)
@@ -233,8 +233,8 @@ export default function SqlToRest({
       } else if (error instanceof RenderError) {
         if (error.renderer === 'http') {
           setHttpRenderError(error)
-        } else if (error.renderer === 'supabase-js') {
-          setSupabaseJsRenderError(error)
+        } else if (error.renderer === 'selfbase-js') {
+          setSelfbaseJsRenderError(error)
         } else {
           console.error(error)
         }
@@ -258,7 +258,7 @@ export default function SqlToRest({
         >
           <Editor
             language="pgsql"
-            theme={isDark ? 'supabase-dark' : 'supabase-light'}
+            theme={isDark ? 'selfbase-dark' : 'selfbase-light'}
             value={sql}
             options={{
               tabSize: 2,
@@ -328,7 +328,7 @@ export default function SqlToRest({
             <div className="mt-2 text-white flex gap-1 leading-6">
               <GitPullRequest className="inline-block" width={16} />
               <a
-                href="https://github.com/supabase-community/sql-to-rest/issues/new/choose"
+                href="https://github.com/selfbase-community/sql-to-rest/issues/new/choose"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -384,15 +384,15 @@ export default function SqlToRest({
             </CodeBlock>
           </Tabs.Panel>
           <Tabs.Panel id="js" label="JavaScript" className="flex flex-col gap-4">
-            {supabaseJsRenderError && (
-              <Alert className="text-red-900">{supabaseJsRenderError.message}</Alert>
+            {selfbaseJsRenderError && (
+              <Alert className="text-red-900">{selfbaseJsRenderError.message}</Alert>
             )}
             <CodeBlock
               language="js"
               hideLineNumbers
               className={cn(
                 'self-stretch overflow-y-hidden',
-                supabaseJsRenderError ? 'opacity-25 pointer-events-none' : ''
+                selfbaseJsRenderError ? 'opacity-25 pointer-events-none' : ''
               )}
               renderer={codeBlockRenderer}
             >
@@ -404,7 +404,7 @@ export default function SqlToRest({
           className={cn(
             'flex flex-col gap-4',
             ((currentLanguage === 'http' || currentLanguage === 'curl') && httpRenderError) ||
-              (currentLanguage === 'js' && supabaseJsRenderError)
+              (currentLanguage === 'js' && selfbaseJsRenderError)
               ? 'opacity-25 pointer-events-none'
               : ''
           )}

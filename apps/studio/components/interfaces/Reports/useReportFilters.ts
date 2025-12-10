@@ -302,7 +302,7 @@ export const useReportFilters = ({
         name: ReportFilterKeys.X_CLIENT_INFO,
         type: 'string' as const,
         operators: ['=', '!=', 'CONTAINS', 'STARTS WITH', 'ENDS WITH'],
-        placeholder: 'supabase-js/1.0.0',
+        placeholder: 'selfbase-js/1.0.0',
       },
     ]
 

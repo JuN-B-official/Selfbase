@@ -47,20 +47,20 @@ export const QUERY_PERFORMANCE_ROLE_DESCRIPTION = [
       'For elevated access. This role is used by the API (PostgREST) to bypass Row Level Security.',
   },
   {
-    name: 'supabase_auth_admin',
+    name: 'selfbase_auth_admin',
     description:
       'Used by the Auth middleware to connect to the database and run migration. Access is scoped to the auth schema.',
   },
   {
-    name: 'supabase_storage_admin',
+    name: 'selfbase_storage_admin',
     description:
       'Used by the Auth middleware to connect to the database and run migration. Access is scoped to the storage schema.',
   },
-  { name: 'dashboard_user', description: 'For running commands via the Supabase UI.' },
+  { name: 'dashboard_user', description: 'For running commands via the Selfbase UI.' },
   {
-    name: 'supabase_admin',
+    name: 'selfbase_admin',
     description:
-      'An internal role Supabase uses for administrative tasks, such as running upgrades and automations.',
+      'An internal role Selfbase uses for administrative tasks, such as running upgrades and automations.',
   },
   {
     name: 'pgbouncer',

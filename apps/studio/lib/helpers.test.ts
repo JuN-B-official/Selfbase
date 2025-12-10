@@ -96,7 +96,7 @@ describe('getURL', () => {
   it('should return prod url by default', () => {
     const result = getURL()
 
-    expect(result).toEqual('https://supabase.com/dashboard')
+    expect(result).toEqual('https://selfbase.com/dashboard')
   })
 })
 
@@ -211,7 +211,7 @@ describe('copyToClipboard', () => {
   })
 
   it('falls back to writeText if clipboard.write not available', async () => {
-    ;(navigator.clipboard as any).write = undefined
+    ; (navigator.clipboard as any).write = undefined
     await copyToClipboard('hello')
     expect(writeTextMock).toHaveBeenCalledWith('hello')
   })
@@ -299,7 +299,7 @@ describe('pluralize', () => {
 
 describe('isValidHttpUrl', () => {
   it('should return true if the URL is valid', () => {
-    const result = isValidHttpUrl('https://supabase.com')
+    const result = isValidHttpUrl('https://selfbase.com')
 
     expect(result).toBe(true)
   })
@@ -325,7 +325,7 @@ SELECT * FROM users
 
 describe('getSemanticVersion', () => {
   it('should return the semantic version', () => {
-    const result = getSemanticVersion('supabase-postgres-14.1.0.88')
+    const result = getSemanticVersion('selfbase-postgres-14.1.0.88')
 
     expect(result).toEqual(141088)
   })
@@ -333,7 +333,7 @@ describe('getSemanticVersion', () => {
 
 describe('getDatabaseMajorVersion', () => {
   it('should return the database major version', () => {
-    const result = getDatabaseMajorVersion('supabase-postgres-14.1.0.88')
+    const result = getDatabaseMajorVersion('selfbase-postgres-14.1.0.88')
 
     expect(result).toEqual(14)
   })

@@ -1,4 +1,4 @@
-import { createClient } from '@/registry/default/clients/react-router/lib/supabase/server'
+import { createClient } from '@/registry/default/clients/react-router/lib/selfbase/server'
 import { Button } from '@/registry/default/components/ui/button'
 import {
   Card,
@@ -12,7 +12,7 @@ import { Label } from '@/registry/default/components/ui/label'
 import { type ActionFunctionArgs, Link, redirect, useFetcher, useSearchParams } from 'react-router'
 
 export const action = async ({ request }: ActionFunctionArgs) => {
-  const { supabase } = createClient(request)
+  const { selfbase } = createClient(request)
 
   const url = new URL(request.url)
   const origin = url.origin
@@ -33,7 +33,7 @@ export const action = async ({ request }: ActionFunctionArgs) => {
     return { error: 'Passwords do not match' }
   }
 
-  const { error } = await supabase.auth.signUp({
+  const { error } = await selfbase.auth.signUp({
     email,
     password,
     options: {

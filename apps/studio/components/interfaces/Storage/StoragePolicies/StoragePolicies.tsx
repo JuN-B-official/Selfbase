@@ -1,4 +1,4 @@
-import { PostgresPolicy } from '@supabase/postgres-meta'
+import { PostgresPolicy } from '@selfbase/postgres-meta'
 import { useParams } from 'common'
 import { isEmpty } from 'lodash'
 import { Search, X } from 'lucide-react'
@@ -62,7 +62,7 @@ export const StoragePolicies = () => {
   const isLoading = isLoadingBuckets || isLoadingPolicies
 
   const { mutateAsync: createDatabasePolicy } = useDatabasePolicyCreateMutation({
-    onError: () => {},
+    onError: () => { },
   })
   const { mutateAsync: updateDatabasePolicy } = useDatabasePolicyUpdateMutation()
   const { mutate: deleteDatabasePolicy } = useDatabasePolicyDeleteMutation({

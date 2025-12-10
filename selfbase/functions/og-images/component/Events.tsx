@@ -8,13 +8,13 @@ type Props = {
   title: string
 }
 
-const STORAGE_URL = 'https://obuldanrptloktxcffvn.supabase.co/storage/v1/object/public'
+const STORAGE_URL = 'https://obuldanrptloktxcffvn.selfbase.co/storage/v1/object/public'
 
 const CustomerStories = (props: Props) => {
   const { title, description, duration, eventType, date } = props
 
   const bgImageUrl = `${STORAGE_URL}/images/og-images/events/events-og-bg.png`
-  const supabaseLogoUrl = `${STORAGE_URL}/supabase-brand-assets/logos/supabase-logo-wordmark--dark.png`
+  const selfbaseLogoUrl = `${STORAGE_URL}/selfbase-brand-assets/logos/selfbase-logo-wordmark--dark.png`
 
   return (
     <div
@@ -36,7 +36,7 @@ const CustomerStories = (props: Props) => {
         tw="w-[1200px] h-[630px] absolute object-cover"
       />
       <div tw="flex flex-row items-center justify-center top-0 mb-20">
-        <img src={supabaseLogoUrl} width="165px" height="31.73px" tw="mr-6" />
+        <img src={selfbaseLogoUrl} width="165px" height="31.73px" tw="mr-6" />
       </div>
       <div tw="flex flex-row items-center justify-center text-[24px] text-[#B4B4B4]">
         <span tw="text-[#3ECF8E] uppercase" style={{ fontFamily: 'SourceCode' }}>

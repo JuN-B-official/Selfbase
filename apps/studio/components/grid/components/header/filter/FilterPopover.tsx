@@ -1,7 +1,7 @@
 import { useMemo } from 'react'
 
 import { useTableFilter } from 'components/grid/hooks/useTableFilter'
-import { formatFilterURLParams } from 'components/grid/SupabaseGrid.utils'
+import { formatFilterURLParams } from 'components/grid/SelfbaseGrid.utils'
 import { FilterPopoverPrimitive } from './FilterPopoverPrimitive'
 
 export interface FilterPopoverProps {

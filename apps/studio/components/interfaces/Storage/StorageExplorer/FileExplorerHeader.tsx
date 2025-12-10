@@ -1,4 +1,4 @@
-import { PermissionAction } from '@supabase/shared-types/out/constants'
+import { PermissionAction } from '@selfbase/shared-types/out/constants'
 import { compact, isEqual, noop } from 'lodash'
 import {
   Check,
@@ -102,14 +102,14 @@ const HeaderBreadcrumbs = ({
     breadcrumbsWithIndexes.length <= 5
       ? breadcrumbsWithIndexes
       : breadcrumbsWithIndexes
-          .slice(0, 2)
-          .concat([{ name: ellipsis, index: -1 }])
-          .concat(
-            breadcrumbsWithIndexes.slice(
-              breadcrumbsWithIndexes.length - 2,
-              breadcrumbsWithIndexes.length
-            )
+        .slice(0, 2)
+        .concat([{ name: ellipsis, index: -1 }])
+        .concat(
+          breadcrumbsWithIndexes.slice(
+            breadcrumbsWithIndexes.length - 2,
+            breadcrumbsWithIndexes.length
           )
+        )
 
   return loading.isLoading ? (
     <div className="ml-2 flex items-center">

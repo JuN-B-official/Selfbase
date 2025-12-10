@@ -1,8 +1,8 @@
-import { formatFilterURLParams, formatSortURLParams } from 'components/grid/SupabaseGrid.utils'
+import { formatFilterURLParams, formatSortURLParams } from 'components/grid/SelfbaseGrid.utils'
 import { describe, test, expect } from 'vitest'
 
 // Sort URL syntax: `column:order`
-describe('SupabaseGrid.utils: formatSortURLParams', () => {
+describe('SelfbaseGrid.utils: formatSortURLParams', () => {
   test('should return an array of sort options based on URL params', () => {
     const mockInput = ['id:asc', 'name:desc']
     const output = formatSortURLParams('fakeTable', mockInput)
@@ -25,7 +25,7 @@ describe('SupabaseGrid.utils: formatSortURLParams', () => {
 })
 
 // Filter URL syntax: `column:operatorAbbreviation:value`
-describe('SupabaseGrid.utils: formatFilterURLParams', () => {
+describe('SelfbaseGrid.utils: formatFilterURLParams', () => {
   test('should return an array of filter options based on URL params', () => {
     const mockInput = ['id:gte:20', 'id:lte:40']
     const output = formatFilterURLParams(mockInput)

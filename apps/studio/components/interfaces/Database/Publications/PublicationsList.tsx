@@ -1,4 +1,4 @@
-import { PermissionAction } from '@supabase/shared-types/out/constants'
+import { PermissionAction } from '@selfbase/shared-types/out/constants'
 import { AlertCircle, Info, Search } from 'lucide-react'
 import Link from 'next/link'
 import { useState } from 'react'
@@ -151,22 +151,22 @@ export const PublicationsList = () => {
                       <div className="flex items-center gap-x-2">
                         {x.name}
                         {/* [Joshen] Making this tooltip very specific for these 2 publications */}
-                        {['supabase_realtime', 'supabase_realtime_messages_publication'].includes(
+                        {['selfbase_realtime', 'selfbase_realtime_messages_publication'].includes(
                           x.name
                         ) && (
-                          <Tooltip>
-                            <TooltipTrigger>
-                              <Info size={14} className="text-foreground-light" />
-                            </TooltipTrigger>
-                            <TooltipContent side="bottom">
-                              {x.name === 'supabase_realtime'
-                                ? 'Managed by Supabase and handles Postgres changes'
-                                : x.name === 'supabase_realtime_messages_publication'
-                                  ? 'Managed by Supabase and handles broadcasts from the database'
-                                  : undefined}
-                            </TooltipContent>
-                          </Tooltip>
-                        )}
+                            <Tooltip>
+                              <TooltipTrigger>
+                                <Info size={14} className="text-foreground-light" />
+                              </TooltipTrigger>
+                              <TooltipContent side="bottom">
+                                {x.name === 'selfbase_realtime'
+                                  ? 'Managed by Selfbase and handles Postgres changes'
+                                  : x.name === 'selfbase_realtime_messages_publication'
+                                    ? 'Managed by Selfbase and handles broadcasts from the database'
+                                    : undefined}
+                              </TooltipContent>
+                            </Tooltip>
+                          )}
                       </div>
                     </TableCell>
                     <TableCell>{x.id}</TableCell>

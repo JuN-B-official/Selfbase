@@ -1,5 +1,5 @@
-import type { PostgresPolicy, PostgresTable } from '@supabase/postgres-meta'
-import { PermissionAction } from '@supabase/shared-types/out/constants'
+import type { PostgresPolicy, PostgresTable } from '@selfbase/postgres-meta'
+import { PermissionAction } from '@selfbase/shared-types/out/constants'
 import { Search, X } from 'lucide-react'
 import { parseAsBoolean, parseAsString, useQueryState } from 'nuqs'
 import { useCallback, useDeferredValue, useMemo, useState } from 'react'

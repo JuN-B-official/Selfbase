@@ -67,7 +67,7 @@ export const ChooseChannelPopover = ({ config, onChangeConfig }: ChooseChannelPo
     let token = config.token
 
     // [Joshen] Refresh if starting to listen + using temp API key, since it has a low refresh rate
-    if (token.startsWith('sb_temp') || !IS_PLATFORM) {
+    if (token.startsWith('sb_temp')) {
       const data = await getTemporaryAPIKey({ projectRef: config.projectRef, expiry: 3600 })
       token = data.api_key
     }
@@ -130,7 +130,7 @@ export const ChooseChannelPopover = ({ config, onChangeConfig }: ChooseChannelPo
                           </div>
                         </div>
                         <FormDescription_Shadcn_ className="text-xs text-foreground-lighter">
-                          The channel you initialize with the Supabase Realtime client. Learn more
+                          The channel you initialize with the Selfbase Realtime client. Learn more
                           in{' '}
                           <a
                             target="_blank"

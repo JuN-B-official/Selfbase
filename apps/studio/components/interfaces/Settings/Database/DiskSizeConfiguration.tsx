@@ -1,4 +1,4 @@
-import { PermissionAction } from '@supabase/shared-types/out/constants'
+import { PermissionAction } from '@selfbase/shared-types/out/constants'
 import { ExternalLink, Info } from 'lucide-react'
 import Link from 'next/link'
 import { SetStateAction } from 'react'
@@ -81,7 +81,7 @@ const DiskSizeConfiguration = ({ disabled = false }: DiskSizeConfigurationProps)
                   )}
                   <div className="grid grid-cols-2 items-center">
                     <p className="text-sm text-lighter max-w-lg">
-                      Supabase employs auto-scaling storage and allows for manual disk size
+                      Selfbase employs auto-scaling storage and allows for manual disk size
                       adjustments when necessary
                     </p>
                     {!isAwsNimbus && (
@@ -177,9 +177,8 @@ Read more about [disk management](${DOCS_URL}/guides/platform/database-size#disk
             )}
             <Button asChild type="default" className="mt-3">
               <Link
-                href={`/org/${organization?.slug}/billing?panel=${
-                  organization?.plan?.id === 'free' ? 'subscriptionPlan' : 'costControl'
-                }`}
+                href={`/org/${organization?.slug}/billing?panel=${organization?.plan?.id === 'free' ? 'subscriptionPlan' : 'costControl'
+                  }`}
                 target="_blank"
               >
                 {organization?.plan?.id === 'free' ? 'Upgrade subscription' : 'Disable spend cap'}

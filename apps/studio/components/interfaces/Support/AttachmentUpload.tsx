@@ -21,7 +21,7 @@ import { createSupportStorageClient } from './support-storage-client'
 const MAX_ATTACHMENTS = 5
 
 const uploadAttachments = async ({ userId, files }: { userId: string; files: File[] }) => {
-  const supportSupabaseClient = createSupportStorageClient()
+  const supportSelfbaseClient = createSupportStorageClient()
 
   const filesToUpload = Array.from(files)
   const uploadedFiles = await Promise.all(
@@ -30,7 +30,7 @@ const uploadAttachments = async ({ userId, files }: { userId: string; files: Fil
       const prefix = `${userId}/${uuidv4()}.${suffix}`
       const options = { cacheControl: '3600' }
 
-      const { data, error } = await supportSupabaseClient.storage
+      const { data, error } = await supportSelfbaseClient.storage
         .from('support-attachments')
         .upload(prefix, file, options)
 

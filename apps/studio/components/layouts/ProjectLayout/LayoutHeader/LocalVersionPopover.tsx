@@ -59,7 +59,7 @@ export const LocalVersionPopover = () => {
         {hasLatestCLIVersion ? (
           !isBeta && hasUpdate ? (
             <div className="px-4 mb-3">
-              <p className="text-sm mb-2">A new version of Supabase CLI is available:</p>
+              <p className="text-sm mb-2">A new version of Selfbase CLI is available:</p>
               <Tabs_Shadcn_ defaultValue="macos">
                 <TabsList_Shadcn_ className="mt-2">
                   <TabsTrigger_Shadcn_ className="px-2 text-xs" value="macos">
@@ -77,22 +77,22 @@ export const LocalVersionPopover = () => {
                 </TabsList_Shadcn_>
                 <TabsContent_Shadcn_ className="mt-2 text-xs" value="macos">
                   <SimpleCodeBlock parentClassName="bg-selection rounded !px-2">
-                    brew upgrade supabase
+                    brew upgrade selfbase
                   </SimpleCodeBlock>
                 </TabsContent_Shadcn_>
                 <TabsContent_Shadcn_ className="mt-2 text-xs" value="windows">
                   <SimpleCodeBlock parentClassName="bg-selection rounded !px-2">
-                    scoop update supabase
+                    scoop update selfbase
                   </SimpleCodeBlock>
                 </TabsContent_Shadcn_>
                 <TabsContent_Shadcn_ className="mt-2 text-xs" value="linux">
                   <SimpleCodeBlock parentClassName="bg-selection rounded !px-2">
-                    brew upgrade supabase
+                    brew upgrade selfbase
                   </SimpleCodeBlock>
                 </TabsContent_Shadcn_>
                 <TabsContent_Shadcn_ className="mt-2 text-xs" value="npm">
                   <SimpleCodeBlock parentClassName="bg-selection rounded !px-2">
-                    npm update supabase --save-dev
+                    npm update selfbase --save-dev
                   </SimpleCodeBlock>
                 </TabsContent_Shadcn_>
               </Tabs_Shadcn_>
@@ -100,9 +100,9 @@ export const LocalVersionPopover = () => {
           ) : (
             <div className="px-4 mb-3">
               {isBeta ? (
-                <p className="text-sm">You're on the Beta version of Supabase CLI</p>
+                <p className="text-sm">You're on the Beta version of Selfbase CLI</p>
               ) : (
-                <p className="text-sm">You're on the latest version of Supabase CLI</p>
+                <p className="text-sm">You're on the latest version of Selfbase CLI</p>
               )}
             </div>
           )
@@ -111,7 +111,7 @@ export const LocalVersionPopover = () => {
         <div className="flex flex-col gap-y-2 px-4">
           <p className="text-xs text-foreground-lighter">
             All available release versions of the CLI can be found on our{' '}
-            <InlineLink href="https://github.com/supabase/cli/releases">
+            <InlineLink href="https://github.com/selfbase/cli/releases">
               GitHub repository
             </InlineLink>
             .
@@ -133,10 +133,10 @@ export const LocalVersionPopover = () => {
                     Approximate next release: {approximateNextRelease}
                   </p>
                   <p className="text-sm">
-                    Supabase CLI releases follows a two-week schedule, with stable updates available
+                    Selfbase CLI releases follows a two-week schedule, with stable updates available
                     through the{' '}
                     <InlineLink
-                      href={`${DOCS_URL}/guides/local-development/cli/getting-started?queryGroups=platform&platform=linux#updating-the-supabase-cli`}
+                      href={`${DOCS_URL}/guides/local-development/cli/getting-started?queryGroups=platform&platform=linux#updating-the-selfbase-cli`}
                     >
                       CLI
                     </InlineLink>
@@ -151,7 +151,7 @@ export const LocalVersionPopover = () => {
                   <p className="!mt-2">If you'd like to try, we recommend doing so via npm:</p>
                   <div className="flex items-center bg-surface-200 py-1 px-2 rounded mt-2 mb-1">
                     <SimpleCodeBlock parentClassName="bg-surface-200">
-                      npm i supabase@beta --save-dev
+                      npm i selfbase@beta --save-dev
                     </SimpleCodeBlock>
                   </div>
                   {

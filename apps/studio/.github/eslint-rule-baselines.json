@@ -7,8 +7,8 @@
   },
   "ruleFiles": {
     "react-hooks/exhaustive-deps": {
-      "components/grid/SupabaseGrid.tsx": 1,
-      "components/grid/SupabaseGrid.utils.ts": 1,
+      "components/grid/SelfbaseGrid.tsx": 1,
+      "components/grid/SelfbaseGrid.utils.ts": 1,
       "components/grid/components/common/BlockKeys.tsx": 2,
       "components/grid/components/editor/JsonEditor.tsx": 2,
       "components/grid/components/editor/TextEditor.tsx": 2,
@@ -255,8 +255,8 @@
       "hooks/analytics/useSingleLog.tsx": 1
     },
     "@typescript-eslint/no-explicit-any": {
-      "components/grid/SupabaseGrid.tsx": 1,
-      "components/grid/SupabaseGrid.utils.ts": 4,
+      "components/grid/SelfbaseGrid.tsx": 1,
+      "components/grid/SelfbaseGrid.utils.ts": 4,
       "components/grid/components/common/Hooks.tsx": 2,
       "components/grid/components/common/MonacoEditor.tsx": 3,
       "components/grid/components/editor/BooleanEditor.tsx": 1,

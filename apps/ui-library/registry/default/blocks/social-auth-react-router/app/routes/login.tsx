@@ -1,4 +1,4 @@
-import { createClient } from '@/registry/default/clients/react-router/lib/supabase/server'
+import { createClient } from '@/registry/default/clients/react-router/lib/selfbase/server'
 import { Button } from '@/registry/default/components/ui/button'
 import {
   Card,
@@ -10,10 +10,10 @@ import {
 import { type ActionFunctionArgs, redirect, useFetcher } from 'react-router'
 
 export const action = async ({ request }: ActionFunctionArgs) => {
-  const { supabase } = createClient(request)
+  const { selfbase } = createClient(request)
   const origin = new URL(request.url).origin
 
-  const { data, error } = await supabase.auth.signInWithOAuth({
+  const { data, error } = await selfbase.auth.signInWithOAuth({
     provider: 'github',
     options: {
       redirectTo: `${origin}/auth/oauth?next=/protected`,

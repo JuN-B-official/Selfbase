@@ -1,6 +1,6 @@
 # Tailwind theming
 
-Supabase is migrating to use tailwind classes that use CSS properties.
+Selfbase is migrating to use tailwind classes that use CSS properties.
 This is to support the concept of theming, so that:
 
 1. It is easy for the team to update the theme without changing 100s of files.
@@ -8,7 +8,7 @@ This is to support the concept of theming, so that:
 
 ## Primitives
 
-We (the Supabase Design team ✨) define primitive color values using Figma Variables.
+We (the Selfbase Design team ✨) define primitive color values using Figma Variables.
 
 - `foreground`
 - `background`

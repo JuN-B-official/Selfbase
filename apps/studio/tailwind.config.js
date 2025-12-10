@@ -8,6 +8,12 @@ module.exports = config({
     './../../packages/ui/src/**/*.{tsx,ts,js}',
     './../../packages/ui-patterns/src/**/*.{tsx,ts,js}',
   ],
+  // Selfbase: Safelist ambiguous classes to suppress Tailwind v4 warnings
+  safelist: [
+    'duration-[120ms]',
+    'duration-[2s]',
+    'ease-[.76,0,.23,1]',
+  ],
   plugins: [require('@tailwindcss/container-queries')],
   theme: {
     extend: {

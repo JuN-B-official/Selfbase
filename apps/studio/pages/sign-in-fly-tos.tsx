@@ -78,8 +78,8 @@ const SignInFlyTos = () => {
                   <Image
                     src={
                       resolvedTheme?.includes('dark')
-                        ? `${BASE_PATH}/img/supabase-dark.svg`
-                        : `${BASE_PATH}/img/supabase-light.svg`
+                        ? `${BASE_PATH}/img/selfbase-dark.svg`
+                        : `${BASE_PATH}/img/selfbase-light.svg`
                     }
                     alt=""
                     height={24}
@@ -92,7 +92,7 @@ const SignInFlyTos = () => {
         </nav>
       </div>
       <div className="flex w-[320px] flex-col items-center justify-center space-y-3">
-        <h4 className="text-lg">Continue to Supabase Dashboard</h4>
+        <h4 className="text-lg">Continue to Selfbase Dashboard</h4>
       </div>
       {loading ? (
         <p className="text-sm">Checking your access rights...</p>
@@ -114,13 +114,13 @@ const SignInFlyTos = () => {
       )}
       <div className="text-center text-balance">
         <p className="text-xs text-foreground-lighter sm:mx-auto sm:max-w-sm">
-          By continuing, you agree to Supabase’s{' '}
-          <Link href="https://supabase.com/terms" className="underline hover:text-foreground-light">
+          By continuing, you agree to Selfbase’s{' '}
+          <Link href="https://selfbase.com/terms" className="underline hover:text-foreground-light">
             Terms of Service
           </Link>{' '}
           and{' '}
           <Link
-            href="https://supabase.com/privacy"
+            href="https://selfbase.com/privacy"
             className="underline hover:text-foreground-light"
           >
             Privacy Policy

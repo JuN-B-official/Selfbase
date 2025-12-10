@@ -1,5 +1,5 @@
 import { zodResolver } from '@hookform/resolvers/zod'
-import { PermissionAction } from '@supabase/shared-types/out/constants'
+import { PermissionAction } from '@selfbase/shared-types/out/constants'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
@@ -110,16 +110,16 @@ const RedirectToTemplates = () => {
   // Create form schema for security templates
   const TemplateFormSchema = templateEnabledKey
     ? z.object({
-        [templateEnabledKey]: z.boolean(),
-      })
+      [templateEnabledKey]: z.boolean(),
+    })
     : z.object({})
 
   const defaultValues = templateEnabledKey
     ? {
-        [templateEnabledKey]: authConfig
-          ? Boolean(authConfig[templateEnabledKey as keyof typeof authConfig])
-          : false,
-      }
+      [templateEnabledKey]: authConfig
+        ? Boolean(authConfig[templateEnabledKey as keyof typeof authConfig])
+        : false,
+    }
     : {}
 
   const templateForm = useForm<z.infer<typeof TemplateFormSchema>>({

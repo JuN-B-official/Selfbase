@@ -31,10 +31,10 @@ as $$
     when type = 'github-discussions'
       then path
     when type = 'partner-integration'
-      then concat('https://supabase.com', path)
+      then concat('https://selfbase.com', path)
     else
       concat(
-        'https://supabase.com/docs',
+        'https://selfbase.com/docs',
         path,
         case
           when slug is null

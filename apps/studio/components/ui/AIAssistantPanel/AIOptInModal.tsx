@@ -1,4 +1,4 @@
-import { PermissionAction } from '@supabase/shared-types/out/constants'
+import { PermissionAction } from '@selfbase/shared-types/out/constants'
 import { useEffect } from 'react'
 
 import { AIOptInLevelSelector } from 'components/interfaces/Organization/GeneralSettings/AIOptInLevelSelector'
@@ -47,7 +47,7 @@ export const AIOptInModal = ({ visible, onCancel }: AIOptInModalProps) => {
         <Form_Shadcn_ {...form}>
           <form id="ai-opt-in-form" onSubmit={form.handleSubmit(onSubmit)}>
             <DialogHeader padding="small">
-              <DialogTitle>Update Supabase Assistant Opt-in Level</DialogTitle>
+              <DialogTitle>Update Selfbase Assistant Opt-in Level</DialogTitle>
             </DialogHeader>
 
             <DialogSectionSeparator />

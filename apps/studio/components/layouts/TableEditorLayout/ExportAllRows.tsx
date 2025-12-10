@@ -8,7 +8,7 @@ import {
   MAX_EXPORT_ROW_COUNT,
   MAX_EXPORT_ROW_COUNT_MESSAGE,
 } from 'components/grid/components/header/Header'
-import { parseSupaTable } from 'components/grid/SupabaseGrid.utils'
+import { parseSupaTable } from 'components/grid/SelfbaseGrid.utils'
 import type { Filter, Sort, SupaTable } from 'components/grid/types'
 import { formatTableRowsToSQL } from 'components/interfaces/TableGridEditor/TableEntity.utils'
 import { ENTITY_TYPE } from 'data/entity-types/entity-type-constants'
@@ -211,33 +211,33 @@ const convertAndDownload = (
 type UseExportAllRowsParams =
   | { enabled: false }
   | ({
-      enabled: true
-      projectRef: string
-      connectionString: string | null
-      entity: Pick<Entity, 'id' | 'name' | 'type'>
-      /**
-       * If known, the total number of rows that will be exported.
-       * This is used to show progress percentage during export.
-       */
-      totalRows?: number
-    } & (
+    enabled: true
+    projectRef: string
+    connectionString: string | null
+    entity: Pick<Entity, 'id' | 'name' | 'type'>
+    /**
+     * If known, the total number of rows that will be exported.
+     * This is used to show progress percentage during export.
+     */
+    totalRows?: number
+  } & (
       | {
-          /**
-           * Rows need to be fetched from the database.
-           */
-          type: 'fetch_all'
-          filters?: Filter[]
-          sorts?: Sort[]
-          roleImpersonationState?: RoleImpersonationState
-        }
+        /**
+         * Rows need to be fetched from the database.
+         */
+        type: 'fetch_all'
+        filters?: Filter[]
+        sorts?: Sort[]
+        roleImpersonationState?: RoleImpersonationState
+      }
       | {
-          /**
-           * Rows are already available and provided directly.
-           */
-          type: 'provided_rows'
-          table: SupaTable
-          rows: Record<string, unknown>[]
-        }
+        /**
+         * Rows are already available and provided directly.
+         */
+        type: 'provided_rows'
+        table: SupaTable
+        rows: Record<string, unknown>[]
+      }
     ))
 
 type UseExportAllRowsReturn = {
@@ -270,39 +270,39 @@ export const useExportAllRowsGeneric = (
       const exportResult =
         params.type === 'provided_rows'
           ? convertAndDownload(formatRowsForExport(params.rows, params.table), params.table, {
-              convertToOutputFormat,
-              convertToBlob,
-              save,
-            })
+            convertToOutputFormat,
+            convertToBlob,
+            save,
+          })
           : await fetchAllRows({
-              queryClient,
-              projectRef: projectRef,
-              connectionString: connectionString,
-              entity: entity,
-              bypassConfirmation,
-              filters: params.filters,
-              sorts: params.sorts,
-              roleImpersonationState: params.roleImpersonationState,
-              startCallback: () => {
-                startProgressTracker({
+            queryClient,
+            projectRef: projectRef,
+            connectionString: connectionString,
+            entity: entity,
+            bypassConfirmation,
+            filters: params.filters,
+            sorts: params.sorts,
+            roleImpersonationState: params.roleImpersonationState,
+            startCallback: () => {
+              startProgressTracker({
+                id: entity.id,
+                name: entity.name,
+                trackPercentage: totalRows !== undefined,
+              })
+            },
+            progressCallback: totalRows
+              ? (value: number) =>
+                trackPercentageProgress({
                   id: entity.id,
                   name: entity.name,
-                  trackPercentage: totalRows !== undefined,
+                  totalRows: totalRows,
+                  value,
                 })
-              },
-              progressCallback: totalRows
-                ? (value: number) =>
-                    trackPercentageProgress({
-                      id: entity.id,
-                      name: entity.name,
-                      totalRows: totalRows,
-                      value,
-                    })
-                : undefined,
-              convertToOutputFormat,
-              convertToBlob,
-              save,
-            })
+              : undefined,
+            convertToOutputFormat,
+            convertToBlob,
+            save,
+          })
 
       if (exportResult.status === 'error') {
         const error = exportResult.error

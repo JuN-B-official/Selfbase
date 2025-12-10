@@ -2,7 +2,7 @@ import { CpuIcon, Lock, Microchip } from 'lucide-react'
 import { useMemo } from 'react'
 import { UseFormReturn } from 'react-hook-form'
 
-import { SupportCategories } from '@supabase/shared-types/out/constants'
+import { SupportCategories } from '@selfbase/shared-types/out/constants'
 import { useParams } from 'common'
 import { SupportLink } from 'components/interfaces/Support/SupportLink'
 import { DocsButton } from 'components/ui/DocsButton'
@@ -184,11 +184,11 @@ export function ComputeSizeField({ form, disabled }: ComputeSizeFieldProps) {
 
                     const price =
                       org?.plan.id !== 'free' &&
-                      project?.infra_compute_size === 'nano' &&
-                      compute.identifier === 'ci_nano'
+                        project?.infra_compute_size === 'nano' &&
+                        compute.identifier === 'ci_nano'
                         ? availableOptions.find(
-                            (option: ComputeOption) => option.identifier === 'ci_micro'
-                          )?.price
+                          (option: ComputeOption) => option.identifier === 'ci_micro'
+                        )?.price
                         : compute.price
 
                     return (

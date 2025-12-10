@@ -3,20 +3,20 @@ export const LOCAL_STORAGE_KEYS = {
    * STUDIO
    */
   AI_ASSISTANT_STATE: (projectRef: string | undefined) =>
-    `supabase-ai-assistant-state-${projectRef}`,
-  SIDEBAR_BEHAVIOR: 'supabase-sidebar-behavior',
-  EDITOR_PANEL_STATE: 'supabase-editor-panel-state',
+    `selfbase-ai-assistant-state-${projectRef}`,
+  SIDEBAR_BEHAVIOR: 'selfbase-sidebar-behavior',
+  EDITOR_PANEL_STATE: 'selfbase-editor-panel-state',
   PROJECTS_VIEW: 'projects-view',
   FEEDBACK_WIDGET_CONTENT: 'feedback-widget-content',
   FEEDBACK_WIDGET_SCREENSHOT: 'feedback-widget-screenshot',
 
-  UI_PREVIEW_API_SIDE_PANEL: 'supabase-ui-api-side-panel',
-  UI_PREVIEW_CLS: 'supabase-ui-cls',
-  UI_PREVIEW_INLINE_EDITOR: 'supabase-ui-preview-inline-editor',
-  UI_PREVIEW_UNIFIED_LOGS: 'supabase-ui-preview-unified-logs',
-  UI_ONBOARDING_NEW_PAGE_SHOWN: 'supabase-ui-onboarding-new-page-shown',
-  UI_PREVIEW_BRANCHING_2_0: 'supabase-ui-branching-2-0',
-  UI_PREVIEW_ADVISOR_RULES: 'supabase-ui-advisor-rules',
+  UI_PREVIEW_API_SIDE_PANEL: 'selfbase-ui-api-side-panel',
+  UI_PREVIEW_CLS: 'selfbase-ui-cls',
+  UI_PREVIEW_INLINE_EDITOR: 'selfbase-ui-preview-inline-editor',
+  UI_PREVIEW_UNIFIED_LOGS: 'selfbase-ui-preview-unified-logs',
+  UI_ONBOARDING_NEW_PAGE_SHOWN: 'selfbase-ui-onboarding-new-page-shown',
+  UI_PREVIEW_BRANCHING_2_0: 'selfbase-ui-branching-2-0',
+  UI_PREVIEW_ADVISOR_RULES: 'selfbase-ui-advisor-rules',
 
   NEW_LAYOUT_NOTICE_ACKNOWLEDGED: 'new-layout-notice-acknowledge',
   TABS_INTERFACE_ACKNOWLEDGED: 'tabs-interface-acknowledge',
@@ -27,13 +27,13 @@ export const LOCAL_STORAGE_KEYS = {
 
   AUTH_USERS_FILTER: (ref: string) => `auth-users-filter-${ref}`,
   AUTH_USERS_SORT_BY_VALUE: (ref: string) => `auth-users-sort-by-value-${ref}`,
-  AUTH_USERS_COLUMNS_CONFIGURATION: (ref: string) => `supabase-auth-users-columns-${ref}`,
+  AUTH_USERS_COLUMNS_CONFIGURATION: (ref: string) => `selfbase-auth-users-columns-${ref}`,
 
-  SQL_EDITOR_INTELLISENSE: 'supabase_sql-editor-intellisense-enabled',
-  SQL_EDITOR_SPLIT_SIZE: 'supabase_sql-editor-split-size',
+  SQL_EDITOR_INTELLISENSE: 'selfbase_sql-editor-intellisense-enabled',
+  SQL_EDITOR_SPLIT_SIZE: 'selfbase_sql-editor-split-size',
   // Key to track which schemas are ok to be sent to AI. The project ref is intentionally put at the end for easier search in the browser console.
-  SQL_EDITOR_AI_SCHEMA: (ref: string) => `supabase_sql-editor-ai-schema-enabled-${ref}`,
-  SQL_EDITOR_AI_OPEN: 'supabase_sql-editor-ai-open',
+  SQL_EDITOR_AI_SCHEMA: (ref: string) => `selfbase_sql-editor-ai-schema-enabled-${ref}`,
+  SQL_EDITOR_AI_OPEN: 'selfbase_sql-editor-ai-open',
   SQL_EDITOR_LAST_SELECTED_DB: (ref: string) => `sql-editor-last-selected-db-${ref}`,
   SQL_EDITOR_SQL_BLOCK_ACKNOWLEDGED: (ref: string) => `sql-editor-sql-block-acknowledged-${ref}`,
   SQL_EDITOR_SECTION_STATE: (ref: string) => `sql-editor-section-state-${ref}`,
@@ -43,34 +43,34 @@ export const LOCAL_STORAGE_KEYS = {
   SECURITY_NOTIFICATIONS_ACKNOWLEDGED: (ref: string) =>
     `security-notifications-acknowledged-${ref}`,
 
-  LOG_EXPLORER_SPLIT_SIZE: 'supabase_log-explorer-split-size',
+  LOG_EXPLORER_SPLIT_SIZE: 'selfbase_log-explorer-split-size',
   GRAPHIQL_RLS_BYPASS_WARNING: 'graphiql-rls-bypass-warning-dismissed',
   CLS_DIFF_WARNING: 'cls-diff-warning-dismissed',
   CLS_SELECT_STAR_WARNING: 'cls-select-star-warning-dismissed',
-  QUERY_PERF_SHOW_BOTTOM_SECTION: 'supabase-query-perf-show-bottom-section',
-  LINTER_SHOW_FOOTER: 'supabase-linter-show-footer',
+  QUERY_PERF_SHOW_BOTTOM_SECTION: 'selfbase-query-perf-show-bottom-section',
+  LINTER_SHOW_FOOTER: 'selfbase-linter-show-footer',
   // Key to track account deletion requests
-  ACCOUNT_DELETION_REQUEST: 'supabase-account-deletion-request',
+  ACCOUNT_DELETION_REQUEST: 'selfbase-account-deletion-request',
   // Used for storing a user id when sending reports to Sentry. The id is hashed for anonymity.
-  SENTRY_USER_ID: 'supabase-sentry-user-id',
+  SENTRY_USER_ID: 'selfbase-sentry-user-id',
   // Used for storing the last sign in method used by the user
-  LAST_SIGN_IN_METHOD: 'supabase-last-sign-in-method',
+  LAST_SIGN_IN_METHOD: 'selfbase-last-sign-in-method',
   // Key to track the last selected schema. The project ref is intentionally put at the end for easier search in the browser console.
   LAST_SELECTED_SCHEMA: (ref: string) => `last-selected-schema-${ref}`,
   // Track position of nodes for schema visualizer
   SCHEMA_VISUALIZER_POSITIONS: (ref: string, schemaId: number) =>
     `schema-visualizer-positions-${ref}-${schemaId}`,
   // Used for allowing the main nav panel to expand on hover
-  EXPAND_NAVIGATION_PANEL: 'supabase-expand-navigation-panel',
-  GITHUB_AUTHORIZATION_STATE: 'supabase-github-authorization-state',
+  EXPAND_NAVIGATION_PANEL: 'selfbase-expand-navigation-panel',
+  GITHUB_AUTHORIZATION_STATE: 'selfbase-github-authorization-state',
   // Notice banner keys
   FLY_POSTGRES_DEPRECATION_WARNING: 'fly-postgres-deprecation-warning-dismissed',
-  API_KEYS_FEEDBACK_DISMISSED: (ref: string) => `supabase-api-keys-feedback-dismissed-${ref}`,
+  API_KEYS_FEEDBACK_DISMISSED: (ref: string) => `selfbase-api-keys-feedback-dismissed-${ref}`,
   MAINTENANCE_WINDOW_BANNER: 'maintenance-window-banner-2025-11-21',
-  REPORT_DATERANGE: 'supabase-report-daterange',
+  REPORT_DATERANGE: 'selfbase-report-daterange',
 
   // api keys view switcher for new and legacy api keys
-  API_KEYS_VIEW: (ref: string) => `supabase-api-keys-view-${ref}`,
+  API_KEYS_VIEW: (ref: string) => `selfbase-api-keys-view-${ref}`,
 
   LAST_VISITED_ORGANIZATION: 'last-visited-organization',
 
@@ -78,10 +78,10 @@ export const LOCAL_STORAGE_KEYS = {
   USER_IMPERSONATION_SELECTOR_PREVIOUS_SEARCHES: (ref: string) =>
     `user-impersonation-selector-previous-searches-${ref}`,
 
-  HOTKEY_COMMAND_MENU: 'supabase-dashboard-hotkey-command-menu',
+  HOTKEY_COMMAND_MENU: 'selfbase-dashboard-hotkey-command-menu',
 
   // Project sidebar hotkeys
-  HOTKEY_SIDEBAR: (sidebarId: string) => `supabase-dashboard-hotkey-sidebar-${sidebarId}`,
+  HOTKEY_SIDEBAR: (sidebarId: string) => `selfbase-dashboard-hotkey-sidebar-${sidebarId}`,
 
   // Index Advisor notice dismissed
   INDEX_ADVISOR_NOTICE_DISMISSED: (ref: string) => `index-advisor-notice-dismissed-${ref}`,
@@ -93,8 +93,8 @@ export const LOCAL_STORAGE_KEYS = {
    * COMMON
    */
   /** @deprecated – we're using usercentrics instead to handle telemetry consent */
-  TELEMETRY_CONSENT: 'supabase-consent-ph',
-  TELEMETRY_DATA: 'supabase-telemetry-data',
+  TELEMETRY_CONSENT: 'selfbase-consent-ph',
+  TELEMETRY_DATA: 'selfbase-telemetry-data',
 
   /**
    * DOCS
@@ -103,12 +103,12 @@ export const LOCAL_STORAGE_KEYS = {
   SAVED_PROJECT: 'docs.ui.user.selected.project',
   SAVED_BRANCH: 'docs.ui.user.selected.branch',
 
-  HIDE_PROMO_TOAST: 'supabase-hide-promo-toast-lw15-ticket',
+  HIDE_PROMO_TOAST: 'selfbase-hide-promo-toast-lw15-ticket',
 
   /**
    * WWW
    */
-  BLOG_VIEW: 'supabase-blog-view',
+  BLOG_VIEW: 'selfbase-blog-view',
 
   // Used to track if user has dismissed table editor quickstart prompt
   TABLE_QUICKSTART_DISMISSED: 'table-quickstart-dismissed',
@@ -119,9 +119,9 @@ export type LocalStorageKey = (typeof LOCAL_STORAGE_KEYS)[keyof typeof LOCAL_STO
 const LOCAL_STORAGE_KEYS_ALLOWLIST = [
   'graphiql:theme',
   'theme',
-  'supabaseDarkMode',
-  'supabase.dashboard.auth.debug',
-  'supabase.dashboard.auth.navigatorLock.disabled',
+  'selfbaseDarkMode',
+  'selfbase.dashboard.auth.debug',
+  'selfbase.dashboard.auth.navigatorLock.disabled',
   LOCAL_STORAGE_KEYS.TELEMETRY_CONSENT,
   LOCAL_STORAGE_KEYS.UI_PREVIEW_API_SIDE_PANEL,
   LOCAL_STORAGE_KEYS.UI_PREVIEW_INLINE_EDITOR,

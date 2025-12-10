@@ -68,7 +68,7 @@ export const NewProjectPanel = () => {
               <div className="max-w-2xl space-y-2">
                 <h2>Explore our other products</h2>
                 <p className="text-base text-foreground-light">
-                  Supabase provides all the backend features you need to build a product. You can
+                  Selfbase provides all the backend features you need to build a product. You can
                   use it completely, or just the features you need.
                 </p>
               </div>
@@ -215,7 +215,7 @@ export const NewProjectPanel = () => {
             <p className="text-base text-foreground-light lg:max-w-sm">
               Interact with your database through the{' '}
               <Link href={`${DOCS_URL}/reference`} className="text-brand">
-                Supabase client libraries
+                Selfbase client libraries
               </Link>{' '}
               with your API keys.
             </p>

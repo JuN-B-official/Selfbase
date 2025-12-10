@@ -12,12 +12,12 @@ const GrafanaPromoBanner = () => (
     <div className="absolute inset-0 z-0">
       <img
         src={`${BASE_PATH}/img/reports/bg-grafana-dark.svg`}
-        alt="Supabase Grafana"
+        alt="Selfbase Grafana"
         className="w-full h-full object-cover object-right hidden dark:block"
       />
       <img
         src={`${BASE_PATH}/img/reports/bg-grafana-light.svg`}
-        alt="Supabase Grafana"
+        alt="Selfbase Grafana"
         className="w-full h-full object-cover object-right dark:hidden"
       />
       <div className="absolute inset-0 bg-gradient-to-r from-background-alternative to-transparent" />
@@ -42,8 +42,8 @@ const GrafanaPromoBanner = () => (
     </div>
     <AlertDescription_Shadcn_ className="relative flex flex-col xl:flex-row gap-2 md:max-w-lg">
       <p className="flex-grow">
-        Set up the Supabase Grafana Dashboard to visualize over 200 database performance and health
-        metrics on your Supabase project.
+        Set up the Selfbase Grafana Dashboard to visualize over 200 database performance and health
+        metrics on your Selfbase project.
       </p>
       <GrafanaBannerActions className="xl:hidden" />
     </AlertDescription_Shadcn_>
@@ -73,7 +73,7 @@ const GrafanaBannerActions = ({ className }: { className?: string }) => {
       </Button>
       <Button type="default" size="tiny" asChild>
         <Link
-          href="https://github.com/supabase/supabase-grafana"
+          href="https://github.com/selfbase/selfbase-grafana"
           target="_blank"
           onClick={() =>
             sendEvent({

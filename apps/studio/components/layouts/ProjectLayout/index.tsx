@@ -88,7 +88,7 @@ export const ProjectLayout = forwardRef<HTMLDivElement, PropsWithChildren<Projec
     const { mobileMenuOpen, showSidebar, setMobileMenuOpen } = useAppStateSnapshot()
 
     const { appTitle } = useCustomContent(['app:title'])
-    const titleSuffix = appTitle || 'Supabase'
+    const titleSuffix = appTitle || 'Selfbase'
 
     const editor = useEditorType()
     const forceShowProductMenu = editor === undefined
@@ -100,9 +100,9 @@ export const ProjectLayout = forwardRef<HTMLDivElement, PropsWithChildren<Projec
     const isPaused = selectedProject?.status === PROJECT_STATUS.INACTIVE
     const showProductMenu = selectedProject
       ? selectedProject.status === PROJECT_STATUS.ACTIVE_HEALTHY ||
-        (selectedProject.status === PROJECT_STATUS.COMING_UP &&
-          router.pathname.includes('/project/[ref]/settings')) ||
-        router.pathname.includes('/project/[ref]/branches')
+      (selectedProject.status === PROJECT_STATUS.COMING_UP &&
+        router.pathname.includes('/project/[ref]/settings')) ||
+      router.pathname.includes('/project/[ref]/branches')
       : true
 
     const ignorePausedState =
@@ -127,7 +127,7 @@ export const ProjectLayout = forwardRef<HTMLDivElement, PropsWithChildren<Projec
                     ? `${organizationName} | ${titleSuffix}`
                     : titleSuffix}
           </title>
-          <meta name="description" content="Supabase Studio" />
+          <meta name="description" content="Selfbase Studio" />
         </Head>
         <div className="flex flex-row h-full w-full">
           {/*  autoSaveId="project-layout" */}
@@ -259,7 +259,7 @@ interface ContentWrapperProps {
  *
  * [Joshen] As of 210422: Current testing connection by pinging postgres
  * Ideally we'd have a more specific monitoring of the project such as during restarts
- * But that will come later: https://supabase.slack.com/archives/C01D6TWFFFW/p1650427619665549
+ * But that will come later: https://selfbase.slack.com/archives/C01D6TWFFFW/p1650427619665549
  *
  * Just note that this logic does not differentiate between a "restarting" state and
  * a "something is wrong and can't connect to project" state.

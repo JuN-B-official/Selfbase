@@ -1,4 +1,4 @@
-import type { PostgresPolicy } from '@supabase/postgres-meta'
+import type { PostgresPolicy } from '@selfbase/postgres-meta'
 import { has, isEmpty, isEqual } from 'lodash'
 import {
   PolicyFormField,
@@ -85,13 +85,11 @@ export const createSQLStatementForUpdatePolicy = (
   const rolesChanged = has(fieldsToUpdate, ['roles'])
 
   const parameters = Object.keys(fieldsToUpdate)
-  const description = `Update policy's ${
-    parameters.length === 1
+  const description = `Update policy's ${parameters.length === 1
       ? parameters[0]
-      : `${parameters.slice(0, parameters.length - 1).join(', ')} and ${
-          parameters[parameters.length - 1]
-        }`
-  } `
+      : `${parameters.slice(0, parameters.length - 1).join(', ')} and ${parameters[parameters.length - 1]
+      }`
+    } `
   const roles =
     (fieldsToUpdate?.roles ?? []).length === 0 ? ['public'] : (fieldsToUpdate.roles as string[])
 

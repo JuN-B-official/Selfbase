@@ -4,6 +4,12 @@ export * from './infrastructure'
 
 export const IS_PLATFORM = process.env.NEXT_PUBLIC_IS_PLATFORM === 'true'
 
+// Selfbase: Multi-project support for self-hosted environments
+export const SELFBASE_MULTI_PROJECT = process.env.NEXT_PUBLIC_SELFBASE_MULTI_PROJECT === 'true'
+
+// Selfbase: Enable features that are normally platform-only for multi-project support
+export const ENABLE_PROJECT_MANAGEMENT = IS_PLATFORM || SELFBASE_MULTI_PROJECT
+
 export const API_URL = (() => {
   if (process.env.NODE_ENV === 'test') return 'http://localhost:3000/api'
   //  If running in platform, use API_URL from the env var
@@ -39,13 +45,13 @@ export const STRIPE_PUBLIC_KEY =
 
 export const POSTHOG_URL =
   process.env.NEXT_PUBLIC_ENVIRONMENT === 'staging' ||
-  process.env.NEXT_PUBLIC_ENVIRONMENT === 'local'
-    ? 'https://ph.supabase.green'
-    : 'https://ph.supabase.com'
+    process.env.NEXT_PUBLIC_ENVIRONMENT === 'local'
+    ? 'https://ph.selfbase.green'
+    : 'https://ph.selfbase.com'
 
 export const USAGE_APPROACHING_THRESHOLD = 0.75
 
-export const DOCS_URL = process.env.NEXT_PUBLIC_DOCS_URL || 'https://supabase.com/docs'
+export const DOCS_URL = process.env.NEXT_PUBLIC_DOCS_URL || 'https://selfbase.com/docs'
 
 export const OPT_IN_TAGS = {
   AI_SQL: 'AI_SQL_GENERATOR_OPT_IN',

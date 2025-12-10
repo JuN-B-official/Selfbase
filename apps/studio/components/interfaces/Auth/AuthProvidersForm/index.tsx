@@ -68,7 +68,7 @@ export const AuthProvidersForm = () => {
                       hour.
                     </p>
                     <Button asChild type="default" className="w-min" icon={<ExternalLink />}>
-                      <Link href="https://supabase.com/docs/guides/platform/going-into-prod#security">
+                      <Link href="https://selfbase.com/docs/guides/platform/going-into-prod#security">
                         View security recommendations
                       </Link>
                     </Button>
@@ -92,9 +92,9 @@ export const AuthProvidersForm = () => {
                   const providerSchema =
                     provider.title === 'Phone'
                       ? {
-                          ...provider,
-                          validationSchema: getPhoneProviderValidationSchema(authConfig),
-                        }
+                        ...provider,
+                        validationSchema: getPhoneProviderValidationSchema(authConfig),
+                      }
                       : provider
                   let isActive = false
                   if (providerSchema.title === 'SAML 2.0') {

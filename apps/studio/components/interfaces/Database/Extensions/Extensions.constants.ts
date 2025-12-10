@@ -9,7 +9,7 @@ export const HIDDEN_EXTENSIONS = [
   'pg_freespacemap',
   'pg_surgery',
   'pg_visibility',
-  'supabase_vault',
+  'selfbase_vault',
   'supautils',
   'intagg',
   'xml2',

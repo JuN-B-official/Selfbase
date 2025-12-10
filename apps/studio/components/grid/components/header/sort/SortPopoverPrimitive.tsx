@@ -1,4 +1,4 @@
-import { THRESHOLD_COUNT } from '@supabase/pg-meta/src/query/table-row-query'
+import { THRESHOLD_COUNT } from '@selfbase/pg-meta/src/query/table-row-query'
 import { keepPreviousData } from '@tanstack/react-query'
 import { isEqual } from 'lodash'
 import { ChevronDown, List } from 'lucide-react'

@@ -22,7 +22,7 @@ export type ProjectCreateVariables = {
   dbPricingTierId?: string
   cloudProvider?: string
   authSiteUrl?: string
-  customSupabaseRequest?: object
+  customSelfbaseRequest?: object
   dbInstanceSize?: DesiredInstanceSize
   dataApiExposedSchemas?: string[]
   dataApiUseApiSchema?: boolean
@@ -39,7 +39,7 @@ export async function createProject({
   dbSql,
   cloudProvider = PROVIDERS.AWS.id,
   authSiteUrl,
-  customSupabaseRequest,
+  customSelfbaseRequest,
   dbInstanceSize,
   dataApiExposedSchemas,
   dataApiUseApiSchema,
@@ -55,8 +55,8 @@ export async function createProject({
     region_selection: regionSelection,
     db_sql: dbSql,
     auth_site_url: authSiteUrl,
-    ...(customSupabaseRequest !== undefined && {
-      custom_supabase_internal_requests: customSupabaseRequest as any,
+    ...(customSelfbaseRequest !== undefined && {
+      custom_selfbase_internal_requests: customSelfbaseRequest as any,
     }),
     desired_instance_size: dbInstanceSize,
     data_api_exposed_schemas: dataApiExposedSchemas,

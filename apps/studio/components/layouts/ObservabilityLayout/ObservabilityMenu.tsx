@@ -1,4 +1,4 @@
-import { PermissionAction } from '@supabase/shared-types/out/constants'
+import { PermissionAction } from '@selfbase/shared-types/out/constants'
 import { Plus } from 'lucide-react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
@@ -131,12 +131,12 @@ const ObservabilityMenu = () => {
         },
         ...(postgrestReportEnabled
           ? [
-              {
-                name: 'Data API',
-                key: 'postgrest',
-                url: `/project/${ref}/observability/postgrest${preservedQueryParams}`,
-              },
-            ]
+            {
+              name: 'Data API',
+              key: 'postgrest',
+              url: `/project/${ref}/observability/postgrest${preservedQueryParams}`,
+            },
+          ]
           : []),
       ],
     },
@@ -146,12 +146,12 @@ const ObservabilityMenu = () => {
       items: [
         ...(authEnabled
           ? [
-              {
-                name: 'Auth',
-                key: 'auth',
-                url: `/project/${ref}/observability/auth${preservedQueryParams}`,
-              },
-            ]
+            {
+              name: 'Auth',
+              key: 'auth',
+              url: `/project/${ref}/observability/auth${preservedQueryParams}`,
+            },
+          ]
           : []),
         {
           name: 'Database',
@@ -160,30 +160,30 @@ const ObservabilityMenu = () => {
         },
         ...(edgeFnEnabled
           ? [
-              {
-                name: 'Edge Functions',
-                key: 'edge-functions',
-                url: `/project/${ref}/observability/edge-functions${preservedQueryParams}`,
-              },
-            ]
+            {
+              name: 'Edge Functions',
+              key: 'edge-functions',
+              url: `/project/${ref}/observability/edge-functions${preservedQueryParams}`,
+            },
+          ]
           : []),
         ...(realtimeEnabled
           ? [
-              {
-                name: 'Realtime',
-                key: 'realtime',
-                url: `/project/${ref}/observability/realtime${preservedQueryParams}`,
-              },
-            ]
+            {
+              name: 'Realtime',
+              key: 'realtime',
+              url: `/project/${ref}/observability/realtime${preservedQueryParams}`,
+            },
+          ]
           : []),
         ...(storageEnabled
           ? [
-              {
-                name: 'Storage',
-                key: 'storage',
-                url: `/project/${ref}/observability/storage${preservedQueryParams}`,
-              },
-            ]
+            {
+              name: 'Storage',
+              key: 'storage',
+              url: `/project/${ref}/observability/storage${preservedQueryParams}`,
+            },
+          ]
           : []),
       ],
     },

@@ -1,6 +1,6 @@
 ---
 title: Infinite Query Hook
-description: React hook for infinite lists, fetching data from Supabase.
+description: React hook for infinite lists, fetching data from Selfbase.
 ---
 
 <BlockPreview name="infinite-list-demo" />
@@ -9,7 +9,7 @@ description: React hook for infinite lists, fetching data from Supabase.
 
 <BlockItem
   name="infinite-query-hook"
-  description="Installs the Infinite List component and necessary Supabase client setup."
+  description="Installs the Infinite List component and necessary Selfbase client setup."
 />
 
 ## Folder structure
@@ -18,21 +18,21 @@ description: React hook for infinite lists, fetching data from Supabase.
 
 ## Introduction
 
-The Infinite Query Hook provides a single React hook which will make it easier to load data progressively from your Supabase database. It handles data fetching and pagination state, It is meant to be used with infinite lists or tables.
+The Infinite Query Hook provides a single React hook which will make it easier to load data progressively from your Selfbase database. It handles data fetching and pagination state, It is meant to be used with infinite lists or tables.
 The hook is fully typed, provided you have generated and setup your database types.
 
 ## Adding types
 
-Before using this hook, we **highly** recommend you setup database types in your project. This will make the hook fully-typesafe. More info about generating Typescript types from database schema [here](https://supabase.com/docs/guides/api/rest/generating-types)
+Before using this hook, we **highly** recommend you setup database types in your project. This will make the hook fully-typesafe. More info about generating Typescript types from database schema [here](https://selfbase.com/docs/guides/api/rest/generating-types)
 
 ## Props
 
 | Prop            | Type                                                      | Description                                                      |
 | --------------- | --------------------------------------------------------- | ---------------------------------------------------------------- |
-| `tableName`     | `string`                                                  | **Required.** The name of the Supabase table to fetch data from. |
+| `tableName`     | `string`                                                  | **Required.** The name of the Selfbase table to fetch data from. |
 | `columns`       | `string`                                                  | Columns to select from the table. Defaults to `'*'`.             |
 | `pageSize`      | `number`                                                  | Number of items to fetch per page. Defaults to `20`.             |
-| `trailingQuery` | `(query: SupabaseSelectBuilder) => SupabaseSelectBuilder` | Function to apply filters or sorting to the Supabase query.      |
+| `trailingQuery` | `(query: SelfbaseSelectBuilder) => SelfbaseSelectBuilder` | Function to apply filters or sorting to the Selfbase query.      |
 
 ## Return type
 
@@ -51,7 +51,7 @@ data, count, isSuccess, isLoading, isFetching, error, hasMore, fetchNextPage
 
 ## Type safety
 
-The hook will use the typed defined on your Supabase client if they're setup ([more info](https://supabase.com/docs/reference/javascript/typescript-support)).
+The hook will use the typed defined on your Selfbase client if they're setup ([more info](https://selfbase.com/docs/reference/javascript/typescript-support)).
 
 The hook also supports an custom defined result type by using `useInfiniteQuery<T>`. For example, if you have a custom type for `Product`, you can use it like this `useInfiniteQuery<Product>`.
 
@@ -118,19 +118,19 @@ The following component abstracts the hook into a component. It includes few uti
 
 import { cn } from '@/lib/utils'
 import {
-  SupabaseQueryHandler,
-  SupabaseTableData,
-  SupabaseTableName,
+  SelfbaseQueryHandler,
+  SelfbaseTableData,
+  SelfbaseTableName,
   useInfiniteQuery,
 } from '@/hooks/use-infinite-query'
 import * as React from 'react'
 
-interface InfiniteListProps<TableName extends SupabaseTableName> {
+interface InfiniteListProps<TableName extends SelfbaseTableName> {
   tableName: TableName
   columns?: string
   pageSize?: number
-  trailingQuery?: SupabaseQueryHandler<TableName>
-  renderItem: (item: SupabaseTableData<TableName>, index: number) => React.ReactNode
+  trailingQuery?: SelfbaseQueryHandler<TableName>
+  renderItem: (item: SelfbaseTableData<TableName>, index: number) => React.ReactNode
   className?: string
   renderNoResults?: () => React.ReactNode
   renderEndMessage?: () => React.ReactNode
@@ -153,7 +153,7 @@ const defaultSkeleton = (count: number) => (
   </div>
 )
 
-export function InfiniteList<TableName extends SupabaseTableName>({
+export function InfiniteList<TableName extends SelfbaseTableName>({
   tableName,
   columns = '*',
   pageSize = 20,
@@ -221,18 +221,18 @@ export function InfiniteList<TableName extends SupabaseTableName>({
 }
 ```
 
-Use the `InfiniteList` component with the [Todo List](https://supabase.com/dashboard/project/_/sql/quickstarts) quickstart.
+Use the `InfiniteList` component with the [Todo List](https://selfbase.com/dashboard/project/_/sql/quickstarts) quickstart.
 
 Add `<InfiniteListDemo />` to a page to see it in action.
-Ensure the [Checkbox](https://ui.shadcn.com/docs/components/checkbox) component from shadcn/ui is installed, and [regenerate/download](https://supabase.com/docs/guides/api/rest/generating-types) types after running the quickstart.
+Ensure the [Checkbox](https://ui.shadcn.com/docs/components/checkbox) component from shadcn/ui is installed, and [regenerate/download](https://selfbase.com/docs/guides/api/rest/generating-types) types after running the quickstart.
 
 ```tsx
 'use client'
 
 import { Checkbox } from '@/components/ui/checkbox'
 import { InfiniteList } from './infinite-component'
-import { SupabaseQueryHandler } from '@/hooks/use-infinite-query'
-import { Database } from '@/lib/supabase.types'
+import { SelfbaseQueryHandler } from '@/hooks/use-infinite-query'
+import { Database } from '@/lib/selfbase.types'
 
 type TodoTask = Database['public']['Tables']['todos']['Row']
 
@@ -256,7 +256,7 @@ const renderTodoItem = (todo: TodoTask) => {
   )
 }
 
-const orderByInsertedAt: SupabaseQueryHandler<'todos'> = (query) => {
+const orderByInsertedAt: SelfbaseQueryHandler<'todos'> = (query) => {
   return query.order('inserted_at', { ascending: false })
 }
 
@@ -277,14 +277,14 @@ export const InfiniteListDemo = () => {
 <Callout>
   The Todo List table has Row Level Security (RLS) enabled by default. Feel free disable it
   temporarily while testing. With RLS enabled, you will get an [empty
-  array](https://supabase.com/docs/guides/troubleshooting/why-is-my-select-returning-an-empty-data-array-and-i-have-data-in-the-table-xvOPgx)
+  array](https://selfbase.com/docs/guides/troubleshooting/why-is-my-select-returning-an-empty-data-array-and-i-have-data-in-the-table-xvOPgx)
   of results by default. [Read
-  more](https://supabase.com/docs/guides/database/postgres/row-level-security) about RLS.
+  more](https://selfbase.com/docs/guides/database/postgres/row-level-security) about RLS.
 </Callout>
 
 ## Further reading
 
-- [Generating Typescript types from the database](https://supabase.com/docs/reference/javascript/typescript-support)
-- [Supabase Database API](https://supabase.com/docs/reference/javascript/select)
-- [Supabase Pagination](https://supabase.com/docs/reference/javascript/select#pagination)
+- [Generating Typescript types from the database](https://selfbase.com/docs/reference/javascript/typescript-support)
+- [Selfbase Database API](https://selfbase.com/docs/reference/javascript/select)
+- [Selfbase Pagination](https://selfbase.com/docs/reference/javascript/select#pagination)
 - [Intersection Observer API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API)

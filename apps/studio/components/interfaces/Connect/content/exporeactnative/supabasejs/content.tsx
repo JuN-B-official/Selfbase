@@ -13,7 +13,7 @@ const ContentFile = ({ projectKeys }: ContentFileProps) => {
     <ConnectTabs>
       <ConnectTabTriggers>
         <ConnectTabTrigger value=".env.local" />
-        <ConnectTabTrigger value="utils/supabase.ts" />
+        <ConnectTabTrigger value="utils/selfbase.ts" />
         <ConnectTabTrigger value="App.tsx" />
       </ConnectTabTriggers>
 
@@ -26,14 +26,14 @@ EXPO_PUBLIC_SUPABASE_KEY=${projectKeys.publishableKey ?? '<prefer publishable ke
         </SimpleCodeBlock>
       </ConnectTabContent>
 
-      <ConnectTabContent value="utils/supabase.ts">
+      <ConnectTabContent value="utils/selfbase.ts">
         <SimpleCodeBlock className="ts" parentClassName="min-h-72">
           {`
 import 'react-native-url-polyfill/auto'
 import AsyncStorage from '@react-native-async-storage/async-storage'
-import { createClient, processLock } from '@supabase/supabase-js'
+import { createClient, processLock } from '@selfbase/selfbase-js'
 
-export const supabase = createClient(
+export const selfbase = createClient(
   process.env.EXPO_PUBLIC_SUPABASE_URL!,
   process.env.EXPO_PUBLIC_SUPABASE_KEY!,
   {
@@ -54,7 +54,7 @@ export const supabase = createClient(
           {`
 import React, { useState, useEffect } from 'react';
 import { View, Text, FlatList } from 'react-native';
-import { supabase } from '../utils/supabase';
+import { selfbase } from '../utils/selfbase';
 
 export default function App() {
   const [todos, setTodos] = useState([]);
@@ -62,7 +62,7 @@ export default function App() {
   useEffect(() => {
     const getTodos = async () => {
       try {
-        const { data: todos, error } = await supabase.from('todos').select();
+        const { data: todos, error } = await selfbase.from('todos').select();
 
         if (error) {
           console.error('Error fetching todos:', error.message);

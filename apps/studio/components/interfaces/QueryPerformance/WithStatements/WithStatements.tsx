@@ -91,7 +91,7 @@ export const WithStatements = ({
 
             <DownloadResultsButton
               results={processedData}
-              fileName={`Supabase Query Performance Statements (${ref})`}
+              fileName={`Selfbase Query Performance Statements (${ref})`}
               align="end"
             />
           </>
@@ -138,7 +138,7 @@ export const WithStatements = ({
           <p>Inspect your database for potential issues</p>
           <Markdown
             className="text-xs"
-            content={`The Supabase CLI comes with a range of tools to help inspect your Postgres instances for
+            content={`The Selfbase CLI comes with a range of tools to help inspect your Postgres instances for
             potential issues. [Learn more here](${DOCS_URL}/guides/database/inspect).`}
           />
         </div>

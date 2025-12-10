@@ -2,21 +2,21 @@
 
 import { cn } from '@/lib/utils'
 import {
-  SupabaseQueryHandler,
-  SupabaseTableData,
-  SupabaseTableName,
+  SelfbaseQueryHandler,
+  SelfbaseTableData,
+  SelfbaseTableName,
   useInfiniteQuery,
 } from '@/registry/default/blocks/infinite-query-hook/hooks/use-infinite-query'
 import { Checkbox } from '@/registry/default/components/ui/checkbox'
 import { Database } from '@/registry/default/fixtures/database.types'
 import * as React from 'react'
 
-interface InfiniteListProps<TableName extends SupabaseTableName> {
+interface InfiniteListProps<TableName extends SelfbaseTableName> {
   tableName: TableName
   columns?: string
   pageSize?: number
-  trailingQuery?: SupabaseQueryHandler<TableName>
-  renderItem: (item: SupabaseTableData<TableName>, index: number) => React.ReactNode
+  trailingQuery?: SelfbaseQueryHandler<TableName>
+  renderItem: (item: SelfbaseTableData<TableName>, index: number) => React.ReactNode
   className?: string
   renderNoResults?: () => React.ReactNode
   renderEndMessage?: () => React.ReactNode
@@ -39,7 +39,7 @@ const defaultSkeleton = (count: number) => (
   </div>
 )
 
-export function InfiniteList<TableName extends SupabaseTableName>({
+export function InfiniteList<TableName extends SelfbaseTableName>({
   tableName,
   columns = '*',
   pageSize = 20,
@@ -129,7 +129,7 @@ const renderTodoItem = (todo: TodoTask) => {
 }
 
 // Define a filter to only show logs with log_level = 'info'
-const orderByInsertedAt: SupabaseQueryHandler<'todos'> = (query) => {
+const orderByInsertedAt: SelfbaseQueryHandler<'todos'> = (query) => {
   return query.order('inserted_at', { ascending: false })
 }
 

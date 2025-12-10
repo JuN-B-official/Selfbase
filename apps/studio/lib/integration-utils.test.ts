@@ -26,8 +26,8 @@ describe('integration-utils', () => {
     })
 
     it('should fetch and combine migration files correctly', async () => {
-      const mockGitHubUrl = 'https://github.com/org/repo/tree/main/examples/with-supabase'
-      const mockSupabaseFiles = [{ name: 'seed.sql', download_url: 'https://github.com/seed.sql' }]
+      const mockGitHubUrl = 'https://github.com/org/repo/tree/main/examples/with-selfbase'
+      const mockSelfbaseFiles = [{ name: 'seed.sql', download_url: 'https://github.com/seed.sql' }]
       const mockMigrationFiles = [
         { name: '20230101000000_initial.sql', download_url: 'https://github.com/migration1.sql' },
         { name: '20230101000001_second.sql', download_url: 'https://github.com/migration2.sql' },
@@ -42,7 +42,7 @@ describe('integration-utils', () => {
       const mockFetchHandler = fetchHandler as unknown as ReturnType<typeof vi.fn>
       mockFetchHandler
         .mockResolvedValueOnce(
-          new Response(JSON.stringify(mockSupabaseFiles), {
+          new Response(JSON.stringify(mockSelfbaseFiles), {
             status: 200,
             statusText: 'OK',
             headers: { 'Content-Type': 'application/json' },
@@ -82,12 +82,12 @@ describe('integration-utils', () => {
       expect(result).toContain(mockMigrationContent1)
       expect(result).toContain(mockMigrationContent2)
       expect(result).toContain(mockSeedContent)
-      expect(result).toContain('create schema if not exists supabase_migrations')
-      expect(result).toContain('create table if not exists supabase_migrations.schema_migrations')
+      expect(result).toContain('create schema if not exists selfbase_migrations')
+      expect(result).toContain('create table if not exists selfbase_migrations.schema_migrations')
     })
 
     it('should handle GitHub API errors gracefully', async () => {
-      const mockGitHubUrl = 'https://github.com/org/repo/tree/main/examples/with-supabase'
+      const mockGitHubUrl = 'https://github.com/org/repo/tree/main/examples/with-selfbase'
 
       const { fetchHandler } = await import('data/fetchers')
       const mockFetchHandler = fetchHandler as unknown as ReturnType<typeof vi.fn>

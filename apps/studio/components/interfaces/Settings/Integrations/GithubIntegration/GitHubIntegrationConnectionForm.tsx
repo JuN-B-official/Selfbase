@@ -1,5 +1,5 @@
 import { zodResolver } from '@hookform/resolvers/zod'
-import { PermissionAction } from '@supabase/shared-types/out/constants'
+import { PermissionAction } from '@selfbase/shared-types/out/constants'
 import { ChevronDown, Loader2, PlusIcon, RefreshCw } from 'lucide-react'
 import { useEffect, useMemo, useState } from 'react'
 import { useForm } from 'react-hook-form'
@@ -121,7 +121,7 @@ const GitHubIntegrationConnectionForm = ({
   )
 
   const { mutateAsync: checkGithubBranchValidity, isPending: isCheckingBranch } =
-    useCheckGithubBranchValidity({ onError: () => {} })
+    useCheckGithubBranchValidity({ onError: () => { } })
 
   const { mutate: createConnection, isPending: isCreatingConnection } =
     useGitHubConnectionCreateMutation({
@@ -162,8 +162,8 @@ const GitHubIntegrationConnectionForm = ({
       enableProductionSync: z.boolean().default(true),
       branchName: z.string().default('main'),
       new_branch_per_pr: z.boolean().default(true),
-      supabaseDirectory: z.string().default('.'),
-      supabaseChangesOnly: z.boolean().default(true),
+      selfbaseDirectory: z.string().default('.'),
+      selfbaseChangesOnly: z.boolean().default(true),
       branchLimit: z.string().default('50'),
     })
     .superRefine(async (val, ctx) => {
@@ -198,8 +198,8 @@ const GitHubIntegrationConnectionForm = ({
       enableProductionSync: true,
       branchName: 'main',
       new_branch_per_pr: true,
-      supabaseDirectory: '.',
-      supabaseChangesOnly: true,
+      selfbaseDirectory: '.',
+      selfbaseChangesOnly: true,
       branchLimit: '50',
     },
   })
@@ -249,8 +249,8 @@ const GitHubIntegrationConnectionForm = ({
         installation_id: selectedRepo.installation_id,
         project_ref: selectedProject.ref,
         repository_id: Number(selectedRepo.id),
-        workdir: data.supabaseDirectory,
-        supabase_changes_only: data.supabaseChangesOnly,
+        workdir: data.selfbaseDirectory,
+        selfbase_changes_only: data.selfbaseChangesOnly,
         branch_limit: Number(data.branchLimit),
         new_branch_per_pr: data.new_branch_per_pr,
       },
@@ -298,8 +298,8 @@ const GitHubIntegrationConnectionForm = ({
       connectionId: currentConnection.id,
       organizationId: selectedOrganization.id,
       connection: {
-        workdir: data.supabaseDirectory,
-        supabase_changes_only: data.supabaseChangesOnly,
+        workdir: data.selfbaseDirectory,
+        selfbase_changes_only: data.selfbaseChangesOnly,
         branch_limit: Number(data.branchLimit),
         new_branch_per_pr: data.new_branch_per_pr,
       },
@@ -337,8 +337,8 @@ const GitHubIntegrationConnectionForm = ({
         enableProductionSync: true,
         branchName: 'main',
         new_branch_per_pr: true,
-        supabaseDirectory: '.',
-        supabaseChangesOnly: true,
+        selfbaseDirectory: '.',
+        selfbaseChangesOnly: true,
         branchLimit: '50',
       })
     } catch (error) {
@@ -377,8 +377,8 @@ const GitHubIntegrationConnectionForm = ({
         enableProductionSync: hasGitBranch,
         branchName: prodBranch?.git_branch || 'main',
         new_branch_per_pr: connection.new_branch_per_pr,
-        supabaseDirectory: connection.workdir || '',
-        supabaseChangesOnly: connection.supabase_changes_only,
+        selfbaseDirectory: connection.workdir || '',
+        selfbaseChangesOnly: connection.selfbase_changes_only,
         branchLimit: String(connection.branch_limit),
       })
     }
@@ -549,17 +549,17 @@ const GitHubIntegrationConnectionForm = ({
             <CardContent className={cn(!currentRepositoryId && 'opacity-25 pointer-events-none')}>
               <FormField_Shadcn_
                 control={githubSettingsForm.control}
-                name="supabaseDirectory"
+                name="selfbaseDirectory"
                 render={({ field }) => (
                   <FormItemLayout
                     layout="flex-row-reverse"
-                    label="Supabase directory"
-                    description="Relative path to your supabase folder"
+                    label="Selfbase directory"
+                    description="Relative path to your selfbase folder"
                   >
                     <FormControl_Shadcn_>
                       <Input_Shadcn_
                         {...field}
-                        placeholder="supabase"
+                        placeholder="selfbase"
                         autoComplete="off"
                         disabled={disabled || !canUpdateGitHubConnection}
                       />
@@ -678,12 +678,12 @@ const GitHubIntegrationConnectionForm = ({
 
                   <FormField_Shadcn_
                     control={githubSettingsForm.control}
-                    name="supabaseChangesOnly"
+                    name="selfbaseChangesOnly"
                     render={({ field }) => (
                       <FormItemLayout
                         layout="flex-row-reverse"
-                        label="Supabase changes only"
-                        description="Only create branches when Supabase files change"
+                        label="Selfbase changes only"
+                        description="Only create branches when Selfbase files change"
                       >
                         <FormControl_Shadcn_>
                           <Switch
@@ -756,7 +756,7 @@ const GitHubIntegrationConnectionForm = ({
         loading={isUpdatingConnection}
       >
         <p className="text-sm text-foreground-light">
-          Open pull requests will only update your Supabase project on merge if the git base branch
+          Open pull requests will only update your Selfbase project on merge if the git base branch
           matches this new production git branch.
         </p>
       </ConfirmationModal>
@@ -774,7 +774,7 @@ const GitHubIntegrationConnectionForm = ({
         <div className="space-y-3">
           <p className="text-sm text-foreground-light">
             This will disconnect your current repository and create a new connection with the
-            selected repository. All existing Supabase branches that are connected to the old
+            selected repository. All existing Selfbase branches that are connected to the old
             repository will no longer be synced.
           </p>
         </div>

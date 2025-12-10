@@ -690,7 +690,7 @@ export const SQLEditor = () => {
                   {isDiffOpen && (
                     <div className="w-full h-full">
                       <DiffEditor
-                        theme="supabase"
+                        theme="selfbase"
                         language="pgsql"
                         original={defaultSqlDiff.original}
                         modified={defaultSqlDiff.modified}
@@ -744,8 +744,8 @@ export const SQLEditor = () => {
                       placeholder={
                         !promptState.isOpen && !editorRef.current?.getValue()
                           ? 'Hit ' +
-                            (os === 'macos' ? 'CMD+K' : `CTRL+K`) +
-                            ' to generate query or just start typing'
+                          (os === 'macos' ? 'CMD+K' : `CTRL+K`) +
+                          ' to generate query or just start typing'
                           : ''
                       }
                       id={id}

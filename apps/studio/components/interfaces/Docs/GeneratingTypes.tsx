@@ -27,7 +27,7 @@ export default function GeneratingTypes({ selectedLang }: Props) {
       const res = await generateTypes({ ref, included_schemas: config?.db_schema })
       let element = document.createElement('a')
       element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(res.types))
-      element.setAttribute('download', 'supabase.ts')
+      element.setAttribute('download', 'selfbase.ts')
       element.style.display = 'none'
       document.body.appendChild(element)
       element.click()
@@ -49,12 +49,12 @@ export default function GeneratingTypes({ selectedLang }: Props) {
       <div className="doc-section">
         <article className="code-column text-foreground">
           <p>
-            Supabase APIs are generated from your database, which means that we can use database
+            Selfbase APIs are generated from your database, which means that we can use database
             introspection to generate type-safe API definitions.
           </p>
           <p>
             You can generate types from your database either through the{' '}
-            <Link href={`${DOCS_URL}/guides/database/api/generating-types`}>Supabase CLI</Link>, or
+            <Link href={`${DOCS_URL}/guides/database/api/generating-types`}>Selfbase CLI</Link>, or
             by downloading the types file via the button on the right and importing it in your
             application within <code>src/index.ts</code>.
           </p>
@@ -96,7 +96,7 @@ const localSnippets = {
     title: 'Login via the CLI with your Personal Access Token',
     bash: {
       code: `
-npx supabase login
+npx selfbase login
 `,
     },
   }),
@@ -104,7 +104,7 @@ npx supabase login
     title: 'Generate types',
     bash: {
       code: `
-npx supabase gen types typescript --project-id "${ref}" --schema public > types/supabase.ts
+npx selfbase gen types typescript --project-id "${ref}" --schema public > types/selfbase.ts
 `,
     },
   }),

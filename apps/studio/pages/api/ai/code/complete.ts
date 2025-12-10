@@ -1,4 +1,4 @@
-import pgMeta from '@supabase/pg-meta'
+import pgMeta from '@selfbase/pg-meta'
 import { generateText, ModelMessage, stepCountIs } from 'ai'
 import { IS_PLATFORM } from 'common'
 import { source } from 'common-tags'
@@ -84,18 +84,18 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
     const { result: schemas } =
       aiOptInLevel !== 'disabled'
         ? await executeSql<Schemas>(
-            {
-              projectRef,
-              connectionString,
-              sql: pgMetaSchemasList.sql,
-            },
-            undefined,
-            {
-              'Content-Type': 'application/json',
-              ...(authorization && { Authorization: authorization }),
-            },
-            IS_PLATFORM ? undefined : executeQuery
-          )
+          {
+            projectRef,
+            connectionString,
+            sql: pgMetaSchemasList.sql,
+          },
+          undefined,
+          {
+            'Content-Type': 'application/json',
+            ...(authorization && { Authorization: authorization }),
+          },
+          IS_PLATFORM ? undefined : executeQuery
+        )
         : { result: [] }
 
     const schemasString =

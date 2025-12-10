@@ -20,8 +20,8 @@ function getAssetPrefix() {
 
   const SUPABASE_ASSETS_URL =
     process.env.NEXT_PUBLIC_ENVIRONMENT === 'staging'
-      ? 'https://frontend-assets.supabase.green'
-      : 'https://frontend-assets.supabase.com'
+      ? 'https://frontend-assets.selfbase.green'
+      : 'https://frontend-assets.selfbase.com'
 
   return `${SUPABASE_ASSETS_URL}/${process.env.SITE_NAME}/${process.env.VERCEL_GIT_COMMIT_SHA.substring(0, 12)}`
 }
@@ -37,7 +37,7 @@ const nextConfig = {
     return [
       {
         source: `/.well-known/vercel/flags`,
-        destination: `https://supabase.com/.well-known/vercel/flags`,
+        destination: `https://selfbase.com/.well-known/vercel/flags`,
         basePath: false,
       },
     ]
@@ -46,81 +46,87 @@ const nextConfig = {
     return [
       ...(process.env.NEXT_PUBLIC_IS_PLATFORM === 'true'
         ? [
-            {
-              source: '/',
-              has: [
-                {
-                  type: 'query',
-                  key: 'next',
-                  value: 'new-project',
-                },
-              ],
-              destination: '/new/new-project',
-              permanent: false,
-            },
-            {
-              source: '/',
-              destination: '/org',
-              permanent: false,
-            },
-            {
-              source: '/register',
-              destination: '/sign-up',
-              permanent: false,
-            },
-            {
-              source: '/signup',
-              destination: '/sign-up',
-              permanent: false,
-            },
-            {
-              source: '/signin',
-              destination: '/sign-in',
-              permanent: false,
-            },
-            {
-              source: '/login',
-              destination: '/sign-in',
-              permanent: false,
-            },
-            {
-              source: '/log-in',
-              destination: '/sign-in',
-              permanent: false,
-            },
-          ]
+          {
+            source: '/',
+            has: [
+              {
+                type: 'query',
+                key: 'next',
+                value: 'new-project',
+              },
+            ],
+            destination: '/new/new-project',
+            permanent: false,
+          },
+          {
+            source: '/',
+            destination: '/org',
+            permanent: false,
+          },
+          {
+            source: '/register',
+            destination: '/sign-up',
+            permanent: false,
+          },
+          {
+            source: '/signup',
+            destination: '/sign-up',
+            permanent: false,
+          },
+          {
+            source: '/signin',
+            destination: '/sign-in',
+            permanent: false,
+          },
+          {
+            source: '/login',
+            destination: '/sign-in',
+            permanent: false,
+          },
+          {
+            source: '/log-in',
+            destination: '/sign-in',
+            permanent: false,
+          },
+        ]
         : [
-            {
-              source: '/',
-              destination: '/project/default',
-              permanent: false,
-            },
-            {
-              source: '/register',
-              destination: '/project/default',
-              permanent: false,
-            },
-            {
-              source: '/signup',
-              destination: '/project/default',
-              permanent: false,
-            },
-            {
-              source: '/signin',
-              destination: '/project/default',
-              permanent: false,
-            },
-            {
-              source: '/login',
-              destination: '/project/default',
-              permanent: false,
-            },
-            {
-              source: '/log-in',
-              destination: '/project/default',
-              permanent: false,
-            },
-          ]),
+          // Selfbase: Self-hosted auth flow (/ -> /sign-in -> /organizations)
+          {
+            source: '/',
+            destination: '/sign-in',
+            permanent: false,
+          },
+          {
+            source: '/register',
+            destination: '/sign-in',
+            permanent: false,
+          },
+          {
+            source: '/signup',
+            destination: '/sign-in',
+            permanent: false,
+          },
+          {
+            source: '/sign-up',
+            destination: '/sign-in',
+            permanent: false,
+          },
+          {
+            source: '/signin',
+            destination: '/sign-in',
+            permanent: false,
+          },
+          {
+            source: '/login',
+            destination: '/sign-in',
+            permanent: false,
+          },
+          {
+            source: '/log-in',
+            destination: '/sign-in',
+            permanent: false,
+          },
+        ]),
       {
         source: '/project/:ref/auth',
         destination: '/project/:ref/auth/users',
@@ -442,30 +448,30 @@ const nextConfig = {
 
       ...(process.env.NEXT_PUBLIC_BASE_PATH?.length
         ? [
-            {
-              source: '/',
-              destination: process.env.NEXT_PUBLIC_BASE_PATH,
-              basePath: false,
-              permanent: false,
-            },
-          ]
+          {
+            source: '/',
+            destination: process.env.NEXT_PUBLIC_BASE_PATH,
+            basePath: false,
+            permanent: false,
+          },
+        ]
         : []),
 
       ...(process.env.MAINTENANCE_MODE === 'true'
         ? [
-            {
-              source: '/((?!maintenance|img).*)', // Redirect all paths except /maintenance and /img
-              destination: '/maintenance',
-              permanent: false,
-            },
-          ]
+          {
+            source: '/((?!maintenance|img).*)', // Redirect all paths except /maintenance and /img
+            destination: '/maintenance',
+            permanent: false,
+          },
+        ]
         : [
-            {
-              source: '/maintenance',
-              destination: '/',
-              permanent: false,
-            },
-          ]),
+          {
+            source: '/maintenance',
+            destination: '/',
+            permanent: false,
+          },
+        ]),
     ]
   },
   async headers() {
@@ -585,29 +591,29 @@ const nextConfig = {
 module.exports =
   process.env.NEXT_PUBLIC_IS_PLATFORM === 'true'
     ? withSentryConfig(withBundleAnalyzer(nextConfig), {
-        silent: true,
+      silent: true,
 
-        // For all available options, see:
-        // https://docs.sentry.io/platforms/javascript/guides/nextjs/manual-setup/
+      // For all available options, see:
+      // https://docs.sentry.io/platforms/javascript/guides/nextjs/manual-setup/
 
-        // Upload a larger set of source maps for prettier stack traces (increases build time)
-        widenClientFileUpload: true,
+      // Upload a larger set of source maps for prettier stack traces (increases build time)
+      widenClientFileUpload: true,
 
-        // Automatically annotate React components to show their full name in breadcrumbs and session replay
-        reactComponentAnnotation: {
-          enabled: true,
-        },
+      // Automatically annotate React components to show their full name in breadcrumbs and session replay
+      reactComponentAnnotation: {
+        enabled: true,
+      },
 
-        // Hides source maps from generated client bundles
-        hideSourceMaps: true,
+      // Hides source maps from generated client bundles
+      hideSourceMaps: true,
 
-        // Automatically tree-shake Sentry logger statements to reduce bundle size
-        disableLogger: true,
+      // Automatically tree-shake Sentry logger statements to reduce bundle size
+      disableLogger: true,
 
-        // Enables automatic instrumentation of Vercel Cron Monitors. (Does not yet work with App Router route handlers.)
-        // See the following for more information:
-        // https://docs.sentry.io/product/crons/
-        // https://vercel.com/docs/cron-jobs
-        automaticVercelMonitors: true,
-      })
+      // Enables automatic instrumentation of Vercel Cron Monitors. (Does not yet work with App Router route handlers.)
+      // See the following for more information:
+      // https://docs.sentry.io/product/crons/
+      // https://vercel.com/docs/cron-jobs
+      automaticVercelMonitors: true,
+    })
     : nextConfig

@@ -1,4 +1,4 @@
-import { PermissionAction } from '@supabase/shared-types/out/constants'
+import { PermissionAction } from '@selfbase/shared-types/out/constants'
 import { noop } from 'lodash'
 import { useState } from 'react'
 import { toast } from 'sonner'
@@ -94,9 +94,8 @@ const Description = ({ content, metadata, onChange = noop }: DescrptionProps) =>
         onChange={(e: any) => setValue(e.target.value)}
       />
       <div
-        className={`flex items-center gap-2 ${
-          hasChanged ? 'opacity-100' : 'h-0 cursor-default opacity-0'
-        } ${animateCss}`}
+        className={`flex items-center gap-2 ${hasChanged ? 'opacity-100' : 'h-0 cursor-default opacity-0'
+          } ${animateCss}`}
       >
         <Button
           type="default"

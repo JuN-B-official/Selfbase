@@ -1,6 +1,6 @@
 import { ExternalLink, Github } from 'lucide-react'
 
-import { SupportCategories } from '@supabase/shared-types/out/constants'
+import { SupportCategories } from '@selfbase/shared-types/out/constants'
 import { LOCAL_STORAGE_KEYS } from 'common'
 import { FeatureBanner } from 'components/ui/FeatureBanner'
 import { APIKeysData } from 'data/api-keys/api-keys-query'
@@ -122,7 +122,7 @@ export const ApiKeysComingSoonBanner = () => {
         <div className="mt-4">
           <Button type="default" icon={<Github />}>
             <a
-              href="https://github.com/orgs/supabase/discussions/29260"
+              href="https://github.com/orgs/selfbase/discussions/29260"
               target="_blank"
               rel="noreferrer"
             >
@@ -178,7 +178,7 @@ export const ApiKeysFeedbackBanner = () => {
         <p className="text-sm text-foreground-lighter">
           We've updated our API keys to better support your application needs.{' '}
           <a
-            href="https://github.com/orgs/supabase/discussions/29260"
+            href="https://github.com/orgs/selfbase/discussions/29260"
             target="_blank"
             rel="noreferrer"
             className="inline-flex items-center gap-1 text-foreground"

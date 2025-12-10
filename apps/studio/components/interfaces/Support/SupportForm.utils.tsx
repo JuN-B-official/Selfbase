@@ -41,7 +41,7 @@ export const formatMessage = ({
     attachments.length > 0 ? `\n\nAttachments:\n${attachments.join('\n')}` : ''
   const commitString =
     commit != undefined
-      ? `\n\n---\nSupabase Studio version: SHA ${commit.commitSha} deployed at ${commit.commitTime === 'unknown' ? 'unknown time' : dayjs(commit.commitTime).format('YYYY-MM-DD HH:mm:ss Z')}`
+      ? `\n\n---\nSelfbase Studio version: SHA ${commit.commitSha} deployed at ${commit.commitTime === 'unknown' ? 'unknown time' : dayjs(commit.commitTime).format('YYYY-MM-DD HH:mm:ss Z')}`
       : ''
   const logString = dashboardLogUrl ? `\nDashboard logs: ${dashboardLogUrl}` : ''
   return `${message}${errorString}${attachmentsString}${commitString}${logString}`
@@ -79,7 +79,7 @@ export function generateLink(pageType: PageType, link: string): string {
     case PageType.Reference:
       return `${DOCS_URL}${link}`
     case PageType.Integration:
-      return `https://supabase.com${link}`
+      return `https://selfbase.com${link}`
     case PageType.GithubDiscussion:
       return link
     default:

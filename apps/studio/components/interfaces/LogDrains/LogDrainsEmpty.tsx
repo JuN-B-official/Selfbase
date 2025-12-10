@@ -24,7 +24,7 @@ export const LogDrainsEmpty = () => {
       label: 'Read our documentation',
       link: `${DOCS_URL}/guides/telemetry/log-drains`,
     },
-  ].filter((item) => IS_PLATFORM || item.title !== 'Pricing')
+  ].filter((item) => item.title !== 'Pricing')
 
   return (
     <div className="flex grow h-full">
@@ -43,15 +43,14 @@ export const LogDrainsEmpty = () => {
             />
           </div>
           <Card
-            className={cn('grid grid-cols-1 bg divide-x mb-8', IS_PLATFORM && '@xl:grid-cols-2')}
+            className={cn('grid grid-cols-1 bg divide-x mb-8', '@xl:grid-cols-2')}
           >
             {items.map((item, i) => (
               <div className="flex flex-col h-full p-6" key={i}>
                 <div className="flex items-center gap-3 mb-2">
                   <span
                     className={cn(
-                      'text-xs shrink-0 font-mono text-foreground-light w-7 h-7 bg border flex items-center justify-center rounded-md',
-                      !IS_PLATFORM && 'hidden'
+                      'text-xs shrink-0 font-mono text-foreground-light w-7 h-7 bg border flex items-center justify-center rounded-md'
                     )}
                   >
                     {item.step}

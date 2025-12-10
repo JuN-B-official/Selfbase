@@ -1,5 +1,5 @@
 import { zodResolver } from '@hookform/resolvers/zod'
-import { PermissionAction } from '@supabase/shared-types/out/constants'
+import { PermissionAction } from '@selfbase/shared-types/out/constants'
 import { indexOf } from 'lodash'
 import { Lock } from 'lucide-react'
 import Link from 'next/link'
@@ -209,7 +209,7 @@ export const PostgrestConfig = () => {
                         className="w-full px-8 py-8"
                         layout="flex"
                         label="Enable Data API"
-                        description="When enabled you will be able to use any Supabase client library and PostgREST endpoints with any schema configured below."
+                        description="When enabled you will be able to use any Selfbase client library and PostgREST endpoints with any schema configured below."
                       >
                         <FormControl_Shadcn_>
                           <Switch
@@ -317,7 +317,7 @@ export const PostgrestConfig = () => {
                                     <p className="prose text-sm">
                                       You will not be able to query tables and views in the{' '}
                                       <code className="text-code-inline">public</code> schema via
-                                      supabase-js or HTTP clients.
+                                      selfbase-js or HTTP clients.
                                     </p>
                                     {isGraphqlExtensionEnabled && (
                                       <>

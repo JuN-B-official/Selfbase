@@ -159,7 +159,6 @@ export const AdvisorPanel = () => {
   }, [lintData])
 
   const notificationItems = useMemo<AdvisorItem[]>(() => {
-    if (!IS_PLATFORM) return []
     return notifications?.map((notification): AdvisorItem => {
       const data = notification.data as NotificationData
       return {

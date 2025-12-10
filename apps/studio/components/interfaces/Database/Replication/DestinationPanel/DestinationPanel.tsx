@@ -163,14 +163,14 @@ export const DestinationPanel = ({
       serviceAccountKey: isBigQueryConfig ? config.big_query.service_account_key : '',
       maxStalenessMins: isBigQueryConfig ? config.big_query.max_staleness_mins : undefined,
       // Analytics Bucket fields
-      warehouseName: isIcebergConfig ? config.iceberg.supabase.warehouse_name : '',
-      namespace: isIcebergConfig ? config.iceberg.supabase.namespace : '',
+      warehouseName: isIcebergConfig ? config.iceberg.selfbase.warehouse_name : '',
+      namespace: isIcebergConfig ? config.iceberg.selfbase.namespace : '',
       newNamespaceName: '',
-      catalogToken: isIcebergConfig ? config.iceberg.supabase.catalog_token : catalogToken,
-      s3AccessKeyId: isIcebergConfig ? config.iceberg.supabase.s3_access_key_id : '',
-      s3SecretAccessKey: isIcebergConfig ? config.iceberg.supabase.s3_secret_access_key : '',
+      catalogToken: isIcebergConfig ? config.iceberg.selfbase.catalog_token : catalogToken,
+      s3AccessKeyId: isIcebergConfig ? config.iceberg.selfbase.s3_access_key_id : '',
+      s3SecretAccessKey: isIcebergConfig ? config.iceberg.selfbase.s3_secret_access_key : '',
       s3Region:
-        projectSettings?.region ?? (isIcebergConfig ? config.iceberg.supabase.s3_region : ''),
+        projectSettings?.region ?? (isIcebergConfig ? config.iceberg.selfbase.s3_region : ''),
     }
   }, [
     destinationData,

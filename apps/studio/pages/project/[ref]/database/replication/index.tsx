@@ -39,7 +39,7 @@ const DatabaseReplicationPage: NextPageWithLayout = () => {
                 </div>
                 <AlphaNotice
                   entity="Replication"
-                  feedbackUrl="https://github.com/orgs/supabase/discussions/39416"
+                  feedbackUrl="https://github.com/orgs/selfbase/discussions/39416"
                   className="mb-8"
                 />
                 <Destinations />

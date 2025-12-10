@@ -29,9 +29,8 @@ export const ComputeMetric = ({
 
   const usageLabel = useMemo(() => {
     if (usageMeta?.pricing_free_units) {
-      return `${usageMeta?.usage?.toLocaleString() ?? 0} / ${
-        usageMeta?.pricing_free_units ?? 0
-      } hours`
+      return `${usageMeta?.usage?.toLocaleString() ?? 0} / ${usageMeta?.pricing_free_units ?? 0
+        } hours`
     } else {
       return `${usageMeta?.usage?.toLocaleString() ?? 0} hours`
     }
@@ -72,7 +71,7 @@ export const ComputeMetric = ({
           <div className="my-2">
             {usageMeta?.metric === ComputeUsageMetric.COMPUTE_HOURS_BRANCH ? (
               <p className="text-sm">
-                Each Preview branch is a separate environment with all Supabase services (Database,
+                Each Preview branch is a separate environment with all Selfbase services (Database,
                 Auth, Storage, etc.).{' '}
                 <Link
                   href={`${DOCS_URL}/guides/platform/manage-your-usage/branching`}

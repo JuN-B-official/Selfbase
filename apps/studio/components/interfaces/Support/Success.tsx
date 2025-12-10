@@ -60,7 +60,7 @@ export const Success = ({
           <div className="flex flex-col items-center px-12 space-y-2 text-center">
             <p>In the meantime, tap into our community</p>
             <p className="text-sm text-foreground-light">
-              Find the answers you need with fellow developers building with Supabase by joining our
+              Find the answers you need with fellow developers building with Selfbase by joining our
               GitHub discussions or on Discord - build the next best thing together
             </p>
           </div>
@@ -78,7 +78,7 @@ export const Success = ({
                   icon={<ExternalLink />}
                 >
                   <Link
-                    href={`https://github.com/supabase/supabase/discussions?discussions_q=${searchValue}`}
+                    href={`https://github.com/selfbase/selfbase/discussions?discussions_q=${searchValue}`}
                     target="_blank"
                     rel="noreferrer"
                   >

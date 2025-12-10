@@ -1,10 +1,10 @@
 {
-  "name": "@supabase/pg-meta",
+  "name": "@selfbase/pg-meta",
   "version": "0.0.0",
   "license": "MIT",
-  "author": "Supabase",
+  "author": "Selfbase",
   "main": "./src/index.ts",
-  "repository": "supabase/supabase",
+  "repository": "selfbase/selfbase",
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "clean": "rimraf node_modules",

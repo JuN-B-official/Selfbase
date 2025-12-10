@@ -2,7 +2,7 @@ import { PROJECT_ANALYTICS_URL } from 'lib/constants/api'
 import { WrappedResult } from './types'
 import { assertSelfHosted } from './util'
 import assert from 'node:assert'
-import { LogsService } from '@supabase/mcp-server-supabase/platform'
+import { LogsService } from '@selfbase/mcp-server-selfbase/platform'
 import { stripIndent } from 'common-tags'
 
 export type RetrieveAnalyticsDataOptions = {
@@ -87,7 +87,7 @@ export function getLogQuery(service: LogsService, limit: number = 100): string {
       `
     }
     case 'branch-action': {
-      throw new Error('Branching is only supported in the hosted Supabase platform')
+      throw new Error('Branching is only supported in the hosted Selfbase platform')
     }
     case 'postgres': {
       return stripIndent`

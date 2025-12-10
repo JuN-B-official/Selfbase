@@ -49,7 +49,7 @@ const Introduction = ({ selectedLang }: IntroductionProps) => {
       <GeneratingTypes selectedLang={selectedLang} />
 
       <h2 className="doc-heading">
-        GraphQL <span className="lowercase">vs</span> Supabase
+        GraphQL <span className="lowercase">vs</span> Selfbase
       </h2>
       <div className="doc-section">
         <article className="code-column text-foreground">
@@ -59,13 +59,13 @@ const Introduction = ({ selectedLang }: IntroductionProps) => {
           </p>
           <p>
             The syntax is very similar. This example shows how you might achieve the same thing with
-            Apollo GraphQL and Supabase.
+            Apollo GraphQL and Selfbase.
             <br />
             <br />
           </p>
           <h4>Still want GraphQL?</h4>
           <p>
-            If you still want to use GraphQL, you can. Supabase provides you with a full Postgres
+            If you still want to use GraphQL, you can. Selfbase provides you with a full Postgres
             database, so as long as your middleware can connect to the database then you can still
             use the tools you love. You can find the database connection details{' '}
             <Link href={`/project/${projectRef}/database/settings`}>in the settings.</Link>
@@ -73,7 +73,7 @@ const Introduction = ({ selectedLang }: IntroductionProps) => {
         </article>
         <article className="code">
           <CodeSnippet selectedLang={selectedLang} snippet={localSnippets.withApollo()} />
-          <CodeSnippet selectedLang={selectedLang} snippet={localSnippets.withSupabase()} />
+          <CodeSnippet selectedLang={selectedLang} snippet={localSnippets.withSelfbase()} />
         </article>
       </div>
     </>
@@ -116,12 +116,12 @@ const { loading, error, data } = useQuery(gql\`
 \`)`,
     },
   }),
-  withSupabase: () => ({
-    title: 'With Supabase',
+  withSelfbase: () => ({
+    title: 'With Selfbase',
     bash: {
       language: 'js',
       code: `
-const { data, error } = await supabase
+const { data, error } = await selfbase
   .from('dogs')
   .select(\`
       id, breed,
@@ -132,7 +132,7 @@ const { data, error } = await supabase
     js: {
       language: 'js',
       code: `
-const { data, error } = await supabase
+const { data, error } = await selfbase
   .from('dogs')
   .select(\`
       id, breed,

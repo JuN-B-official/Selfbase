@@ -1,9 +1,9 @@
-import { createServerClient, parseCookieHeader, serializeCookieHeader } from '@supabase/ssr'
+import { createServerClient, parseCookieHeader, serializeCookieHeader } from '@selfbase/ssr'
 
 export function createClient(request: Request) {
   const headers = new Headers()
 
-  const supabase = createServerClient(
+  const selfbase = createServerClient(
     process.env.VITE_SUPABASE_URL!,
     process.env.VITE_SUPABASE_PUBLISHABLE_OR_ANON_KEY!,
     {
@@ -23,5 +23,5 @@ export function createClient(request: Request) {
     }
   )
 
-  return { supabase, headers }
+  return { selfbase, headers }
 }

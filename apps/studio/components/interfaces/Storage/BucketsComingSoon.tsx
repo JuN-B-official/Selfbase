@@ -28,7 +28,7 @@ export const BucketsComingSoon = ({ type }: { type: 'analytics' | 'vector' }) =>
                 <Link
                   target="_blank"
                   rel="noopener noreferrer"
-                  href="https://forms.supabase.com/analytics-buckets"
+                  href="https://forms.selfbase.com/analytics-buckets"
                 >
                   Request access
                 </Link>

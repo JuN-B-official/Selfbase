@@ -1,4 +1,4 @@
-import { JwtSecretUpdateStatus } from '@supabase/shared-types/out/events'
+import { JwtSecretUpdateStatus } from '@selfbase/shared-types/out/events'
 import { useQuery, useQueryClient } from '@tanstack/react-query'
 import { useEffect } from 'react'
 
@@ -36,11 +36,11 @@ export async function getJwtSecretUpdatingStatus(
 
   return meta
     ? ({
-        changeTrackingId: meta.change_tracking_id,
-        jwtSecretUpdateError: meta.error,
-        jwtSecretUpdateProgress: meta.progress,
-        jwtSecretUpdateStatus: meta.status,
-      } as JwtSecretUpdatingStatusResponse)
+      changeTrackingId: meta.change_tracking_id,
+      jwtSecretUpdateError: meta.error,
+      jwtSecretUpdateProgress: meta.progress,
+      jwtSecretUpdateStatus: meta.status,
+    } as JwtSecretUpdatingStatusResponse)
     : null
 }
 

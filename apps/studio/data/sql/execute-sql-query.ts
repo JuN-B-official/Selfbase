@@ -1,6 +1,6 @@
 import { QueryKey, useQuery } from '@tanstack/react-query'
 
-import { DEFAULT_PLATFORM_APPLICATION_NAME } from '@supabase/pg-meta/src/constants'
+import { DEFAULT_PLATFORM_APPLICATION_NAME } from '@selfbase/pg-meta/src/constants'
 import { handleError as handleErrorFetchers, post } from 'data/fetchers'
 import { useSelectedProjectQuery } from 'hooks/misc/useSelectedProject'
 import { MB, PROJECT_STATUS } from 'lib/constants'
@@ -77,7 +77,7 @@ export async function executeSql<T = any>(
         header: {
           'x-connection-encrypted': connectionString ?? '',
           'x-pg-application-name': isStatementTimeoutDisabled
-            ? 'supabase/dashboard-query-editor'
+            ? 'selfbase/dashboard-query-editor'
             : DEFAULT_PLATFORM_APPLICATION_NAME,
         },
         path: { ref: projectRef },

@@ -1,4 +1,4 @@
-import { PermissionAction } from '@supabase/shared-types/out/constants'
+import { PermissionAction } from '@selfbase/shared-types/out/constants'
 import dayjs from 'dayjs'
 import Link from 'next/link'
 import { useMemo, useState } from 'react'
@@ -260,9 +260,9 @@ export const Usage = () => {
                 <span className="font-medium text-foreground">
                   {selectedProject?.name || selectedProjectRef}
                 </span>{' '}
-                project. Supabase uses{' '}
+                project. Selfbase uses{' '}
                 <Link
-                  href="/docs/guides/platform/billing-on-supabase#organization-based-billing"
+                  href="/docs/guides/platform/billing-on-selfbase#organization-based-billing"
                   target="_blank"
                 >
                   organization-level billing

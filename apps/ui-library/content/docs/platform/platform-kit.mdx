@@ -1,11 +1,11 @@
 ---
 title: Platform Kit
-description: The easiest way to build platforms on top of Supabase
+description: The easiest way to build platforms on top of Selfbase
 ---
 
 <video width="100%" muted autoPlay controls>
   <source
-    src="https://xguihxuzqibwxjnimxev.supabase.co/storage/v1/object/public/videos/marketing/blog/platform-kit/platform-kit.mp4"
+    src="https://xguihxuzqibwxjnimxev.selfbase.co/storage/v1/object/public/videos/marketing/blog/platform-kit/platform-kit.mp4"
     type="video/mp4"
   />
   Your browser does not support the video tag.
@@ -15,7 +15,7 @@ description: The easiest way to build platforms on top of Supabase
 
 <BlockItem
   name="platform-kit-nextjs"
-  description="Embeddable dialog for managing Supabase projects via the Management API."
+  description="Embeddable dialog for managing Selfbase projects via the Management API."
 />
 
 ## Folder structure
@@ -24,7 +24,7 @@ description: The easiest way to build platforms on top of Supabase
 
 ## Introduction
 
-The Platform Kit is a collection of customizable API's, hooks and components you can use to provide an embedded Supabase experience within your own platform. It comes in the form of a single dialog that enables the management of database, authentication, storage, users, secrets, logs, and performance monitoring.
+The Platform Kit is a collection of customizable API's, hooks and components you can use to provide an embedded Selfbase experience within your own platform. It comes in the form of a single dialog that enables the management of database, authentication, storage, users, secrets, logs, and performance monitoring.
 
 **Features**
 
@@ -46,7 +46,7 @@ Embed the manager dialog in your app and manage its state:
 import { useState } from 'react'
 import { useMobile } from '@/hooks/use-mobile'
 import { Button } from '@/components/ui/button'
-import SupabaseManagerDialog from '@/components/supabase-manager'
+import SelfbaseManagerDialog from '@/components/selfbase-manager'
 
 export default function Example() {
   const [open, setOpen] = useState(false)
@@ -55,8 +55,8 @@ export default function Example() {
 
   return (
     <>
-      <Button onClick={() => setOpen(true)}>Open Supabase Manager</Button>
-      <SupabaseManagerDialog
+      <Button onClick={() => setOpen(true)}>Open Selfbase Manager</Button>
+      <SelfbaseManagerDialog
         projectRef={projectRef}
         open={open}
         onOpenChange={setOpen}
@@ -77,7 +77,7 @@ export default function Example() {
    OPENAI_API_KEY=your-openai-api-key
    ```
 
-2. **Add project-level authentication checks** in your API proxy at `app/api/supabase-proxy/[...path]/route.ts` as well as your ai/sql route at `app/api/ai/sql/route.ts` to ensure only authorized users can access their own project resources.
+2. **Add project-level authentication checks** in your API proxy at `app/api/selfbase-proxy/[...path]/route.ts` as well as your ai/sql route at `app/api/ai/sql/route.ts` to ensure only authorized users can access their own project resources.
 
 3. **Add a Toaster for notifications:**  
    Place the following component at the root of your app (e.g., in your `layout.tsx` or `App.tsx`) to enable toast notifications:
@@ -98,7 +98,7 @@ export default function Example() {
    }
    ```
 
-That's it! The default setup uses your Supabase personal access token for the Management API.
+That's it! The default setup uses your Selfbase personal access token for the Management API.
 
 ## Security
 
@@ -107,4 +107,4 @@ That's it! The default setup uses your Supabase personal access token for the Ma
 
 ## Further reading
 
-- [Supabase Management API](https://supabase.com/docs/reference/api/introduction)
+- [Selfbase Management API](https://selfbase.com/docs/reference/api/introduction)

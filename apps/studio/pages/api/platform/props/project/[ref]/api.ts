@@ -27,7 +27,7 @@ const handleGetAll = async (req: NextApiRequest, res: NextApiResponse) => {
   const response = {
     project: {
       ...DEFAULT_PROJECT,
-      api_key_supabase_encrypted: '',
+      api_key_selfbase_encrypted: '',
       db_host: 'localhost',
       db_name: 'postgres',
       db_port: 5432,

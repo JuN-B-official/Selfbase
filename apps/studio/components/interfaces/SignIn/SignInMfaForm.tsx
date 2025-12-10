@@ -1,5 +1,5 @@
 import { zodResolver } from '@hookform/resolvers/zod'
-import type { Factor } from '@supabase/supabase-js'
+import type { Factor } from '@selfbase/selfbase-js'
 import { useQueryClient } from '@tanstack/react-query'
 import { Lock } from 'lucide-react'
 import Link from 'next/link'
@@ -8,7 +8,7 @@ import { useEffect, useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import z from 'zod'
 
-import { SupportCategories } from '@supabase/shared-types/out/constants'
+import { SupportCategories } from '@selfbase/shared-types/out/constants'
 import { useAuthError } from 'common'
 import AlertError from 'components/ui/AlertError'
 import { GenericSkeletonLoader } from 'components/ui/ShimmeringLoader'
@@ -188,9 +188,8 @@ export const SignInMfaForm = ({ context = 'sign-in' }: SignInMfaFormProps) => {
                 onClick={() =>
                   setSelectedFactor(factors.totp.find((f) => f.id !== selectedFactor?.id)!)
                 }
-              >{`Authenticate using ${
-                factors.totp.find((f) => f.id !== selectedFactor?.id)?.friendly_name
-              }?`}</a>
+              >{`Authenticate using ${factors.totp.find((f) => f.id !== selectedFactor?.id)?.friendly_name
+                }?`}</a>
             </li>
           )}
           <li>

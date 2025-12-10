@@ -1,8 +1,8 @@
-import { createClient } from '@supabase/supabase-js'
+import { createClient } from '@selfbase/selfbase-js'
 import apiWrapper from 'lib/api/apiWrapper'
 import { NextApiRequest, NextApiResponse } from 'next'
 
-const supabase = createClient(process.env.SUPABASE_URL!, process.env.SUPABASE_SERVICE_KEY!)
+const selfbase = createClient(process.env.SUPABASE_URL!, process.env.SUPABASE_SERVICE_KEY!)
 
 export default (req: NextApiRequest, res: NextApiResponse) => apiWrapper(req, res, handler)
 
@@ -22,7 +22,7 @@ const handleDelete = async (req: NextApiRequest, res: NextApiResponse) => {
   const { id } = req.query
 
   // Get all factors for the user
-  const { data: factors, error } = await supabase.auth.admin.mfa.listFactors({
+  const { data: factors, error } = await selfbase.auth.admin.mfa.listFactors({
     userId: id as string,
   })
   if (error) {
@@ -30,7 +30,7 @@ const handleDelete = async (req: NextApiRequest, res: NextApiResponse) => {
   }
 
   factors?.factors.forEach(async (factor: any) => {
-    const { error } = await supabase.auth.admin.mfa.deleteFactor({
+    const { error } = await selfbase.auth.admin.mfa.deleteFactor({
       id: factor.id,
       userId: id as string,
     })

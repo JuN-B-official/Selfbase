@@ -48,8 +48,8 @@ export const DiskSpaceBar = ({ form }: DiskSpaceBarProps) => {
       systemBytes: Math.max(
         0,
         (diskUtil?.metrics.fs_used_bytes ?? 0) -
-          (diskBreakdown?.db_size_bytes ?? 0) -
-          (diskBreakdown?.wal_size_bytes ?? 0)
+        (diskBreakdown?.db_size_bytes ?? 0) -
+        (diskBreakdown?.wal_size_bytes ?? 0)
       ),
     }
   }, [diskUtil, diskBreakdown])
@@ -189,7 +189,7 @@ export const DiskSpaceBar = ({ form }: DiskSpaceBarProps) => {
                   </TooltipTrigger>
                   <TooltipContent side="bottom" className="w-[310px] flex flex-col gap-y-1">
                     <p>
-                      Supabase expands your disk storage automatically when the database reached 90%
+                      Selfbase expands your disk storage automatically when the database reached 90%
                       of the disk size. However, any disk modifications, including auto-scaling, can
                       only take place once every 6 hours.
                     </p>

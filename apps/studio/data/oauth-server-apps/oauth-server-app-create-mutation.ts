@@ -1,9 +1,9 @@
-import { CreateOAuthClientParams } from '@supabase/supabase-js'
+import { CreateOAuthClientParams } from '@selfbase/selfbase-js'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { toast } from 'sonner'
 
 import { handleError } from 'data/fetchers'
-import { createProjectSupabaseClient } from 'lib/project-supabase-client'
+import { createProjectSelfbaseClient } from 'lib/project-selfbase-client'
 import type { ResponseError, UseCustomMutationOptions } from 'types'
 import { oauthServerAppKeys } from './keys'
 
@@ -20,8 +20,8 @@ export async function createOAuthServerApp({
   if (!projectRef) throw new Error('Project reference is required')
   if (!clientEndpoint) throw new Error('Client endpoint is required')
 
-  const supabaseClient = await createProjectSupabaseClient(projectRef, clientEndpoint)
-  const { data, error } = await supabaseClient.auth.admin.oauth.createClient(params)
+  const selfbaseClient = await createProjectSelfbaseClient(projectRef, clientEndpoint)
+  const { data, error } = await selfbaseClient.auth.admin.oauth.createClient(params)
 
   if (error) return handleError(error)
   return data

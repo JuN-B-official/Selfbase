@@ -5,8 +5,8 @@ const SUPABASE_URL = process.env.SUPABASE_URL ? new URL(process.env.SUPABASE_URL
 const GOTRUE_URL = process.env.NEXT_PUBLIC_GOTRUE_URL
   ? new URL(process.env.NEXT_PUBLIC_GOTRUE_URL).origin
   : ''
-const SUPABASE_PROJECTS_URL = 'https://*.supabase.co'
-const SUPABASE_PROJECTS_URL_WS = 'wss://*.supabase.co'
+const SUPABASE_PROJECTS_URL = 'https://*.selfbase.co'
+const SUPABASE_PROJECTS_URL_WS = 'wss://*.selfbase.co'
 
 // construct the URL for the Websocket Local URLs
 let SUPABASE_LOCAL_PROJECTS_URL_WS = ''
@@ -37,17 +37,17 @@ const NIMBUS_STAGING_PROJECTS_URL_WS = 'wss://*.nmb-proj.com'
 const NIMBUS_PROD_PROJECTS_URL = process.env.NIMBUS_PROD_PROJECTS_URL || ''
 const NIMBUS_PROD_PROJECTS_URL_WS = process.env.NIMBUS_PROD_PROJECTS_URL_WS || ''
 
-const SUPABASE_STAGING_PROJECTS_URL = 'https://*.supabase.red'
-const SUPABASE_STAGING_PROJECTS_URL_WS = 'wss://*.supabase.red'
-const SUPABASE_COM_URL = 'https://supabase.com'
+const SUPABASE_STAGING_PROJECTS_URL = 'https://*.selfbase.red'
+const SUPABASE_STAGING_PROJECTS_URL_WS = 'wss://*.selfbase.red'
+const SUPABASE_COM_URL = 'https://selfbase.com'
 const CLOUDFLARE_CDN_URL = 'https://cdnjs.cloudflare.com'
 const HCAPTCHA_SUBDOMAINS_URL = 'https://*.hcaptcha.com'
 const HCAPTCHA_ASSET_URL = 'https://newassets.hcaptcha.com'
 const HCAPTCHA_JS_URL = 'https://js.hcaptcha.com'
 const CONFIGCAT_URL = 'https://cdn-global.configcat.com'
 const CONFIGCAT_PROXY_URL = ['staging', 'local'].includes(process.env.NEXT_PUBLIC_ENVIRONMENT ?? '')
-  ? 'https://configcat.supabase.green'
-  : 'https://configcat.supabase.com'
+  ? 'https://configcat.selfbase.green'
+  : 'https://configcat.selfbase.com'
 const STRIPE_SUBDOMAINS_URL = 'https://*.stripe.com'
 const STRIPE_JS_URL = 'https://js.stripe.com'
 const STRIPE_NETWORK_URL = 'https://*.stripe.network'
@@ -60,16 +60,16 @@ const GITHUB_USER_AVATAR_URL = 'https://avatars.githubusercontent.com'
 const GOOGLE_USER_AVATAR_URL = 'https://lh3.googleusercontent.com'
 
 // This is a custom domain for Stape, which isused for GTM servers
-const STAPE_URL = 'https://ss.supabase.com'
+const STAPE_URL = 'https://ss.selfbase.com'
 
 const VERCEL_LIVE_URL = 'https://vercel.live'
 const SENTRY_URL =
   'https://*.ingest.sentry.io https://*.ingest.us.sentry.io https://*.ingest.de.sentry.io'
 const SUPABASE_ASSETS_URL =
   process.env.NEXT_PUBLIC_ENVIRONMENT === 'staging'
-    ? 'https://frontend-assets.supabase.green'
-    : 'https://frontend-assets.supabase.com'
-const POSTHOG_URL = isDevOrStaging ? 'https://ph.supabase.green' : 'https://ph.supabase.com'
+    ? 'https://frontend-assets.selfbase.green'
+    : 'https://frontend-assets.selfbase.com'
+const POSTHOG_URL = isDevOrStaging ? 'https://ph.selfbase.green' : 'https://ph.selfbase.com'
 
 const USERCENTRICS_URLS = 'https://*.usercentrics.eu'
 const USERCENTRICS_APP_URL = 'https://app.usercentrics.eu'
@@ -133,14 +133,14 @@ module.exports.getCSP = function getCSP() {
     ...DEFAULT_SRC_URLS,
     ...(isDevOrStaging
       ? [
-          SUPABASE_STAGING_PROJECTS_URL,
-          SUPABASE_STAGING_PROJECTS_URL_WS,
-          NIMBUS_STAGING_PROJECTS_URL,
-          NIMBUS_STAGING_PROJECTS_URL_WS,
-          VERCEL_LIVE_URL,
-          SUPABASE_DOCS_PROJECT_URL,
-          SUPABASE_CONTENT_API_URL,
-        ]
+        SUPABASE_STAGING_PROJECTS_URL,
+        SUPABASE_STAGING_PROJECTS_URL_WS,
+        NIMBUS_STAGING_PROJECTS_URL,
+        NIMBUS_STAGING_PROJECTS_URL_WS,
+        VERCEL_LIVE_URL,
+        SUPABASE_DOCS_PROJECT_URL,
+        SUPABASE_CONTENT_API_URL,
+      ]
       : []),
     PUSHER_URL_WS,
     SENTRY_URL,
@@ -193,7 +193,7 @@ module.exports.getCSP = function getCSP() {
     `frame-ancestors 'none'`,
     `block-all-mixed-content`,
     ...(process.env.NEXT_PUBLIC_IS_PLATFORM === 'true' &&
-    process.env.NEXT_PUBLIC_ENVIRONMENT === 'prod'
+      process.env.NEXT_PUBLIC_ENVIRONMENT === 'prod'
       ? [`upgrade-insecure-requests`]
       : []),
   ]

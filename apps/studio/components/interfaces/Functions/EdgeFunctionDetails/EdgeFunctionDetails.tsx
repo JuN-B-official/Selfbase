@@ -1,5 +1,5 @@
 import { zodResolver } from '@hookform/resolvers/zod'
-import { PermissionAction } from '@supabase/shared-types/out/constants'
+import { PermissionAction } from '@selfbase/shared-types/out/constants'
 import dayjs from 'dayjs'
 import { ExternalLink } from 'lucide-react'
 import Link from 'next/link'
@@ -72,7 +72,7 @@ export const EdgeFunctionDetails = () => {
   )
   const invocationTabs = useMemo(() => {
     if (showAllEdgeFunctionInvocationExamples) return INVOCATION_TABS
-    return INVOCATION_TABS.filter((tab) => tab.id === 'curl' || tab.id === 'supabase-js')
+    return INVOCATION_TABS.filter((tab) => tab.id === 'curl' || tab.id === 'selfbase-js')
   }, [showAllEdgeFunctionInvocationExamples])
 
   const [showKey, setShowKey] = useState(false)
@@ -404,11 +404,11 @@ export const EdgeFunctionDetails = () => {
                   <CommandRender
                     commands={[
                       {
-                        command: `supabase functions download ${selectedFunction?.slug}`,
+                        command: `selfbase functions download ${selectedFunction?.slug}`,
                         description: 'Download the function to your local machine',
                         jsx: () => (
                           <>
-                            <span className="text-brand-600">supabase</span> functions download{' '}
+                            <span className="text-brand-600">selfbase</span> functions download{' '}
                             {selectedFunction?.slug}
                           </>
                         ),

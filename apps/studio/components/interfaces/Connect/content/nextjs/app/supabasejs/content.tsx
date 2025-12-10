@@ -14,9 +14,9 @@ const ContentFile = ({ projectKeys }: ContentFileProps) => {
       <ConnectTabTriggers>
         <ConnectTabTrigger value=".env.local" />
         <ConnectTabTrigger value="page.tsx" />
-        <ConnectTabTrigger value="utils/supabase/server.ts" />
-        <ConnectTabTrigger value="utils/supabase/client.ts" />
-        <ConnectTabTrigger value="utils/supabase/middleware.ts" />
+        <ConnectTabTrigger value="utils/selfbase/server.ts" />
+        <ConnectTabTrigger value="utils/selfbase/client.ts" />
+        <ConnectTabTrigger value="utils/selfbase/middleware.ts" />
       </ConnectTabTriggers>
 
       <ConnectTabContent value=".env.local">
@@ -35,14 +35,14 @@ const ContentFile = ({ projectKeys }: ContentFileProps) => {
       <ConnectTabContent value="page.tsx">
         <SimpleCodeBlock className="tsx" parentClassName="min-h-72">
           {`
-import { createClient } from '@/utils/supabase/server'
+import { createClient } from '@/utils/selfbase/server'
 import { cookies } from 'next/headers'
 
 export default async function Page() {
   const cookieStore = await cookies()
-  const supabase = createClient(cookieStore)
+  const selfbase = createClient(cookieStore)
 
-  const { data: todos } = await supabase.from('todos').select()
+  const { data: todos } = await selfbase.from('todos').select()
 
   return (
     <ul>
@@ -56,19 +56,19 @@ export default async function Page() {
         </SimpleCodeBlock>
       </ConnectTabContent>
 
-      <ConnectTabContent value="utils/supabase/server.ts">
+      <ConnectTabContent value="utils/selfbase/server.ts">
         <SimpleCodeBlock className="ts" parentClassName="min-h-72">
           {`
-import { createServerClient, type CookieOptions } from "@supabase/ssr";
+import { createServerClient, type CookieOptions } from "@selfbase/ssr";
 import { cookies } from "next/headers";
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-const supabaseKey = process.env.${projectKeys?.publishableKey ? 'NEXT_PUBLIC_SUPABASE_PUBLISHABLE_DEFAULT_KEY' : 'NEXT_PUBLIC_SUPABASE_ANON_KEY'};
+const selfbaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+const selfbaseKey = process.env.${projectKeys?.publishableKey ? 'NEXT_PUBLIC_SUPABASE_PUBLISHABLE_DEFAULT_KEY' : 'NEXT_PUBLIC_SUPABASE_ANON_KEY'};
 
 export const createClient = (cookieStore: ReturnType<typeof cookies>) => {
   return createServerClient(
-    supabaseUrl!,
-    supabaseKey!,
+    selfbaseUrl!,
+    selfbaseKey!,
     {
       cookies: {
         getAll() {
@@ -90,43 +90,43 @@ export const createClient = (cookieStore: ReturnType<typeof cookies>) => {
 `}
         </SimpleCodeBlock>
       </ConnectTabContent>
-      <ConnectTabContent value="utils/supabase/client.ts">
+      <ConnectTabContent value="utils/selfbase/client.ts">
         <SimpleCodeBlock className="ts" parentClassName="min-h-72">
           {`
-import { createBrowserClient } from "@supabase/ssr";
+import { createBrowserClient } from "@selfbase/ssr";
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-const supabaseKey = process.env.${projectKeys?.publishableKey ? 'NEXT_PUBLIC_SUPABASE_PUBLISHABLE_DEFAULT_KEY' : 'NEXT_PUBLIC_SUPABASE_ANON_KEY'};
+const selfbaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+const selfbaseKey = process.env.${projectKeys?.publishableKey ? 'NEXT_PUBLIC_SUPABASE_PUBLISHABLE_DEFAULT_KEY' : 'NEXT_PUBLIC_SUPABASE_ANON_KEY'};
 
 export const createClient = () =>
   createBrowserClient(
-    supabaseUrl!,
-    supabaseKey!,
+    selfbaseUrl!,
+    selfbaseKey!,
   );
 `}
         </SimpleCodeBlock>
       </ConnectTabContent>
 
-      <ConnectTabContent value="utils/supabase/middleware.ts">
+      <ConnectTabContent value="utils/selfbase/middleware.ts">
         <SimpleCodeBlock className="ts" parentClassName="min-h-72">
           {`
-import { createServerClient, type CookieOptions } from "@supabase/ssr";
+import { createServerClient, type CookieOptions } from "@selfbase/ssr";
 import { type NextRequest, NextResponse } from "next/server";
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-const supabaseKey = process.env.${projectKeys?.publishableKey ? 'NEXT_PUBLIC_SUPABASE_PUBLISHABLE_DEFAULT_KEY' : 'NEXT_PUBLIC_SUPABASE_ANON_KEY'};
+const selfbaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+const selfbaseKey = process.env.${projectKeys?.publishableKey ? 'NEXT_PUBLIC_SUPABASE_PUBLISHABLE_DEFAULT_KEY' : 'NEXT_PUBLIC_SUPABASE_ANON_KEY'};
 
 export const createClient = (request: NextRequest) => {
   // Create an unmodified response
-  let supabaseResponse = NextResponse.next({
+  let selfbaseResponse = NextResponse.next({
     request: {
       headers: request.headers,
     },
   });
 
-  const supabase = createServerClient(
-    supabaseUrl!,
-    supabaseKey!,
+  const selfbase = createServerClient(
+    selfbaseUrl!,
+    selfbaseKey!,
     {
       cookies: {
         getAll() {
@@ -134,18 +134,18 @@ export const createClient = (request: NextRequest) => {
         },
         setAll(cookiesToSet) {
           cookiesToSet.forEach(({ name, value, options }) => request.cookies.set(name, value))
-          supabaseResponse = NextResponse.next({
+          selfbaseResponse = NextResponse.next({
             request,
           })
           cookiesToSet.forEach(({ name, value, options }) =>
-            supabaseResponse.cookies.set(name, value, options)
+            selfbaseResponse.cookies.set(name, value, options)
           )
         },
       },
     },
   );
 
-  return supabaseResponse
+  return selfbaseResponse
 };
 `}
         </SimpleCodeBlock>

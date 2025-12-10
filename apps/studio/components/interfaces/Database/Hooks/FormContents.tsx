@@ -1,4 +1,4 @@
-import type { PostgresTable, PostgresTrigger } from '@supabase/postgres-meta'
+import type { PostgresTable, PostgresTrigger } from '@selfbase/postgres-meta'
 import Image from 'next/legacy/image'
 import { MutableRefObject, useEffect } from 'react'
 
@@ -72,10 +72,10 @@ export const FormContents = ({
         const updatedValues = { ...values, http_url: '' }
         resetForm({ values: updatedValues, initialValues: updatedValues })
       }
-    } else if (values.function_type === 'supabase_function') {
+    } else if (values.function_type === 'selfbase_function') {
       // Default to first edge function in the list
       const fnSlug = functions[0]?.slug
-      const defaultFunctionUrl = `https://${ref}.supabase.${restUrlTld}/functions/v1/${fnSlug}`
+      const defaultFunctionUrl = `https://${ref}.selfbase.${restUrlTld}/functions/v1/${fnSlug}`
       const updatedValues = {
         ...values,
         http_url: isEdgeFunction({ ref, restUrlTld, url: values.http_url })

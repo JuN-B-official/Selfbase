@@ -1,4 +1,4 @@
-import { PermissionAction } from '@supabase/shared-types/out/constants'
+import { PermissionAction } from '@selfbase/shared-types/out/constants'
 import dayjs from 'dayjs'
 import { partition, uniqBy } from 'lodash'
 import { MoreVertical } from 'lucide-react'
@@ -170,14 +170,12 @@ const MapView = ({
                       name: hasNoDatabases
                         ? undefined
                         : hasPrimary
-                          ? `Primary Database${
-                              replicas.length > 0
-                                ? ` + ${replicas.length} replica${replicas.length > 1 ? 's' : ''} `
-                                : ''
-                            }`
-                          : `${replicas.length} Read Replica${
-                              replicas.length > 1 ? 's' : ''
-                            } deployed`,
+                          ? `Primary Database${replicas.length > 0
+                            ? ` + ${replicas.length} replica${replicas.length > 1 ? 's' : ''} `
+                            : ''
+                          }`
+                          : `${replicas.length} Read Replica${replicas.length > 1 ? 's' : ''
+                          } deployed`,
                     },
                   })
                 }}
@@ -192,20 +190,18 @@ const MapView = ({
                 {selectedRegionKey === region.region && (
                   <circle
                     r={4}
-                    className={`animate-ping ${
-                      hasNoDatabases ? 'fill-border-stronger' : 'fill-brand'
-                    }`}
+                    className={`animate-ping ${hasNoDatabases ? 'fill-border-stronger' : 'fill-brand'
+                      }`}
                   />
                 )}
                 <circle
                   r={4}
-                  className={`cursor-pointer ${
-                    hasNoDatabases
+                  className={`cursor-pointer ${hasNoDatabases
                       ? 'fill-background-surface-300 stroke-border-stronger'
                       : hasPrimary
                         ? 'fill-brand stroke-brand-500'
                         : 'fill-brand-500 stroke-brand-400'
-                  }`}
+                    }`}
                 />
               </Marker>
             )
@@ -225,9 +221,8 @@ const MapView = ({
                       <p className="text-[10px]">{tooltip.region.country}</p>
                     </div>
                     <p
-                      className={`text-[10px] ${
-                        tooltip.region.name === undefined ? 'text-foreground-light' : ''
-                      }`}
+                      className={`text-[10px] ${tooltip.region.name === undefined ? 'text-foreground-light' : ''
+                        }`}
                     >
                       {tooltip.region.name ?? 'No databases deployed'}
                     </p>
@@ -271,10 +266,9 @@ const MapView = ({
                         <p className="flex items-center gap-x-2">
                           {database.identifier === ref
                             ? 'Primary Database'
-                            : `Read Replica ${
-                                database.identifier.length > 0 &&
-                                `(ID: ${formatDatabaseID(database.identifier)})`
-                              }`}
+                            : `Read Replica ${database.identifier.length > 0 &&
+                            `(ID: ${formatDatabaseID(database.identifier)})`
+                            }`}
                           {database.status === REPLICA_STATUS.ACTIVE_HEALTHY ? (
                             <Badge variant="success">Healthy</Badge>
                           ) : database.status === REPLICA_STATUS.COMING_UP ? (
@@ -355,9 +349,8 @@ const MapView = ({
           )}
 
           <div
-            className={`flex items-center justify-end gap-x-2 px-4 py-4 ${
-              databasesInSelectedRegion.length > 0 ? 'border-t' : ''
-            }`}
+            className={`flex items-center justify-end gap-x-2 px-4 py-4 ${databasesInSelectedRegion.length > 0 ? 'border-t' : ''
+              }`}
           >
             <ButtonTooltip
               type="default"

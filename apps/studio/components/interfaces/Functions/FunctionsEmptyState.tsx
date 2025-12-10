@@ -141,7 +141,7 @@ export const FunctionsEmptyState = () => {
               <h4 className="text-base text-foreground">Via CLI</h4>
             </div>
             <p className="text-sm text-foreground-light mb-4 mt-1">
-              Create and deploy functions using the Supabase CLI. Ideal for local development and
+              Create and deploy functions using the Selfbase CLI. Ideal for local development and
               version control.
             </p>
 
@@ -228,7 +228,7 @@ export const FunctionsEmptyStateLocal = () => {
               </div>
               <p className="text-sm text-foreground-light mt-1 mb-4 prose [&>code]:text-xs text-sm max-w-full">
                 Create a new edge function called <code>hello-world</code> in your project via the
-                Supabase CLI.
+                Selfbase CLI.
               </p>
               <div className="mb-4">
                 <CodeBlock
@@ -237,7 +237,7 @@ export const FunctionsEmptyStateLocal = () => {
                   className={cn(
                     'px-3.5 max-w-full prose dark:prose-dark [&>code]:m-0 2xl:min-h-28'
                   )}
-                  value="supabase functions new hello-world"
+                  value="selfbase functions new hello-world"
                 />
               </div>
               <DocsButton
@@ -251,7 +251,7 @@ export const FunctionsEmptyStateLocal = () => {
                 <h4 className="text-base text-foreground">Run Edge Functions locally</h4>
               </div>
               <p className="text-sm text-foreground-light mt-1 mb-4 prose [&>code]:text-xs text-sm max-w-full">
-                You can run your Edge Function locally using <code>supabase functions serve</code>.
+                You can run your Edge Function locally using <code>selfbase functions serve</code>.
               </p>
               <div className="mb-4">
                 <CodeBlock
@@ -261,8 +261,8 @@ export const FunctionsEmptyStateLocal = () => {
                     'px-3.5 max-w-full prose dark:prose-dark [&>code]:m-0 2xl:min-h-28'
                   )}
                   value={`
-supabase start # start the supabase stack
-supabase functions serve # start the Functions watcher`.trim()}
+selfbase start # start the selfbase stack
+selfbase functions serve # start the Functions watcher`.trim()}
                 />
               </div>
               <DocsButton
@@ -311,14 +311,14 @@ curl --request POST 'http://localhost:54321/functions/v1/hello-world' \\
                 <h4 className="text-base text-foreground">Self-hosting Edge Functions</h4>
               </div>
               <p className="text-sm text-foreground-light mt-1 mb-4 max-w-3xl">
-                Supabase Edge Runtime consists of a web server based on the Deno runtime, capable of
+                Selfbase Edge Runtime consists of a web server based on the Deno runtime, capable of
                 running Javascript, Typescript, and WASM services. You may self-host edge functions
                 on providers like Fly.io, Digital Ocean, or AWS.
               </p>
               <div className="flex items-center gap-x-2">
                 <DocsButton href={`${DOCS_URL}/reference/self-hosting-functions/introduction`} />
                 <Button asChild type="default" icon={<Github />}>
-                  <a href="https://github.com/supabase/edge-runtime/">GitHub</a>
+                  <a href="https://github.com/selfbase/edge-runtime/">GitHub</a>
                 </Button>
               </div>
             </div>
@@ -384,12 +384,12 @@ export const FunctionsSecretsEmptyStateLocal = () => {
             </p>
             <ul className="list-disc pl-6">
               <li className="prose [&>code]:text-xs text-sm max-w-full">
-                Through an <code>.env</code> file placed at <code>supabase/functions/.env</code>,
-                which is automatically loaded on <code>supabase start</code>
+                Through an <code>.env</code> file placed at <code>selfbase/functions/.env</code>,
+                which is automatically loaded on <code>selfbase start</code>
               </li>
               <li className="prose [&>code]:text-xs text-sm max-w-full">
-                Through the <code>--env-file</code> option for <code>supabase functions serve</code>
-                , for example: <code>supabase functions serve --env-file ./path/to/.env-file</code>
+                Through the <code>--env-file</code> option for <code>selfbase functions serve</code>
+                , for example: <code>selfbase functions serve --env-file ./path/to/.env-file</code>
               </li>
             </ul>
           </div>

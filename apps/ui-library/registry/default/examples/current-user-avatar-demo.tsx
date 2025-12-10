@@ -4,7 +4,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/registry/default/componen
 import { useUser } from 'common'
 
 const CurrentUserAvatarDemo = () => {
-  // this demo only works on supabase.com because all apps are on the same domain and share cookies
+  // this demo only works on selfbase.com because all apps are on the same domain and share cookies
   const user = useUser()
 
   const profileImage = user?.user_metadata.avatar_url ?? null
@@ -28,7 +28,7 @@ const CurrentUserAvatarDemo = () => {
           <a
             target="_blank"
             rel="noopener noreferrer"
-            href="https://supabase.com/dashboard/sign-in"
+            href="https://selfbase.com/dashboard/sign-in"
             className="text-foreground underline decoration-1 decoration-foreground-muted underline-offset-4 transition-colors hover:decoration-brand hover:decoration-2"
           >
             Dashboard

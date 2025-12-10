@@ -1,4 +1,4 @@
-import { PermissionAction } from '@supabase/shared-types/out/constants'
+import { PermissionAction } from '@selfbase/shared-types/out/constants'
 import { AlertCircle, ChevronDown, Globe, Lock } from 'lucide-react'
 import { useState } from 'react'
 
@@ -227,7 +227,7 @@ export const NetworkRestrictions = () => {
                       database.
                     </p>
                     <p className="text-foreground-light text-sm">
-                      Note: Restrictions only apply to your database, and not to Supabase services
+                      Note: Restrictions only apply to your database, and not to Selfbase services
                     </p>
                   </div>
                 </div>
@@ -250,7 +250,7 @@ export const NetworkRestrictions = () => {
                       database
                     </p>
                     <p className="text-foreground-light text-sm">
-                      Note: Restrictions only apply to your database, and not to Supabase services
+                      Note: Restrictions only apply to your database, and not to Selfbase services
                     </p>
                   </div>
                   <div className="flex items-center space-x-2">

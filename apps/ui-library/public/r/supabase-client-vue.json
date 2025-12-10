@@ -1,17 +1,17 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
-  "name": "supabase-client-vue",
+  "name": "selfbase-client-vue",
   "type": "registry:lib",
-  "title": "Supabase Client for Vue",
+  "title": "Selfbase Client for Vue",
   "description": "",
   "dependencies": [
-    "@supabase/supabase-js@latest"
+    "@selfbase/selfbase-js@latest"
   ],
   "registryDependencies": [],
   "files": [
     {
-      "path": "registry/default/clients/vue/lib/supabase/client.ts",
-      "content": "/// <reference types=\"vite/types/importMeta.d.ts\" />\nimport { createClient as createSupabaseClient } from '@supabase/supabase-js'\n\nexport function createClient() {\n  return createSupabaseClient(\n    import.meta.env.VITE_SUPABASE_URL!,\n    import.meta.env.VITE_SUPABASE_PUBLISHABLE_OR_ANON_KEY!\n  )\n}\n",
+      "path": "registry/default/clients/vue/lib/selfbase/client.ts",
+      "content": "/// <reference types=\"vite/types/importMeta.d.ts\" />\nimport { createClient as createSelfbaseClient } from '@selfbase/selfbase-js'\n\nexport function createClient() {\n  return createSelfbaseClient(\n    import.meta.env.VITE_SUPABASE_URL!,\n    import.meta.env.VITE_SUPABASE_PUBLISHABLE_OR_ANON_KEY!\n  )\n}\n",
       "type": "registry:lib"
     }
   ],

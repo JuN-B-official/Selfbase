@@ -1,10 +1,10 @@
-import pgMeta from '@supabase/pg-meta'
-import type { PostgresPrimaryKey } from '@supabase/postgres-meta'
+import pgMeta from '@selfbase/pg-meta'
+import type { PostgresPrimaryKey } from '@selfbase/postgres-meta'
 import { chunk, find, isEmpty, isEqual } from 'lodash'
 import Papa from 'papaparse'
 import { toast } from 'sonner'
 
-import { Query } from '@supabase/pg-meta/src/query'
+import { Query } from '@selfbase/pg-meta/src/query'
 import SparkBar from 'components/ui/SparkBar'
 import { createDatabaseColumn } from 'data/database-columns/database-column-create-mutation'
 import { deleteDatabaseColumn } from 'data/database-columns/database-column-delete-mutation'

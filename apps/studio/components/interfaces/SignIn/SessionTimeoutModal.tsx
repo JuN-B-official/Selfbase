@@ -71,7 +71,7 @@ export const SessionTimeoutModal = ({
         </p>
         <p>
           Consider{' '}
-          <InlineLink href="https://github.com/orgs/supabase/discussions/36540">
+          <InlineLink href="https://github.com/orgs/selfbase/discussions/36540">
             generating a HAR file
           </InlineLink>{' '}
           from your session to help Support pinpoint the issue.

@@ -159,7 +159,7 @@ export function GettingStarted({ steps, onStepClick }: GettingStartedProps) {
                   icon={<IconDiscord size={14} />}
                   className="text-foreground-light hover:text-foreground"
                 >
-                  <Link href={'https://discord.supabase.com/'} target="_blank">
+                  <Link href={'https://discord.selfbase.com/'} target="_blank">
                     Join our Discord
                   </Link>
                 </Button>
@@ -206,12 +206,12 @@ export function GettingStarted({ steps, onStepClick }: GettingStartedProps) {
                   <div className="absolute top-0 left-0 right-0 overflow-hidden">
                     <img
                       src={`${BASE_PATH}/img/reports/bg-grafana-dark.svg`}
-                      alt="Supabase Grafana"
+                      alt="Selfbase Grafana"
                       className="w-full h-full object-cover object-right hidden dark:block user-select-none"
                     />
                     <img
                       src={`${BASE_PATH}/img/reports/bg-grafana-light.svg`}
-                      alt="Supabase Grafana"
+                      alt="Selfbase Grafana"
                       className="w-full h-full object-cover object-right dark:hidden user-select-none"
                     />
                   </div>

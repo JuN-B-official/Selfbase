@@ -25,7 +25,7 @@ export const RealtimeInspector = () => {
     connectionString: project?.connectionString,
   })
   const realtimePublication = (publications ?? []).find(
-    (publication) => publication.name === 'supabase_realtime'
+    (publication) => publication.name === 'selfbase_realtime'
   )
   const isRealtimeAvailable =
     !!realtimePublication &&

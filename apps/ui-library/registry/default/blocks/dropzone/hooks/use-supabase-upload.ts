@@ -1,21 +1,21 @@
-import { createClient } from '@/registry/default/clients/nextjs/lib/supabase/client'
+import { createClient } from '@/registry/default/clients/nextjs/lib/selfbase/client'
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { type FileError, type FileRejection, useDropzone } from 'react-dropzone'
 
-const supabase = createClient()
+const selfbase = createClient()
 
 interface FileWithPreview extends File {
   preview?: string
   errors: readonly FileError[]
 }
 
-type UseSupabaseUploadOptions = {
+type UseSelfbaseUploadOptions = {
   /**
-   * Name of bucket to upload files to in your Supabase project
+   * Name of bucket to upload files to in your Selfbase project
    */
   bucketName: string
   /**
-   * Folder to upload files to in the specified bucket within your Supabase project.
+   * Folder to upload files to in the specified bucket within your Selfbase project.
    *
    * Defaults to uploading files to the root of the bucket
    *
@@ -37,7 +37,7 @@ type UseSupabaseUploadOptions = {
    */
   maxFiles?: number
   /**
-   * The number of seconds the asset is cached in the browser and in the Supabase CDN.
+   * The number of seconds the asset is cached in the browser and in the Selfbase CDN.
    *
    * This is set in the Cache-Control: max-age=<seconds> header. Defaults to 3600 seconds.
    */
@@ -50,9 +50,9 @@ type UseSupabaseUploadOptions = {
   upsert?: boolean
 }
 
-type UseSupabaseUploadReturn = ReturnType<typeof useSupabaseUpload>
+type UseSelfbaseUploadReturn = ReturnType<typeof useSelfbaseUpload>
 
-const useSupabaseUpload = (options: UseSupabaseUploadOptions) => {
+const useSelfbaseUpload = (options: UseSelfbaseUploadOptions) => {
   const {
     bucketName,
     path,
@@ -83,14 +83,14 @@ const useSupabaseUpload = (options: UseSupabaseUploadOptions) => {
       const validFiles = acceptedFiles
         .filter((file) => !files.find((x) => x.name === file.name))
         .map((file) => {
-          ;(file as FileWithPreview).preview = URL.createObjectURL(file)
-          ;(file as FileWithPreview).errors = []
+          ; (file as FileWithPreview).preview = URL.createObjectURL(file)
+            ; (file as FileWithPreview).errors = []
           return file as FileWithPreview
         })
 
       const invalidFiles = fileRejections.map(({ file, errors }) => {
-        ;(file as FileWithPreview).preview = URL.createObjectURL(file)
-        ;(file as FileWithPreview).errors = errors
+        ; (file as FileWithPreview).preview = URL.createObjectURL(file)
+          ; (file as FileWithPreview).errors = errors
         return file as FileWithPreview
       })
 
@@ -119,14 +119,14 @@ const useSupabaseUpload = (options: UseSupabaseUploadOptions) => {
     const filesToUpload =
       filesWithErrors.length > 0
         ? [
-            ...files.filter((f) => filesWithErrors.includes(f.name)),
-            ...files.filter((f) => !successes.includes(f.name)),
-          ]
+          ...files.filter((f) => filesWithErrors.includes(f.name)),
+          ...files.filter((f) => !successes.includes(f.name)),
+        ]
         : files
 
     const responses = await Promise.all(
       filesToUpload.map(async (file) => {
-        const { error } = await supabase.storage
+        const { error } = await selfbase.storage
           .from(bucketName)
           .upload(!!path ? `${path}/${file.name}` : file.name, file, {
             cacheControl: cacheControl.toString(),
@@ -190,4 +190,4 @@ const useSupabaseUpload = (options: UseSupabaseUploadOptions) => {
   }
 }
 
-export { useSupabaseUpload, type UseSupabaseUploadOptions, type UseSupabaseUploadReturn }
+export { useSelfbaseUpload, type UseSelfbaseUploadOptions, type UseSelfbaseUploadReturn }

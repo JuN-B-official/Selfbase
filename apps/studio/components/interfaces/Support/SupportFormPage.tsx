@@ -128,8 +128,8 @@ function SupportFormHeader() {
   return (
     <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-y-2">
       <div className="flex items-center space-x-3">
-        <SVG src={`${BASE_PATH}/img/supabase-logo.svg`} className="h-4 w-4" />
-        <h3 className="m-0 text-lg">Supabase support</h3>
+        <SVG src={`${BASE_PATH}/img/selfbase-logo.svg`} className="h-4 w-4" />
+        <h3 className="m-0 text-lg">Selfbase support</h3>
       </div>
 
       <div className="flex items-center gap-x-3">
@@ -157,7 +157,7 @@ function SupportFormHeader() {
                 )
               }
             >
-              <Link href="https://status.supabase.com/" target="_blank" rel="noreferrer">
+              <Link href="https://status.selfbase.com/" target="_blank" rel="noreferrer">
                 {isLoading
                   ? 'Checking status'
                   : isError
@@ -169,7 +169,7 @@ function SupportFormHeader() {
             </Button>
           </TooltipTrigger>
           <TooltipContent side="bottom" align="center">
-            Check Supabase status page
+            Check Selfbase status page
           </TooltipContent>
         </Tooltip>
       </div>
@@ -187,12 +187,12 @@ function SupportFormDirectEmailInfo() {
         <div className="flex flex-col gap-y-4">
           <p className="flex items-center gap-x-1 ">
             Email us directly at{' '}
-            <InlineLink href="mailto:support@supabase.com" className="font-mono">
-              support@supabase.com
+            <InlineLink href="mailto:support@selfbase.com" className="font-mono">
+              support@selfbase.com
             </InlineLink>
             <CopyButton
               type="text"
-              text="support@supabase.com"
+              text="support@selfbase.com"
               iconOnly
               onClick={() => toast.success('Copied to clipboard')}
             />

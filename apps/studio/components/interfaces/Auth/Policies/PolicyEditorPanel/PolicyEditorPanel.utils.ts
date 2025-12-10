@@ -1,4 +1,4 @@
-import type { PostgresPolicy } from '@supabase/postgres-meta'
+import type { PostgresPolicy } from '@selfbase/postgres-meta'
 import { isEqual } from 'lodash'
 
 // [Joshen] Not used but keeping this for now in case we do an inline editor
@@ -17,9 +17,8 @@ WITH CHECK ( *check_expression* );
   } else {
     let expression = ''
     if (policy.definition !== null && policy.definition !== undefined) {
-      expression += `USING ( *${policy.definition}* )${
-        policy.check === null || policy.check === undefined ? ';' : ''
-      }\n`
+      expression += `USING ( *${policy.definition}* )${policy.check === null || policy.check === undefined ? ';' : ''
+        }\n`
     }
     if (policy.check !== null && policy.check !== undefined) {
       expression += `WITH CHECK ( *${policy.check}* );\n`

@@ -13,7 +13,7 @@ const ContentFile = ({ projectKeys }: ContentFileProps) => {
     <ConnectTabs>
       <ConnectTabTriggers>
         <ConnectTabTrigger value=".env.local" />
-        <ConnectTabTrigger value="utils/supabase.ts" />
+        <ConnectTabTrigger value="utils/selfbase.ts" />
         <ConnectTabTrigger value="src/App.jsx" />
       </ConnectTabTriggers>
 
@@ -30,15 +30,15 @@ const ContentFile = ({ projectKeys }: ContentFileProps) => {
         </SimpleCodeBlock>
       </ConnectTabContent>
 
-      <ConnectTabContent value="utils/supabase.ts">
+      <ConnectTabContent value="utils/selfbase.ts">
         <SimpleCodeBlock className="ts" parentClassName="min-h-72">
           {`
-import { createClient } from "@supabase/supabase-js";
+import { createClient } from "@selfbase/selfbase-js";
 
-const supabaseUrl = process.env.SUPABASE_URL;
-const supabaseKey = process.env.${projectKeys.publishableKey ? 'SUPABASE_PUBLISHABLE_DEFAULT_KEY' : 'SUPABASE_ANON_KEY'};
+const selfbaseUrl = process.env.SUPABASE_URL;
+const selfbaseKey = process.env.${projectKeys.publishableKey ? 'SUPABASE_PUBLISHABLE_DEFAULT_KEY' : 'SUPABASE_ANON_KEY'};
 
-export const supabase = createClient(supabaseUrl!, supabaseKey!);
+export const selfbase = createClient(selfbaseUrl!, selfbaseKey!);
         `}
         </SimpleCodeBlock>
       </ConnectTabContent>
@@ -46,11 +46,11 @@ export const supabase = createClient(supabaseUrl!, supabaseKey!);
       <ConnectTabContent value="src/App.jsx">
         <SimpleCodeBlock className="jsx" parentClassName="min-h-72">
           {`
-import { supabase } from '../utils/supabase'
+import { selfbase } from '../utils/selfbase'
 import { createResource, For } from "solid-js";
 
 async function getTodos() {
-  const { data: todos } = await supabase.from("todos").select();
+  const { data: todos } = await selfbase.from("todos").select();
   return data;
 }
 

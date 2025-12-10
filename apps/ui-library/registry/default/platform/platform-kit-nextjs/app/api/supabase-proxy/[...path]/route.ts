@@ -1,9 +1,9 @@
 import { NextResponse } from 'next/server'
 
-async function forwardToSupabaseAPI(request: Request, method: string, params: { path: string[] }) {
+async function forwardToSelfbaseAPI(request: Request, method: string, params: { path: string[] }) {
   // eslint-disable-next-line turbo/no-undeclared-env-vars
   if (!process.env.SUPABASE_MANAGEMENT_API_TOKEN) {
-    console.error('Supabase Management API token is not configured.')
+    console.error('Selfbase Management API token is not configured.')
     return NextResponse.json({ message: 'Server configuration error.' }, { status: 500 })
   }
 
@@ -12,7 +12,7 @@ async function forwardToSupabaseAPI(request: Request, method: string, params: { 
 
   const url = new URL(request.url)
   url.protocol = 'https'
-  url.hostname = 'api.supabase.com'
+  url.hostname = 'api.selfbase.com'
   url.port = '443'
   url.pathname = apiPath
 
@@ -74,7 +74,7 @@ async function forwardToSupabaseAPI(request: Request, method: string, params: { 
     // Return the response with the same status
     return NextResponse.json(responseData, { status: response.status })
   } catch (error: any) {
-    console.error('Supabase API proxy error:', error)
+    console.error('Selfbase API proxy error:', error)
     const errorMessage = error.message || 'An unexpected error occurred.'
     return NextResponse.json({ message: errorMessage }, { status: 500 })
   }
@@ -82,22 +82,22 @@ async function forwardToSupabaseAPI(request: Request, method: string, params: { 
 
 export async function GET(request: Request, { params }: { params: Promise<{ path: string[] }> }) {
   const resolvedParams = await params
-  return forwardToSupabaseAPI(request, 'GET', resolvedParams)
+  return forwardToSelfbaseAPI(request, 'GET', resolvedParams)
 }
 
 export async function HEAD(request: Request, { params }: { params: Promise<{ path: string[] }> }) {
   const resolvedParams = await params
-  return forwardToSupabaseAPI(request, 'HEAD', resolvedParams)
+  return forwardToSelfbaseAPI(request, 'HEAD', resolvedParams)
 }
 
 export async function POST(request: Request, { params }: { params: Promise<{ path: string[] }> }) {
   const resolvedParams = await params
-  return forwardToSupabaseAPI(request, 'POST', resolvedParams)
+  return forwardToSelfbaseAPI(request, 'POST', resolvedParams)
 }
 
 export async function PUT(request: Request, { params }: { params: Promise<{ path: string[] }> }) {
   const resolvedParams = await params
-  return forwardToSupabaseAPI(request, 'PUT', resolvedParams)
+  return forwardToSelfbaseAPI(request, 'PUT', resolvedParams)
 }
 
 export async function DELETE(
@@ -105,10 +105,10 @@ export async function DELETE(
   { params }: { params: Promise<{ path: string[] }> }
 ) {
   const resolvedParams = await params
-  return forwardToSupabaseAPI(request, 'DELETE', resolvedParams)
+  return forwardToSelfbaseAPI(request, 'DELETE', resolvedParams)
 }
 
 export async function PATCH(request: Request, { params }: { params: Promise<{ path: string[] }> }) {
   const resolvedParams = await params
-  return forwardToSupabaseAPI(request, 'PATCH', resolvedParams)
+  return forwardToSelfbaseAPI(request, 'PATCH', resolvedParams)
 }

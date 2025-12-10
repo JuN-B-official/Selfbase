@@ -1,4 +1,4 @@
-import { JwtSecretUpdateStatus } from '@supabase/shared-types/out/events'
+import { JwtSecretUpdateStatus } from '@selfbase/shared-types/out/events'
 import { AlertCircle, Loader } from 'lucide-react'
 import Link from 'next/link'
 import { useState } from 'react'
@@ -14,17 +14,17 @@ import { Input, SimpleCodeBlock } from 'ui'
 
 const generateInitSnippet = (endpoint: string) => ({
   js: `
-import { createClient } from '@supabase/supabase-js'
+import { createClient } from '@selfbase/selfbase-js'
 
-const supabaseUrl = '${endpoint}'
-const supabaseKey = process.env.SUPABASE_KEY
-const supabase = createClient(supabaseUrl, supabaseKey)`,
+const selfbaseUrl = '${endpoint}'
+const selfbaseKey = process.env.SUPABASE_KEY
+const selfbase = createClient(selfbaseUrl, selfbaseKey)`,
   dart: `
-const supabaseUrl = '${endpoint}';
-const supabaseKey = String.fromEnvironment('SUPABASE_KEY');
+const selfbaseUrl = '${endpoint}';
+const selfbaseKey = String.fromEnvironment('SUPABASE_KEY');
 
 Future<void> main() async {
-  await Supabase.initialize(url: supabaseUrl, anonKey: supabaseKey);
+  await Selfbase.initialize(url: selfbaseUrl, anonKey: selfbaseKey);
   runApp(MyApp());
 }`,
 })
@@ -96,7 +96,7 @@ export const APIKeys = () => {
           <p className="text-sm text-foreground-light">
             Your API is secured behind an API gateway which requires an API Key for every request.
             <br />
-            You can use the parameters below to use Supabase client libraries.
+            You can use the parameters below to use Selfbase client libraries.
           </p>
         </div>
       }
@@ -168,7 +168,7 @@ export const APIKeys = () => {
                       ? 'Updating JWT secret...'
                       : anonKey?.api_key
               }
-              onChange={() => {}}
+              onChange={() => { }}
               descriptionText={
                 <p>
                   This key is safe to use in a browser if you have enabled Row Level Security (RLS)

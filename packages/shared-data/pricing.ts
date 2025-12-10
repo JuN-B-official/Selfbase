@@ -44,7 +44,7 @@ export type FeatureKey =
   | 'auth.anonSignIns'
   | 'auth.socialOAuthProviders'
   | 'auth.customSMTPServer'
-  | 'auth.removeSupabaseBranding'
+  | 'auth.removeSelfbaseBranding'
   | 'auth.auditLogs'
   | 'auth.basicMFA'
   | 'auth.advancedMFAPhone'
@@ -278,8 +278,8 @@ export const pricing: Pricing = {
         usage_based: false,
       },
       {
-        key: 'auth.removeSupabaseBranding',
-        title: 'Remove Supabase branding from emails',
+        key: 'auth.removeSelfbaseBranding',
+        title: 'Remove Selfbase branding from emails',
         plans: {
           free: false,
           pro: true,

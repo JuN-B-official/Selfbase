@@ -102,7 +102,7 @@ const VercelIntegration: NextPageWithLayout = () => {
           ...vars.connection,
           metadata: {
             ...vars.connection.metadata,
-            supabaseConfig: {
+            selfbaseConfig: {
               projectEnvVars: {
                 write: true,
               },
@@ -123,7 +123,7 @@ const VercelIntegration: NextPageWithLayout = () => {
             <Markdown
               className="text-foreground-lighter"
               content={`
-This Supabase integration manages your environment variables automatically to provide the latest keys in the unlikely event that you will need to refresh your JWT token.
+This Selfbase integration manages your environment variables automatically to provide the latest keys in the unlikely event that you will need to refresh your JWT token.
 `}
             />
           </header>
@@ -150,8 +150,8 @@ This Supabase integration manages your environment variables automatically to pr
 The following environment variables will be added:
 
 ${ENV_VAR_RAW_KEYS.map((x) => {
-  return `\n - \`${x}\``
-})}
+              return `\n - \`${x}\``
+            })}
 `}
           />
         </ScaffoldColumn>

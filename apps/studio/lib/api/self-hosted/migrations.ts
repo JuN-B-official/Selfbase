@@ -10,14 +10,14 @@ export type ListMigrationsResult = {
 }
 
 const listMigrationVersionsQuery = () =>
-  'select version, name from supabase_migrations.schema_migrations order by version'
+  'select version, name from selfbase_migrations.schema_migrations order by version'
 
 const initializeHistoryTableQuery = () => `begin;
 
-create schema if not exists supabase_migrations;
-create table if not exists supabase_migrations.schema_migrations (version text not null primary key);
-alter table supabase_migrations.schema_migrations add column if not exists statements text[];
-alter table supabase_migrations.schema_migrations add column if not exists name text;
+create schema if not exists selfbase_migrations;
+create table if not exists selfbase_migrations.schema_migrations (version text not null primary key);
+alter table selfbase_migrations.schema_migrations add column if not exists statements text[];
+alter table selfbase_migrations.schema_migrations add column if not exists name text;
 
 commit;`
 
@@ -32,7 +32,7 @@ const applyAndTrackMigrationsQuery = (query: string, name?: string) => {
     ${query};
 
     -- track statements in history table
-    insert into supabase_migrations.schema_migrations (version, name, statements)
+    insert into selfbase_migrations.schema_migrations (version, name, statements)
     values (
       to_char(current_timestamp, 'YYYYMMDDHH24MISS'),
       ${quote(name)},

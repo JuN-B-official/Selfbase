@@ -12,7 +12,7 @@ export function SiteFooter() {
             rel="noreferrer"
             className="font-medium underline underline-offset-4 hover:text-foreground-lighter"
           >
-            Supabase
+            Selfbase
           </a>
           . The source code is available on{' '}
           <a

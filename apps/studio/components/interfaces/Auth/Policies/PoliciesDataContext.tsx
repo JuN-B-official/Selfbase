@@ -1,4 +1,4 @@
-import type { PostgresPolicy } from '@supabase/postgres-meta'
+import type { PostgresPolicy } from '@selfbase/postgres-meta'
 import type { PropsWithChildren } from 'react'
 import { createContext, useCallback, useContext, useMemo } from 'react'
 

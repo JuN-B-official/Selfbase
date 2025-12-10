@@ -212,7 +212,7 @@ export const getReportAttributesV2: (
           label: 'Max throughput',
           value:
             diskConfig?.attributes?.type === 'gp3' &&
-            typeof diskConfig.attributes.throughput_mbps === 'number'
+              typeof diskConfig.attributes.throughput_mbps === 'number'
               ? diskConfig.attributes.throughput_mbps * 1024 * 1024
               : undefined,
           tooltip: 'Maximum disk throughput for your current compute size',
@@ -284,23 +284,23 @@ export const getReportAttributesV2: (
           tooltip: 'Connection pool managed by PostgREST',
         },
         {
-          attribute: 'client_connections_supabase_admin',
+          attribute: 'client_connections_selfbase_admin',
           provider: 'infra-monitoring',
           label: 'Reserved',
           tooltip:
-            'Administrative connections used by various Supabase services for internal operations and maintenance tasks',
+            'Administrative connections used by various Selfbase services for internal operations and maintenance tasks',
         },
         {
-          attribute: 'client_connections_supabase_auth_admin',
+          attribute: 'client_connections_selfbase_auth_admin',
           provider: 'infra-monitoring',
           label: 'Auth',
-          tooltip: 'Connection pool managed by Supabase Auth',
+          tooltip: 'Connection pool managed by Selfbase Auth',
         },
         {
-          attribute: 'client_connections_supabase_storage_admin',
+          attribute: 'client_connections_selfbase_storage_admin',
           provider: 'infra-monitoring',
           label: 'Storage',
-          tooltip: 'Connection pool managed by Supabase Storage',
+          tooltip: 'Connection pool managed by Selfbase Storage',
         },
         {
           attribute: 'client_connections_other',
@@ -423,25 +423,25 @@ export const getReportAttributesV2: (
           tooltip: 'Disk Size refers to the total space your project occupies on disk',
         },
         !isFreePlan &&
-          (isSpendCapEnabled
-            ? {
-                attribute: 'pg_database_size_percent_paid_spendCap',
-                provider: 'reference-line',
-                isReferenceLine: true,
-                strokeDasharray: '4 2',
-                label: 'Spend cap enabled',
-                value: diskConfig?.attributes?.size_gb! * 1024 * 1024 * 1024,
-                className: '[&_line]:!stroke-yellow-800 [&_line]:!opacity-100',
-                opacity: 1,
-              }
-            : {
-                attribute: 'pg_database_size_percent_paid',
-                provider: 'reference-line',
-                isReferenceLine: true,
-                label: '90% - Disk resize threshold',
-                className: '[&_line]:!stroke-yellow-800',
-                value: diskConfig?.attributes?.size_gb! * 1024 * 1024 * 1024 * 0.9,
-              }),
+        (isSpendCapEnabled
+          ? {
+            attribute: 'pg_database_size_percent_paid_spendCap',
+            provider: 'reference-line',
+            isReferenceLine: true,
+            strokeDasharray: '4 2',
+            label: 'Spend cap enabled',
+            value: diskConfig?.attributes?.size_gb! * 1024 * 1024 * 1024,
+            className: '[&_line]:!stroke-yellow-800 [&_line]:!opacity-100',
+            opacity: 1,
+          }
+          : {
+            attribute: 'pg_database_size_percent_paid',
+            provider: 'reference-line',
+            isReferenceLine: true,
+            label: '90% - Disk resize threshold',
+            className: '[&_line]:!stroke-yellow-800',
+            value: diskConfig?.attributes?.size_gb! * 1024 * 1024 * 1024 * 0.9,
+          }),
       ],
     },
   ]

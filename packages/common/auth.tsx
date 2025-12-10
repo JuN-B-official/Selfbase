@@ -1,6 +1,6 @@
 'use client'
 
-import type { AuthError, Session } from '@supabase/supabase-js'
+import type { AuthError, Session } from '@selfbase/selfbase-js'
 import {
   createContext,
   PropsWithChildren,
@@ -42,15 +42,15 @@ const DEFAULT_SESSION: any = {
 
 type AuthState =
   | {
-      session: Session | null
-      error: AuthError | null
-      isLoading: false
-    }
+    session: Session | null
+    error: AuthError | null
+    isLoading: false
+  }
   | {
-      session: null
-      error: AuthError | null
-      isLoading: true
-    }
+    session: null
+    error: AuthError | null
+    isLoading: true
+  }
 
 export type AuthContext = { refreshSession: () => Promise<Session | null> } & AuthState
 

@@ -1,4 +1,4 @@
-import { PermissionAction } from '@supabase/shared-types/out/constants'
+import { PermissionAction } from '@selfbase/shared-types/out/constants'
 import { Download, FileArchive, Send } from 'lucide-react'
 import { useRouter } from 'next/router'
 import React, { useEffect, useState, type PropsWithChildren } from 'react'
@@ -105,27 +105,27 @@ const EdgeFunctionDetailsLayout = ({
 
   const navigationItems = functionSlug
     ? [
-        {
-          label: 'Overview',
-          href: `/project/${ref}/functions/${functionSlug}`,
-        },
-        {
-          label: 'Invocations',
-          href: `/project/${ref}/functions/${functionSlug}/invocations`,
-        },
-        {
-          label: 'Logs',
-          href: `/project/${ref}/functions/${functionSlug}/logs`,
-        },
-        {
-          label: 'Code',
-          href: `/project/${ref}/functions/${functionSlug}/code`,
-        },
-        {
-          label: 'Details',
-          href: `/project/${ref}/functions/${functionSlug}/details`,
-        },
-      ]
+      {
+        label: 'Overview',
+        href: `/project/${ref}/functions/${functionSlug}`,
+      },
+      {
+        label: 'Invocations',
+        href: `/project/${ref}/functions/${functionSlug}/invocations`,
+      },
+      {
+        label: 'Logs',
+        href: `/project/${ref}/functions/${functionSlug}/logs`,
+      },
+      {
+        label: 'Code',
+        href: `/project/${ref}/functions/${functionSlug}/code`,
+      },
+      {
+        label: 'Details',
+        href: `/project/${ref}/functions/${functionSlug}/details`,
+      },
+    ]
     : []
 
   const downloadFunction = async () => {
@@ -230,7 +230,7 @@ const EdgeFunctionDetailsLayout = ({
                         readOnly
                         containerClassName=""
                         className="text-xs font-mono tracking-tighter"
-                        value={`supabase functions download ${functionSlug}`}
+                        value={`selfbase functions download ${functionSlug}`}
                       />
                     </div>
                     <Separator className="!bg-border-overlay" />

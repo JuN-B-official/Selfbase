@@ -513,7 +513,7 @@ export const createUsageReportConfig = ({
   return [
     {
       id: 'active-user',
-      label: 'Auth Activity', // https://supabase.slack.com/archives/C08N7894QTG/p1761210058358439?thread_ts=1761147906.491599&cid=C08N7894QTG
+      label: 'Auth Activity', // https://selfbase.slack.com/archives/C08N7894QTG/p1761210058358439?thread_ts=1761147906.491599&cid=C08N7894QTG
       valuePrecision: 0,
       hide: false,
       showTooltip: true,
@@ -679,72 +679,72 @@ export const createErrorsReportConfig = ({
   interval: AnalyticsInterval
   filters: AuthReportFilters
 }): ReportConfig<AuthReportFilters>[] => [
-  {
-    id: 'auth-errors',
-    label: 'API Gateway Auth Errors',
-    valuePrecision: 0,
-    hide: false,
-    showTooltip: true,
-    showLegend: true,
-    showMaxValue: false,
-    hideChartType: false,
-    defaultChartStyle: 'line',
-    titleTooltip: 'The total number of auth errors by status code from the API Gateway.',
-    availableIn: ['free', 'pro', 'team', 'enterprise', 'platform'],
-    dataProvider: async () => {
-      const sql = AUTH_REPORT_SQL.ErrorsByStatus(interval, filters)
-      const rawData = await fetchLogs(projectRef, sql, startDate, endDate)
+    {
+      id: 'auth-errors',
+      label: 'API Gateway Auth Errors',
+      valuePrecision: 0,
+      hide: false,
+      showTooltip: true,
+      showLegend: true,
+      showMaxValue: false,
+      hideChartType: false,
+      defaultChartStyle: 'line',
+      titleTooltip: 'The total number of auth errors by status code from the API Gateway.',
+      availableIn: ['free', 'pro', 'team', 'enterprise', 'platform'],
+      dataProvider: async () => {
+        const sql = AUTH_REPORT_SQL.ErrorsByStatus(interval, filters)
+        const rawData = await fetchLogs(projectRef, sql, startDate, endDate)
 
-      if (!rawData?.result) return { data: [] }
+        if (!rawData?.result) return { data: [] }
 
-      const statusCodes = extractStatusCodesFromData(rawData.result)
-      const attributes = generateStatusCodeAttributes(statusCodes)
-      const data = transformStatusCodeData(rawData.result, statusCodes)
+        const statusCodes = extractStatusCodesFromData(rawData.result)
+        const attributes = generateStatusCodeAttributes(statusCodes)
+        const data = transformStatusCodeData(rawData.result, statusCodes)
 
-      return { data, attributes, query: sql }
+        return { data, attributes, query: sql }
+      },
     },
-  },
-  {
-    id: 'auth-errors-by-code',
-    label: 'Auth Errors by Code',
-    valuePrecision: 0,
-    hide: false,
-    showTooltip: true,
-    showLegend: true,
-    showMaxValue: false,
-    hideChartType: false,
-    defaultChartStyle: 'line',
-    titleTooltip:
-      'The total number of auth errors by Supabase Auth error code from the API Gateway.',
-    availableIn: ['free', 'pro', 'team', 'enterprise', 'platform'],
-    dataProvider: async () => {
-      const sql = AUTH_REPORT_SQL.ErrorsByAuthCode(interval, filters)
-      const rawData = await fetchLogs(projectRef, sql, startDate, endDate)
+    {
+      id: 'auth-errors-by-code',
+      label: 'Auth Errors by Code',
+      valuePrecision: 0,
+      hide: false,
+      showTooltip: true,
+      showLegend: true,
+      showMaxValue: false,
+      hideChartType: false,
+      defaultChartStyle: 'line',
+      titleTooltip:
+        'The total number of auth errors by Selfbase Auth error code from the API Gateway.',
+      availableIn: ['free', 'pro', 'team', 'enterprise', 'platform'],
+      dataProvider: async () => {
+        const sql = AUTH_REPORT_SQL.ErrorsByAuthCode(interval, filters)
+        const rawData = await fetchLogs(projectRef, sql, startDate, endDate)
 
-      if (!rawData?.result) return { data: [] }
+        if (!rawData?.result) return { data: [] }
 
-      const categories = rawData.result
-        .map((r: any) => r.error_code)
-        .filter((v: any) => v !== null && v !== undefined)
-      const distinct = Array.from(new Set(categories)).sort()
+        const categories = rawData.result
+          .map((r: any) => r.error_code)
+          .filter((v: any) => v !== null && v !== undefined)
+        const distinct = Array.from(new Set(categories)).sort()
 
-      const attributes = distinct.map((c: string) => ({
-        attribute: c,
-        label: c,
-        tooltip: AUTH_ERROR_CODE_LIST.find((e) => e.key === c)?.description,
-      }))
+        const attributes = distinct.map((c: string) => ({
+          attribute: c,
+          label: c,
+          tooltip: AUTH_ERROR_CODE_LIST.find((e) => e.key === c)?.description,
+        }))
 
-      const data = rawData.result.map((point: any) => ({
-        ...point,
-        timestamp: point.timestamp,
-      }))
+        const data = rawData.result.map((point: any) => ({
+          ...point,
+          timestamp: point.timestamp,
+        }))
 
-      const pivoted = transformCategoricalCountData(rawData.result, 'error_code', distinct)
+        const pivoted = transformCategoricalCountData(rawData.result, 'error_code', distinct)
 
-      return { data: pivoted, attributes, query: sql }
+        return { data: pivoted, attributes, query: sql }
+      },
     },
-  },
-]
+  ]
 
 export const createLatencyReportConfig = ({
   projectRef,
@@ -942,7 +942,7 @@ export const createAuthReportConfig = ({
   interval: AnalyticsInterval
   filters: AuthReportFilters
 }): ReportConfig<AuthReportFilters>[] => [
-  ...createUsageReportConfig({ projectRef, startDate, endDate, interval, filters }),
-  ...createErrorsReportConfig({ projectRef, startDate, endDate, interval, filters }),
-  ...createLatencyReportConfig({ projectRef, startDate, endDate, interval, filters }),
-]
+    ...createUsageReportConfig({ projectRef, startDate, endDate, interval, filters }),
+    ...createErrorsReportConfig({ projectRef, startDate, endDate, interval, filters }),
+    ...createLatencyReportConfig({ projectRef, startDate, endDate, interval, filters }),
+  ]

@@ -3,7 +3,7 @@ import Link from 'next/link'
 import type { UseFormReturn } from 'react-hook-form'
 // End of third-party imports
 
-import { SupportCategories } from '@supabase/shared-types/out/constants'
+import { SupportCategories } from '@selfbase/shared-types/out/constants'
 import {
   Badge,
   Collapsible_Shadcn_,
@@ -74,7 +74,7 @@ export function SupportAccessToggle({ form }: SupportAccessToggleProps) {
                       We are committed to maintaining strict data privacy and security standards in
                       all support activities.{' '}
                       <Link
-                        href="https://supabase.com/privacy"
+                        href="https://selfbase.com/privacy"
                         target="_blank"
                         rel="noreferrer"
                         className="text-foreground-light underline hover:text-foreground transition"

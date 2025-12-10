@@ -11,10 +11,8 @@ export const getAddons = (selectedAddons: ProjectSelectedAddon[]) => {
 }
 
 export const subscriptionHasHipaaAddon = (subscription?: OrgSubscription): boolean => {
-  if (!IS_PLATFORM) return false
-
   return (subscription?.addons ?? []).some(
-    (addon) => addon.supabase_prod_id === 'addon_security_hipaa'
+    (addon) => addon.selfbase_prod_id === 'addon_security_hipaa'
   )
 }
 

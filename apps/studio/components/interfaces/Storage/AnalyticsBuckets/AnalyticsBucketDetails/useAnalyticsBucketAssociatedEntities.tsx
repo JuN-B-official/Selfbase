@@ -1,4 +1,4 @@
-import { PermissionAction } from '@supabase/shared-types/out/constants'
+import { PermissionAction } from '@selfbase/shared-types/out/constants'
 
 import { useFDWDeleteMutation } from 'data/fdw/fdw-delete-mutation'
 import { useDeleteDestinationPipelineMutation } from 'data/replication/delete-destination-pipeline-mutation'
@@ -100,15 +100,15 @@ export const useAnalyticsBucketDeleteCleanUp = ({
 
   // Default error handlers from all mutations will be silenced
   const { mutateAsync: deleteFDW, isPending: isDeletingWrapper } = useFDWDeleteMutation({
-    onError: () => {},
+    onError: () => { },
   })
   const { mutateAsync: deleteS3AccessKey, isPending: isDeletingKey } = useS3AccessKeyDeleteMutation(
-    { onError: () => {} }
+    { onError: () => { } }
   )
   const { mutateAsync: deletePublication, isPending: isDeletingPublication } =
-    useDeletePublicationMutation({ onError: () => {} })
+    useDeletePublicationMutation({ onError: () => { } })
   const { mutateAsync: deletePipeline, isPending: isDeletingPipeline } =
-    useDeleteDestinationPipelineMutation({ onError: () => {} })
+    useDeleteDestinationPipelineMutation({ onError: () => { } })
 
   const isDeleting =
     isDeletingWrapper || isDeletingKey || isDeletingPublication || isDeletingPipeline

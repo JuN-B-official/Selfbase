@@ -1,120 +1,120 @@
 export type VercelFramework =
   | (
-      | 'blitzjs'
-      | 'nextjs'
-      | 'gatsby'
-      | 'remix'
-      | 'astro'
-      | 'hexo'
-      | 'eleventy'
-      | 'docusaurus-2'
-      | 'docusaurus'
-      | 'preact'
-      | 'solidstart'
-      | 'dojo'
-      | 'ember'
-      | 'vue'
-      | 'scully'
-      | 'ionic-angular'
-      | 'angular'
-      | 'polymer'
-      | 'svelte'
-      | 'sveltekit'
-      | 'sveltekit-1'
-      | 'ionic-react'
-      | 'create-react-app'
-      | 'gridsome'
-      | 'umijs'
-      | 'sapper'
-      | 'saber'
-      | 'stencil'
-      | 'nuxtjs'
-      | 'redwoodjs'
-      | 'hugo'
-      | 'jekyll'
-      | 'brunch'
-      | 'middleman'
-      | 'zola'
-      | 'hydrogen'
-      | 'vite'
-      | 'vitepress'
-      | 'vuepress'
-      | 'parcel'
-      | 'sanity'
-      | 'storybook'
-    )
+    | 'blitzjs'
+    | 'nextjs'
+    | 'gatsby'
+    | 'remix'
+    | 'astro'
+    | 'hexo'
+    | 'eleventy'
+    | 'docusaurus-2'
+    | 'docusaurus'
+    | 'preact'
+    | 'solidstart'
+    | 'dojo'
+    | 'ember'
+    | 'vue'
+    | 'scully'
+    | 'ionic-angular'
+    | 'angular'
+    | 'polymer'
+    | 'svelte'
+    | 'sveltekit'
+    | 'sveltekit-1'
+    | 'ionic-react'
+    | 'create-react-app'
+    | 'gridsome'
+    | 'umijs'
+    | 'sapper'
+    | 'saber'
+    | 'stencil'
+    | 'nuxtjs'
+    | 'redwoodjs'
+    | 'hugo'
+    | 'jekyll'
+    | 'brunch'
+    | 'middleman'
+    | 'zola'
+    | 'hydrogen'
+    | 'vite'
+    | 'vitepress'
+    | 'vuepress'
+    | 'parcel'
+    | 'sanity'
+    | 'storybook'
+  )
   | null
 
 export type VercelGitLink =
   | {
-      /**
-       * GitHub link
-       */
-      org?: string
-      repo?: string
-      repoId?: number
-      type?: 'github'
+    /**
+     * GitHub link
+     */
+    org?: string
+    repo?: string
+    repoId?: number
+    type?: 'github'
+    createdAt?: number
+    deployHooks: {
       createdAt?: number
-      deployHooks: {
-        createdAt?: number
-        id: string
-        name: string
-        ref: string
-        url: string
-      }[]
-      gitCredentialId?: string
-      updatedAt?: number
-      sourceless?: boolean
-      productionBranch?: string
-    }
+      id: string
+      name: string
+      ref: string
+      url: string
+    }[]
+    gitCredentialId?: string
+    updatedAt?: number
+    sourceless?: boolean
+    productionBranch?: string
+  }
   | {
-      /**
-       * GitLab link
-       */
-      projectId?: string
-      projectName?: string
-      projectNameWithNamespace?: string
-      projectNamespace?: string
-      projectUrl?: string
-      type?: 'gitlab'
+    /**
+     * GitLab link
+     */
+    projectId?: string
+    projectName?: string
+    projectNameWithNamespace?: string
+    projectNamespace?: string
+    projectUrl?: string
+    type?: 'gitlab'
+    createdAt?: number
+    deployHooks: {
       createdAt?: number
-      deployHooks: {
-        createdAt?: number
-        id: string
-        name: string
-        ref: string
-        url: string
-      }[]
-      gitCredentialId?: string
-      updatedAt?: number
-      sourceless?: boolean
-      productionBranch?: string
-    }
+      id: string
+      name: string
+      ref: string
+      url: string
+    }[]
+    gitCredentialId?: string
+    updatedAt?: number
+    sourceless?: boolean
+    productionBranch?: string
+  }
   | {
-      /**
-       * Bitbucket link
-       */
-      name?: string
-      slug?: string
-      owner?: string
-      type?: 'bitbucket'
-      uuid?: string
-      workspaceUuid?: string
+    /**
+     * Bitbucket link
+     */
+    name?: string
+    slug?: string
+    owner?: string
+    type?: 'bitbucket'
+    uuid?: string
+    workspaceUuid?: string
+    createdAt?: number
+    deployHooks: {
       createdAt?: number
-      deployHooks: {
-        createdAt?: number
-        id: string
-        name: string
-        ref: string
-        url: string
-      }[]
-      gitCredentialId?: string
-      updatedAt?: number
-      sourceless?: boolean
-      productionBranch?: string
-    }
+      id: string
+      name: string
+      ref: string
+      url: string
+    }[]
+    gitCredentialId?: string
+    updatedAt?: number
+    sourceless?: boolean
+    productionBranch?: string
+  }
 
-export type SupabaseConfigVercel = {
+export type SelfbaseConfigVercel = {
   environmentVariables: {
     production: boolean
     preview: boolean
@@ -127,7 +127,7 @@ export type SupabaseConfigVercel = {
 
 export type Imetadata = {
   id: string
-  supabaseConfig?: {
+  selfbaseConfig?: {
     environmentVariables?: {
       production: boolean
       preview: boolean
@@ -136,8 +136,8 @@ export type Imetadata = {
       production: boolean
       preview: boolean
     }
-    supabaseDirectory?: string
-    supabaseChangesOnly?: boolean
+    selfbaseDirectory?: string
+    selfbaseChangesOnly?: boolean
     branchLimit?: number
   }
   link?: VercelGitLink
@@ -150,7 +150,7 @@ export type IntegrationProjectConnection = {
   inserted_at: string
   updated_at: string
   added_by: addedBy
-  supabase_project_ref: string
+  selfbase_project_ref: string
   foreign_project_id: string
   organization_integration_id: string
   env_sync_targets?: string[]
@@ -160,7 +160,7 @@ export type IntegrationProjectConnection = {
 
 export type IntegrationProjectConnectionPayload = {
   foreignProjectId: string
-  supabaseProjectId: string
+  selfbaseProjectId: string
   integrationId: string
   metadata: Imetadata
 }
@@ -225,25 +225,25 @@ export type IntegrationBase = {
 
 export type Integration =
   | (IntegrationBase & {
-      id: string
-      integration: {
-        name: 'Vercel'
-      }
-      metadata?: VercelMetadata
-    })
+    id: string
+    integration: {
+      name: 'Vercel'
+    }
+    metadata?: VercelMetadata
+  })
   | (IntegrationBase & {
-      id: string
-      integration: {
-        name: 'GitHub'
-      }
-      metadata?: GitHubMetadata
-    })
+    id: string
+    integration: {
+      name: 'GitHub'
+    }
+    metadata?: GitHubMetadata
+  })
 
 export type IntegrationConnectionsCreateVariables = {
   organizationIntegrationId: string
   connection: {
     foreign_project_id: string
-    supabase_project_ref: string
+    selfbase_project_ref: string
     integration_id: string
     metadata: any
   }
@@ -265,7 +265,7 @@ export type GitHubConnection = {
   branch_limit: number
   installation_id: number
   new_branch_per_pr: boolean
-  supabase_changes_only: boolean
+  selfbase_changes_only: boolean
   workdir: string
   project: {
     id: number

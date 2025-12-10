@@ -1,5 +1,5 @@
-import type { PostgresPublication, PostgresTable } from '@supabase/postgres-meta'
-import { PermissionAction } from '@supabase/shared-types/out/constants'
+import type { PostgresPublication, PostgresTable } from '@selfbase/postgres-meta'
+import { PermissionAction } from '@selfbase/shared-types/out/constants'
 import { useState } from 'react'
 import { toast } from 'sonner'
 
@@ -48,11 +48,11 @@ export const PublicationsTableItem = ({
     const exists = publicationTables.some((x: any) => x.id == table.id)
     const tables = !exists
       ? [`${table.schema}.${table.name}`].concat(
-          publicationTables.map((t: any) => `${t.schema}.${t.name}`)
-        )
+        publicationTables.map((t: any) => `${t.schema}.${t.name}`)
+      )
       : publicationTables
-          .filter((x: any) => x.id != table.id)
-          .map((x: any) => `${x.schema}.${x.name}`)
+        .filter((x: any) => x.id != table.id)
+        .map((x: any) => `${x.schema}.${x.name}`)
 
     updatePublications(
       {

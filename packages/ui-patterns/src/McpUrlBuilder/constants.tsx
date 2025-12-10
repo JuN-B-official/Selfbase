@@ -11,16 +11,12 @@ import type {
 } from './types'
 import { getMcpUrl } from './types'
 
+// Selfbase MCP Feature Groups
 export const FEATURE_GROUPS_PLATFORM: McpFeatureGroup[] = [
   {
     id: 'docs',
     name: 'Documentation',
-    description: 'Access Supabase documentation and guides',
-  },
-  {
-    id: 'account',
-    name: 'Account',
-    description: 'Manage account settings and preferences',
+    description: 'Search Selfbase official documentation',
   },
   {
     id: 'database',
@@ -30,12 +26,12 @@ export const FEATURE_GROUPS_PLATFORM: McpFeatureGroup[] = [
   {
     id: 'debugging',
     name: 'Debugging',
-    description: 'Debug and troubleshoot issues',
+    description: 'Get logs and debug issues',
   },
   {
     id: 'development',
     name: 'Development',
-    description: 'Development tools and utilities',
+    description: 'Get project URL, keys, generate TypeScript types',
   },
   {
     id: 'functions',
@@ -45,12 +41,22 @@ export const FEATURE_GROUPS_PLATFORM: McpFeatureGroup[] = [
   {
     id: 'branching',
     name: 'Branching',
-    description: 'Manage database branches',
+    description: 'Manage database branches (schema-based)',
   },
   {
     id: 'storage',
     name: 'Storage',
     description: 'Manage files and storage buckets',
+  },
+  {
+    id: 'auth',
+    name: 'Auth',
+    description: 'Manage users and authentication',
+  },
+  {
+    id: 'operations',
+    name: 'Operations (SRE)',
+    description: 'Health checks, backups, secret rotation',
   },
 ]
 
@@ -58,6 +64,25 @@ export const FEATURE_GROUPS_NON_PLATFORM = FEATURE_GROUPS_PLATFORM.filter((group
   ['docs', 'database', 'development', 'debugging'].includes(group.id)
 )
 
+// Selfbase MCP - Standard config using CLI args (recommended for all clients)
+const getSelfbaseMcpConfig = () => ({
+  mcpServers: {
+    'selfbase-mcp': {
+      command: 'npx',
+      args: [
+        '-y',
+        '@jun-b/selfbase-mcp@latest',
+        '--selfbase-url',
+        'YOUR_SELFBASE_URL',
+        '--service-role-key',
+        'YOUR_SERVICE_ROLE_KEY',
+      ],
+      env: {},
+    },
+  },
+})
+
+// Selfbase MCP Clients Configuration
 export const MCP_CLIENTS: McpClient[] = [
   {
     key: 'cursor',
@@ -65,15 +90,7 @@ export const MCP_CLIENTS: McpClient[] = [
     icon: 'cursor',
     configFile: '.cursor/mcp.json',
     externalDocsUrl: 'https://docs.cursor.com/context/mcp',
-    generateDeepLink: (config) => {
-      const name = 'supabase'
-      const mcpUrl = getMcpUrl(config)
-      const serverConfig = {
-        url: mcpUrl,
-      }
-      const base64Config = Buffer.from(JSON.stringify(serverConfig)).toString('base64')
-      return `cursor://anysphere.cursor-deeplink/mcp/install?name=${name}&config=${encodeURIComponent(base64Config)}`
-    },
+    transformConfig: () => getSelfbaseMcpConfig(),
   },
   {
     key: 'claude-code',
@@ -81,54 +98,24 @@ export const MCP_CLIENTS: McpClient[] = [
     icon: 'claude',
     configFile: '.mcp.json',
     externalDocsUrl: 'https://code.claude.com/docs/en/mcp',
-    transformConfig: (config): ClaudeCodeMcpConfig => {
-      return {
-        mcpServers: {
-          supabase: {
-            type: 'http',
-            url: config.mcpServers.supabase.url,
-          },
-        },
-      }
-    },
+    transformConfig: () => getSelfbaseMcpConfig(),
     primaryInstructions: (_config, onCopy) => {
-      const config = _config as ClaudeCodeMcpConfig
-      const command = `claude mcp add --scope project --transport http supabase "${config.mcpServers.supabase.url}"`
+      const command = `npx -y @jun-b/selfbase-mcp@latest --selfbase-url YOUR_SELFBASE_URL --service-role-key YOUR_SERVICE_ROLE_KEY`
       return (
         <div className="space-y-2">
           <p className="text-xs text-foreground-light">
-            Add the MCP server to your project config using the command line:
+            Run the Selfbase MCP server:
           </p>
           <CodeBlock
             value={command}
             language="bash"
             focusable={false}
-            // This is a no-op but the CodeBlock component is designed to output
-            // inline code if no className is given
             className="block"
             onCopyCallback={() => onCopy('command')}
           />
         </div>
       )
     },
-    alternateInstructions: (_config, onCopy) => (
-      <div className="space-y-2">
-        <p className="text-xs text-foreground-light">
-          After configuring the MCP server, you need to authenticate. In a regular terminal (not the
-          IDE extension) run:
-        </p>
-        <CodeBlock
-          value="claude /mcp"
-          language="bash"
-          focusable={false}
-          className="block"
-          onCopyCallback={() => onCopy('command')}
-        />
-        <p className="text-xs text-foreground-light">
-          Select the "supabase" server, then "Authenticate" to begin the authentication flow.
-        </p>
-      </div>
-    ),
   },
   {
     key: 'vscode',
@@ -136,79 +123,21 @@ export const MCP_CLIENTS: McpClient[] = [
     icon: 'vscode',
     configFile: '.vscode/mcp.json',
     externalDocsUrl: 'https://code.visualstudio.com/docs/copilot/chat/mcp-servers',
-    transformConfig: (config): VSCodeMcpConfig => {
-      return {
-        servers: {
-          supabase: {
-            type: 'http',
-            url: config.mcpServers.supabase.url,
-          },
+    transformConfig: (): VSCodeMcpConfig => ({
+      servers: {
+        'selfbase-mcp': {
+          command: 'npx',
+          args: [
+            '-y',
+            '@jun-b/selfbase-mcp@latest',
+            '--selfbase-url',
+            'YOUR_SELFBASE_URL',
+            '--service-role-key',
+            'YOUR_SERVICE_ROLE_KEY',
+          ],
         },
-      }
-    },
-    generateDeepLink: (_config) => {
-      const config = _config as VSCodeMcpConfig
-      const mcpConfig = { name: 'supabase', ...config.servers.supabase }
-
-      return `vscode:mcp/install?${encodeURIComponent(JSON.stringify(mcpConfig))}`
-    },
-  },
-  {
-    key: 'codex',
-    label: 'Codex',
-    icon: 'openai',
-    configFile: '~/.codex/config.toml',
-    externalDocsUrl: 'https://developers.openai.com/codex/mcp/',
-    transformConfig: (config): CodexMcpConfig => {
-      return {
-        mcp_servers: {
-          supabase: {
-            url: config.mcpServers.supabase.url,
-          },
-        },
-      }
-    },
-    primaryInstructions: (config, onCopy) => {
-      const mcpUrl = getMcpUrl(config)
-      const command = `codex mcp add supabase --url ${mcpUrl}`
-      return (
-        <div className="space-y-2">
-          <p className="text-xs text-foreground-light">Add the Supabase MCP server to Codex:</p>
-          <CodeBlock
-            value={command}
-            language="bash"
-            focusable={false}
-            className="block"
-            onCopyCallback={() => onCopy('command')}
-          />
-        </div>
-      )
-    },
-    alternateInstructions: (config, onCopy) => (
-      <div className="space-y-2">
-        <p className="text-xs text-foreground-light">
-          After adding the server, enable remote MCP client support by adding this to your{' '}
-          <code>~/.codex/config.toml</code>:
-        </p>
-        <CodeBlock
-          value={`[features]\nrmcp_client = true`}
-          focusable={false}
-          className="block"
-          onCopyCallback={() => onCopy('config')}
-        />
-        <p className="text-xs text-foreground-light">Then authenticate:</p>
-        <CodeBlock
-          value="codex mcp login supabase"
-          language="bash"
-          focusable={false}
-          className="block"
-          onCopyCallback={() => onCopy('command')}
-        />
-        <p className="text-xs text-foreground-light">
-          Finally, run <code>/mcp</code> inside Codex to verify authentication.
-        </p>
-      </div>
-    ),
+      },
+    }),
   },
   {
     key: 'windsurf',
@@ -216,22 +145,7 @@ export const MCP_CLIENTS: McpClient[] = [
     icon: 'windsurf',
     configFile: '~/.codeium/windsurf/mcp_config.json',
     externalDocsUrl: '',
-    transformConfig: (config): WindsurfMcpConfig => {
-      return {
-        mcpServers: {
-          supabase: {
-            command: 'npx',
-            args: ['-y', 'mcp-remote', config.mcpServers.supabase.url],
-          },
-        },
-      }
-    },
-    alternateInstructions: (config, onCopy) => (
-      <p className="text-xs text-foreground-light">
-        Windsurf does not currently support remote MCP servers over HTTP transport. You need to use
-        the mcp-remote package as a proxy.
-      </p>
-    ),
+    transformConfig: () => getSelfbaseMcpConfig(),
   },
   {
     key: 'goose',
@@ -239,38 +153,38 @@ export const MCP_CLIENTS: McpClient[] = [
     icon: 'goose',
     configFile: '~/.config/goose/config.yaml',
     externalDocsUrl: 'https://block.github.io/goose/docs/category/getting-started',
-    transformConfig: (config): GooseMcpConfig => {
-      return {
-        extensions: {
-          supabase: {
-            available_tools: [],
-            bundled: null,
-            description:
-              'Connect your Supabase projects to AI assistants. Manage tables, query data, deploy Edge Functions, and interact with your Supabase backend directly from your MCP client.',
-            enabled: true,
-            env_keys: [],
-            envs: {},
-            headers: {},
-            name: 'Supabase',
-            timeout: 300,
-            type: 'streamable_http',
-            uri: config.mcpServers.supabase.url,
-          },
+    transformConfig: (): GooseMcpConfig => ({
+      extensions: {
+        'selfbase-mcp': {
+          available_tools: [],
+          bundled: null,
+          description:
+            'Connect your self-hosted Selfbase instance to AI assistants. Manage tables, query data, deploy Edge Functions, and perform SRE operations.',
+          enabled: true,
+          env_keys: [],
+          envs: {},
+          headers: {},
+          name: 'Selfbase',
+          timeout: 300,
+          type: 'stdio',
+          cmd: 'npx',
+          args: [
+            '-y',
+            '@jun-b/selfbase-mcp@latest',
+            '--selfbase-url',
+            'YOUR_SELFBASE_URL',
+            '--service-role-key',
+            'YOUR_SERVICE_ROLE_KEY',
+          ],
         },
-      }
-    },
-    generateDeepLink: (config) => {
-      const name = 'supabase'
-      const mcpUrl = getMcpUrl(config)
-      return `goose://extension?type=streamable_http&url=${encodeURIComponent(mcpUrl)}&id=supabase&name=${name}&description=${encodeURIComponent('Connect your Supabase projects to AI assistants. Manage tables, query data, deploy Edge Functions, and interact with your Supabase backend directly from your MCP client.')}`
-    },
-    primaryInstructions: (config, onCopy) => {
-      const mcpUrl = getMcpUrl(config)
-      const command = `goose session --with-streamable-http-extension "${mcpUrl}"`
+      },
+    }),
+    primaryInstructions: (_config, onCopy) => {
+      const command = `npx -y @jun-b/selfbase-mcp@latest --selfbase-url YOUR_SELFBASE_URL --service-role-key YOUR_SERVICE_ROLE_KEY`
       return (
         <div className="space-y-2">
           <p className="text-xs text-foreground-light">
-            Start a Goose session with the Supabase extension:
+            Start with Selfbase MCP:
           </p>
           <CodeBlock
             value={command}
@@ -282,65 +196,31 @@ export const MCP_CLIENTS: McpClient[] = [
         </div>
       )
     },
-    alternateInstructions: (config, onCopy) => (
-      <div className="space-y-2">
-        <p className="text-xs text-foreground-light">
-          For more details, see{' '}
-          <a
-            href="https://block.github.io/goose/docs/getting-started/using-extensions"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-brand underline"
-          >
-            Using Extensions
-          </a>{' '}
-          in Goose.
-        </p>
-      </div>
-    ),
   },
   {
-    key: 'factory',
-    label: 'Factory',
-    icon: 'factory',
-    configFile: '~/.factory/mcp.json',
-    externalDocsUrl: 'https://docs.factory.ai/cli/configuration/mcp.md',
-    transformConfig: (config): FactoryMcpConfig => {
-      return {
-        mcpServers: {
-          supabase: {
-            type: 'http',
-            url: config.mcpServers.supabase.url,
-          },
-        },
-      }
-    },
-    primaryInstructions: (config, onCopy) => {
-      const mcpUrl = getMcpUrl(config)
-      const command = `droid mcp add supabase ${mcpUrl} --type http`
-      return (
-        <div className="space-y-2">
-          <p className="text-xs text-foreground-light">Add the Supabase MCP server to Factory:</p>
-          <CodeBlock
-            value={command}
-            language="bash"
-            focusable={false}
-            className="block"
-            onCopyCallback={() => onCopy('command')}
-          />
-        </div>
-      )
-    },
-    alternateInstructions: (config, onCopy) => (
+    key: 'antigravity',
+    label: 'Antigravity',
+    icon: 'gemini',
+    configFile: '~/.gemini/antigravity/mcp_config.json',
+    externalDocsUrl: '',
+    transformConfig: () => getSelfbaseMcpConfig(),
+    primaryInstructions: (_config, onCopy) => (
       <div className="space-y-2">
         <p className="text-xs text-foreground-light">
-          Restart Factory or type <code>/mcp</code> within droid to complete the OAuth
-          authentication flow.
+          For Antigravity IDE, use CLI arguments (env vars cause EOF errors):
         </p>
+        <CodeBlock
+          value={JSON.stringify(getSelfbaseMcpConfig(), null, 2)}
+          language="json"
+          focusable={false}
+          className="block"
+          onCopyCallback={() => onCopy('config')}
+        />
       </div>
     ),
   },
 ]
 
-export const DEFAULT_MCP_URL_PLATFORM = 'http://localhost:8080/mcp'
+// Selfbase MCP URL defaults
+export const DEFAULT_MCP_URL_PLATFORM = '/api/mcp'
 export const DEFAULT_MCP_URL_NON_PLATFORM = 'http://localhost:54321/mcp'

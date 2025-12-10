@@ -58,7 +58,7 @@ export const SpreadsheetImportPreview = ({
 
   /**
    * Remove items with duplicate row and code values because of the papaparse issue
-   * @link https://github.com/supabase/supabase/pull/38422#issue-3381886843
+   * @link https://github.com/selfbase/selfbase/pull/38422#issue-3381886843
    **/
   const dedupedErrors = errors.filter(
     (error, index, self) =>
@@ -101,9 +101,8 @@ export const SpreadsheetImportPreview = ({
               {selectedTable === undefined
                 ? `Your table will have ${spreadsheetData.rowCount.toLocaleString()} rows and the
                         following ${spreadsheetData.headers.length} columns.`
-                : `A total of ${spreadsheetData.rowCount.toLocaleString()} rows will be added to the table "${
-                    selectedTable.name
-                  }"`}
+                : `A total of ${spreadsheetData.rowCount.toLocaleString()} rows will be added to the table "${selectedTable.name
+                }"`}
             </p>
             <p className="text-sm text-foreground-light">
               Here is a preview of the data that will be added (up to the first 20 columns and first

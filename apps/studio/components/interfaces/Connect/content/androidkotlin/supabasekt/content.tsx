@@ -28,9 +28,9 @@ data class TodoItem(val id: Int, val name: String)
       <ConnectTabContent value="MainActivity.kt">
         <SimpleCodeBlock className="kotlin" parentClassName="min-h-72">
           {`
-val supabase = createSupabaseClient(
-    supabaseUrl = "${projectKeys.apiUrl ?? 'your-project-url'}",
-    supabaseKey = "${projectKeys.publishableKey ?? '<prefer publishable key instead of anon key for mobile apps>'}"
+val selfbase = createSelfbaseClient(
+    selfbaseUrl = "${projectKeys.apiUrl ?? 'your-project-url'}",
+    selfbaseKey = "${projectKeys.publishableKey ?? '<prefer publishable key instead of anon key for mobile apps>'}"
   ) {
     install(Postgrest)
 }
@@ -57,7 +57,7 @@ fun TodoList() {
     var items by remember { mutableStateOf<List<TodoItem>>(listOf()) }
     LaunchedEffect(Unit) {
         withContext(Dispatchers.IO) {
-            items = supabase.from("todos")
+            items = selfbase.from("todos")
                               .select().decodeList<TodoItem>()
         }
     }

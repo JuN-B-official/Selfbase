@@ -15,8 +15,8 @@ export const BucketsUpgradePlan = ({ type }: { type: 'analytics' | 'vector' }) =
             entity={type === 'analytics' ? 'Analytics buckets' : 'Vector buckets'}
             feedbackUrl={
               type === 'analytics'
-                ? 'https://github.com/orgs/supabase/discussions/40116'
-                : 'https://github.com/orgs/supabase/discussions/40815'
+                ? 'https://github.com/orgs/selfbase/discussions/40116'
+                : 'https://github.com/orgs/selfbase/discussions/40815'
             }
           />
           <EmptyStatePresentational

@@ -1,6 +1,6 @@
 ---
 title: Current User Avatar
-description: Supabase Auth-aware avatar
+description: Selfbase Auth-aware avatar
 ---
 
 <ComponentPreview name="current-user-avatar-demo" showCode={false} />
@@ -15,8 +15,8 @@ description: Supabase Auth-aware avatar
 
 ## Introduction
 
-The `CurrentUserAvatar` component connects to Supabase Auth to fetch the user data and show an avatar. It uses the `user_metadata`
-property which gets populated automatically by Supabase Auth if the user logged in via a provider. If the user doesn't have a profile image, it renders their initials. If the user is logged out, it renders a `?` as a fallback, which you can change.
+The `CurrentUserAvatar` component connects to Selfbase Auth to fetch the user data and show an avatar. It uses the `user_metadata`
+property which gets populated automatically by Selfbase Auth if the user logged in via a provider. If the user doesn't have a profile image, it renders their initials. If the user is logged out, it renders a `?` as a fallback, which you can change.
 
 ## Usage
 
@@ -43,4 +43,4 @@ This component doesn't accept any props. If you wish to change the fallback, you
 
 ## Further reading
 
-- [Auth users](https://supabase.com/docs/guides/auth/users)
+- [Auth users](https://selfbase.com/docs/guides/auth/users)

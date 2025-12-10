@@ -99,7 +99,7 @@ const providers = {
 
 // [Joshen] Just FYI this is not stress tested as I'm not sure what
 // all the potential values for each provider is under user.raw_app_meta_data.provider
-// Will need to go through one by one to properly verify https://supabase.com/docs/guides/auth/social-login
+// Will need to go through one by one to properly verify https://selfbase.com/docs/guides/auth/social-login
 // But I've made the UI handle to not render any icon if nothing matches in this map
 export const providerIconMap: { [key: string]: string } = Object.values([
   ...providers.social,
@@ -169,41 +169,41 @@ export function getDisplayName(user: User, fallback = '-'): string {
 
   const last = toPrettyJsonString(
     familyName ||
-      family_name ||
-      surname ||
-      lastName ||
-      last_name ||
-      ccFamilyName ||
-      cc_family_name ||
-      ccSurname ||
-      ccLastName ||
-      cc_last_name
+    family_name ||
+    surname ||
+    lastName ||
+    last_name ||
+    ccFamilyName ||
+    cc_family_name ||
+    ccSurname ||
+    ccLastName ||
+    cc_last_name
   )
 
   const first = toPrettyJsonString(
     givenName ||
-      given_name ||
-      firstName ||
-      first_name ||
-      ccGivenName ||
-      cc_given_name ||
-      ccFirstName ||
-      cc_first_name
+    given_name ||
+    firstName ||
+    first_name ||
+    ccGivenName ||
+    cc_given_name ||
+    ccFirstName ||
+    cc_first_name
   )
 
   return (
     toPrettyJsonString(
       displayName ||
-        display_name ||
-        ccDisplayName ||
-        cc_display_name ||
-        fullName ||
-        full_name ||
-        ccFullName ||
-        cc_full_name ||
-        (first && last && `${first} ${last}`) ||
-        last ||
-        first
+      display_name ||
+      ccDisplayName ||
+      cc_display_name ||
+      fullName ||
+      full_name ||
+      ccFullName ||
+      cc_full_name ||
+      (first && last && `${first} ${last}`) ||
+      last ||
+      first
     ) || fallback
   )
 }
@@ -306,13 +306,13 @@ export const formatUserColumns = ({
             : Array.isArray(value)
               ? col.id === 'providers'
                 ? value
-                    .map((x) => {
-                      const meta = PROVIDERS_SCHEMAS.find(
-                        (y) => ('key' in y && y.key === x) || y.title.toLowerCase() === x
-                      )
-                      return meta?.title
-                    })
-                    .join(', ')
+                  .map((x) => {
+                    const meta = PROVIDERS_SCHEMAS.find(
+                      (y) => ('key' in y && y.key === x) || y.title.toLowerCase() === x
+                    )
+                    return meta?.title
+                  })
+                  .join(', ')
                 : value.join(', ')
               : value
         const isConfirmed = !!user?.confirmed_at
@@ -429,6 +429,6 @@ export const formatUserColumns = ({
   return visibleColumns.length === 0
     ? gridColumns
     : ([profileImageColumn].concat(
-        gridColumns.filter((col) => visibleColumns.includes(col.key))
-      ) as Column<any>[])
+      gridColumns.filter((col) => visibleColumns.includes(col.key))
+    ) as Column<any>[])
 }

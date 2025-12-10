@@ -58,7 +58,7 @@ export interface ProjectLinkerProps {
   loadingForeignProjects?: boolean
   showNoEntitiesState?: boolean
 
-  defaultSupabaseProjectRef?: string
+  defaultSelfbaseProjectRef?: string
   defaultForeignProjectId?: string
   mode: 'Vercel' | 'GitHub'
 }
@@ -77,7 +77,7 @@ const ProjectLinker = ({
   loadingForeignProjects,
   showNoEntitiesState = true,
 
-  defaultSupabaseProjectRef,
+  defaultSelfbaseProjectRef,
   defaultForeignProjectId,
   mode,
 }: ProjectLinkerProps) => {
@@ -89,20 +89,20 @@ const ProjectLinker = ({
   const [foreignProjectId, setForeignProjectId] = useState<string | undefined>(
     defaultForeignProjectId
   )
-  const [supabaseProjectRef, setSupabaseProjectRef] = useState<string | undefined>(
-    defaultSupabaseProjectRef
+  const [selfbaseProjectRef, setSelfbaseProjectRef] = useState<string | undefined>(
+    defaultSelfbaseProjectRef
   )
 
   const { data: selectedOrganization } = useSelectedOrganizationQuery()
-  const { data: orgProjects, isPending: loadingSupabaseProjects } = useOrgProjectsInfiniteQuery({
+  const { data: orgProjects, isPending: loadingSelfbaseProjects } = useOrgProjectsInfiniteQuery({
     slug,
   })
   const numProjects = orgProjects?.pages[0].pagination.count ?? 0
 
   useEffect(() => {
-    if (defaultSupabaseProjectRef !== undefined && supabaseProjectRef === undefined)
-      setSupabaseProjectRef(defaultSupabaseProjectRef)
-  }, [defaultSupabaseProjectRef, supabaseProjectRef])
+    if (defaultSelfbaseProjectRef !== undefined && selfbaseProjectRef === undefined)
+      setSelfbaseProjectRef(defaultSelfbaseProjectRef)
+  }, [defaultSelfbaseProjectRef, selfbaseProjectRef])
 
   useEffect(() => {
     if (defaultForeignProjectId !== undefined && foreignProjectId === undefined)
@@ -112,7 +112,7 @@ const ProjectLinker = ({
   // create a flat array of foreign project ids. ie, ["prj_MlkO6AiLG5ofS9ojKrkS3PhhlY3f", ..]
   const flatInstalledConnectionsIds = new Set(installedConnections.map((x) => x.foreign_project_id))
 
-  const { data: selectedSupabaseProject } = useProjectDetailQuery({ ref: supabaseProjectRef })
+  const { data: selectedSelfbaseProject } = useProjectDetailQuery({ ref: selfbaseProjectRef })
 
   const selectedForeignProject = foreignProjectId
     ? foreignProjects.find((x) => x.id?.toLowerCase() === foreignProjectId?.toLowerCase())
@@ -122,7 +122,7 @@ const ProjectLinker = ({
     const projectDetails = selectedForeignProject
 
     if (!selectedForeignProject?.id) return console.error('No Foreign project ID set')
-    if (!selectedSupabaseProject?.ref) return console.error('No Supabase project ref set')
+    if (!selectedSelfbaseProject?.ref) return console.error('No Selfbase project ref set')
 
     const alreadyInstalled = flatInstalledConnectionsIds.has(foreignProjectId ?? '')
     if (alreadyInstalled) {
@@ -135,7 +135,7 @@ const ProjectLinker = ({
       organizationIntegrationId: organizationIntegrationId!,
       connection: {
         foreign_project_id: selectedForeignProject?.id,
-        supabase_project_ref: selectedSupabaseProject?.ref,
+        selfbase_project_ref: selectedSelfbaseProject?.ref,
         integration_id: '0',
         metadata: {
           ...projectDetails,
@@ -144,7 +144,7 @@ const ProjectLinker = ({
       orgSlug: selectedOrganization?.slug,
       new: {
         installation_id: selectedForeignProject.installation_id!,
-        project_ref: selectedSupabaseProject.ref,
+        project_ref: selectedSelfbaseProject.ref,
         repository_id: Number(selectedForeignProject.id),
       },
     })
@@ -164,10 +164,10 @@ const ProjectLinker = ({
     )
   }
 
-  const noSupabaseProjects = numProjects === 0
+  const noSelfbaseProjects = numProjects === 0
   const noForeignProjects = foreignProjects.length === 0
-  const missingEntity = noSupabaseProjects ? 'Supabase' : mode
-  const oppositeMissingEntity = noSupabaseProjects ? mode : 'Supabase'
+  const missingEntity = noSelfbaseProjects ? 'Selfbase' : mode
+  const oppositeMissingEntity = noSelfbaseProjects ? mode : 'Selfbase'
 
   return (
     <div className="flex flex-col bg border shadow rounded-lg overflow-hidden">
@@ -182,7 +182,7 @@ const ProjectLinker = ({
             <p className="text-sm text-foreground text-center">Loading projects</p>
             <ShimmerLine active />
           </div>
-        ) : showNoEntitiesState && (noSupabaseProjects || noForeignProjects) ? (
+        ) : showNoEntitiesState && (noSelfbaseProjects || noForeignProjects) ? (
           <div className="text-center">
             <h5 className="text-foreground">No {missingEntity} Projects found</h5>
             <p className="text-foreground-light text-sm">
@@ -196,7 +196,7 @@ const ProjectLinker = ({
           <div className="flex justify-center gap-0 w-full relative">
             <Panel>
               <div className="bg-white shadow border rounded p-1 w-12 h-12 flex justify-center items-center">
-                <img src={`${BASE_PATH}/img/supabase-logo.svg`} alt="Supabase" className="w-6" />
+                <img src={`${BASE_PATH}/img/selfbase-logo.svg`} alt="Selfbase" className="w-6" />
               </div>
 
               <OrganizationProjectSelector
@@ -204,9 +204,9 @@ const ProjectLinker = ({
                 open={openProjectsDropdown}
                 setOpen={setOpenProjectsDropdown}
                 slug={slug}
-                selectedRef={supabaseProjectRef}
+                selectedRef={selfbaseProjectRef}
                 onSelect={(project) => {
-                  setSupabaseProjectRef(project.ref)
+                  setSelfbaseProjectRef(project.ref)
                   setOpenProjectsDropdown(false)
                 }}
                 renderRow={(project) => {
@@ -215,8 +215,8 @@ const ProjectLinker = ({
                       <div className="flex items-center gap-x-2">
                         <div className="bg-white shadow border rounded p-1 w-6 h-6 flex justify-center items-center">
                           <img
-                            src={`${BASE_PATH}/img/supabase-logo.svg`}
-                            alt="Supabase"
+                            src={`${BASE_PATH}/img/selfbase-logo.svg`}
+                            alt="Selfbase"
                             className="w-4"
                           />
                         </div>
@@ -224,7 +224,7 @@ const ProjectLinker = ({
                         {project.status === 'INACTIVE' && <Badge>Paused</Badge>}
                         {project.status === 'GOING_DOWN' && <Badge>Pausing</Badge>}
                       </div>
-                      {project.ref === supabaseProjectRef && <Check size={16} />}
+                      {project.ref === selfbaseProjectRef && <Check size={16} />}
                     </div>
                   )
                 }}
@@ -233,11 +233,11 @@ const ProjectLinker = ({
                     <Button
                       type="default"
                       block
-                      disabled={defaultSupabaseProjectRef !== undefined || loadingSupabaseProjects}
-                      loading={loadingSupabaseProjects}
+                      disabled={defaultSelfbaseProjectRef !== undefined || loadingSelfbaseProjects}
+                      loading={loadingSelfbaseProjects}
                       className="justify-between h-[34px]"
                       iconRight={
-                        defaultSupabaseProjectRef === undefined ? (
+                        defaultSelfbaseProjectRef === undefined ? (
                           <span className="grow flex justify-end">
                             <ChevronDown />
                           </span>
@@ -247,14 +247,14 @@ const ProjectLinker = ({
                       <div className="flex items-center gap-x-2">
                         <div className="bg-white shadow border rounded p-1 w-6 h-6 flex justify-center items-center">
                           <img
-                            src={`${BASE_PATH}/img/supabase-logo.svg`}
-                            alt="Supabase"
+                            src={`${BASE_PATH}/img/selfbase-logo.svg`}
+                            alt="Selfbase"
                             className="w-4"
                           />
                         </div>
-                        {selectedSupabaseProject
-                          ? selectedSupabaseProject.name
-                          : 'Choose Supabase Project'}
+                        {selectedSelfbaseProject
+                          ? selectedSelfbaseProject.name
+                          : 'Choose Selfbase Project'}
                       </div>
                     </Button>
                   )
@@ -399,10 +399,10 @@ const ProjectLinker = ({
           disabled={
             // data loading states
             loadingForeignProjects ||
-            loadingSupabaseProjects ||
+            loadingSelfbaseProjects ||
             isLoading ||
             // check whether both project types are not undefined
-            !selectedSupabaseProject ||
+            !selectedSelfbaseProject ||
             !selectedForeignProject
           }
         >

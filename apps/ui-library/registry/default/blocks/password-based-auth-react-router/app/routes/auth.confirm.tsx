@@ -1,5 +1,5 @@
-import { createClient } from '@/registry/default/clients/react-router/lib/supabase/server'
-import { type EmailOtpType } from '@supabase/supabase-js'
+import { createClient } from '@/registry/default/clients/react-router/lib/selfbase/server'
+import { type EmailOtpType } from '@selfbase/selfbase-js'
 import { type LoaderFunctionArgs, redirect } from 'react-router'
 
 export async function loader({ request }: LoaderFunctionArgs) {
@@ -10,8 +10,8 @@ export async function loader({ request }: LoaderFunctionArgs) {
   const next = _next?.startsWith('/') ? _next : '/'
 
   if (token_hash && type) {
-    const { supabase, headers } = createClient(request)
-    const { error } = await supabase.auth.verifyOtp({
+    const { selfbase, headers } = createClient(request)
+    const { error } = await selfbase.auth.verifyOtp({
       type,
       token_hash,
     })

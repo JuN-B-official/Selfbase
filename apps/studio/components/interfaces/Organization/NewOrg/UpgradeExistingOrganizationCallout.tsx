@@ -12,8 +12,8 @@ export const UpgradeExistingOrganizationCallout = () => {
         description={
           <div>
             <p className="text-sm text-foreground-light">
-              Supabase{' '}
-              <InlineLink href={`${DOCS_URL}/guides/platform/billing-on-supabase`}>
+              Selfbase{' '}
+              <InlineLink href={`${DOCS_URL}/guides/platform/billing-on-selfbase`}>
                 bills per organization
               </InlineLink>
               . If you want to upgrade your existing projects,{' '}

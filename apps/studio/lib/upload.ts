@@ -1,4 +1,4 @@
-import { createClient } from '@supabase/supabase-js'
+import { createClient } from '@selfbase/selfbase-js'
 
 const SUPPORT_API_URL = process.env.NEXT_PUBLIC_SUPPORT_API_URL || ''
 const SUPPORT_API_KEY = process.env.NEXT_PUBLIC_SUPPORT_ANON_KEY || ''
@@ -10,7 +10,7 @@ export const uploadAttachment = async (
   image: File,
   getUrl: boolean = true
 ) => {
-  const supabaseClient = createClient(SUPPORT_API_URL, SUPPORT_API_KEY, {
+  const selfbaseClient = createClient(SUPPORT_API_URL, SUPPORT_API_KEY, {
     auth: {
       persistSession: false,
       autoRefreshToken: false,
@@ -19,15 +19,15 @@ export const uploadAttachment = async (
       detectSessionInUrl: false,
       localStorage: {
         getItem: (key: string) => undefined,
-        setItem: (key: string, value: string) => {},
-        removeItem: (key: string) => {},
+        setItem: (key: string, value: string) => { },
+        removeItem: (key: string) => { },
       },
     },
   })
 
   const options = { cacheControl: '3600' }
 
-  const { data: file, error } = await supabaseClient.storage
+  const { data: file, error } = await selfbaseClient.storage
     .from(bucket)
     .upload(fileName, image, options)
 
@@ -37,7 +37,7 @@ export const uploadAttachment = async (
   }
 
   if (file && getUrl) {
-    const { data } = await supabaseClient.storage.from(bucket).getPublicUrl(file.path)
+    const { data } = await selfbaseClient.storage.from(bucket).getPublicUrl(file.path)
     return data?.publicUrl
   }
 

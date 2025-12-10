@@ -151,7 +151,7 @@ const CustomDomainActivate = ({ projectRef, customDomain }: CustomDomainActivate
       >
         <p className="text-sm">
           This will activate the custom domain <code>{customDomain.hostname}</code>. Your project's
-          Supabase domain will also remain active.
+          Selfbase domain will also remain active.
         </p>
       </ConfirmationModal>
     </>

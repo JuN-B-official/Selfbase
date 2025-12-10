@@ -1,4 +1,4 @@
-import type { PostgresColumn } from '@supabase/postgres-meta'
+import type { PostgresColumn } from '@selfbase/postgres-meta'
 import { isNull } from 'lodash'
 import type { Dictionary } from 'types'
 
@@ -108,9 +108,9 @@ export const generateCreateColumnPayload = (
     }),
     ...(!isIdentity &&
       defaultValue && {
-        defaultValueFormat:
-          isNull(defaultValue) || isSQLExpression(defaultValue) ? 'expression' : 'literal',
-      }),
+      defaultValueFormat:
+        isNull(defaultValue) || isSQLExpression(defaultValue) ? 'expression' : 'literal',
+    }),
   }
   return payload
 }

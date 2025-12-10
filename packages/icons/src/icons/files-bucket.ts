@@ -1,16 +1,16 @@
-import createSupabaseIcon from '../createSupabaseIcon';
+import createSelfbaseIcon from '../createSelfbaseIcon';
 
 /**
  * @component @name FilesBucket
- * @description Supabase SVG icon component, renders SVG Element with children.
+ * @description Selfbase SVG icon component, renders SVG Element with children.
  *
  * @preview ![img](data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMy45OTk4OCAyMEgxOS45OTk5QzIwLjUzMDMgMjAgMjEuMDM5IDE5Ljc4OTMgMjEuNDE0MSAxOS40MTQyQzIxLjc4OTIgMTkuMDM5MSAyMS45OTk5IDE4LjUzMDQgMjEuOTk5OSAxOFY4QzIxLjk5OTkgNy40Njk1NyAyMS43ODkyIDYuOTYwODYgMjEuNDE0MSA2LjU4NTc5QzIxLjAzOSA2LjIxMDcxIDIwLjUzMDMgNiAxOS45OTk5IDZIMTIuMDY5OUMxMS43NDA1IDUuOTk4MyAxMS40MTY2IDUuOTE1MjUgMTEuMTI3IDUuNzU4MjRDMTAuODM3NCA1LjYwMTIzIDEwLjU5MTEgNS4zNzUxMiAxMC40MDk5IDUuMUw5LjU4OTg4IDMuOUM5LjQwODcgMy42MjQ4OCA5LjE2MjM3IDMuMzk4NzcgOC44NzI3OCAzLjI0MTc2QzguNTgzMTkgMy4wODQ3NSA4LjI1OTI5IDMuMDAxNyA3LjkyOTg4IDNIMy45OTk4OEMzLjQ2OTQ0IDMgMi45NjA3NCAzLjIxMDcxIDIuNTg1NjYgMy41ODU3OUMyLjIxMDU5IDMuOTYwODYgMS45OTk4OCA0LjQ2OTU3IDEuOTk5ODggNVYxOEMxLjk5OTg4IDE5LjEgMi44OTk4OCAyMCAzLjk5OTg4IDIwWiIgc3Ryb2tlPSIjMDAwIiBzdHlsZT0iYmFja2dyb3VuZC1jb2xvcjogI2ZmZjsgYm9yZGVyLXJhZGl1czogMnB4IiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CjxwYXRoIGQ9Ik01IDEwLjVIMTkiIHN0cm9rZT0iY3VycmVudENvbG9yIiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+Cjwvc3ZnPgo=)
  *
- * @param {Object} props - Supabase icons props and any valid SVG attribute
+ * @param {Object} props - Selfbase icons props and any valid SVG attribute
  * @returns {JSX.Element} JSX Element
  *
  */
-const FilesBucket = createSupabaseIcon('FilesBucket', [
+const FilesBucket = createSelfbaseIcon('FilesBucket', [
   [
     'path',
     {

@@ -10,7 +10,7 @@ import {
   loadTableEditorStateFromLocalStorage,
   saveTableEditorStateToLocalStorage,
   sortsToUrlParams,
-} from 'components/grid/SupabaseGrid.utils'
+} from 'components/grid/SelfbaseGrid.utils'
 import { RefreshButton } from 'components/grid/components/header/RefreshButton'
 import { FilterPopoverPrimitive } from 'components/grid/components/header/filter/FilterPopoverPrimitive'
 import { SortPopoverPrimitive } from 'components/grid/components/header/sort/SortPopoverPrimitive'

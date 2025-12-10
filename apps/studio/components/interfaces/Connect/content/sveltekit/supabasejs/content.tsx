@@ -13,7 +13,7 @@ const ContentFile = ({ projectKeys }: ContentFileProps) => {
     <ConnectTabs>
       <ConnectTabTriggers>
         <ConnectTabTrigger value=".env.local" />
-        <ConnectTabTrigger value="src/lib/supabaseClient.js" />
+        <ConnectTabTrigger value="src/lib/selfbaseClient.js" />
         <ConnectTabTrigger value="src/routes/+page.server.js" />
         <ConnectTabTrigger value="src/routes/+page.svelte" />
       </ConnectTabTriggers>
@@ -31,16 +31,16 @@ const ContentFile = ({ projectKeys }: ContentFileProps) => {
         </SimpleCodeBlock>
       </ConnectTabContent>
 
-      <ConnectTabContent value="src/lib/supabaseClient.js">
+      <ConnectTabContent value="src/lib/selfbaseClient.js">
         <SimpleCodeBlock className="js" parentClassName="min-h-72">
           {`
-import { createClient } from "@supabase/supabase-js";
+import { createClient } from "@selfbase/selfbase-js";
 import { PUBLIC_SUPABASE_URL, ${projectKeys.publishableKey ? 'PUBLIC_SUPABASE_PUBLISHABLE_DEFAULT_KEY' : 'PUBLIC_SUPABASE_ANON_KEY'} } from "$env/static/public"
 
-const supabaseUrl = PUBLIC_SUPABASE_URL;
-const supabaseKey = ${projectKeys.publishableKey ? 'PUBLIC_SUPABASE_PUBLISHABLE_DEFAULT_KEY' : 'PUBLIC_SUPABASE_ANON_KEY'};
+const selfbaseUrl = PUBLIC_SUPABASE_URL;
+const selfbaseKey = ${projectKeys.publishableKey ? 'PUBLIC_SUPABASE_PUBLISHABLE_DEFAULT_KEY' : 'PUBLIC_SUPABASE_ANON_KEY'};
 
-export const supabase = createClient(supabaseUrl, supabaseKey);
+export const selfbase = createClient(selfbaseUrl, selfbaseKey);
         `}
         </SimpleCodeBlock>
       </ConnectTabContent>
@@ -48,10 +48,10 @@ export const supabase = createClient(supabaseUrl, supabaseKey);
       <ConnectTabContent value="src/routes/+page.server.js">
         <SimpleCodeBlock className="js" parentClassName="min-h-72">
           {`
-import { supabase } from "$lib/supabaseClient";
+import { selfbase } from "$lib/selfbaseClient";
 
 export async function load() {
-  const { data } = await supabase.from("countries").select();
+  const { data } = await selfbase.from("countries").select();
   return {
     countries: data ?? [],
   };

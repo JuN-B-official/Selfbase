@@ -98,7 +98,7 @@ test.describe('SQL Editor', () => {
     }
 
     if (isCLI()) {
-      //  In self-hosted environments, we don't have access to the supabase platform, reloading would clear/reset all the sql snippets.
+      //  In self-hosted environments, we don't have access to the selfbase platform, reloading would clear/reset all the sql snippets.
       await page.reload()
       return
     }
@@ -536,7 +536,7 @@ hello world`)
       .getByTitle(sqlSnippetName, { exact: true })
       .click({ button: 'right' })
     await page.getByRole('menuitem', { name: 'Download as migration file' }).click()
-    await expect(page.getByText('supabase migration new')).toBeVisible()
+    await expect(page.getByText('selfbase migration new')).toBeVisible()
     await page.getByRole('button', { name: 'Close' }).click()
 
     // delete all files used in this test

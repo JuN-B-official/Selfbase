@@ -12,7 +12,7 @@ const DENO_VERSION = 'v1.45.0'
 const SUPABASE_FUNCTIONS_JS_VERSION = '2.4.4'
 
 const DENO_TYPES_URL = `https://github.com/denoland/deno/releases/download/${DENO_VERSION}/lib.deno.d.ts`
-const SUPABASE_FUNCTIONS_JS_TYPES_URL = `https://jsr.io/@supabase/functions-js/${SUPABASE_FUNCTIONS_JS_VERSION}/src/edge-runtime.d.ts`
+const SUPABASE_FUNCTIONS_JS_TYPES_URL = `https://jsr.io/@selfbase/functions-js/${SUPABASE_FUNCTIONS_JS_VERSION}/src/edge-runtime.d.ts`
 
 const OUTPUT_FILE = path.join(path.dirname(__dirname), 'public', 'deno', 'lib.deno.d.ts')
 const SUPABASE_FUNCTIONS_JS_OUTPUT_FILE = path.join(
@@ -26,7 +26,7 @@ const SUPABASE_FUNCTIONS_JS_OUTPUT_VERSION_FILE = path.join(
   path.dirname(__dirname),
   'public',
   'deno',
-  'supabase-functions-js-version.txt'
+  'selfbase-functions-js-version.txt'
 )
 
 async function downloadTypes() {
@@ -46,8 +46,8 @@ async function downloadTypes() {
   }
 }
 
-async function downloadSupabaseFunctionsJsTypes() {
-  console.log('Downloading Supabase Functions JS types')
+async function downloadSelfbaseFunctionsJsTypes() {
+  console.log('Downloading Selfbase Functions JS types')
 
   try {
     const response = await fetch(SUPABASE_FUNCTIONS_JS_TYPES_URL)
@@ -56,11 +56,11 @@ async function downloadSupabaseFunctionsJsTypes() {
     await fs.writeFile(SUPABASE_FUNCTIONS_JS_OUTPUT_FILE, data)
     await fs.writeFile(SUPABASE_FUNCTIONS_JS_OUTPUT_VERSION_FILE, SUPABASE_FUNCTIONS_JS_VERSION)
 
-    console.log('Supabase Functions JS types downloaded successfully')
+    console.log('Selfbase Functions JS types downloaded successfully')
   } catch (error) {
-    console.error('Error downloading Supabase Functions JS types', error)
+    console.error('Error downloading Selfbase Functions JS types', error)
     process.exit(1)
   }
 }
 
-Promise.all([downloadTypes(), downloadSupabaseFunctionsJsTypes()])
+Promise.all([downloadTypes(), downloadSelfbaseFunctionsJsTypes()])

@@ -43,7 +43,7 @@ create table
   );
 
 alter table public.tickets enable row level security;
-alter publication supabase_realtime add table public.tickets;
+alter publication selfbase_realtime add table public.tickets;
 
 GRANT UPDATE (role) ON TABLE public.tickets TO authenticated;
 GRANT UPDATE (company) ON TABLE public.tickets TO authenticated;
@@ -133,7 +133,7 @@ create table
   );
 
 alter table public.meetups enable row level security;
-alter publication supabase_realtime add table public.meetups;
+alter publication selfbase_realtime add table public.meetups;
 
 create policy "Allow anybody to select all meetups"
 on public.meetups

@@ -1,4 +1,4 @@
-import { createClient } from '@/registry/default/clients/react-router/lib/supabase/server'
+import { createClient } from '@/registry/default/clients/react-router/lib/selfbase/server'
 import { Button } from '@/registry/default/components/ui/button'
 import {
   Card,
@@ -12,14 +12,14 @@ import { Label } from '@/registry/default/components/ui/label'
 import { type ActionFunctionArgs, Link, redirect, useFetcher } from 'react-router'
 
 export const action = async ({ request }: ActionFunctionArgs) => {
-  const { supabase, headers } = createClient(request)
+  const { selfbase, headers } = createClient(request)
 
   const formData = await request.formData()
 
   const email = formData.get('email') as string
   const password = formData.get('password') as string
 
-  const { error } = await supabase.auth.signInWithPassword({
+  const { error } = await selfbase.auth.signInWithPassword({
     email,
     password,
   })

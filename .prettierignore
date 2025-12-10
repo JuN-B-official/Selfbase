@@ -5,7 +5,7 @@ package-lock.json
 docker*
 apps/**/out
 # prettier-plugin-sql-cst only supports sqlite syntax
-**/supabase/migrations/*.sql
+**/selfbase/migrations/*.sql
 apps/www/schema.sql
 apps/www/public/images/*
 apps/www/.generated/*
@@ -30,4 +30,4 @@ apps/cms/src/app/*
 apps/cms/src/migrations/*
 apps/cms/src/payload-types.ts
 # ignore because of <br/><br/>
-apps/www/_blog/2025-07-14-supabase-ui-platform-kit.mdx
+apps/www/_blog/2025-07-14-selfbase-ui-platform-kit.mdx

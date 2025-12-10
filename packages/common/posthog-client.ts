@@ -22,7 +22,7 @@ class PostHogClient {
     this.config = {
       apiKey: config.apiKey || process.env.NEXT_PUBLIC_POSTHOG_KEY,
       apiHost:
-        config.apiHost || process.env.NEXT_PUBLIC_POSTHOG_HOST || 'https://ph.supabase.green',
+        config.apiHost || process.env.NEXT_PUBLIC_POSTHOG_HOST || 'https://ph.selfbase.green',
     }
   }
 

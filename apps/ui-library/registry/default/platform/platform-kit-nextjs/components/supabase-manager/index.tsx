@@ -14,13 +14,13 @@ import {
   DrawerHeader,
   DrawerTitle,
 } from '@/registry/default/components/ui/drawer'
-import { AuthManager } from '@/registry/default/platform/platform-kit-nextjs/components/supabase-manager/auth'
-import { DatabaseManager } from '@/registry/default/platform/platform-kit-nextjs/components/supabase-manager/database'
-import { StorageManager } from '@/registry/default/platform/platform-kit-nextjs/components/supabase-manager/storage'
-import { LogsManager } from '@/registry/default/platform/platform-kit-nextjs/components/supabase-manager/logs'
-import { SuggestionsManager } from '@/registry/default/platform/platform-kit-nextjs/components/supabase-manager/suggestions'
-import { UsersManager } from '@/registry/default/platform/platform-kit-nextjs/components/supabase-manager/users'
-import { SecretsManager } from '@/registry/default/platform/platform-kit-nextjs/components/supabase-manager/secrets'
+import { AuthManager } from '@/registry/default/platform/platform-kit-nextjs/components/selfbase-manager/auth'
+import { DatabaseManager } from '@/registry/default/platform/platform-kit-nextjs/components/selfbase-manager/database'
+import { StorageManager } from '@/registry/default/platform/platform-kit-nextjs/components/selfbase-manager/storage'
+import { LogsManager } from '@/registry/default/platform/platform-kit-nextjs/components/selfbase-manager/logs'
+import { SuggestionsManager } from '@/registry/default/platform/platform-kit-nextjs/components/selfbase-manager/suggestions'
+import { UsersManager } from '@/registry/default/platform/platform-kit-nextjs/components/selfbase-manager/users'
+import { SecretsManager } from '@/registry/default/platform/platform-kit-nextjs/components/selfbase-manager/secrets'
 import {
   SheetNavigationProvider,
   useSheetNavigation,
@@ -43,7 +43,7 @@ import {
   HoverCardContent,
 } from '@/registry/default/components/ui/hover-card'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { LogoSupabase } from '@/registry/default/platform/platform-kit-nextjs/components/logo-supabase'
+import { LogoSelfbase } from '@/registry/default/platform/platform-kit-nextjs/components/logo-selfbase'
 import Link from 'next/link'
 
 const queryClient = new QueryClient()
@@ -175,12 +175,12 @@ function DialogView({ projectRef, isMobile }: { projectRef: string; isMobile?: b
           <HoverCard>
             <HoverCardTrigger asChild>
               <Link
-                href={`https://supabase.com/dashboard/project/${projectRef}`}
+                href={`https://selfbase.com/dashboard/project/${projectRef}`}
                 target="_blank"
                 className="flex items-center px-4 w-full rounded-none text-sm py-4 h-auto justify-start gap-3 text-sm text-left hover:bg-accent"
               >
-                <LogoSupabase size={16} />
-                <span className="flex-1">Open in Supabase</span>
+                <LogoSelfbase size={16} />
+                <span className="flex-1">Open in Selfbase</span>
                 <ExternalLink className="ml-2 h-4 w-4 text-muted-foreground/50" />
               </Link>
             </HoverCardTrigger>
@@ -190,10 +190,10 @@ function DialogView({ projectRef, isMobile }: { projectRef: string; isMobile?: b
               side="top"
               className="text-sm bg-muted/50 w-[216px]"
             >
-              <h4 className="font-semibold mb-1">About Supabase</h4>
+              <h4 className="font-semibold mb-1">About Selfbase</h4>
               <p className="text-muted-foreground">
                 Access powerful back-end tools for database, auth, storage, and logs directly in
-                Supabase.
+                Selfbase.
               </p>
             </HoverCardContent>
           </HoverCard>
@@ -248,7 +248,7 @@ function DialogView({ projectRef, isMobile }: { projectRef: string; isMobile?: b
   )
 }
 
-export default function SupabaseManagerDialog({
+export default function SelfbaseManagerDialog({
   projectRef,
   open,
   onOpenChange,
@@ -261,7 +261,7 @@ export default function SupabaseManagerDialog({
 }) {
   const content = (
     <SheetNavigationProvider
-      onStackEmpty={() => {}}
+      onStackEmpty={() => { }}
       initialStack={[
         {
           title: 'Database',

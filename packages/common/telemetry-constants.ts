@@ -4,7 +4,7 @@
  * Note that events are not emitted for users that have opted out of telemetry.
  *
  * Original definitions located at:
- * https://github.com/supabase/supabase/blob/master/packages/common/telemetry-constants.ts
+ * https://github.com/selfbase/selfbase/blob/master/packages/common/telemetry-constants.ts
  *
  * @module telemetry-frontend
  */
@@ -236,7 +236,7 @@ export interface FeaturePreviewEnabledEvent {
   action: 'feature_preview_enabled'
   properties: {
     /**
-     * Feature key of the preview that was enabled. e.g. supabase-ui-api-side-panel
+     * Feature key of the preview that was enabled. e.g. selfbase-ui-api-side-panel
      */
     feature: string
   }
@@ -255,7 +255,7 @@ export interface FeaturePreviewDisabledEvent {
   action: 'feature_preview_disabled'
   properties: {
     /**
-     * Feature key of the preview that was disabled. e.g. supabase-ui-api-side-panel
+     * Feature key of the preview that was disabled. e.g. selfbase-ui-api-side-panel
      */
     feature: string
   }
@@ -1371,27 +1371,27 @@ export interface AssistantMessageRatingSubmittedEvent {
      * The category of the conversation
      */
     category:
-      | 'sql_generation'
-      | 'schema_design'
-      | 'rls_policies'
-      | 'edge_functions'
-      | 'database_optimization'
-      | 'debugging'
-      | 'general_help'
-      | 'other'
+    | 'sql_generation'
+    | 'schema_design'
+    | 'rls_policies'
+    | 'edge_functions'
+    | 'database_optimization'
+    | 'debugging'
+    | 'general_help'
+    | 'other'
   }
   groups: TelemetryGroups
 }
 
 /**
- * User copied the command for a Supabase UI component.
+ * User copied the command for a Selfbase UI component.
  *
  * @group Events
- * @source supabase-ui
+ * @source selfbase-ui
  * @page /ui/docs/{framework}/{templateTitle}
  */
-export interface SupabaseUiCommandCopyButtonClickedEvent {
-  action: 'supabase_ui_command_copy_button_clicked'
+export interface SelfbaseUiCommandCopyButtonClickedEvent {
+  action: 'selfbase_ui_command_copy_button_clicked'
   properties: {
     templateTitle: string
     command: string
@@ -2043,11 +2043,11 @@ export interface AuthUsersSearchSubmittedEvent {
      * The trigger that initiated the search
      */
     trigger:
-      | 'search_input'
-      | 'refresh_button'
-      | 'sort_change'
-      | 'provider_filter'
-      | 'user_type_filter'
+    | 'search_input'
+    | 'refresh_button'
+    | 'sort_change'
+    | 'provider_filter'
+    | 'user_type_filter'
     /**
      * The column being sorted on, e.g. email, phone, created_at, last_sign_in_at
      */
@@ -2575,7 +2575,7 @@ export type TelemetryEvent =
   | EdgeFunctionDeployUpdatesButtonClickedEvent
   | EdgeFunctionTestSendButtonClickedEvent
   | EdgeFunctionTestSidePanelOpenedEvent
-  | SupabaseUiCommandCopyButtonClickedEvent
+  | SelfbaseUiCommandCopyButtonClickedEvent
   | SupportTicketSubmittedEvent
   | AiAssistantInSupportFormClickedEvent
   | OrganizationMfaEnforcementUpdated

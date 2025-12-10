@@ -1,17 +1,17 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
-  "name": "supabase-client-react",
+  "name": "selfbase-client-react",
   "type": "registry:lib",
-  "title": "Supabase Client for React",
+  "title": "Selfbase Client for React",
   "description": "",
   "dependencies": [
-    "@supabase/supabase-js@latest"
+    "@selfbase/selfbase-js@latest"
   ],
   "registryDependencies": [],
   "files": [
     {
-      "path": "registry/default/clients/react/lib/supabase/client.ts",
-      "content": "import { createClient as createSupabaseClient } from '@supabase/supabase-js'\n\nexport function createClient() {\n  return createSupabaseClient(\n    import.meta.env.VITE_SUPABASE_URL!,\n    import.meta.env.VITE_SUPABASE_PUBLISHABLE_OR_ANON_KEY!\n  )\n}\n",
+      "path": "registry/default/clients/react/lib/selfbase/client.ts",
+      "content": "import { createClient as createSelfbaseClient } from '@selfbase/selfbase-js'\n\nexport function createClient() {\n  return createSelfbaseClient(\n    import.meta.env.VITE_SUPABASE_URL!,\n    import.meta.env.VITE_SUPABASE_PUBLISHABLE_OR_ANON_KEY!\n  )\n}\n",
       "type": "registry:lib"
     }
   ],

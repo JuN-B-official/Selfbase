@@ -22,8 +22,8 @@ from pyiceberg.catalog import load_catalog
 import pyarrow as pa
 import datetime
 
-# Supabase project ref
-PROJECT_REF = "${ref ?? '<your-supabase-project-ref>'}"
+# Selfbase project ref
+PROJECT_REF = "${ref ?? '<your-selfbase-project-ref>'}"
 
 # Configuration for Iceberg REST Catalog
 WAREHOUSE = "${warehouse ?? 'your-analytics-bucket-name'}"
@@ -33,12 +33,12 @@ TOKEN = "${token ?? '•••••••••••••'}"
 S3_ACCESS_KEY = "${s3AccessKey ?? '•••••••••••••'}"
 S3_SECRET_KEY = "${s3SecretKey ?? '•••••••••••••'}"
 S3_REGION = "${s3Region}"
-S3_ENDPOINT = f"${s3Endpoint ?? 'https://{PROJECT_REF}.supabase.co/storage/v1/s3'}"
-CATALOG_URI = f"${catalogUri ?? 'https://{PROJECT_REF}.supabase.co/storage/v1/iceberg'}"
+S3_ENDPOINT = f"${s3Endpoint ?? 'https://{PROJECT_REF}.selfbase.co/storage/v1/s3'}"
+CATALOG_URI = f"${catalogUri ?? 'https://{PROJECT_REF}.selfbase.co/storage/v1/iceberg'}"
 
 # Load the Iceberg catalog
 catalog = load_catalog(
-    "supabase",
+    "selfbase",
     type="rest",
     warehouse=WAREHOUSE,
     uri=CATALOG_URI,

@@ -29,8 +29,8 @@ export const INTERNAL_SCHEMAS = [
   'pgtle',
   'realtime',
   'storage',
-  'supabase_functions',
-  'supabase_migrations',
+  'selfbase_functions',
+  'selfbase_migrations',
   'vault',
   'graphql',
   'graphql_public',
@@ -64,7 +64,7 @@ const useFdwSchemasQuery = () => {
 
     const fdwSchemas = icebergFDWs.map((fdw) => {
       const schemaOption =
-        convertKVStringArrayToJson(fdw.server_options)['supabase_target_schema'] ?? ''
+        convertKVStringArrayToJson(fdw.server_options)['selfbase_target_schema'] ?? ''
 
       const schemas = uniq(schemaOption.split(',').filter(Boolean))
 
@@ -89,7 +89,7 @@ type ProtectedSchema = {
 }
 
 /**
- * Returns a list of schemas that are protected by Supabase (internal schemas or schemas used by Iceberg FDWs).
+ * Returns a list of schemas that are protected by Selfbase (internal schemas or schemas used by Iceberg FDWs).
  */
 export const useProtectedSchemas = ({
   excludeSchemas = [],
@@ -119,7 +119,7 @@ export const useProtectedSchemas = ({
 }
 
 /**
- * Returns whether a given schema is protected by Supabase (internal schema or schema used by Iceberg FDWs).
+ * Returns whether a given schema is protected by Selfbase (internal schema or schema used by Iceberg FDWs).
  */
 export const useIsProtectedSchema = ({
   schema,

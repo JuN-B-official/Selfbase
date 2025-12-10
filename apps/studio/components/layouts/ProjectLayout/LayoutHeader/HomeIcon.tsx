@@ -27,13 +27,14 @@ export const HomeIcon = () => {
     return '/organizations'
   }
 
-  const href = IS_PLATFORM ? getDefaultOrgRedirect() : '/project/default'
+  // Selfbase: Always use organizations redirect for multi-project support
+  const href = getDefaultOrgRedirect()
 
   return (
     <Link href={href} className="items-center justify-center flex-shrink-0 hidden md:flex">
       <img
-        alt="Supabase"
-        src={`${router.basePath}/img/supabase-logo.svg`}
+        alt="Selfbase"
+        src={`${router.basePath}/img/selfbase-logo.svg`}
         className={largeLogo ? 'h-[20px]' : 'h-[18px]'}
       />
     </Link>

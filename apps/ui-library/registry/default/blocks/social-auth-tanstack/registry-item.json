@@ -1,17 +1,22 @@
 {
   "name": "social-auth-tanstack",
   "type": "registry:block",
-  "title": "Social Auth flow for TanStack and Supabase",
-  "description": "Social Auth flow for TanStack and Supabase",
-  "registryDependencies": ["button", "card"],
-  "dependencies": ["@supabase/ssr@latest"],
+  "title": "Social Auth flow for TanStack and Selfbase",
+  "description": "Social Auth flow for TanStack and Selfbase",
+  "registryDependencies": [
+    "button",
+    "card"
+  ],
+  "dependencies": [
+    "@selfbase/ssr@latest"
+  ],
   "files": [
     {
       "path": "registry/default/blocks/social-auth-tanstack/components/login-form.tsx",
       "type": "registry:component"
     },
     {
-      "path": "registry/default/blocks/social-auth-tanstack/lib/supabase/fetch-user-server-fn.ts",
+      "path": "registry/default/blocks/social-auth-tanstack/lib/selfbase/fetch-user-server-fn.ts",
       "type": "registry:lib"
     },
     {

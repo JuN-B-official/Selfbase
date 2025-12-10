@@ -1,5 +1,5 @@
 import { zodResolver } from '@hookform/resolvers/zod'
-import { PermissionAction } from '@supabase/shared-types/out/constants'
+import { PermissionAction } from '@selfbase/shared-types/out/constants'
 import { Plus, Trash2 } from 'lucide-react'
 import { parseAsBoolean, useQueryState } from 'nuqs'
 import { useEffect } from 'react'
@@ -137,7 +137,7 @@ export const CreateVectorTableSheet = ({ bucketName }: CreateVectorTableSheetPro
 
   const { mutateAsync: importForeignSchema, isPending: isImportingForeignSchema } =
     useFDWImportForeignSchemaMutation({
-      onError: () => {},
+      onError: () => { },
     })
   const isCreating = isCreatingVectorBucketTable || isImportingForeignSchema
 

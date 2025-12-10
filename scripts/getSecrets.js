@@ -1,4 +1,4 @@
-// for internal supabase use only
+// for internal selfbase use only
 const fs = require('fs/promises')
 const { SecretsManagerClient, GetSecretValueCommand } = require('@aws-sdk/client-secrets-manager')
 const { parseArgs } = require('node:util')

@@ -1,5 +1,5 @@
 import { zodResolver } from '@hookform/resolvers/zod'
-import { PermissionAction } from '@supabase/shared-types/out/constants'
+import { PermissionAction } from '@selfbase/shared-types/out/constants'
 import { capitalize } from 'lodash'
 import { Fragment, useEffect, useMemo } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
@@ -85,8 +85,8 @@ export const ConnectionPooling = () => {
     computeInstance?.variant.name ?? capitalize(project?.infra_compute_size) ?? 'Nano'
   const poolingOptimizations =
     POOLING_OPTIMIZATIONS[
-      (computeInstance?.variant.identifier as keyof typeof POOLING_OPTIMIZATIONS) ??
-        (project?.infra_compute_size === 'nano' ? 'ci_nano' : 'ci_micro')
+    (computeInstance?.variant.identifier as keyof typeof POOLING_OPTIMIZATIONS) ??
+    (project?.infra_compute_size === 'nano' ? 'ci_nano' : 'ci_micro')
     ]
   const defaultPoolSize = poolingOptimizations.poolSize ?? 15
   const defaultMaxClientConn = poolingOptimizations.maxClientConn ?? 200

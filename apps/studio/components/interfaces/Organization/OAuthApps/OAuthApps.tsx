@@ -1,4 +1,4 @@
-import { PermissionAction } from '@supabase/shared-types/out/constants'
+import { PermissionAction } from '@selfbase/shared-types/out/constants'
 import { Check, X } from 'lucide-react'
 import { useState } from 'react'
 
@@ -75,7 +75,7 @@ export const OAuthApps = () => {
               <div>
                 <p>Published Apps</p>
                 <p className="text-foreground-light text-sm">
-                  Build integrations that extend Supabase's functionality
+                  Build integrations that extend Selfbase's functionality
                 </p>
               </div>
               <ButtonTooltip

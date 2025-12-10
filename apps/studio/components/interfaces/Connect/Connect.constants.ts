@@ -19,22 +19,22 @@ export const DATABASE_CONNECTION_TYPES: {
   lang: CodeBlockLang
   fileTitle: string | undefined
 }[] = [
-  { id: 'uri', label: 'URI', contentType: 'input', lang: 'bash', fileTitle: undefined },
-  { id: 'psql', label: 'PSQL', contentType: 'code', lang: 'bash', fileTitle: undefined },
-  { id: 'golang', label: 'Golang', contentType: 'code', lang: 'go', fileTitle: '.env' },
-  { id: 'jdbc', label: 'JDBC', contentType: 'input', lang: 'bash', fileTitle: undefined },
-  {
-    id: 'dotnet',
-    label: '.NET',
-    contentType: 'code',
-    lang: 'csharp',
-    fileTitle: 'appsettings.json',
-  },
-  { id: 'nodejs', label: 'Node.js', contentType: 'code', lang: 'js', fileTitle: '.env' },
-  { id: 'php', label: 'PHP', contentType: 'code', lang: 'php', fileTitle: '.env' },
-  { id: 'python', label: 'Python', contentType: 'code', lang: 'python', fileTitle: '.env' },
-  { id: 'sqlalchemy', label: 'SQLAlchemy', contentType: 'code', lang: 'python', fileTitle: '.env' },
-]
+    { id: 'uri', label: 'URI', contentType: 'input', lang: 'bash', fileTitle: undefined },
+    { id: 'psql', label: 'PSQL', contentType: 'code', lang: 'bash', fileTitle: undefined },
+    { id: 'golang', label: 'Golang', contentType: 'code', lang: 'go', fileTitle: '.env' },
+    { id: 'jdbc', label: 'JDBC', contentType: 'input', lang: 'bash', fileTitle: undefined },
+    {
+      id: 'dotnet',
+      label: '.NET',
+      contentType: 'code',
+      lang: 'csharp',
+      fileTitle: 'appsettings.json',
+    },
+    { id: 'nodejs', label: 'Node.js', contentType: 'code', lang: 'js', fileTitle: '.env' },
+    { id: 'php', label: 'PHP', contentType: 'code', lang: 'php', fileTitle: '.env' },
+    { id: 'python', label: 'Python', contentType: 'code', lang: 'python', fileTitle: '.env' },
+    { id: 'sqlalchemy', label: 'SQLAlchemy', contentType: 'code', lang: 'python', fileTitle: '.env' },
+  ]
 
 export const CONNECTION_PARAMETERS = {
   host: {
@@ -84,9 +84,9 @@ export const FRAMEWORKS: ConnectionType[] = [
         icon: '',
         children: [
           {
-            key: 'supabasejs',
-            label: 'supabase-js',
-            icon: 'supabase',
+            key: 'selfbasejs',
+            label: 'selfbase-js',
+            icon: 'selfbase',
             children: [],
           },
         ],
@@ -97,10 +97,10 @@ export const FRAMEWORKS: ConnectionType[] = [
         icon: '',
         children: [
           {
-            key: 'supabasejs',
-            label: 'Supabase-js',
+            key: 'selfbasejs',
+            label: 'Selfbase-js',
             children: [],
-            icon: 'supabase',
+            icon: 'selfbase',
           },
         ],
       },
@@ -113,10 +113,10 @@ export const FRAMEWORKS: ConnectionType[] = [
     guideLink: `${DOCS_URL}/guides/auth/server-side/creating-a-client?framework=remix&environment=remix-loader`,
     children: [
       {
-        key: 'supabasejs',
-        label: 'Supabase-js',
+        key: 'selfbasejs',
+        label: 'Selfbase-js',
         children: [],
-        icon: 'supabase',
+        icon: 'selfbase',
       },
     ],
   },
@@ -132,9 +132,9 @@ export const FRAMEWORKS: ConnectionType[] = [
         icon: 'react',
         children: [
           {
-            key: 'supabasejs',
-            label: 'supabase-js',
-            icon: 'supabase',
+            key: 'selfbasejs',
+            label: 'selfbase-js',
+            icon: 'selfbase',
             children: [],
           },
         ],
@@ -145,10 +145,10 @@ export const FRAMEWORKS: ConnectionType[] = [
         icon: 'vite',
         children: [
           {
-            key: 'supabasejs',
-            label: 'Supabase-js',
+            key: 'selfbasejs',
+            label: 'Selfbase-js',
             children: [],
-            icon: 'supabase',
+            icon: 'selfbase',
           },
         ],
       },
@@ -161,10 +161,10 @@ export const FRAMEWORKS: ConnectionType[] = [
     guideLink: `${DOCS_URL}/guides/getting-started/quickstarts/nuxtjs`,
     children: [
       {
-        key: 'supabasejs',
-        label: 'Supabase-js',
+        key: 'selfbasejs',
+        label: 'Selfbase-js',
         children: [],
-        icon: 'supabase',
+        icon: 'selfbase',
       },
     ],
   },
@@ -175,10 +175,10 @@ export const FRAMEWORKS: ConnectionType[] = [
     guideLink: `${DOCS_URL}/guides/getting-started/quickstarts/vue`,
     children: [
       {
-        key: 'supabasejs',
-        label: 'Supabase-js',
+        key: 'selfbasejs',
+        label: 'Selfbase-js',
         children: [],
-        icon: 'supabase',
+        icon: 'selfbase',
       },
     ],
   },
@@ -190,10 +190,10 @@ export const FRAMEWORKS: ConnectionType[] = [
     guideLink: `${DOCS_URL}/guides/getting-started/quickstarts/sveltekit`,
     children: [
       {
-        key: 'supabasejs',
-        label: 'Supabase-js',
+        key: 'selfbasejs',
+        label: 'Selfbase-js',
         children: [],
-        icon: 'supabase',
+        icon: 'selfbase',
       },
     ],
   },
@@ -204,10 +204,10 @@ export const FRAMEWORKS: ConnectionType[] = [
     guideLink: `${DOCS_URL}/guides/getting-started/quickstarts/solidjs`,
     children: [
       {
-        key: 'supabasejs',
-        label: 'Supabase-js',
+        key: 'selfbasejs',
+        label: 'Selfbase-js',
         children: [],
-        icon: 'supabase',
+        icon: 'selfbase',
       },
     ],
   },
@@ -215,13 +215,13 @@ export const FRAMEWORKS: ConnectionType[] = [
     key: 'astro',
     label: 'Astro',
     icon: 'astro',
-    guideLink: 'https://docs.astro.build/en/guides/backend/supabase/',
+    guideLink: 'https://docs.astro.build/en/guides/backend/selfbase/',
     children: [
       {
-        key: 'supabasejs',
-        label: 'Supabase-js',
+        key: 'selfbasejs',
+        label: 'Selfbase-js',
         children: [],
-        icon: 'supabase',
+        icon: 'selfbase',
       },
     ],
   },
@@ -232,10 +232,10 @@ export const FRAMEWORKS: ConnectionType[] = [
     guideLink: `${DOCS_URL}/guides/getting-started/quickstarts/refine`,
     children: [
       {
-        key: 'supabasejs',
-        label: 'Supabase-js',
+        key: 'selfbasejs',
+        label: 'Selfbase-js',
         children: [],
-        icon: 'supabase',
+        icon: 'selfbase',
       },
     ],
   },
@@ -249,10 +249,10 @@ export const MOBILES: ConnectionType[] = [
     guideLink: `${DOCS_URL}/guides/getting-started/tutorials/with-expo-react-native`,
     children: [
       {
-        key: 'supabasejs',
-        label: 'Supabase-js',
+        key: 'selfbasejs',
+        label: 'Selfbase-js',
         children: [],
-        icon: 'supabase',
+        icon: 'selfbase',
       },
     ],
   },
@@ -263,10 +263,10 @@ export const MOBILES: ConnectionType[] = [
     guideLink: `${DOCS_URL}/guides/getting-started/tutorials/with-flutter`,
     children: [
       {
-        key: 'supabaseflutter',
-        label: 'supabase-flutter',
+        key: 'selfbaseflutter',
+        label: 'selfbase-flutter',
         children: [],
-        icon: 'supabase',
+        icon: 'selfbase',
       },
     ],
   },
@@ -277,10 +277,10 @@ export const MOBILES: ConnectionType[] = [
     guideLink: `${DOCS_URL}/guides/getting-started/tutorials/with-ionic-react`,
     children: [
       {
-        key: 'supabasejs',
-        label: 'Supabase-js',
+        key: 'selfbasejs',
+        label: 'Selfbase-js',
         children: [],
-        icon: 'supabase',
+        icon: 'selfbase',
       },
     ],
   },
@@ -291,10 +291,10 @@ export const MOBILES: ConnectionType[] = [
     guideLink: `${DOCS_URL}/guides/getting-started/tutorials/with-swift`,
     children: [
       {
-        key: 'supabaseswift',
-        label: 'supabase-swift',
+        key: 'selfbaseswift',
+        label: 'selfbase-swift',
         children: [],
-        icon: 'supabase',
+        icon: 'selfbase',
       },
     ],
   },
@@ -305,10 +305,10 @@ export const MOBILES: ConnectionType[] = [
     guideLink: `${DOCS_URL}/guides/getting-started/tutorials/with-kotlin`,
     children: [
       {
-        key: 'supabasekt',
-        label: 'supabase-kt',
+        key: 'selfbasekt',
+        label: 'selfbase-kt',
         children: [],
-        icon: 'supabase',
+        icon: 'selfbase',
       },
     ],
   },
@@ -319,10 +319,10 @@ export const MOBILES: ConnectionType[] = [
     guideLink: `${DOCS_URL}/guides/getting-started/tutorials/with-ionic-angular`,
     children: [
       {
-        key: 'supabasejs',
-        label: 'Supabase-js',
+        key: 'selfbasejs',
+        label: 'Selfbase-js',
         children: [],
-        icon: 'supabase',
+        icon: 'selfbase',
       },
     ],
   },
@@ -333,7 +333,7 @@ export const ORMS: ConnectionType[] = [
     key: 'prisma',
     label: 'Prisma',
     icon: 'prisma',
-    guideLink: 'https://supabase.com/partners/integrations/prisma',
+    guideLink: 'https://selfbase.com/partners/integrations/prisma',
     children: [],
   },
   {

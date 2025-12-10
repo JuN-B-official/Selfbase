@@ -160,21 +160,15 @@ export const DatabaseConnectionString = () => {
   } = useReadReplicasQuery({ projectRef })
 
   const poolerError = sharedPoolerPreferred ? pgbouncerError : supavisorConfigError
-  const isLoadingPoolerConfig = !IS_PLATFORM
-    ? false
-    : sharedPoolerPreferred
-      ? isLoadingPgbouncerConfig
-      : isLoadingSupavisorConfig
-  const isErrorPoolerConfig = !IS_PLATFORM
-    ? undefined
-    : sharedPoolerPreferred
-      ? isErrorPgbouncerConfig
-      : isErrorSupavisorConfig
-  const isSuccessPoolerConfig = !IS_PLATFORM
-    ? true
-    : sharedPoolerPreferred
-      ? isSuccessPgBouncerConfig
-      : isSuccessSupavisorConfig
+  const isLoadingPoolerConfig = sharedPoolerPreferred
+    ? isLoadingPgbouncerConfig
+    : isLoadingSupavisorConfig
+  const isErrorPoolerConfig = sharedPoolerPreferred
+    ? isErrorPgbouncerConfig
+    : isErrorSupavisorConfig
+  const isSuccessPoolerConfig = sharedPoolerPreferred
+    ? isSuccessPgBouncerConfig
+    : isSuccessSupavisorConfig
 
   const error = poolerError || readReplicasError
   const isLoading = isLoadingPoolerConfig || isLoadingReadReplicas
@@ -234,9 +228,9 @@ export const DatabaseConnectionString = () => {
     poolingInfo: {
       connectionString: isReplicaSelected
         ? poolingConfiguration?.connection_string.replace(
-            poolingConfiguration?.db_host,
-            connectionInfo.db_host
-          ) ?? ''
+          poolingConfiguration?.db_host,
+          connectionInfo.db_host
+        ) ?? ''
         : poolingConfiguration?.connection_string ?? '',
       db_host: isReplicaSelected ? connectionInfo.db_host : poolingConfiguration?.db_host,
       db_name: poolingConfiguration?.db_name ?? '',

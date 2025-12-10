@@ -104,7 +104,7 @@ export const CreateVectorBucketDialog = ({
 
   const { mutate: sendEvent } = useSendEventMutation()
   const { mutateAsync: createVectorBucket } = useVectorBucketCreateMutation({
-    onError: () => {},
+    onError: () => { },
   })
 
   const { extension: wrappersExtension, state: wrappersExtensionState } =
@@ -113,7 +113,7 @@ export const CreateVectorBucketDialog = ({
   const { mutateAsync: createS3VectorsWrapper } = useS3VectorsWrapperCreateMutation()
 
   const { mutateAsync: createSchema } = useSchemaCreateMutation({
-    onError: () => {},
+    onError: () => { },
   })
 
   const { mutateAsync: enableExtension } = useDatabaseExtensionEnableMutation()
@@ -223,7 +223,7 @@ export const CreateVectorBucketDialog = ({
               />
               <Admonition type="default">
                 <p>
-                  Supabase will install the{' '}
+                  Selfbase will install the{' '}
                   {wrappersExtensionState !== 'installed' ? 'Wrappers extension and ' : ''}
                   S3 Vectors Wrapper integration on your behalf.{' '}
                   <InlineLink href={`${DOCS_URL}/guides/database/extensions/wrappers/s3-vectors`}>

@@ -1,4 +1,4 @@
-import { PermissionAction } from '@supabase/shared-types/out/constants'
+import { PermissionAction } from '@selfbase/shared-types/out/constants'
 import { useQueryClient } from '@tanstack/react-query'
 import dayjs from 'dayjs'
 import { ArrowRight, ExternalLink, RefreshCw } from 'lucide-react'
@@ -110,8 +110,8 @@ const DatabaseUsage = () => {
   const computeInstance = addons?.selected_addons.find((addon) => addon.type === 'compute_instance')
   const poolingOptimizations =
     POOLING_OPTIMIZATIONS[
-      (computeInstance?.variant.identifier as keyof typeof POOLING_OPTIMIZATIONS) ??
-        (project?.infra_compute_size === 'nano' ? 'ci_nano' : 'ci_micro')
+    (computeInstance?.variant.identifier as keyof typeof POOLING_OPTIMIZATIONS) ??
+    (project?.infra_compute_size === 'nano' ? 'ci_nano' : 'ci_micro')
     ]
   const defaultMaxClientConn = poolingOptimizations.maxClientConn ?? 200
 
@@ -262,8 +262,8 @@ const DatabaseUsage = () => {
                 syncId="database-charts"
                 showMaxValue={
                   chart.id === 'client-connections' ||
-                  chart.id === 'client-connections-basic' ||
-                  chart.id === 'pgbouncer-connections'
+                    chart.id === 'client-connections-basic' ||
+                    chart.id === 'pgbouncer-connections'
                     ? true
                     : chart.showMaxValue
                 }
@@ -386,7 +386,7 @@ const DatabaseUsage = () => {
                 <AlertDescription_Shadcn_>
                   <div className="space-y-2">
                     <p>
-                      New Supabase projects have a database size of ~40-60mb. This space includes
+                      New Selfbase projects have a database size of ~40-60mb. This space includes
                       pre-installed extensions, schemas, and default Postgres data. Additional
                       database size is used when installing extensions, even if those extensions are
                       inactive.

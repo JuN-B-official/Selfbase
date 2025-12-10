@@ -13,7 +13,7 @@ const ContentFile = ({ projectKeys }: ContentFileProps) => {
     <ConnectTabs>
       <ConnectTabTriggers>
         <ConnectTabTrigger value=".env" />
-        <ConnectTabTrigger value="src/supabaseClient.tsx" />
+        <ConnectTabTrigger value="src/selfbaseClient.tsx" />
         <ConnectTabTrigger value="src/App.tsx" />
       </ConnectTabTriggers>
 
@@ -26,15 +26,15 @@ REACT_APP_SUPABASE_KEY=${projectKeys.publishableKey ?? '<prefer publishable key 
         </SimpleCodeBlock>
       </ConnectTabContent>
 
-      <ConnectTabContent value="src/supabaseClient.tsx">
+      <ConnectTabContent value="src/selfbaseClient.tsx">
         <SimpleCodeBlock className="ts" parentClassName="min-h-72">
           {`
-import { createClient } from '@supabase/supabase-js'
+import { createClient } from '@selfbase/selfbase-js'
 
-const supabaseUrl = process.env.REACT_APP_SUPABASE_URL
-const supabaseKey = process.env.REACT_APP_SUPABASE_KEY
+const selfbaseUrl = process.env.REACT_APP_SUPABASE_URL
+const selfbaseKey = process.env.REACT_APP_SUPABASE_KEY
 
-export const supabase = createClient(supabaseUrl, supabaseAnonKey)
+export const selfbase = createClient(selfbaseUrl, selfbaseAnonKey)
 `}
         </SimpleCodeBlock>
       </ConnectTabContent>
@@ -59,7 +59,7 @@ import '@ionic/react/css/core.css';
 /* Theme variables */
 import './theme/variables.css';
 
-import { supabase } from './supabaseClient';
+import { selfbase } from './selfbaseClient';
 
 setupIonicReact();
 
@@ -71,7 +71,7 @@ export default function App() {
 
   const getTodos = async () => {
     try {
-      const { data, error } = await supabase.from('todos').select();
+      const { data, error } = await selfbase.from('todos').select();
 
       if (error) {
         console.error('Error fetching todos:', error.message);

@@ -35,9 +35,7 @@ export const generateToolRoutes = (ref?: string, project?: Project, features?: {
       key: 'sql',
       label: 'SQL Editor',
       icon: <SqlEditor size={ICON_SIZE} strokeWidth={ICON_STROKE_WIDTH} />,
-      link: !IS_PLATFORM
-        ? `/project/${ref}/sql/1`
-        : ref && (isProjectBuilding ? buildingUrl : `/project/${ref}/sql`),
+      link: ref && (isProjectBuilding ? buildingUrl : `/project/${ref}/sql`),
     },
   ]
 }
@@ -82,50 +80,50 @@ export const generateProductRoutes = (
     },
     ...(authEnabled
       ? [
-          {
-            key: 'auth',
-            label: 'Authentication',
-            icon: <Auth size={ICON_SIZE} strokeWidth={ICON_STROKE_WIDTH} />,
-            link:
-              ref &&
-              (isProjectBuilding
-                ? buildingUrl
-                : authOverviewPageEnabled
-                  ? `/project/${ref}/auth/overview`
-                  : `/project/${ref}/auth/users`),
-            items: authMenu,
-          },
-        ]
+        {
+          key: 'auth',
+          label: 'Authentication',
+          icon: <Auth size={ICON_SIZE} strokeWidth={ICON_STROKE_WIDTH} />,
+          link:
+            ref &&
+            (isProjectBuilding
+              ? buildingUrl
+              : authOverviewPageEnabled
+                ? `/project/${ref}/auth/overview`
+                : `/project/${ref}/auth/users`),
+          items: authMenu,
+        },
+      ]
       : []),
     ...(storageEnabled
       ? [
-          {
-            key: 'storage',
-            label: 'Storage',
-            icon: <Storage size={ICON_SIZE} strokeWidth={ICON_STROKE_WIDTH} />,
-            link: ref && (isProjectBuilding ? buildingUrl : `/project/${ref}/storage/files`),
-          },
-        ]
+        {
+          key: 'storage',
+          label: 'Storage',
+          icon: <Storage size={ICON_SIZE} strokeWidth={ICON_STROKE_WIDTH} />,
+          link: ref && (isProjectBuilding ? buildingUrl : `/project/${ref}/storage/files`),
+        },
+      ]
       : []),
     ...(edgeFunctionsEnabled
       ? [
-          {
-            key: 'functions',
-            label: 'Edge Functions',
-            icon: <EdgeFunctions size={ICON_SIZE} strokeWidth={ICON_STROKE_WIDTH} />,
-            link: ref && (isProjectBuilding ? buildingUrl : `/project/${ref}/functions`),
-          },
-        ]
+        {
+          key: 'functions',
+          label: 'Edge Functions',
+          icon: <EdgeFunctions size={ICON_SIZE} strokeWidth={ICON_STROKE_WIDTH} />,
+          link: ref && (isProjectBuilding ? buildingUrl : `/project/${ref}/functions`),
+        },
+      ]
       : []),
     ...(realtimeEnabled
       ? [
-          {
-            key: 'realtime',
-            label: 'Realtime',
-            icon: <Realtime size={ICON_SIZE} strokeWidth={ICON_STROKE_WIDTH} />,
-            link: ref && (isProjectBuilding ? buildingUrl : `/project/${ref}/realtime/inspector`),
-          },
-        ]
+        {
+          key: 'realtime',
+          label: 'Realtime',
+          icon: <Realtime size={ICON_SIZE} strokeWidth={ICON_STROKE_WIDTH} />,
+          link: ref && (isProjectBuilding ? buildingUrl : `/project/${ref}/realtime/inspector`),
+        },
+      ]
       : []),
   ]
 }
@@ -149,15 +147,15 @@ export const generateOtherRoutes = (
       icon: <Lightbulb size={ICON_SIZE} strokeWidth={ICON_STROKE_WIDTH} />,
       link: ref && (isProjectBuilding ? buildingUrl : `/project/${ref}/advisors/security`),
     },
-    ...(IS_PLATFORM && reportsEnabled
+    ...(reportsEnabled
       ? [
-          {
-            key: 'observability',
-            label: 'Observability',
-            icon: <Telescope size={ICON_SIZE} strokeWidth={ICON_STROKE_WIDTH} />,
-            link: ref && (isProjectBuilding ? buildingUrl : `/project/${ref}/observability`),
-          },
-        ]
+        {
+          key: 'observability',
+          label: 'Observability',
+          icon: <Telescope size={ICON_SIZE} strokeWidth={ICON_STROKE_WIDTH} />,
+          link: ref && (isProjectBuilding ? buildingUrl : `/project/${ref}/observability`),
+        },
+      ]
       : []),
     {
       key: 'logs',

@@ -26,7 +26,7 @@ export function useTelemetryCookie({
     if (!router?.isReady) return
 
     const cookies = document.cookie.split(';')
-    const cookieOptions = IS_PROD ? 'path=/; domain=supabase.com' : 'path=/'
+    const cookieOptions = IS_PROD ? 'path=/; domain=selfbase.com' : 'path=/'
 
     const telemetryCookie = cookies.find((cookie) => cookie.trim().startsWith(telemetryStorageKey))
     if (telemetryCookie) return

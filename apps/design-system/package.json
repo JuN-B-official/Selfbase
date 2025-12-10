@@ -21,7 +21,7 @@
     "contentlayer2": "0.4.6",
     "dayjs": "1.11.13",
     "date-fns": "^2.30.0",
-    "eslint-config-supabase": "workspace:*",
+    "eslint-config-selfbase": "workspace:*",
     "icons": "workspace:*",
     "jotai": "^2.8.0",
     "lucide-react": "*",

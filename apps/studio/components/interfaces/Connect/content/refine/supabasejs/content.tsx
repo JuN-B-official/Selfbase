@@ -13,7 +13,7 @@ const ContentFile = ({ projectKeys }: ContentFileProps) => {
     <ConnectTabs>
       <ConnectTabTriggers>
         <ConnectTabTrigger value=".env.local" />
-        <ConnectTabTrigger value="src/utility/supabaseClient.ts" />
+        <ConnectTabTrigger value="src/utility/selfbaseClient.ts" />
         <ConnectTabTrigger value="src/App.tsx" />
       </ConnectTabTriggers>
 
@@ -28,15 +28,15 @@ const ContentFile = ({ projectKeys }: ContentFileProps) => {
         </SimpleCodeBlock>
       </ConnectTabContent>
 
-      <ConnectTabContent value="src/utility/supabaseClient.ts">
+      <ConnectTabContent value="src/utility/selfbaseClient.ts">
         <SimpleCodeBlock className="ts" parentClassName="min-h-72">
           {`
-import { createClient } from "@refinedev/supabase";
+import { createClient } from "@refinedev/selfbase";
 
 const SUPABASE_URL = process.env.SUPABASE_URL;
 const SUPABASE_KEY = process.env.SUPABASE_KEY;
 
-export const supabaseClient = createClient(SUPABASE_URL, SUPABASE_KEY, {
+export const selfbaseClient = createClient(SUPABASE_URL, SUPABASE_KEY, {
   db: {
     schema: "public",
   },
@@ -58,12 +58,12 @@ import routerProvider, {
   NavigateToResource,
   UnsavedChangesNotifier,
 } from "@refinedev/react-router";
-import { dataProvider, liveProvider } from "@refinedev/supabase";
+import { dataProvider, liveProvider } from "@refinedev/selfbase";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import "./App.css";
 import authProvider from "./authProvider";
-import { supabaseClient } from "./utility";
+import { selfbaseClient } from "./utility";
 import { CountriesCreate, CountriesEdit, CountriesList, CountriesShow } from "./pages/countries";
 
 function App() {
@@ -71,8 +71,8 @@ function App() {
     <BrowserRouter>
       <RefineKbarProvider>
         <Refine
-          dataProvider={dataProvider(supabaseClient)}
-          liveProvider={liveProvider(supabaseClient)}
+          dataProvider={dataProvider(selfbaseClient)}
+          liveProvider={liveProvider(selfbaseClient)}
           authProvider={authProvider}
           routerProvider={routerProvider}
           options={{

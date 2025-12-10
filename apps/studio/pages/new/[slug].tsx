@@ -1,5 +1,5 @@
 import { zodResolver } from '@hookform/resolvers/zod'
-import { PermissionAction } from '@supabase/shared-types/out/constants'
+import { PermissionAction } from '@selfbase/shared-types/out/constants'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { PropsWithChildren, useEffect, useMemo, useState } from 'react'
@@ -93,7 +93,7 @@ const Wizard: NextPageWithLayout = () => {
   const showNonProdFields = process.env.NEXT_PUBLIC_ENVIRONMENT !== 'prod'
   const isNotOnHigherPlan = !['team', 'enterprise', 'platform'].includes(currentOrg?.plan.id ?? '')
 
-  // This is to make the database.new redirect work correctly. The database.new redirect should be set to supabase.com/dashboard/new/last-visited-org
+  // This is to make the database.new redirect work correctly. The database.new redirect should be set to selfbase.com/dashboard/new/last-visited-org
   if (slug === 'last-visited-org') {
     if (lastVisitedOrganization) {
       router.replace(`/new/${lastVisitedOrganization}`, undefined, { shallow: true })
@@ -321,7 +321,7 @@ const Wizard: NextPageWithLayout = () => {
         )
       }
 
-      data['customSupabaseRequest'] = {
+      data['customSelfbaseRequest'] = {
         ami: { search_tags: { 'tag:postgresVersion': postgresVersion } },
       }
     }

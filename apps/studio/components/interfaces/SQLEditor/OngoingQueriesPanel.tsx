@@ -54,7 +54,7 @@ export const OngoingQueriesPanel = () => {
       connectionString: database?.connectionString,
     },
     {
-      enabled: !IS_PLATFORM || (IS_PLATFORM && database?.connectionString !== undefined),
+      enabled: database?.connectionString !== undefined,
       staleTime: 5000,
     }
   )

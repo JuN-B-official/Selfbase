@@ -80,7 +80,7 @@ export const TableRowComponent = ({ table, schema, namespace }: TableRowComponen
   const { mutateAsync: updateFDW } = useFDWUpdateMutation()
   const { mutateAsync: dropForeignTable } = useFDWDropForeignTableMutation()
   const { mutateAsync: deleteNamespaceTable, isPending: isDeletingNamespaceTable } =
-    useIcebergNamespaceTableDeleteMutation({ onError: () => {} })
+    useIcebergNamespaceTableDeleteMutation({ onError: () => { } })
   const { mutateAsync: updatePublication } = useUpdatePublicationMutation()
   const { mutateAsync: startPipeline } = useStartPipelineMutation()
 
@@ -200,7 +200,7 @@ export const TableRowComponent = ({ table, schema, namespace }: TableRowComponen
           server_name: wrapperInstance.server_name,
           ...serverOptions,
         }
-        const targetSchemas = (formValues['supabase_target_schema'] || '')
+        const targetSchemas = (formValues['selfbase_target_schema'] || '')
           .split(',')
           .map((s) => s.trim())
         const wrapperTables = formatWrapperTables(wrapperInstance, wrapperMeta).filter(
@@ -208,7 +208,7 @@ export const TableRowComponent = ({ table, schema, namespace }: TableRowComponen
         )
 
         // [Joshen] Once Ivan's PR goes through, swap these out to just use useFDWDropForeignTableMutation
-        // https://github.com/supabase/supabase/pull/40206
+        // https://github.com/selfbase/selfbase/pull/40206
         await updateFDW({
           projectRef: project?.ref,
           connectionString: project?.connectionString,
@@ -217,7 +217,7 @@ export const TableRowComponent = ({ table, schema, namespace }: TableRowComponen
           formState: {
             ...formValues,
             server_name: serverName,
-            supabase_target_schema: uniq([...targetSchemas])
+            selfbase_target_schema: uniq([...targetSchemas])
               .filter(Boolean)
               .join(','),
           },

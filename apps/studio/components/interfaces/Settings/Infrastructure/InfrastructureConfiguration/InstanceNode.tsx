@@ -1,4 +1,4 @@
-import { PermissionAction } from '@supabase/shared-types/out/constants'
+import { PermissionAction } from '@selfbase/shared-types/out/constants'
 import dayjs from 'dayjs'
 import { Database, DatabaseBackup, HelpCircle, Loader2, MoreVertical } from 'lucide-react'
 import Link from 'next/link'
@@ -266,9 +266,9 @@ export const ReplicaNode = ({ data }: NodeProps<ReplicaNodeData>) => {
                 Replica {id.length > 0 && `(ID: ${formatDatabaseID(id)})`}
               </p>
               {initStatus === ReplicaInitializationStatus.InProgress ||
-              status === REPLICA_STATUS.COMING_UP ||
-              status === REPLICA_STATUS.UNKNOWN ||
-              status === REPLICA_STATUS.INIT_READ_REPLICA ? (
+                status === REPLICA_STATUS.COMING_UP ||
+                status === REPLICA_STATUS.UNKNOWN ||
+                status === REPLICA_STATUS.INIT_READ_REPLICA ? (
                 <Badge>Coming up</Badge>
               ) : initStatus === ReplicaInitializationStatus.Failed ||
                 status === REPLICA_STATUS.INIT_READ_REPLICA_FAILED ? (

@@ -34,12 +34,12 @@ const ForgotPasswordLayout = ({
         <nav className="relative flex items-center justify-between sm:h-10">
           <div className="flex flex-shrink-0 flex-grow items-center lg:flex-grow-0">
             <div className="flex w-full items-center justify-between md:w-auto">
-              <Link href={logoLinkToMarketingSite ? 'https://supabase.com' : '/organizations'}>
+              <Link href={logoLinkToMarketingSite ? 'https://selfbase.com' : '/organizations'}>
                 <Image
                   src={
                     resolvedTheme?.includes('dark')
-                      ? `${BASE_PATH}/img/supabase-dark.svg`
-                      : `${BASE_PATH}/img/supabase-light.svg`
+                      ? `${BASE_PATH}/img/selfbase-dark.svg`
+                      : `${BASE_PATH}/img/selfbase-light.svg`
                   }
                   alt=""
                   height={24}

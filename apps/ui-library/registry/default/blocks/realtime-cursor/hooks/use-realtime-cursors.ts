@@ -1,5 +1,5 @@
-import { createClient } from '@/registry/default/clients/nextjs/lib/supabase/client'
-import { RealtimeChannel, REALTIME_SUBSCRIBE_STATES } from '@supabase/supabase-js'
+import { createClient } from '@/registry/default/clients/nextjs/lib/selfbase/client'
+import { RealtimeChannel, REALTIME_SUBSCRIBE_STATES } from '@selfbase/selfbase-js'
 import { useCallback, useEffect, useRef, useState } from 'react'
 
 /**
@@ -37,7 +37,7 @@ const useThrottleCallback = <Params extends unknown[], Return>(
   )
 }
 
-const supabase = createClient()
+const selfbase = createClient()
 
 const generateRandomColor = () => `hsl(${Math.floor(Math.random() * 360)}, 100%, 70%)`
 
@@ -105,7 +105,7 @@ export const useRealtimeCursors = ({
   const handleMouseMove = useThrottleCallback(callback, throttleMs)
 
   useEffect(() => {
-    const channel = supabase.channel(roomName)
+    const channel = selfbase.channel(roomName)
 
     channel
       .on('presence', { event: 'leave' }, ({ leftPresences }) => {

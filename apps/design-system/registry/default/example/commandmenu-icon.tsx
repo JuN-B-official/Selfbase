@@ -14,7 +14,7 @@ function Commands() {
     {
       id: 'github',
       name: 'Go to repo',
-      route: 'https://github.com/supabase/supabase',
+      route: 'https://github.com/selfbase/selfbase',
       icon: () => <Github />,
     },
   ])

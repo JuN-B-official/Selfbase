@@ -1,4 +1,4 @@
-import { PermissionAction } from '@supabase/shared-types/out/constants'
+import { PermissionAction } from '@selfbase/shared-types/out/constants'
 import { noop } from 'lodash'
 import { Lock, Table } from 'lucide-react'
 
@@ -122,7 +122,7 @@ export const PolicyTableRowHeader = ({
                   text:
                     !canToggleRLS || !canCreatePolicies
                       ? 'You need additional permissions to create RLS policies'
-                      : 'Create with Supabase Assistant',
+                      : 'Create with Selfbase Assistant',
                 },
               }}
             >

@@ -1,4 +1,4 @@
-import { PermissionAction } from '@supabase/shared-types/out/constants'
+import { PermissionAction } from '@selfbase/shared-types/out/constants'
 import { partition } from 'lodash'
 import { ChevronDown, Globe2, Loader2, Network } from 'lucide-react'
 import { useTheme } from 'next-themes'
@@ -140,12 +140,12 @@ const InstanceConfigurationUI = ({ diagramOnly = false }: InstanceConfigurationU
     () =>
       isSuccessReplicas && isSuccessLoadBalancers && primary !== undefined
         ? generateNodes({
-            primary,
-            replicas,
-            loadBalancers: loadBalancers ?? [],
-            onSelectRestartReplica: setSelectedReplicaToRestart,
-            onSelectDropReplica: setSelectedReplicaToDrop,
-          })
+          primary,
+          replicas,
+          loadBalancers: loadBalancers ?? [],
+          onSelectRestartReplica: setSelectedReplicaToRestart,
+          onSelectDropReplica: setSelectedReplicaToDrop,
+        })
         : [],
     [isSuccessReplicas, isSuccessLoadBalancers, primary, replicas, loadBalancers]
   )
@@ -154,34 +154,34 @@ const InstanceConfigurationUI = ({ diagramOnly = false }: InstanceConfigurationU
     () =>
       isSuccessReplicas && isSuccessLoadBalancers
         ? [
-            ...((loadBalancers ?? []).length > 0
-              ? [
-                  {
-                    id: `load-balancer-${primary.identifier}`,
-                    source: 'load-balancer',
-                    target: primary.identifier,
-                    type: 'smoothstep',
-                    animated: true,
-                    className: '!cursor-default',
-                  },
-                ]
-              : []),
-            ...replicas.map((database) => {
-              return {
-                id: `${primary.identifier}-${database.identifier}`,
-                source: primary.identifier,
-                target: database.identifier,
+          ...((loadBalancers ?? []).length > 0
+            ? [
+              {
+                id: `load-balancer-${primary.identifier}`,
+                source: 'load-balancer',
+                target: primary.identifier,
                 type: 'smoothstep',
                 animated: true,
                 className: '!cursor-default',
-                data: {
-                  status: database.status,
-                  identifier: database.identifier,
-                  connectionString: database.connectionString,
-                },
-              }
-            }),
-          ]
+              },
+            ]
+            : []),
+          ...replicas.map((database) => {
+            return {
+              id: `${primary.identifier}-${database.identifier}`,
+              source: primary.identifier,
+              target: database.identifier,
+              type: 'smoothstep',
+              animated: true,
+              className: '!cursor-default',
+              data: {
+                status: database.status,
+                identifier: database.identifier,
+                connectionString: database.connectionString,
+              },
+            }
+          }),
+        ]
         : [],
     [isSuccessLoadBalancers, isSuccessReplicas, loadBalancers, primary?.identifier, replicas]
   )
@@ -225,9 +225,8 @@ const InstanceConfigurationUI = ({ diagramOnly = false }: InstanceConfigurationU
   return (
     <div className={cn('nowheel', diagramOnly ? 'h-full' : 'border-y')}>
       <div
-        className={`${diagramOnly ? 'h-full' : 'h-[500px]'} w-full relative ${
-          isSuccessReplicas && !isLoadingProject ? '' : 'flex items-center justify-center px-28'
-        }`}
+        className={`${diagramOnly ? 'h-full' : 'h-[500px]'} w-full relative ${isSuccessReplicas && !isLoadingProject ? '' : 'flex items-center justify-center px-28'
+          }`}
       >
         {/* Sometimes the read replicas are loaded before the project info and causes  read replicas to be shown on Fly deploys.
             You can replicate this to going to this page and refresh. This isLoadingProject flag fixes that. */}
@@ -286,17 +285,15 @@ const InstanceConfigurationUI = ({ diagramOnly = false }: InstanceConfigurationU
                     <Button
                       type="default"
                       icon={<Network size={15} />}
-                      className={`rounded-r-none transition ${
-                        view === 'flow' ? 'opacity-100' : 'opacity-50'
-                      }`}
+                      className={`rounded-r-none transition ${view === 'flow' ? 'opacity-100' : 'opacity-50'
+                        }`}
                       onClick={() => setView('flow')}
                     />
                     <Button
                       type="default"
                       icon={<Globe2 size={15} />}
-                      className={`rounded-l-none transition ${
-                        view === 'map' ? 'opacity-100' : 'opacity-50'
-                      }`}
+                      className={`rounded-l-none transition ${view === 'map' ? 'opacity-100' : 'opacity-50'
+                        }`}
                       onClick={() => setView('map')}
                     />
                   </div>

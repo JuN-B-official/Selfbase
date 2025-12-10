@@ -1,4 +1,4 @@
-import { RealtimeChannel, RealtimeClient } from '@supabase/realtime-js'
+import { RealtimeChannel, RealtimeClient } from '@selfbase/realtime-js'
 import { sortBy, take } from 'lodash'
 import { Dispatch, SetStateAction, useCallback, useEffect, useReducer, useState } from 'react'
 import { toast } from 'sonner'
@@ -9,7 +9,7 @@ import { EMPTY_ARR } from 'lib/void'
 import { useRoleImpersonationStateSnapshot } from 'state/role-impersonation-state'
 import type { LogData } from './Messages.types'
 
-const DEFAULT_HEADERS = { 'X-Client-Info': 'supabase-js-web/studio' }
+const DEFAULT_HEADERS = { 'X-Client-Info': 'selfbase-js-web/studio' }
 
 function reducer(
   state: LogData[],
@@ -79,7 +79,7 @@ export const useRealtimeMessages = (
   const protocol = settings?.app_config?.protocol ?? 'https'
   const endpoint = settings?.app_config?.endpoint
   // the default host is prod until the correct one comes through an API call.
-  const host = settings ? `${protocol}://${endpoint}` : `https://${projectRef}.supabase.co`
+  const host = settings ? `${protocol}://${endpoint}` : `https://${projectRef}.selfbase.co`
 
   const realtimeUrl = `${host}/realtime/v1`.replace(/^http/i, 'ws')
 

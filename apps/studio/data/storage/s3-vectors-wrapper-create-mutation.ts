@@ -1,4 +1,4 @@
-import { PermissionAction } from '@supabase/shared-types/out/constants'
+import { PermissionAction } from '@selfbase/shared-types/out/constants'
 
 import { WRAPPERS } from 'components/interfaces/Integrations/Wrappers/Wrappers.constants'
 import { getVectorURI } from 'components/interfaces/Storage/StorageSettings/StorageSettings.utils'
@@ -51,7 +51,7 @@ export const useS3VectorsWrapperCreateMutation = () => {
         vault_secret_access_key: createS3KeyData?.secret_key,
         aws_region: settings!.region,
         endpoint_url: getVectorURI(project?.ref ?? '', protocol, endpoint),
-        supabase_target_schema: getVectorBucketFDWSchemaName(bucketName),
+        selfbase_target_schema: getVectorBucketFDWSchemaName(bucketName),
       },
       mode: 'skip',
       tables: [],

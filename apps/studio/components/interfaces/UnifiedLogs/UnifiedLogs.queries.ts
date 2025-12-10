@@ -389,9 +389,9 @@ const getAuthLogsQuery = () => {
 }
 
 /**
- * Supabase storage logs query fragment
+ * Selfbase storage logs query fragment
  */
-const getSupabaseStorageLogsQuery = () => {
+const getSelfbaseStorageLogsQuery = () => {
   return `
     select 
       id,
@@ -432,7 +432,7 @@ WITH unified_logs AS (
     union all
     ${getAuthLogsQuery()}
     union all
-    ${getSupabaseStorageLogsQuery()}
+    ${getSelfbaseStorageLogsQuery()}
 )
   `
 }

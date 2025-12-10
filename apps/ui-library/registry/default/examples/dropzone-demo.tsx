@@ -5,10 +5,10 @@ import {
   DropzoneContent,
   DropzoneEmptyState,
 } from '@/registry/default/blocks/dropzone/components/dropzone'
-import { useSupabaseUpload } from '@/registry/default/blocks/dropzone/hooks/use-supabase-upload'
+import { useSelfbaseUpload } from '@/registry/default/blocks/dropzone/hooks/use-selfbase-upload'
 
 const FileUploadDemo = () => {
-  const props = useSupabaseUpload({
+  const props = useSelfbaseUpload({
     bucketName: 'test',
     path: 'test',
     allowedMimeTypes: ['image/*'],

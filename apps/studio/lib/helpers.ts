@@ -67,9 +67,9 @@ export const getURL = () => {
     process?.env?.NEXT_PUBLIC_SITE_URL && process.env.NEXT_PUBLIC_SITE_URL !== ''
       ? process.env.NEXT_PUBLIC_SITE_URL
       : process?.env?.NEXT_PUBLIC_VERCEL_BRANCH_URL &&
-          process.env.NEXT_PUBLIC_VERCEL_BRANCH_URL !== ''
+        process.env.NEXT_PUBLIC_VERCEL_BRANCH_URL !== ''
         ? process.env.NEXT_PUBLIC_VERCEL_BRANCH_URL
-        : 'https://supabase.com/dashboard'
+        : 'https://selfbase.com/dashboard'
   return url.includes('http') ? url : `https://${url}`
 }
 
@@ -272,12 +272,12 @@ export const removeCommentsFromSql = (sql: string) => {
 }
 
 const formatSemver = (version: string) => {
-  // e.g supabase-postgres-14.1.0.88
+  // e.g selfbase-postgres-14.1.0.88
   // There's 4 segments instead so we can't use the semver package
-  const segments = version.split('supabase-postgres-')
+  const segments = version.split('selfbase-postgres-')
   const semver = segments[segments.length - 1]
 
-  // e.g supabase-postgres-14.1.0.99-vault-rc1
+  // e.g selfbase-postgres-14.1.0.99-vault-rc1
   const formattedSemver = semver.split('-')[0]
 
   return formattedSemver
@@ -353,4 +353,4 @@ export const cleanPointerEventsNoneOnBody = (timeoutMs: number = 300) => {
   }
 }
 
-export function neverGuard(_: never): any {}
+export function neverGuard(_: never): any { }

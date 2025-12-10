@@ -1,4 +1,4 @@
-import { PermissionAction } from '@supabase/shared-types/out/constants'
+import { PermissionAction } from '@selfbase/shared-types/out/constants'
 import { ExternalLink } from 'lucide-react'
 import { useTheme } from 'next-themes'
 import Link from 'next/link'
@@ -39,19 +39,19 @@ const PITR_CATEGORY_OPTIONS: {
   imageUrl: string
   imageUrlLight: string
 }[] = [
-  {
-    id: 'off',
-    name: 'Disable PITR',
-    imageUrl: `${BASE_PATH}/img/pitr-off.svg?v=2`,
-    imageUrlLight: `${BASE_PATH}/img/pitr-off--light.svg?v=2`,
-  },
-  {
-    id: 'on',
-    name: 'Enable PITR',
-    imageUrl: `${BASE_PATH}/img/pitr-on.svg?v=2`,
-    imageUrlLight: `${BASE_PATH}/img/pitr-on--light.svg?v=2`,
-  },
-]
+    {
+      id: 'off',
+      name: 'Disable PITR',
+      imageUrl: `${BASE_PATH}/img/pitr-off.svg?v=2`,
+      imageUrlLight: `${BASE_PATH}/img/pitr-off--light.svg?v=2`,
+    },
+    {
+      id: 'on',
+      name: 'Enable PITR',
+      imageUrl: `${BASE_PATH}/img/pitr-on.svg?v=2`,
+      imageUrlLight: `${BASE_PATH}/img/pitr-on--light.svg?v=2`,
+    },
+  ]
 
 const PITRSidePanel = () => {
   const { ref: projectRef } = useParams()

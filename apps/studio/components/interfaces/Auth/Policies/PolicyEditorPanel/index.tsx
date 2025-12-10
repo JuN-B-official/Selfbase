@@ -1,7 +1,7 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Monaco } from '@monaco-editor/react'
-import type { PostgresPolicy } from '@supabase/postgres-meta'
-import { PermissionAction } from '@supabase/shared-types/out/constants'
+import type { PostgresPolicy } from '@selfbase/postgres-meta'
+import { PermissionAction } from '@selfbase/shared-types/out/constants'
 import { useQueryClient } from '@tanstack/react-query'
 import { isEqual } from 'lodash'
 import { memo, useCallback, useEffect, useRef, useState } from 'react'
@@ -155,11 +155,11 @@ export const PolicyEditorPanel = memo(function ({
     const policyUpdateUnsaved =
       selectedPolicy !== undefined
         ? checkIfPolicyHasChanged(selectedPolicy, {
-            name,
-            roles: roles.length === 0 ? ['public'] : roles.split(', '),
-            definition: editorOneFormattedValue,
-            check: command === 'INSERT' ? editorOneFormattedValue : editorTwoFormattedValue,
-          })
+          name,
+          roles: roles.length === 0 ? ['public'] : roles.split(', '),
+          definition: editorOneFormattedValue,
+          check: command === 'INSERT' ? editorOneFormattedValue : editorTwoFormattedValue,
+        })
         : false
 
     return policyCreateUnsaved || policyUpdateUnsaved

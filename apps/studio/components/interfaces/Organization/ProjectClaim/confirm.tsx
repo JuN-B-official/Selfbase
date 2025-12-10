@@ -1,4 +1,4 @@
-import { OAuthScope } from '@supabase/shared-types/out/constants'
+import { OAuthScope } from '@selfbase/shared-types/out/constants'
 import { CheckCircle2, ChevronRight, ChevronsLeftRight } from 'lucide-react'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
@@ -40,7 +40,7 @@ export const ProjectClaimConfirm = ({
   const { invalidateProjectsQuery } = useInvalidateProjectsInfiniteQuery()
 
   const { mutateAsync: approveRequest, isPending: isApproving } =
-    useApiAuthorizationApproveMutation({ onError: () => {} })
+    useApiAuthorizationApproveMutation({ onError: () => { } })
 
   const { mutateAsync: claimProject, isPending: isClaiming } = useOrganizationProjectClaimMutation()
 
@@ -105,8 +105,8 @@ export const ProjectClaimConfirm = ({
 
             <div className="w-8 h-8">
               <Image
-                src={`${BASE_PATH}/img/supabase-logo.svg`}
-                alt="Supabase Logo"
+                src={`${BASE_PATH}/img/selfbase-logo.svg`}
+                alt="Selfbase Logo"
                 className="w-full h-full"
                 width={100}
                 height={100}
@@ -126,7 +126,7 @@ export const ProjectClaimConfirm = ({
                 <CheckCircle2 className="text-brand h-5 w-5" />
               </span>
               <span>
-                The project will be transferred to your Supabase organization{' '}
+                The project will be transferred to your Selfbase organization{' '}
                 <span className="text-foreground">{selectedOrganization.name}.</span>{' '}
                 <a
                   href="#"

@@ -1,9 +1,9 @@
-import type { PostgresColumn, PostgresRelationship, PostgresTable } from '@supabase/postgres-meta'
+import type { PostgresColumn, PostgresRelationship, PostgresTable } from '@selfbase/postgres-meta'
 import dayjs from 'dayjs'
 import { compact, isEqual, isNull, isString, omitBy } from 'lodash'
 import type { Dictionary } from 'types'
 
-import { MAX_ARRAY_SIZE, MAX_CHARACTERS } from '@supabase/pg-meta/src/query/table-row-query'
+import { MAX_ARRAY_SIZE, MAX_CHARACTERS } from '@selfbase/pg-meta/src/query/table-row-query'
 import { minifyJSON, tryParseJson } from 'lib/helpers'
 import { ForeignKey } from '../ForeignKeySelector/ForeignKeySelector.types'
 import {
@@ -60,16 +60,16 @@ export const generateRowFields = (
       foreignKey:
         foreignKey !== undefined
           ? ({
-              id: foreignKey.id,
-              constraint_name: foreignKey.name,
-              source_schema: column.schema,
-              source_table_name: column.table,
-              source_column_name: column.name,
-              target_table_schema: foreignKey.schema,
-              target_table_name: foreignKey.table,
-              target_column_name:
-                foreignKey.columns.find((c) => c.source === column.name)?.target ?? '',
-            } as PostgresRelationship)
+            id: foreignKey.id,
+            constraint_name: foreignKey.name,
+            source_schema: column.schema,
+            source_table_name: column.table,
+            source_column_name: column.name,
+            target_table_schema: foreignKey.schema,
+            target_table_name: foreignKey.table,
+            target_column_name:
+              foreignKey.columns.find((c) => c.source === column.name)?.target ?? '',
+          } as PostgresRelationship)
           : undefined,
       id: column.id,
       name: column.name,

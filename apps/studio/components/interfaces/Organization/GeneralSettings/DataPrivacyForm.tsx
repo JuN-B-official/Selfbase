@@ -1,4 +1,4 @@
-import { PermissionAction } from '@supabase/shared-types/out/constants'
+import { PermissionAction } from '@selfbase/shared-types/out/constants'
 import { useEffect } from 'react'
 
 import { FormActions } from 'components/ui/Forms/FormActions'
@@ -31,7 +31,7 @@ export const DataPrivacyForm = () => {
               control={form.control}
               disabled={!canUpdateOrganization || isUpdating}
               layout="flex-row-reverse"
-              label="Supabase Assistant Opt-in Level"
+              label="Selfbase Assistant Opt-in Level"
             />
           </CardContent>
           <CardFooter className="flex justify-end p-4 md:px-8">

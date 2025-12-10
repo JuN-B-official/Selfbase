@@ -1,5 +1,5 @@
-import pgMeta from '@supabase/pg-meta'
-import { PGTriggerCreate } from '@supabase/pg-meta/src/pg-meta-triggers'
+import pgMeta from '@selfbase/pg-meta'
+import { PGTriggerCreate } from '@selfbase/pg-meta/src/pg-meta-triggers'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { executeSql } from 'data/sql/execute-sql-query'
 import { toast } from 'sonner'

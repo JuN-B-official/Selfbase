@@ -12,9 +12,9 @@ import {
 import { UIEvent, useEffect, useMemo, useRef, useState } from 'react'
 import DataGrid, { Column, DataGridHandle, Row } from 'react-data-grid'
 import { toast } from 'sonner'
-import pgMeta from '@supabase/pg-meta'
+import pgMeta from '@selfbase/pg-meta'
 
-import type { OptimizedSearchColumns } from '@supabase/pg-meta/src/sql/studio/get-users-types'
+import type { OptimizedSearchColumns } from '@selfbase/pg-meta/src/sql/studio/get-users-types'
 import { LOCAL_STORAGE_KEYS, useFlag, useParams } from 'common'
 import { useIsAPIDocsSidePanelEnabled } from 'components/interfaces/App/FeaturePreview/FeaturePreviewContext'
 import AlertError from 'components/ui/AlertError'
@@ -929,7 +929,7 @@ export const UsersV2 = () => {
             >
               project logs
             </InlineLink>
-            . If you encounter any issues, please contact Supabase support for assistance.
+            . If you encounter any issues, please contact Selfbase support for assistance.
           </li>
         </ul>
       </ConfirmationModal>

@@ -1,5 +1,5 @@
 import { zodResolver } from '@hookform/resolvers/zod'
-import { PermissionAction } from '@supabase/shared-types/out/constants'
+import { PermissionAction } from '@selfbase/shared-types/out/constants'
 import { ChevronRight, ExternalLink, X } from 'lucide-react'
 import Link from 'next/link'
 import { useEffect } from 'react'
@@ -227,7 +227,7 @@ export const EmailTemplates = () => {
                         We’ve expanded our email templates to handle security-sensitive actions. The
                         list of templates will continue to grow as our feature-set changes, and as
                         we{' '}
-                        <InlineLink href="https://github.com/orgs/supabase/discussions/40349">
+                        <InlineLink href="https://github.com/orgs/selfbase/discussions/40349">
                           gather feedback
                         </InlineLink>{' '}
                         from our community .

@@ -1,4 +1,4 @@
-import type { PostgresTable } from '@supabase/postgres-meta'
+import type { PostgresTable } from '@selfbase/postgres-meta'
 import { isEmpty, noop, partition } from 'lodash'
 import { useEffect, useMemo, useState } from 'react'
 
@@ -165,9 +165,8 @@ export const RowEditor = ({
       key="RowEditor"
       visible={visible}
       header={<HeaderTitle isNewRecord={isNewRecord} tableName={selectedTable.name} />}
-      className={`transition-all duration-100 ease-in ${
-        isEditingText || isEditingJson || isSelectingForeignKey ? ' mr-32' : ''
-      }`}
+      className={`transition-all duration-100 ease-in ${isEditingText || isEditingJson || isSelectingForeignKey ? ' mr-32' : ''
+        }`}
       onCancel={closePanel}
       customFooter={
         <ActionBar

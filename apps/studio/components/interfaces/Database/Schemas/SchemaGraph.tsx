@@ -1,4 +1,4 @@
-import type { PostgresSchema } from '@supabase/postgres-meta'
+import type { PostgresSchema } from '@selfbase/postgres-meta'
 import { toPng, toSvg } from 'html-to-image'
 import { Check, Copy, Download, Loader2, Plus } from 'lucide-react'
 import { useTheme } from 'next-themes'
@@ -9,7 +9,7 @@ import 'reactflow/dist/style.css'
 import { toast } from 'sonner'
 import { Button } from 'ui'
 import { Admonition } from 'ui-patterns/admonition'
-import { PermissionAction } from '@supabase/shared-types/out/constants'
+import { PermissionAction } from '@selfbase/shared-types/out/constants'
 
 import { LOCAL_STORAGE_KEYS, useParams } from 'common'
 import AlertError from 'components/ui/AlertError'
@@ -147,7 +147,7 @@ export const SchemaGraph = () => {
       })
         .then((data) => {
           const a = document.createElement('a')
-          a.setAttribute('download', `supabase-schema-${ref}.svg`)
+          a.setAttribute('download', `selfbase-schema-${ref}.svg`)
           a.setAttribute('href', data)
           a.click()
           toast.success('Successfully downloaded as SVG')
@@ -172,7 +172,7 @@ export const SchemaGraph = () => {
       })
         .then((data) => {
           const a = document.createElement('a')
-          a.setAttribute('download', `supabase-schema-${ref}.png`)
+          a.setAttribute('download', `selfbase-schema-${ref}.png`)
           a.setAttribute('href', data)
           a.click()
           toast.success('Successfully downloaded as PNG')
@@ -302,7 +302,7 @@ export const SchemaGraph = () => {
                 title="No tables in schema"
                 description={
                   isSchemaLocked
-                    ? `The “${selectedSchema}” schema is managed by Supabase and is read-only through
+                    ? `The “${selectedSchema}” schema is managed by Selfbase and is read-only through
                     the dashboard.`
                     : !canUpdateTables
                       ? 'You need additional permissions to create tables'

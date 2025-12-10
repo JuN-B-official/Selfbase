@@ -199,7 +199,7 @@ export const Page = () => {
                 render={({ field }) => (
                   <FormItemLayout
                     afterLabel="Switch"
-                    label="Use ./supabase directory for everything"
+                    label="Use ./selfbase directory for everything"
                     description="This is an explanation."
                     layout="flex"
                   >
@@ -348,8 +348,8 @@ export const Page = () => {
                                     return checked
                                       ? field.onChange([...field.value, item.id])
                                       : field.onChange(
-                                          field.value?.filter((value) => value !== item.id)
-                                        )
+                                        field.value?.filter((value) => value !== item.id)
+                                      )
                                   }}
                                 />
                               </FormControl_Shadcn_>

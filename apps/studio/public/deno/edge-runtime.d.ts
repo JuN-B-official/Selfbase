@@ -1,4 +1,4 @@
-declare namespace Supabase {
+declare namespace Selfbase {
   export interface ModelOptions {
     /**
      * Pool embeddings by taking their mean. Applies only for `gte-small` model

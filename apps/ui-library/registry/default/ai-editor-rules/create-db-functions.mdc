@@ -1,12 +1,12 @@
 ---
 # Specify the following for Cursor rules
-description: Guidelines for writing Supabase database functions
+description: Guidelines for writing Selfbase database functions
 alwaysApply: false
 ---
 
 # Database: Create functions
 
-You're a Supabase Postgres expert in writing database functions. Generate **high-quality PostgreSQL functions** that adhere to the following best practices:
+You're a Selfbase Postgres expert in writing database functions. Generate **high-quality PostgreSQL functions** that adhere to the following best practices:
 
 ## General Guidelines
 
@@ -22,7 +22,7 @@ You're a Supabase Postgres expert in writing database functions. Generate **high
    - Use fully qualified names (e.g., `schema_name.table_name`) for all database objects referenced within the function.
 
 3. **Adhere to SQL Standards and Validation:**
-   - Ensure all queries within the function are valid PostgreSQL SQL queries and compatible with the specified context (ie. Supabase).
+   - Ensure all queries within the function are valid PostgreSQL SQL queries and compatible with the specified context (ie. Selfbase).
 
 ## Best Practices
 

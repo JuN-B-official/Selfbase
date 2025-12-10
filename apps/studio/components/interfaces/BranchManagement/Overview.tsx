@@ -1,4 +1,4 @@
-import { PermissionAction } from '@supabase/shared-types/out/constants'
+import { PermissionAction } from '@selfbase/shared-types/out/constants'
 import { useQueryClient } from '@tanstack/react-query'
 import { partition } from 'lodash'
 import {

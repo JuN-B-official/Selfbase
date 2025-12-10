@@ -61,7 +61,7 @@ export const InlineCode = memo(
 InlineCode.displayName = 'InlineCode'
 
 export const Hyperlink = memo(({ href, children }: { href?: string; children?: ReactNode }) => {
-  const isExternalURL = !href?.startsWith('https://supabase.com/dashboard')
+  const isExternalURL = !href?.startsWith('https://selfbase.com/dashboard')
   const safeUrl = defaultUrlTransform(href ?? '')
   const isSafeUrl = safeUrl.length > 0
 
@@ -211,7 +211,7 @@ export const MarkdownPre = ({
       if (propsMatch) {
         return JSON.parse(propsMatch[1])
       }
-    } catch {}
+    } catch { }
     return {}
   }, [propsMatch])
 
@@ -262,7 +262,7 @@ export const MarkdownPre = ({
               xAxis: xAxis ?? '',
               yAxis: yAxis ?? '',
             }}
-            onError={() => {}}
+            onError={() => { }}
             showConfirmFooter={false}
             onChartConfigChange={(config) => {
               chartConfig.current = { ...config }

@@ -47,8 +47,8 @@ export const VectorsBuckets = () => {
     filterString.length === 0
       ? bucketsList
       : bucketsList.filter((bucket) =>
-          bucket.vectorBucketName.toLowerCase().includes(filterString.toLowerCase())
-        )
+        bucket.vectorBucketName.toLowerCase().includes(filterString.toLowerCase())
+      )
 
   const handleBucketNavigation = (bucketName: string, event: MouseEvent | KeyboardEvent) => {
     const url = `/project/${projectRef}/storage/vectors/buckets/${encodeURIComponent(bucketName)}`
@@ -66,7 +66,7 @@ export const VectorsBuckets = () => {
           <PageSectionContent className="flex flex-col gap-y-8">
             <AlphaNotice
               entity="Vector buckets"
-              feedbackUrl="https://github.com/orgs/supabase/discussions/40815"
+              feedbackUrl="https://github.com/orgs/selfbase/discussions/40815"
             />
 
             {isLoadingBuckets && <GenericSkeletonLoader />}

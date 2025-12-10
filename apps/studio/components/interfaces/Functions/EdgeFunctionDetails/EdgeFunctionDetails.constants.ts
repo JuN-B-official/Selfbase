@@ -29,13 +29,13 @@ export const INVOCATION_TABS: InvocationTab[] = [
     },
   },
   {
-    id: 'supabase-js',
+    id: 'selfbase-js',
     label: 'JavaScript',
     language: 'js',
     hideLineNumbers: true,
-    code: ({ functionName }) => `import { createClient } from '@supabase/supabase-js'
-const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_ANON_KEY)
-const { data, error } = await supabase.functions.invoke('${functionName}', {
+    code: ({ functionName }) => `import { createClient } from '@selfbase/selfbase-js'
+const selfbase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_ANON_KEY)
+const { data, error } = await selfbase.functions.invoke('${functionName}', {
   body: { name: 'Functions' },
 })`,
   },
@@ -48,7 +48,7 @@ const { data, error } = await supabase.functions.invoke('${functionName}', {
   // Expected response definition
 }
 
-let response: Response = try await supabase.functions
+let response: Response = try await selfbase.functions
   .invoke(
     "${functionName}",
     options: FunctionInvokeOptions(
@@ -63,7 +63,7 @@ let response: Response = try await supabase.functions
     hideLineNumbers: true,
     code: ({
       functionName,
-    }) => `final res = await supabase.functions.invoke('${functionName}', body: {'name': 'Functions'});
+    }) => `final res = await selfbase.functions.invoke('${functionName}', body: {'name': 'Functions'});
 final data = res.data;`,
   },
   {
@@ -71,7 +71,7 @@ final data = res.data;`,
     label: 'Python',
     language: 'python',
     hideLineNumbers: true,
-    code: ({ functionName }) => `response = supabase.functions.invoke(
+    code: ({ functionName }) => `response = selfbase.functions.invoke(
     "${functionName}",
     invoke_options={"body": {"name": "Functions"}}
 )`,

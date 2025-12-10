@@ -29,7 +29,7 @@ interface HTTPRequestFieldsProps {
 
 const buildFunctionUrl = (slug: string, projectRef: string, restUrl?: string) => {
   const restUrlTld = restUrl ? new URL(restUrl).hostname.split('.').pop() : 'co'
-  const functionUrl = `https://${projectRef}.supabase.${restUrlTld}/functions/v1/${slug}`
+  const functionUrl = `https://${projectRef}.selfbase.${restUrlTld}/functions/v1/${slug}`
   return functionUrl
 }
 

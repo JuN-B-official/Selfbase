@@ -1,5 +1,5 @@
 import { zodResolver } from '@hookform/resolvers/zod'
-import { PermissionAction } from '@supabase/shared-types/out/constants'
+import { PermissionAction } from '@selfbase/shared-types/out/constants'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
@@ -295,9 +295,9 @@ export const InviteMemberButton = () => {
                 description={
                   <div className="space-y-4 mb-1">
                     <p>
-                      Supabase offers single sign-on (SSO) as a login option to provide additional
+                      Selfbase offers single sign-on (SSO) as a login option to provide additional
                       account security for your team. This allows company administrators to enforce
-                      the use of an identity provider when logging into Supabase.
+                      the use of an identity provider when logging into Selfbase.
                     </p>
                     <p>This is only available for organizations on Team Plan or above.</p>
                     <div className="flex items-center space-x-2">

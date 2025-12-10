@@ -1,4 +1,4 @@
-import { getCheckPrimaryKeysExistsSQL } from '@supabase/pg-meta/src/sql/studio/check-primary-keys-exists'
+import { getCheckPrimaryKeysExistsSQL } from '@selfbase/pg-meta/src/sql/studio/check-primary-keys-exists'
 import { useQuery } from '@tanstack/react-query'
 
 import { executeSql } from 'data/sql/execute-sql-query'

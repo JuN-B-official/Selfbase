@@ -1,6 +1,6 @@
-# A string used to distinguish different Supabase projects on the same host. Defaults to the working
-# directory name when running `supabase init`.
-project_id = "supabase"
+# A string used to distinguish different Selfbase projects on the same host. Defaults to the working
+# directory name when running `selfbase init`.
+project_id = "selfbase"
 
 [remotes.prod]
 project_id = "xguihxuzqibwxjnimxev"
@@ -28,7 +28,7 @@ port = 54322
 major_version = 15
 
 [studio]
-# Port to use for Supabase Studio.
+# Port to use for Selfbase Studio.
 port = 54323
 
 openai_api_key = "env(OPENAI_API_KEY)"
@@ -53,8 +53,8 @@ objects_path = "buckets/fonts"
 site_url = "http://localhost:3000"
 # A list of *exact* URLs that auth providers are permitted to redirect to post authentication.
 additional_redirect_urls = [
-    "https://*-supabase.vercel.app/*/*",
-    "https://supabase.com/*/*",
+    "https://*-selfbase.vercel.app/*/*",
+    "https://selfbase.com/*/*",
     "http://localhost:3000/*/*",
 ]
 # How long tokens are valid for, in seconds. Defaults to 3600 (1 hour), maximum 604,800 seconds (one
@@ -73,7 +73,7 @@ double_confirm_changes = true
 enable_confirmations = false
 
 # Uncomment the following to use gh oAuth app locally with your own test app
-# to use env vars locally, run > `source ./supabase/.env && supabase [command...]`
+# to use env vars locally, run > `source ./selfbase/.env && selfbase [command...]`
 # [auth.external.github]
 # enabled = true
 # client_id = "env(GITHUB_CLIENT_ID)"

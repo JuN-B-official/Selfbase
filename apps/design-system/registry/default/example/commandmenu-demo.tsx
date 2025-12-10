@@ -18,9 +18,9 @@ function Commands() {
   ])
   useRegisterCommands('Route commands', [
     {
-      id: 'supabase-website',
-      name: 'Go to Supabase website',
-      route: 'https://supabase.com',
+      id: 'selfbase-website',
+      name: 'Go to Selfbase website',
+      route: 'https://selfbase.com',
     },
   ])
 

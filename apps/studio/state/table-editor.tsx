@@ -1,4 +1,4 @@
-import type { PostgresColumn } from '@supabase/postgres-meta'
+import type { PostgresColumn } from '@selfbase/postgres-meta'
 import { PropsWithChildren, createContext, useContext } from 'react'
 import { proxy, useSnapshot } from 'valtio'
 
@@ -25,9 +25,9 @@ export type SidePanel =
   | { type: 'schema'; mode: 'new' | 'edit' }
   | { type: 'json'; jsonValue: EditValue }
   | {
-      type: 'foreign-row-selector'
-      foreignKey: ForeignKeyState
-    }
+    type: 'foreign-row-selector'
+    foreignKey: ForeignKeyState
+  }
   | { type: 'csv-import'; file?: File }
 
 export type ConfirmationDialog =
@@ -37,25 +37,25 @@ export type ConfirmationDialog =
   // DeleteConfirmationDialog can trigger dispatch methods after the successful deletion of rows.
   // Once we deprecate react tracked and move things to valtio, we can remove this.
   | {
-      type: 'row'
-      rows: SupaRow[]
-      numRows?: number
-      allRowsSelected?: boolean
-      callback?: () => void
-    }
+    type: 'row'
+    rows: SupaRow[]
+    numRows?: number
+    allRowsSelected?: boolean
+    callback?: () => void
+  }
 
 export type UIState =
   | {
-      open: 'none'
-    }
+    open: 'none'
+  }
   | {
-      open: 'side-panel'
-      sidePanel: SidePanel
-    }
+    open: 'side-panel'
+    sidePanel: SidePanel
+  }
   | {
-      open: 'confirmation-dialog'
-      confirmationDialog: ConfirmationDialog
-    }
+    open: 'confirmation-dialog'
+    confirmationDialog: ConfirmationDialog
+  }
 
 /**
  * Global table editor state for the table editor across multiple tables.
@@ -154,7 +154,7 @@ export const createTableEditorState = () => {
       meta: { numRows?: number; allRowsSelected: boolean; callback?: () => void } = {
         numRows: 0,
         allRowsSelected: false,
-        callback: () => {},
+        callback: () => { },
       }
     ) => {
       const { numRows, allRowsSelected, callback } = meta

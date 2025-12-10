@@ -1,5 +1,5 @@
-import { createClient } from '@/registry/default/clients/tanstack/lib/supabase/server'
-import type { Factor, User } from '@supabase/supabase-js'
+import { createClient } from '@/registry/default/clients/tanstack/lib/selfbase/server'
+import type { Factor, User } from '@selfbase/selfbase-js'
 import { createServerFn } from '@tanstack/react-start'
 type SSRSafeUser = User & {
   factors: (Factor & { factor_type: 'phone' | 'totp' })[]
@@ -8,8 +8,8 @@ type SSRSafeUser = User & {
 export const fetchUser: () => Promise<SSRSafeUser | null> = createServerFn({
   method: 'GET',
 }).handler(async () => {
-  const supabase = createClient()
-  const { data, error } = await supabase.auth.getUser()
+  const selfbase = createClient()
+  const { data, error } = await selfbase.auth.getUser()
 
   if (error) {
     return null

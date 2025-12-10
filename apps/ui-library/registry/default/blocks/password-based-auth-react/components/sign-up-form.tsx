@@ -1,5 +1,5 @@
 import { cn } from '@/lib/utils'
-import { createClient } from '@/registry/default/clients/react/lib/supabase/client'
+import { createClient } from '@/registry/default/clients/react/lib/selfbase/client'
 import { Button } from '@/registry/default/components/ui/button'
 import {
   Card,
@@ -21,7 +21,7 @@ export function SignUpForm({ className, ...props }: React.ComponentPropsWithoutR
   const [success, setSuccess] = useState(false)
 
   const handleSignUp = async (e: React.FormEvent) => {
-    const supabase = createClient()
+    const selfbase = createClient()
     e.preventDefault()
     setError(null)
 
@@ -32,7 +32,7 @@ export function SignUpForm({ className, ...props }: React.ComponentPropsWithoutR
     setIsLoading(true)
 
     try {
-      const { error } = await supabase.auth.signUp({
+      const { error } = await selfbase.auth.signUp({
         email,
         password,
       })

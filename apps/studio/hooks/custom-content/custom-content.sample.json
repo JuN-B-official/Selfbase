@@ -1,12 +1,8 @@
 {
   "$schema": "./custom-content.schema.json",
-
   "app:title": "Test Title",
-
   "dashboard_auth:custom_provider": "Nimbus",
-
   "docs:row_level_security_guide_path": "/guides/database/postgres/row-level-security",
-
   "organization:legal_documents": [
     {
       "id": "doc1",
@@ -14,7 +10,7 @@
       "description": "This is a description of Document 1",
       "action": {
         "text": "Download document",
-        "url": "https://supabase.com"
+        "url": "https://selfbase.com"
       }
     },
     {
@@ -23,38 +19,36 @@
       "description": "This is a description of Document 2",
       "action": {
         "text": "Download document",
-        "url": "https://supabase.com"
+        "url": "https://selfbase.com"
       }
     }
   ],
-
   "project_homepage:client_libraries": [
     {
       "language": "JavaScript",
       "officialSupport": true,
-      "docsUrl": "https://supabase.com/docs/reference/javascript/installing",
-      "gitUrl": "https://github.com/supabase/supabase-js"
+      "docsUrl": "https://selfbase.com/docs/reference/javascript/installing",
+      "gitUrl": "https://github.com/selfbase/selfbase-js"
     }
   ],
   "project_homepage:example_projects": [
     {
       "title": "Framework 1",
       "description": "This is a description of Framework 1",
-      "iconUrl": "https://supabase.com/dashboard/img/supabase-logo.svg",
-      "url": "https://supabase.com"
+      "iconUrl": "https://selfbase.com/dashboard/img/selfbase-logo.svg",
+      "url": "https://selfbase.com"
     },
     {
       "title": "Framework 2",
       "description": "This is a description of Framework 2",
-      "iconUrl": "https://supabase.com/dashboard/img/supabase-logo.svg",
-      "url": "https://supabase.com"
+      "iconUrl": "https://selfbase.com/dashboard/img/selfbase-logo.svg",
+      "url": "https://selfbase.com"
     }
   ],
-
   "logs:default_query": "This is a sample query",
-
-  "infra:cloud_providers": ["AWS_NIMBUS"],
+  "infra:cloud_providers": [
+    "AWS_NIMBUS"
+  ],
   "infra:aws_nimbus_label": "AWS Nimbus",
-
-  "ssl:certificate_url": "https://supabase-downloads.s3-ap-southeast-1.amazonaws.com/${env}/ssl/${env}-ca-2021.crt"
+  "ssl:certificate_url": "https://selfbase-downloads.s3-ap-southeast-1.amazonaws.com/${env}/ssl/${env}-ca-2021.crt"
 }

@@ -13,7 +13,7 @@ const ContentFile = ({ projectKeys }: ContentFileProps) => {
     <ConnectTabs>
       <ConnectTabTriggers>
         <ConnectTabTrigger value=".env" />
-        <ConnectTabTrigger value="app/utils/supabase.server.ts" />
+        <ConnectTabTrigger value="app/utils/selfbase.server.ts" />
         <ConnectTabTrigger value="app/routes/_index.tsx" />
       </ConnectTabTriggers>
 
@@ -30,19 +30,19 @@ const ContentFile = ({ projectKeys }: ContentFileProps) => {
         </SimpleCodeBlock>
       </ConnectTabContent>
 
-      <ConnectTabContent value="app/utils/supabase.server.ts">
+      <ConnectTabContent value="app/utils/selfbase.server.ts">
         <SimpleCodeBlock className="ts" parentClassName="min-h-72">
           {`
 import {
   createServerClient,
   parseCookieHeader,
   serializeCookieHeader,
-} from "@supabase/ssr";
+} from "@selfbase/ssr";
 
 export function createClient(request: Request) {
   const headers = new Headers();
 
-  const supabase = createServerClient(
+  const selfbase = createServerClient(
     process.env.VITE_SUPABASE_URL!,
     process.env.VITE_${projectKeys.publishableKey ? 'SUPABASE_PUBLISHABLE_DEFAULT_KEY' : 'SUPABASE_ANON_KEY'};,
     {
@@ -65,7 +65,7 @@ export function createClient(request: Request) {
     }
   );
 
-  return { supabase, headers };
+  return { selfbase, headers };
 }
 `}
         </SimpleCodeBlock>
@@ -75,11 +75,11 @@ export function createClient(request: Request) {
         <SimpleCodeBlock className="tsx" parentClassName="min-h-72">
           {`
 import type { Route } from "./+types/home";
-import { createClient } from "~/utils/supabase.server";
+import { createClient } from "~/utils/selfbase.server";
 
 export async function loader({ request }: Route.LoaderArgs) {
-  const { supabase } = createClient(request);
-  const { data: todos } = await supabase.from("todos").select();
+  const { selfbase } = createClient(request);
+  const { data: todos } = await selfbase.from("todos").select();
 
   return { todos };
 }

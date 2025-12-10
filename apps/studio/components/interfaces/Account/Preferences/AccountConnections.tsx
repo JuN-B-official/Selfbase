@@ -60,7 +60,7 @@ export const AccountConnections = () => {
         <div>
           <h5>Connections</h5>
           <p className="text-sm text-foreground-lighter">
-            Connect your Supabase account with other services
+            Connect your Selfbase account with other services
           </p>
         </div>
       }
@@ -90,7 +90,7 @@ export const AccountConnections = () => {
             <div>
               <p className="text-sm">GitHub</p>
               <p className="text-sm text-foreground-lighter">
-                Sync GitHub repos to Supabase projects for automatic branch creation and merging
+                Sync GitHub repos to Selfbase projects for automatic branch creation and merging
               </p>
             </div>
           </div>
@@ -144,7 +144,7 @@ export const AccountConnections = () => {
         loading={isRemoving}
       >
         <p className="text-sm text-foreground-light">
-          Removing this authorization will disconnect your GitHub account from Supabase. You can
+          Removing this authorization will disconnect your GitHub account from Selfbase. You can
           reconnect at any time.
         </p>
       </ConfirmationModal>

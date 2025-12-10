@@ -124,19 +124,19 @@ CLAUDE.md
 
 #include template .env file for docker-compose
 !docker/.env
-!docker/supabase/.env
-!docker/supabase-traefik/.env
+!docker/selfbase/.env
+!docker/selfbase-traefik/.env
 
-# Supabase
-**/supabase/.branches
-**/supabase/.temp
+# Selfbase
+**/selfbase/.branches
+**/selfbase/.temp
 
 apps/new-docs/*
 
 # UI tokens
 packages/ui/tokens/**/*.json
 
-# For self-hosted logs: https://github.com/supabase/supabase/blob/86e3ab20abfdb9c3e666334d3d2f8efeef9ccf2c/docker/docker-compose-logging.yml#L101
+# For self-hosted logs: https://github.com/selfbase/selfbase/blob/86e3ab20abfdb9c3e666334d3d2f8efeef9ccf2c/docker/docker-compose-logging.yml#L101
 gcloud.json
 
 # sitemaps

@@ -1,5 +1,5 @@
-import { PostgresTrigger } from '@supabase/postgres-meta'
-import { PermissionAction } from '@supabase/shared-types/out/constants'
+import { PostgresTrigger } from '@selfbase/postgres-meta'
+import { PermissionAction } from '@selfbase/shared-types/out/constants'
 import { includes, sortBy } from 'lodash'
 import { Check, Copy, Edit, Edit2, MoreVertical, Trash, X } from 'lucide-react'
 import Link from 'next/link'

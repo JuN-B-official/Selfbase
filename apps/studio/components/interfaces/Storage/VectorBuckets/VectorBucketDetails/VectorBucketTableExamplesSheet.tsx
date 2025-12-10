@@ -2,7 +2,7 @@ import { BookOpen, ChevronDown, ListPlus } from 'lucide-react'
 import Link from 'next/link'
 import { useState } from 'react'
 
-import { PermissionAction } from '@supabase/shared-types/out/constants'
+import { PermissionAction } from '@selfbase/shared-types/out/constants'
 import { useParams } from 'common'
 import { getKeys, useAPIKeysQuery } from 'data/api-keys/api-keys-query'
 import { VectorBucketIndex } from 'data/storage/vector-buckets-indexes-query'
@@ -152,7 +152,7 @@ values
     '{${metadataKeys.map((key) => `"${key}": "${key} value"`).join(', ')}}'::jsonb
   );`
 
-  const jsCode = `import { createClient } from '@supabase/supabase-js'
+  const jsCode = `import { createClient } from '@selfbase/selfbase-js'
 
 // Adding vector data requires a secret or service role key 
 // This code SHOULD NOT be run on the client side as you will be vulnerable to a data leak

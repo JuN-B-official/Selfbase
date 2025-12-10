@@ -58,8 +58,8 @@ const AwsMarketplaceCreateNewOrg = ({ onboardingInfo }: Props) => {
       <ScaffoldSection>
         <ScaffoldSectionDetail className="text-base">
           <p>
-            You’ve subscribed to the Supabase {onboardingInfo?.plan_name_selected_on_marketplace}{' '}
-            Plan via the AWS Marketplace. As a final step, you need to create a Supabase
+            You’ve subscribed to the Selfbase {onboardingInfo?.plan_name_selected_on_marketplace}{' '}
+            Plan via the AWS Marketplace. As a final step, you need to create a Selfbase
             organization. That organization will be managed and billed through AWS Marketplace.
           </p>
           <p>

@@ -1,4 +1,4 @@
-import type { PostgresPolicy } from '@supabase/postgres-meta'
+import type { PostgresPolicy } from '@selfbase/postgres-meta'
 import { noop } from 'lodash'
 import { memo, useMemo } from 'react'
 
@@ -88,7 +88,7 @@ const PolicyTableRowComponent = ({
         className={cn(
           'py-3 px-4',
           (isPubliclyReadableWritable || rlsEnabledNoPolicies || !isTableExposedThroughAPI) &&
-            'border-b-0'
+          'border-b-0'
         )}
       >
         <PolicyTableRowHeader
@@ -106,7 +106,7 @@ const PolicyTableRowComponent = ({
           className="border-0 border-y rounded-none min-h-12 flex items-center"
         >
           <p className="text-foreground-light">
-            No data will be selectable via Supabase APIs as this schema is not exposed. You may
+            No data will be selectable via Selfbase APIs as this schema is not exposed. You may
             configure this in your project’s{' '}
             <InlineLink href={`/project/${ref}/settings/api`}>API settings</InlineLink>.
           </p>
@@ -122,7 +122,7 @@ const PolicyTableRowComponent = ({
           <p>
             {isPubliclyReadableWritable
               ? 'Anyone with your project’s anonymous key can read, modify, or delete your data.'
-              : 'No data will be selectable via Supabase APIs because RLS is enabled but no policies have been created yet.'}
+              : 'No data will be selectable via Selfbase APIs because RLS is enabled but no policies have been created yet.'}
           </p>
         </Admonition>
       )}

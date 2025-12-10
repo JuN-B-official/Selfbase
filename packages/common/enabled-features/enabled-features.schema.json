@@ -5,12 +5,10 @@
     "$schema": {
       "type": "string"
     },
-
     "account:show_security_settings": {
       "type": "boolean",
       "description": "Show the account security settings page"
     },
-
     "ai:opt_in_level_disabled": {
       "type": "boolean",
       "description": "Enable the AI opt in level 'disabled'"
@@ -27,7 +25,6 @@
       "type": "boolean",
       "description": "Enable the AI opt in level 'schema_and_log_and_data'"
     },
-
     "authentication:sign_in_providers": {
       "type": "boolean",
       "description": "Enable the authentication sign in / providers page"
@@ -56,7 +53,6 @@
       "type": "boolean",
       "description": "Enable the authentication performance page"
     },
-
     "authentication:show_providers": {
       "type": "boolean",
       "description": "Show the providers section in the authentication Sign In / Providers page"
@@ -89,12 +85,10 @@
       "type": "boolean",
       "description": "Show the email and phone columns in the authentication users page"
     },
-
     "billing:all": {
       "type": "boolean",
       "description": "Enable the billing settings page"
     },
-
     "branding:large_logo": {
       "type": "boolean",
       "description": "Show larger logo sizes throughout the apps"
@@ -127,7 +121,6 @@
       "type": "boolean",
       "description": "Enable the terms of service link on the sign in/up page"
     },
-
     "database:replication": {
       "type": "boolean",
       "description": "Enable the database replication page"
@@ -144,7 +137,6 @@
       "type": "boolean",
       "description": "Show the network restrictions setting under database settings"
     },
-
     "docs:auth_architecture": {
       "type": "boolean",
       "description": "Enable docs on Auth architecture"
@@ -183,7 +175,7 @@
     },
     "docs:navigation_dropdown_links_home": {
       "type": "boolean",
-      "description": "Should the navigation dropdown homepage link go to Supabase.com or the dashboard"
+      "description": "Should the navigation dropdown homepage link go to Selfbase.com or the dashboard"
     },
     "docs:framework_quickstarts": {
       "type": "boolean",
@@ -225,7 +217,6 @@
       "type": "boolean",
       "description": "Enable web apps getting started documentation"
     },
-
     "edge_functions:show_stripe_example": {
       "type": "boolean",
       "description": "Show all the Stripe example in edge function templates in the edge functions page."
@@ -234,12 +225,10 @@
       "type": "boolean",
       "description": "Show all the invocation examples in the edge function details page. (If off, it will only show cURL and Javascript invocation examples)"
     },
-
     "feedback:docs": {
       "type": "boolean",
       "description": "Enable feedback submission for docs site"
     },
-
     "integrations:partners": {
       "type": "boolean",
       "description": "Show all third-party-managed integrations"
@@ -252,12 +241,10 @@
       "type": "boolean",
       "description": "Enable the vercel integration section in the organization and project settings pages"
     },
-
     "infrastructure:read_replicas": {
       "type": "boolean",
       "description": "Enable read replicas management"
     },
-
     "logs:templates": {
       "type": "boolean",
       "description": "Enable the logs templates page"
@@ -274,7 +261,6 @@
       "type": "boolean",
       "description": "Show the Metadata IP template in the logs explorer"
     },
-
     "organization:show_sso_settings": {
       "type": "boolean",
       "description": "Show the SSO settings tab in the organization settings page"
@@ -287,7 +273,6 @@
       "type": "boolean",
       "description": "Show the legal documents tab in the organization settings page"
     },
-
     "profile:show_email": {
       "type": "boolean",
       "description": "Show the user's email address in the toolbar"
@@ -304,7 +289,6 @@
       "type": "boolean",
       "description": "Shows the account deletion section in account preferences"
     },
-
     "project_connection:javascript_example": {
       "type": "boolean",
       "description": "Show the javascript example in the project connection settings. If off, it'll show up as Typescript example instead (both are the same code example)"
@@ -325,12 +309,10 @@
       "type": "boolean",
       "description": "Show the orms tab in the connect modal"
     },
-
     "project_creation:show_advanced_config": {
       "type": "boolean",
       "description": "Show the advanced configuration option in the project creation flow"
     },
-
     "project_homepage:show_instance_size": {
       "type": "boolean",
       "description": "Show the instance size badge in the project homepage and infrastructure settings"
@@ -339,7 +321,6 @@
       "type": "boolean",
       "description": "Show the example projects in the project homepage"
     },
-
     "project_addons:dedicated_ipv4_address": {
       "type": "boolean",
       "description": "Show the dedicated IPv4 address addon"
@@ -348,7 +329,6 @@
       "type": "boolean",
       "description": "Show the compute price in the compute and disk page"
     },
-
     "project_settings:custom_domains": {
       "type": "boolean",
       "description": "Show the custom domain configuration section + custom domain addon"
@@ -373,17 +353,14 @@
       "type": "boolean",
       "description": "Show database upgrade callouts in the project settings infrastructure page"
     },
-
     "quickstarts:hide_nimbus": {
       "type": "boolean",
       "description": "Whether to show the Nimbus quickstart"
     },
-
     "reports:all": {
       "type": "boolean",
       "description": "Enable the project reports page"
     },
-
     "sdk:auth": {
       "type": "boolean",
       "description": "Enable Auth SDK docs"
@@ -408,7 +385,6 @@
       "type": "boolean",
       "description": "Enable the Swift SDK"
     },
-
     "storage:analytics": {
       "type": "boolean",
       "description": "Enable Analytics Buckets in Storage"
@@ -417,12 +393,10 @@
       "type": "boolean",
       "description": "Enable Vector Buckets in Storage"
     },
-
     "search:fullIndex": {
       "type": "boolean",
       "description": "Enable the full search index. When true, uses the  full search; when false, uses the alternate search index."
     },
-
     "support:show_client_libraries": {
       "type": "boolean",
       "description": "Show the client libraries dropdown input and suggestions in the support form if the category 'API and client libraries' is selected"

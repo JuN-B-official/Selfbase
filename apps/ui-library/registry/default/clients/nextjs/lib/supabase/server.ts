@@ -1,4 +1,4 @@
-import { createServerClient } from '@supabase/ssr'
+import { createServerClient } from '@selfbase/ssr'
 import { cookies } from 'next/headers'
 
 /**

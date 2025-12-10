@@ -32,13 +32,13 @@ const VercelIntegration: NextPageWithLayout = () => {
             <h2>New project</h2>
             <Markdown
               className="text-foreground-light"
-              content={`Choose the Supabase organization you wish to install in`}
+              content={`Choose the Selfbase organization you wish to install in`}
             />
           </header>
           <CreateProject />
           <Alert withIcon variant="info" title="You can uninstall this Integration at any time.">
             <Markdown
-              content={`You can remove this integration at any time via Vercel or the Supabase dashboard.`}
+              content={`You can remove this integration at any time via Vercel or the Selfbase dashboard.`}
             />
           </Alert>
         </ScaffoldColumn>
@@ -179,11 +179,11 @@ const CreateProject = () => {
           organizationIntegrationId: organizationIntegration?.id,
           connection: {
             foreign_project_id: foreignProjectId,
-            supabase_project_ref: newProjectRef,
+            selfbase_project_ref: newProjectRef,
             integration_id: '0',
             metadata: {
               ...projectDetails,
-              supabaseConfig: {
+              selfbaseConfig: {
                 projectEnvVars: {
                   write: true,
                 },
@@ -208,7 +208,7 @@ const CreateProject = () => {
 
   return (
     <div>
-      <p className="mb-2">Supabase project details</p>
+      <p className="mb-2">Selfbase project details</p>
       <div className="py-2">
         <Input
           autoFocus

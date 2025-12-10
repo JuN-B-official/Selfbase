@@ -1,9 +1,9 @@
-import { Query, type QueryFilter } from '@supabase/pg-meta/src/query'
-import { getTableRowsSql } from '@supabase/pg-meta/src/query/table-row-query'
+import { Query, type QueryFilter } from '@selfbase/pg-meta/src/query'
+import { getTableRowsSql } from '@selfbase/pg-meta/src/query/table-row-query'
 import { useQuery, useQueryClient, type QueryClient } from '@tanstack/react-query'
 
 import { IS_PLATFORM } from 'common'
-import { parseSupaTable } from 'components/grid/SupabaseGrid.utils'
+import { parseSupaTable } from 'components/grid/SelfbaseGrid.utils'
 import { Filter, Sort, SupaRow, SupaTable } from 'components/grid/types'
 import { ENTITY_TYPE } from 'data/entity-types/entity-type-constants'
 import { prefetchTableEditor } from 'data/table-editor/table-editor-query'

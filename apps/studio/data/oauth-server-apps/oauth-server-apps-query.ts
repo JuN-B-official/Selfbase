@@ -3,7 +3,7 @@ import { useQuery } from '@tanstack/react-query'
 import { components } from 'api-types'
 import { useProjectEndpointQuery } from 'data/config/project-endpoint-query'
 import { handleError } from 'data/fetchers'
-import { createProjectSupabaseClient } from 'lib/project-supabase-client'
+import { createProjectSelfbaseClient } from 'lib/project-selfbase-client'
 import type { ResponseError, UseCustomQueryOptions } from 'types'
 import { oauthServerAppKeys } from './keys'
 
@@ -24,9 +24,9 @@ export async function getOAuthServerApps({
   if (!projectRef) throw new Error('Project reference is required')
   if (!clientEndpoint) throw new Error('Client endpoint is required')
 
-  const supabaseClient = await createProjectSupabaseClient(projectRef, clientEndpoint)
+  const selfbaseClient = await createProjectSelfbaseClient(projectRef, clientEndpoint)
 
-  const { data, error } = await supabaseClient.auth.admin.oauth.listClients({
+  const { data, error } = await selfbaseClient.auth.admin.oauth.listClients({
     page,
     perPage: APPS_PER_PAGE,
   })

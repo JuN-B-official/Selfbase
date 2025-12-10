@@ -1,4 +1,4 @@
-import type { OAuthClient } from '@supabase/supabase-js'
+import type { OAuthClient } from '@selfbase/selfbase-js'
 import { X } from 'lucide-react'
 import { toast } from 'sonner'
 
@@ -30,7 +30,7 @@ export const NewOAuthAppBanner = ({ oauthApp, onClose }: NewOAuthAppBannerProps)
               size="small"
               className="input-mono"
               value={oauthApp?.client_id}
-              onChange={() => {}}
+              onChange={() => { }}
               onCopy={() => toast.success('Client Id copied to clipboard')}
             />
           </div>
@@ -41,7 +41,7 @@ export const NewOAuthAppBanner = ({ oauthApp, onClose }: NewOAuthAppBannerProps)
               size="small"
               className=" input-mono"
               value={oauthApp?.client_secret}
-              onChange={() => {}}
+              onChange={() => { }}
               onCopy={() => toast.success('Client secret copied to clipboard')}
             />
           </div>

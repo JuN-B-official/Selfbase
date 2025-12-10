@@ -1,4 +1,4 @@
-import type { PostgresExtension } from '@supabase/postgres-meta'
+import type { PostgresExtension } from '@selfbase/postgres-meta'
 import { Database, ExternalLinkIcon, Plus } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { toast } from 'sonner'
@@ -82,7 +82,7 @@ const EnableExtensionModal = ({ visible, extension, onCancel }: EnableExtensionM
             sql: `select * from pg_available_extension_versions where name = '${extension.name}'`,
           })
           if (!cancel) setDefaultSchema(res.result[0].schema)
-        } catch (error) {}
+        } catch (error) { }
 
         setFetchingSchemaInfo(false)
       }

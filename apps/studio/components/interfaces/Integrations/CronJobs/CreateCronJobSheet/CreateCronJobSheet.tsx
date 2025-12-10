@@ -1,5 +1,5 @@
 import { zodResolver } from '@hookform/resolvers/zod'
-import { PermissionAction } from '@supabase/shared-types/out/constants'
+import { PermissionAction } from '@selfbase/shared-types/out/constants'
 import { parseAsString, useQueryState } from 'nuqs'
 import { useEffect, useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
@@ -344,8 +344,8 @@ export const CreateCronJobSheet = ({
                                 </div>
                               </div>
                               {!pgNetExtensionInstalled &&
-                              (definition.value === 'http_request' ||
-                                definition.value === 'edge_function') ? (
+                                (definition.value === 'http_request' ||
+                                  definition.value === 'edge_function') ? (
                                 <div className="w-full flex gap-x-2 pl-11 py-2 items-center">
                                   <WarningIcon />
                                   <span className="text-xs">

@@ -43,7 +43,7 @@ const Docs = (props: Props) => {
         <div tw="flex flex-row items-center" style={{ lineHeight: '100%' }}>
           {icon && (
             <img
-              src={`https://raw.githubusercontent.com/supabase/supabase/master/apps/docs/public/img/icons/${icon}-icon.svg`}
+              src={`https://raw.githubusercontent.com/selfbase/selfbase/master/apps/docs/public/img/icons/${icon}-icon.svg`}
               width="50px"
               height="50px"
             />
@@ -52,7 +52,7 @@ const Docs = (props: Props) => {
           {type && (
             <>
               <img
-                src={`https://raw.githubusercontent.com/supabase/supabase/master/apps/docs/public/img/icons/menu/grayscale/${typeIcon}.svg`}
+                src={`https://raw.githubusercontent.com/selfbase/selfbase/master/apps/docs/public/img/icons/menu/grayscale/${typeIcon}.svg`}
                 width="40px"
                 height="40px"
               />
@@ -62,7 +62,7 @@ const Docs = (props: Props) => {
         </div>
         <div tw="flex flex-row items-center justify-center">
           <img
-            src="https://raw.githubusercontent.com/supabase/supabase/master/packages/common/assets/images/supabase-logo-wordmark--dark.svg"
+            src="https://raw.githubusercontent.com/selfbase/selfbase/master/packages/common/assets/images/selfbase-logo-wordmark--dark.svg"
             width={180}
             height={34}
           />
@@ -74,7 +74,7 @@ const Docs = (props: Props) => {
       <div tw="w-full flex flex-col border-t border-[#4D4D4D] mt-10">
         <div tw="w-full flex flex-col mt-5">
           <h1 tw="my-0 mb-2 text-[60px]" style={{ lineHeight: '115%' }}>
-            {!title ? 'Supabase' : title}
+            {!title ? 'Selfbase' : title}
           </h1>
           <p tw="my-0 mt-2 text-[40px] text-[#f2fff9] opacity-50">{description}</p>
         </div>

@@ -23,7 +23,7 @@ const AccountLayout = ({ children, title }: PropsWithChildren<AccountLayoutProps
   const showSecuritySettings = useIsFeatureEnabled('account:show_security_settings')
 
   const { appTitle } = useCustomContent(['app:title'])
-  const titleSuffix = appTitle || 'Supabase'
+  const titleSuffix = appTitle || 'Selfbase'
 
   const [lastVisitedOrganization] = useLocalStorageQuery(
     LOCAL_STORAGE_KEYS.LAST_VISITED_ORGANIZATION,
@@ -39,17 +39,13 @@ const AccountLayout = ({ children, title }: PropsWithChildren<AccountLayoutProps
 
   const currentPath = router.pathname
 
-  useEffect(() => {
-    if (!IS_PLATFORM) {
-      router.push('/project/default')
-    }
-  }, [router])
+  // Selfbase: Always use platform mode (removed !IS_PLATFORM redirect)
 
   return (
     <>
       <Head>
         <title>{title ? `${title} | ${titleSuffix}` : titleSuffix}</title>
-        <meta name="description" content="Supabase Studio" />
+        <meta name="description" content="Selfbase Studio" />
       </Head>
       <div className={cn('flex flex-col w-screen h-[calc(100vh-48px)]')}>
         <WithSidebar
@@ -75,13 +71,13 @@ const AccountLayout = ({ children, title }: PropsWithChildren<AccountLayoutProps
                 },
                 ...(showSecuritySettings
                   ? [
-                      {
-                        key: 'security',
-                        label: 'Security',
-                        href: '/account/security',
-                        isActive: currentPath === '/account/security',
-                      },
-                    ]
+                    {
+                      key: 'security',
+                      label: 'Security',
+                      href: '/account/security',
+                      isActive: currentPath === '/account/security',
+                    },
+                  ]
                   : []),
               ],
             },

@@ -222,12 +222,12 @@ export function GettingStartedSection({ value, onChange }: GettingStartedSection
           <div className="absolute -inset-16 z-0 opacity-50">
             <img
               src={`${BASE_PATH}/img/reports/bg-grafana-dark.svg`}
-              alt="Supabase Grafana"
+              alt="Selfbase Grafana"
               className="w-full h-full object-cover object-right hidden dark:block"
             />
             <img
               src={`${BASE_PATH}/img/reports/bg-grafana-light.svg`}
-              alt="Supabase Grafana"
+              alt="Selfbase Grafana"
               className="w-full h-full object-cover object-right dark:hidden"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-background-alternative to-transparent" />
@@ -238,7 +238,7 @@ export function GettingStartedSection({ value, onChange }: GettingStartedSection
                 Choose a preferred workflow
               </h2>
               <p className="text-foreground">
-                With Supabase, you have the flexibility to adopt a workflow that works for you. You
+                With Selfbase, you have the flexibility to adopt a workflow that works for you. You
                 can do everything via the dashboard, or manage your entire project within your own
                 codebase.
               </p>
