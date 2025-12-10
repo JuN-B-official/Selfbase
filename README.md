@@ -1,3 +1,5 @@
+![Selfbase](https://github.com/JuN-B-official/Selfbase/blob/master/assets/selfbase-dark.png?raw=true)
+
 # Selfbase
 
 > **Supabase Fork** - Projects with the same or more experience as cloud superbase in a single instance
