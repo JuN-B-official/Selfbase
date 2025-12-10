@@ -4,6 +4,10 @@
 
 > **Supabase Fork** - Projects with the same or more experience as cloud superbase in a single instance
 
+# Related projects
+
+- [Selfbase MCP](https://github.com/JuN-B-official/Selfbase-MCP)
+
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 
 ---
